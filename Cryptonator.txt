@@ -1,0 +1,52 @@
+                string url = @"https://api.cryptonator.com/api/ticker/" + COIN + "-" + CURRENCY;
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        if (line.Contains("price"))
+                        {
+                            if (CURRENCY == "usd")
+                            {
+                                determinePrice = getBetween(line, "USD", "volume");
+                                lblPrice.Text = "Price USD:";
+                            }
+                            else if (CURRENCY == "aud")
+                            {
+                                determinePrice = getBetween(line, "AUD", "volume");
+                                lblPrice.Text = "Price AUD:";
+                            }
+                            price = RemoveExtraText(determinePrice);
+                            price = price.Remove(price.Length - 1);
+                            price = price.TrimStart(',');
+                            DoublePrice = Convert.ToDouble(price);
+                            Price01 = String.Format("{0:0.000000}", DoublePrice);
+                            Price01 = "$" + Price01;
+                            lblPriceCoin.Text = Price01;
+
+                            priceChange = getBetween(line, "change", "timestamp");
+                            priceChanged = RemoveExtraText(priceChange);
+                            Console.WriteLine(priceChanged);
+                            priceChanged = priceChanged.Remove(priceChanged.Length - 1);
+                            DoublePrice = Convert.ToDouble(priceChanged);
+                            priceChanged01 = String.Format("{0:0.000000}", DoublePrice);
+                            priceChanged01 = "$" + priceChanged01;
+                            if (DoublePrice > 0)
+                            {
+                                priceChanged01 = priceChanged01 + " Å£";
+                                lbl1HourChange.ForeColor = Color.Green;
+                            }
+                            else
+                            {
+                                priceChanged01 = priceChanged01 + " Å•";
+                                lbl1HourChange.ForeColor = Color.Red;
+                            }
+                            lbl1HourChange.Text = priceChanged01;
+                        }
+                    }
+                }

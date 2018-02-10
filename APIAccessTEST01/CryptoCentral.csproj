@@ -7,8 +7,8 @@
     <ProjectGuid>{4BF0F313-0E2C-4596-B1E1-3D36C6E9B02E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>APIAccessTEST01</RootNamespace>
-    <AssemblyName>APIAccessTEST01</AssemblyName>
+    <RootNamespace>CryptoCentral</RootNamespace>
+    <AssemblyName>CryptoCentral</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

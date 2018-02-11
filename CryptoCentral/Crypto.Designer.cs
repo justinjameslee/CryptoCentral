@@ -196,6 +196,33 @@
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated04 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated02 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated03 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated05 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated06 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated07 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated08 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated09 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
+            this.btnSaveProfile = new System.Windows.Forms.Button();
+            this.lblSaved = new System.Windows.Forms.Label();
+            this.lblConfirmed = new System.Windows.Forms.Label();
+            this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblCurrency = new System.Windows.Forms.Label();
+            this.Currencyv = new System.Windows.Forms.ComboBox();
+            this.Pagev = new System.Windows.Forms.ComboBox();
+            this.lblPage = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
@@ -218,6 +245,7 @@
             this.tabOptions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.optionsSummary.SuspendLayout();
+            this.optionsSummaryAdvaned.SuspendLayout();
             this.SuspendLayout();
             // 
             // Sidebar
@@ -233,15 +261,15 @@
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(222, 597);
+            this.Sidebar.Size = new System.Drawing.Size(222, 921);
             this.Sidebar.TabIndex = 0;
             // 
             // iconSettings
             // 
             this.iconSettings.Image = ((System.Drawing.Image)(resources.GetObject("iconSettings.Image")));
-            this.iconSettings.Location = new System.Drawing.Point(12, 142);
+            this.iconSettings.Location = new System.Drawing.Point(26, 134);
             this.iconSettings.Name = "iconSettings";
-            this.iconSettings.Size = new System.Drawing.Size(38, 38);
+            this.iconSettings.Size = new System.Drawing.Size(24, 24);
             this.iconSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconSettings.TabIndex = 8;
             this.iconSettings.TabStop = false;
@@ -249,11 +277,11 @@
             // btnSettings
             // 
             this.btnSettings.AutoSize = true;
-            this.btnSettings.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.btnSettings.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(56, 159);
+            this.btnSettings.Location = new System.Drawing.Point(56, 138);
             this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(93, 21);
+            this.btnSettings.Size = new System.Drawing.Size(87, 20);
             this.btnSettings.TabIndex = 7;
             this.btnSettings.Text = "OPTIONS";
             this.btnSettings.Click += new System.EventHandler(this.lblSettings_Click);
@@ -261,21 +289,22 @@
             // btnHome
             // 
             this.btnHome.AutoSize = true;
-            this.btnHome.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.btnHome.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(56, 112);
+            this.btnHome.Location = new System.Drawing.Point(56, 104);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(66, 21);
+            this.btnHome.Size = new System.Drawing.Size(63, 20);
             this.btnHome.TabIndex = 6;
             this.btnHome.Text = "HOME";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // iconHome
             // 
             this.iconHome.Image = ((System.Drawing.Image)(resources.GetObject("iconHome.Image")));
-            this.iconHome.Location = new System.Drawing.Point(12, 100);
+            this.iconHome.Location = new System.Drawing.Point(26, 100);
             this.iconHome.Name = "iconHome";
-            this.iconHome.Size = new System.Drawing.Size(38, 33);
+            this.iconHome.Size = new System.Drawing.Size(24, 24);
             this.iconHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconHome.TabIndex = 5;
             this.iconHome.TabStop = false;
@@ -283,9 +312,9 @@
             // iconBack
             // 
             this.iconBack.Image = ((System.Drawing.Image)(resources.GetObject("iconBack.Image")));
-            this.iconBack.Location = new System.Drawing.Point(12, 186);
+            this.iconBack.Location = new System.Drawing.Point(26, 169);
             this.iconBack.Name = "iconBack";
-            this.iconBack.Size = new System.Drawing.Size(38, 29);
+            this.iconBack.Size = new System.Drawing.Size(24, 24);
             this.iconBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.iconBack.TabIndex = 4;
             this.iconBack.TabStop = false;
@@ -295,7 +324,7 @@
             this.btnBack.AutoSize = true;
             this.btnBack.Font = new System.Drawing.Font("Walkway Bold", 15F);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(56, 195);
+            this.btnBack.Location = new System.Drawing.Point(56, 172);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(63, 21);
             this.btnBack.TabIndex = 3;
@@ -331,7 +360,7 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(989, 78);
+            this.Header.Size = new System.Drawing.Size(1980, 78);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
@@ -356,13 +385,15 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
-            this.Summary01.Location = new System.Drawing.Point(1024, 100);
+            this.Summary01.Location = new System.Drawing.Point(1094, 84);
             this.Summary01.Name = "Summary01";
-            this.Summary01.Size = new System.Drawing.Size(842, 207);
+            this.Summary01.Size = new System.Drawing.Size(842, 468);
             this.Summary01.TabIndex = 3;
             // 
             // customGroup09
             // 
+            this.customGroup09.Controls.Add(this.lblCustomUpdatedv09);
+            this.customGroup09.Controls.Add(this.lblCustomUpdated09);
             this.customGroup09.Controls.Add(this.lblCustomBTC09);
             this.customGroup09.Controls.Add(this.lblCustomUSD09);
             this.customGroup09.Controls.Add(this.lblCustom1Hp09);
@@ -378,9 +409,9 @@
             this.customGroup09.Controls.Add(this.lbl1Hr09);
             this.customGroup09.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup09.ForeColor = System.Drawing.Color.White;
-            this.customGroup09.Location = new System.Drawing.Point(562, 296);
+            this.customGroup09.Location = new System.Drawing.Point(562, 314);
             this.customGroup09.Name = "customGroup09";
-            this.customGroup09.Size = new System.Drawing.Size(272, 139);
+            this.customGroup09.Size = new System.Drawing.Size(272, 148);
             this.customGroup09.TabIndex = 43;
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "LTC";
@@ -512,6 +543,8 @@
             // 
             // customGroup06
             // 
+            this.customGroup06.Controls.Add(this.lblCustomUpdatedv06);
+            this.customGroup06.Controls.Add(this.lblCustomUpdated06);
             this.customGroup06.Controls.Add(this.lblCustomBTC06);
             this.customGroup06.Controls.Add(this.lblCustomUSD06);
             this.customGroup06.Controls.Add(this.lblCustom1Hp06);
@@ -527,9 +560,9 @@
             this.customGroup06.Controls.Add(this.lbl1Hr06);
             this.customGroup06.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup06.ForeColor = System.Drawing.Color.White;
-            this.customGroup06.Location = new System.Drawing.Point(562, 151);
+            this.customGroup06.Location = new System.Drawing.Point(562, 160);
             this.customGroup06.Name = "customGroup06";
-            this.customGroup06.Size = new System.Drawing.Size(272, 139);
+            this.customGroup06.Size = new System.Drawing.Size(272, 148);
             this.customGroup06.TabIndex = 40;
             this.customGroup06.TabStop = false;
             this.customGroup06.Text = "LTC";
@@ -661,6 +694,8 @@
             // 
             // customGroup08
             // 
+            this.customGroup08.Controls.Add(this.lblCustomUpdatedv08);
+            this.customGroup08.Controls.Add(this.lblCustomUpdated08);
             this.customGroup08.Controls.Add(this.lblCustomBTC08);
             this.customGroup08.Controls.Add(this.lblCustomUSD08);
             this.customGroup08.Controls.Add(this.lblCustom1Hp08);
@@ -676,9 +711,9 @@
             this.customGroup08.Controls.Add(this.lbl1Hr08);
             this.customGroup08.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup08.ForeColor = System.Drawing.Color.White;
-            this.customGroup08.Location = new System.Drawing.Point(284, 296);
+            this.customGroup08.Location = new System.Drawing.Point(284, 314);
             this.customGroup08.Name = "customGroup08";
-            this.customGroup08.Size = new System.Drawing.Size(272, 139);
+            this.customGroup08.Size = new System.Drawing.Size(272, 148);
             this.customGroup08.TabIndex = 45;
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "ETH";
@@ -810,6 +845,8 @@
             // 
             // customGroup05
             // 
+            this.customGroup05.Controls.Add(this.lblCustomUpdatedv05);
+            this.customGroup05.Controls.Add(this.lblCustomUpdated05);
             this.customGroup05.Controls.Add(this.lblCustomBTC05);
             this.customGroup05.Controls.Add(this.lblCustomUSD05);
             this.customGroup05.Controls.Add(this.lblCustom1Hp05);
@@ -825,9 +862,9 @@
             this.customGroup05.Controls.Add(this.lbl1Hr05);
             this.customGroup05.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup05.ForeColor = System.Drawing.Color.White;
-            this.customGroup05.Location = new System.Drawing.Point(284, 151);
+            this.customGroup05.Location = new System.Drawing.Point(284, 160);
             this.customGroup05.Name = "customGroup05";
-            this.customGroup05.Size = new System.Drawing.Size(272, 139);
+            this.customGroup05.Size = new System.Drawing.Size(272, 148);
             this.customGroup05.TabIndex = 42;
             this.customGroup05.TabStop = false;
             this.customGroup05.Text = "ETH";
@@ -959,6 +996,8 @@
             // 
             // customGroup07
             // 
+            this.customGroup07.Controls.Add(this.lblCustomUpdatedv07);
+            this.customGroup07.Controls.Add(this.lblCustomUpdated07);
             this.customGroup07.Controls.Add(this.lblCustomBTC07);
             this.customGroup07.Controls.Add(this.lblCustomUSD07);
             this.customGroup07.Controls.Add(this.lblCustom1Hp07);
@@ -974,9 +1013,9 @@
             this.customGroup07.Controls.Add(this.lbl1Hr07);
             this.customGroup07.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup07.ForeColor = System.Drawing.Color.White;
-            this.customGroup07.Location = new System.Drawing.Point(6, 296);
+            this.customGroup07.Location = new System.Drawing.Point(6, 314);
             this.customGroup07.Name = "customGroup07";
-            this.customGroup07.Size = new System.Drawing.Size(272, 139);
+            this.customGroup07.Size = new System.Drawing.Size(272, 148);
             this.customGroup07.TabIndex = 44;
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "BTC";
@@ -1108,6 +1147,8 @@
             // 
             // customGroup04
             // 
+            this.customGroup04.Controls.Add(this.lblCustomUpdatedv04);
+            this.customGroup04.Controls.Add(this.lblCustomUpdated04);
             this.customGroup04.Controls.Add(this.lblCustomBTC04);
             this.customGroup04.Controls.Add(this.lblCustomUSD04);
             this.customGroup04.Controls.Add(this.lblCustom1Hp04);
@@ -1123,9 +1164,9 @@
             this.customGroup04.Controls.Add(this.lbl1Hr04);
             this.customGroup04.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup04.ForeColor = System.Drawing.Color.White;
-            this.customGroup04.Location = new System.Drawing.Point(6, 151);
+            this.customGroup04.Location = new System.Drawing.Point(6, 160);
             this.customGroup04.Name = "customGroup04";
-            this.customGroup04.Size = new System.Drawing.Size(272, 139);
+            this.customGroup04.Size = new System.Drawing.Size(272, 148);
             this.customGroup04.TabIndex = 41;
             this.customGroup04.TabStop = false;
             this.customGroup04.Text = "BTC";
@@ -1257,6 +1298,8 @@
             // 
             // customGroup03
             // 
+            this.customGroup03.Controls.Add(this.lblCustomUpdatedv03);
+            this.customGroup03.Controls.Add(this.lblCustomUpdated03);
             this.customGroup03.Controls.Add(this.lblCustomBTC03);
             this.customGroup03.Controls.Add(this.lblCustomUSD03);
             this.customGroup03.Controls.Add(this.lblCustom1Hp03);
@@ -1274,7 +1317,7 @@
             this.customGroup03.ForeColor = System.Drawing.Color.White;
             this.customGroup03.Location = new System.Drawing.Point(562, 8);
             this.customGroup03.Name = "customGroup03";
-            this.customGroup03.Size = new System.Drawing.Size(272, 139);
+            this.customGroup03.Size = new System.Drawing.Size(272, 148);
             this.customGroup03.TabIndex = 39;
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "LTC";
@@ -1406,6 +1449,8 @@
             // 
             // customGroup02
             // 
+            this.customGroup02.Controls.Add(this.lblCustomUpdatedv02);
+            this.customGroup02.Controls.Add(this.lblCustomUpdated02);
             this.customGroup02.Controls.Add(this.lblCustomBTC02);
             this.customGroup02.Controls.Add(this.lblCustomUSD02);
             this.customGroup02.Controls.Add(this.lblCustom1Hp02);
@@ -1421,9 +1466,9 @@
             this.customGroup02.Controls.Add(this.lbl1Hr02);
             this.customGroup02.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup02.ForeColor = System.Drawing.Color.White;
-            this.customGroup02.Location = new System.Drawing.Point(284, 6);
+            this.customGroup02.Location = new System.Drawing.Point(284, 8);
             this.customGroup02.Name = "customGroup02";
-            this.customGroup02.Size = new System.Drawing.Size(272, 139);
+            this.customGroup02.Size = new System.Drawing.Size(272, 148);
             this.customGroup02.TabIndex = 38;
             this.customGroup02.TabStop = false;
             this.customGroup02.Text = "ETH";
@@ -1555,6 +1600,8 @@
             // 
             // customGroup01
             // 
+            this.customGroup01.Controls.Add(this.lblCustomUpdatedv01);
+            this.customGroup01.Controls.Add(this.lblCustomUpdated01);
             this.customGroup01.Controls.Add(this.lblCustomBTC01);
             this.customGroup01.Controls.Add(this.lblCustomUSD01);
             this.customGroup01.Controls.Add(this.lblCustom1Hp01);
@@ -1572,7 +1619,7 @@
             this.customGroup01.ForeColor = System.Drawing.Color.White;
             this.customGroup01.Location = new System.Drawing.Point(6, 6);
             this.customGroup01.Name = "customGroup01";
-            this.customGroup01.Size = new System.Drawing.Size(272, 139);
+            this.customGroup01.Size = new System.Drawing.Size(272, 148);
             this.customGroup01.TabIndex = 37;
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "BTC";
@@ -1695,7 +1742,7 @@
             // 
             this.lbl1Hr01.AutoSize = true;
             this.lbl1Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl1Hr01.Location = new System.Drawing.Point(6, 72);
+            this.lbl1Hr01.Location = new System.Drawing.Point(7, 72);
             this.lbl1Hr01.Name = "lbl1Hr01";
             this.lbl1Hr01.Size = new System.Drawing.Size(36, 17);
             this.lbl1Hr01.TabIndex = 21;
@@ -1712,9 +1759,9 @@
             // 
             this.Options.Controls.Add(this.tabOptions);
             this.Options.Controls.Add(this.label1);
-            this.Options.Location = new System.Drawing.Point(1036, 340);
+            this.Options.Location = new System.Drawing.Point(228, 92);
             this.Options.Name = "Options";
-            this.Options.Size = new System.Drawing.Size(842, 440);
+            this.Options.Size = new System.Drawing.Size(842, 468);
             this.Options.TabIndex = 4;
             // 
             // tabOptions
@@ -1723,11 +1770,11 @@
             this.tabOptions.Controls.Add(this.tabPage2);
             this.tabOptions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabOptions.HotTrack = true;
-            this.tabOptions.Location = new System.Drawing.Point(0, 45);
+            this.tabOptions.Location = new System.Drawing.Point(0, 61);
             this.tabOptions.Multiline = true;
             this.tabOptions.Name = "tabOptions";
             this.tabOptions.SelectedIndex = 0;
-            this.tabOptions.Size = new System.Drawing.Size(842, 395);
+            this.tabOptions.Size = new System.Drawing.Size(842, 407);
             this.tabOptions.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabOptions.TabIndex = 5;
             // 
@@ -1735,17 +1782,21 @@
             // 
             this.tabPage1.BackColor = System.Drawing.Color.DarkGray;
             this.tabPage1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabPage1.Controls.Add(this.optionsSummaryAdvaned);
             this.tabPage1.Controls.Add(this.optionsSummary);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(834, 369);
+            this.tabPage1.Size = new System.Drawing.Size(834, 381);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Trading";
+            this.tabPage1.Text = "Summary";
             // 
             // optionsSummary
             // 
+            this.optionsSummary.Controls.Add(this.lblConfirmed);
+            this.optionsSummary.Controls.Add(this.lblSaved);
+            this.optionsSummary.Controls.Add(this.btnSaveProfile);
             this.optionsSummary.Controls.Add(this.btnConfirmSummary);
             this.optionsSummary.Controls.Add(this.btnEditSummary);
             this.optionsSummary.Controls.Add(this.lblSummaryCoins);
@@ -1769,8 +1820,9 @@
             this.optionsSummary.Controls.Add(this.txtCustom01);
             this.optionsSummary.Dock = System.Windows.Forms.DockStyle.Left;
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
+            this.optionsSummary.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
             this.optionsSummary.Name = "optionsSummary";
-            this.optionsSummary.Size = new System.Drawing.Size(449, 363);
+            this.optionsSummary.Size = new System.Drawing.Size(449, 375);
             this.optionsSummary.TabIndex = 21;
             // 
             // btnConfirmSummary
@@ -1779,7 +1831,7 @@
             this.btnConfirmSummary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnConfirmSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfirmSummary.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnConfirmSummary.Location = new System.Drawing.Point(316, 315);
+            this.btnConfirmSummary.Location = new System.Drawing.Point(175, 315);
             this.btnConfirmSummary.Name = "btnConfirmSummary";
             this.btnConfirmSummary.Size = new System.Drawing.Size(100, 30);
             this.btnConfirmSummary.TabIndex = 41;
@@ -1978,7 +2030,6 @@
             this.txtCustom03.ReadOnly = true;
             this.txtCustom03.Size = new System.Drawing.Size(100, 29);
             this.txtCustom03.TabIndex = 25;
-            this.txtCustom03.Text = "LTC";
             this.txtCustom03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCustom02
@@ -2003,7 +2054,6 @@
             this.txtCustom02.ReadOnly = true;
             this.txtCustom02.Size = new System.Drawing.Size(100, 29);
             this.txtCustom02.TabIndex = 23;
-            this.txtCustom02.Text = "ETH";
             this.txtCustom02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblCustom01
@@ -2028,7 +2078,6 @@
             this.txtCustom01.ReadOnly = true;
             this.txtCustom01.Size = new System.Drawing.Size(100, 29);
             this.txtCustom01.TabIndex = 21;
-            this.txtCustom01.Text = "BTC";
             this.txtCustom01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabPage2
@@ -2037,7 +2086,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(834, 369);
+            this.tabPage2.Size = new System.Drawing.Size(834, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mining";
             // 
@@ -2054,13 +2103,296 @@
             this.label1.Text = "OPTIONS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblCustomUpdated01
+            // 
+            this.lblCustomUpdated01.AutoSize = true;
+            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
+            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
+            this.lblCustomUpdated01.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated01.TabIndex = 27;
+            this.lblCustomUpdated01.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated04
+            // 
+            this.lblCustomUpdated04.AutoSize = true;
+            this.lblCustomUpdated04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated04.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated04.Name = "lblCustomUpdated04";
+            this.lblCustomUpdated04.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated04.TabIndex = 28;
+            this.lblCustomUpdated04.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated02
+            // 
+            this.lblCustomUpdated02.AutoSize = true;
+            this.lblCustomUpdated02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated02.Location = new System.Drawing.Point(7, 126);
+            this.lblCustomUpdated02.Name = "lblCustomUpdated02";
+            this.lblCustomUpdated02.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated02.TabIndex = 29;
+            this.lblCustomUpdated02.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated03
+            // 
+            this.lblCustomUpdated03.AutoSize = true;
+            this.lblCustomUpdated03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated03.Location = new System.Drawing.Point(7, 126);
+            this.lblCustomUpdated03.Name = "lblCustomUpdated03";
+            this.lblCustomUpdated03.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated03.TabIndex = 30;
+            this.lblCustomUpdated03.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated05
+            // 
+            this.lblCustomUpdated05.AutoSize = true;
+            this.lblCustomUpdated05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated05.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated05.Name = "lblCustomUpdated05";
+            this.lblCustomUpdated05.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated05.TabIndex = 31;
+            this.lblCustomUpdated05.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated06
+            // 
+            this.lblCustomUpdated06.AutoSize = true;
+            this.lblCustomUpdated06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated06.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated06.Name = "lblCustomUpdated06";
+            this.lblCustomUpdated06.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated06.TabIndex = 32;
+            this.lblCustomUpdated06.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated07
+            // 
+            this.lblCustomUpdated07.AutoSize = true;
+            this.lblCustomUpdated07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated07.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated07.Name = "lblCustomUpdated07";
+            this.lblCustomUpdated07.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated07.TabIndex = 33;
+            this.lblCustomUpdated07.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated08
+            // 
+            this.lblCustomUpdated08.AutoSize = true;
+            this.lblCustomUpdated08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated08.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated08.Name = "lblCustomUpdated08";
+            this.lblCustomUpdated08.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated08.TabIndex = 34;
+            this.lblCustomUpdated08.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdated09
+            // 
+            this.lblCustomUpdated09.AutoSize = true;
+            this.lblCustomUpdated09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated09.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated09.Name = "lblCustomUpdated09";
+            this.lblCustomUpdated09.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated09.TabIndex = 35;
+            this.lblCustomUpdated09.Text = "LAST UPDATED";
+            // 
+            // lblCustomUpdatedv01
+            // 
+            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(103, 128);
+            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
+            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv01.TabIndex = 28;
+            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv02
+            // 
+            this.lblCustomUpdatedv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv02.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv02.Name = "lblCustomUpdatedv02";
+            this.lblCustomUpdatedv02.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv02.TabIndex = 29;
+            this.lblCustomUpdatedv02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv03
+            // 
+            this.lblCustomUpdatedv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv03.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv03.Name = "lblCustomUpdatedv03";
+            this.lblCustomUpdatedv03.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv03.TabIndex = 30;
+            this.lblCustomUpdatedv03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv04
+            // 
+            this.lblCustomUpdatedv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv04.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv04.Name = "lblCustomUpdatedv04";
+            this.lblCustomUpdatedv04.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv04.TabIndex = 31;
+            this.lblCustomUpdatedv04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv05
+            // 
+            this.lblCustomUpdatedv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv05.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv05.Name = "lblCustomUpdatedv05";
+            this.lblCustomUpdatedv05.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv05.TabIndex = 32;
+            this.lblCustomUpdatedv05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv06
+            // 
+            this.lblCustomUpdatedv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv06.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv06.Name = "lblCustomUpdatedv06";
+            this.lblCustomUpdatedv06.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv06.TabIndex = 33;
+            this.lblCustomUpdatedv06.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv07
+            // 
+            this.lblCustomUpdatedv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv07.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv07.Name = "lblCustomUpdatedv07";
+            this.lblCustomUpdatedv07.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv07.TabIndex = 34;
+            this.lblCustomUpdatedv07.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv08
+            // 
+            this.lblCustomUpdatedv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv08.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv08.Name = "lblCustomUpdatedv08";
+            this.lblCustomUpdatedv08.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv08.TabIndex = 35;
+            this.lblCustomUpdatedv08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdatedv09
+            // 
+            this.lblCustomUpdatedv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv09.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv09.Name = "lblCustomUpdatedv09";
+            this.lblCustomUpdatedv09.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv09.TabIndex = 36;
+            this.lblCustomUpdatedv09.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnSaveProfile
+            // 
+            this.btnSaveProfile.BackColor = System.Drawing.Color.DimGray;
+            this.btnSaveProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSaveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProfile.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnSaveProfile.Location = new System.Drawing.Point(316, 315);
+            this.btnSaveProfile.Name = "btnSaveProfile";
+            this.btnSaveProfile.Size = new System.Drawing.Size(100, 30);
+            this.btnSaveProfile.TabIndex = 42;
+            this.btnSaveProfile.Text = "SAVE";
+            this.btnSaveProfile.UseVisualStyleBackColor = false;
+            this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
+            // 
+            // lblSaved
+            // 
+            this.lblSaved.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblSaved.Location = new System.Drawing.Point(306, 351);
+            this.lblSaved.Name = "lblSaved";
+            this.lblSaved.Size = new System.Drawing.Size(121, 17);
+            this.lblSaved.TabIndex = 43;
+            this.lblSaved.Text = "Saved to Profile 1";
+            this.lblSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSaved.Visible = false;
+            // 
+            // lblConfirmed
+            // 
+            this.lblConfirmed.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblConfirmed.Location = new System.Drawing.Point(158, 351);
+            this.lblConfirmed.Name = "lblConfirmed";
+            this.lblConfirmed.Size = new System.Drawing.Size(135, 17);
+            this.lblConfirmed.TabIndex = 44;
+            this.lblConfirmed.Text = "Selection Confirmed";
+            this.lblConfirmed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConfirmed.Visible = false;
+            // 
+            // optionsSummaryAdvaned
+            // 
+            this.optionsSummaryAdvaned.Controls.Add(this.Pagev);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblPage);
+            this.optionsSummaryAdvaned.Controls.Add(this.Currencyv);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblCurrency);
+            this.optionsSummaryAdvaned.Controls.Add(this.label2);
+            this.optionsSummaryAdvaned.Dock = System.Windows.Forms.DockStyle.Right;
+            this.optionsSummaryAdvaned.Location = new System.Drawing.Point(452, 3);
+            this.optionsSummaryAdvaned.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
+            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 375);
+            this.optionsSummaryAdvaned.TabIndex = 22;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Walkway Bold", 22F);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(379, 40);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Advanced Options";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblCurrency
+            // 
+            this.lblCurrency.AutoSize = true;
+            this.lblCurrency.Font = new System.Drawing.Font("Walkway Bold", 20F);
+            this.lblCurrency.Location = new System.Drawing.Point(30, 58);
+            this.lblCurrency.Name = "lblCurrency";
+            this.lblCurrency.Size = new System.Drawing.Size(120, 29);
+            this.lblCurrency.TabIndex = 41;
+            this.lblCurrency.Text = "Currency";
+            // 
+            // Currencyv
+            // 
+            this.Currencyv.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.Currencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Currencyv.DisplayMember = "(Collection)";
+            this.Currencyv.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.Currencyv.FormattingEnabled = true;
+            this.Currencyv.Items.AddRange(new object[] {
+            "USD ($)",
+            "AUD ($)"});
+            this.Currencyv.Location = new System.Drawing.Point(35, 88);
+            this.Currencyv.Name = "Currencyv";
+            this.Currencyv.Size = new System.Drawing.Size(121, 29);
+            this.Currencyv.TabIndex = 42;
+            // 
+            // Pagev
+            // 
+            this.Pagev.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.Pagev.FormattingEnabled = true;
+            this.Pagev.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.Pagev.Location = new System.Drawing.Point(35, 170);
+            this.Pagev.Name = "Pagev";
+            this.Pagev.Size = new System.Drawing.Size(121, 29);
+            this.Pagev.TabIndex = 44;
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Font = new System.Drawing.Font("Walkway Bold", 20F);
+            this.lblPage.Location = new System.Drawing.Point(30, 140);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(74, 29);
+            this.lblPage.TabIndex = 43;
+            this.lblPage.Text = "Page";
+            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1211, 597);
+            this.ClientSize = new System.Drawing.Size(2202, 921);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.Summary01);
             this.Controls.Add(this.Header);
@@ -2104,6 +2436,8 @@
             this.tabPage1.ResumeLayout(false);
             this.optionsSummary.ResumeLayout(false);
             this.optionsSummary.PerformLayout();
+            this.optionsSummaryAdvaned.ResumeLayout(false);
+            this.optionsSummaryAdvaned.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2276,5 +2610,32 @@
         private System.Windows.Forms.TextBox txtCustom01;
         private System.Windows.Forms.Button btnEditSummary;
         private System.Windows.Forms.Button btnConfirmSummary;
+        private System.Windows.Forms.Label lblCustomUpdated04;
+        private System.Windows.Forms.Label lblCustomUpdated01;
+        private System.Windows.Forms.Label lblCustomUpdated09;
+        private System.Windows.Forms.Label lblCustomUpdated06;
+        private System.Windows.Forms.Label lblCustomUpdated08;
+        private System.Windows.Forms.Label lblCustomUpdated05;
+        private System.Windows.Forms.Label lblCustomUpdated07;
+        private System.Windows.Forms.Label lblCustomUpdated03;
+        private System.Windows.Forms.Label lblCustomUpdated02;
+        private System.Windows.Forms.Label lblCustomUpdatedv01;
+        private System.Windows.Forms.Label lblCustomUpdatedv09;
+        private System.Windows.Forms.Label lblCustomUpdatedv06;
+        private System.Windows.Forms.Label lblCustomUpdatedv08;
+        private System.Windows.Forms.Label lblCustomUpdatedv05;
+        private System.Windows.Forms.Label lblCustomUpdatedv07;
+        private System.Windows.Forms.Label lblCustomUpdatedv04;
+        private System.Windows.Forms.Label lblCustomUpdatedv03;
+        private System.Windows.Forms.Label lblCustomUpdatedv02;
+        private System.Windows.Forms.Button btnSaveProfile;
+        private System.Windows.Forms.Label lblSaved;
+        private System.Windows.Forms.Label lblConfirmed;
+        private System.Windows.Forms.Panel optionsSummaryAdvaned;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox Currencyv;
+        private System.Windows.Forms.Label lblCurrency;
+        private System.Windows.Forms.ComboBox Pagev;
+        private System.Windows.Forms.Label lblPage;
     }
 }

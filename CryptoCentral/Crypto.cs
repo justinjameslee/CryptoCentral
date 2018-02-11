@@ -69,23 +69,14 @@ namespace APIAccessTEST01
 
         void Summary01RESET()
         {
-            customGroup01.Location = new Point(6, 6);
-            customGroup02.Location = new Point(284, 6);
-            customGroup03.Location = new Point(562, 8);
-            customGroup04.Location = new Point(6, 151);
-            customGroup05.Location = new Point(284, 151);
-            customGroup06.Location = new Point(562, 151);
-            customGroup07.Location = new Point(6, 296);
-            customGroup08.Location = new Point(284, 296);
-            customGroup09.Location = new Point(562, 296);
             Summary01.Location = new Point(222, 78);
-            Summary01.Size = new Size(842, 440);
+            Summary01.Size = new Size(842, 468);
         }
 
         void OptionsRESET()
         {
             Options.Location = new Point(222, 78);
-            Options.Size = new Size(842, 440);
+            Options.Size = new Size(842, 468);
         }
         private void Crypto_Load(object sender, EventArgs e)
         {
@@ -96,7 +87,7 @@ namespace APIAccessTEST01
             Summary01RESET();
             Options.Visible = false;
             Summary01.Visible = true;
-            this.Size = new Size(1064, 518);
+            this.Size = new Size(1064, 546);
             this.CenterToScreen();
             GETINFOSummary();
         }
@@ -131,6 +122,8 @@ namespace APIAccessTEST01
                 Summary01RESET();
                 Summary01.Visible = true;
                 Options.Visible = false;
+                lblSaved.Visible = false;
+                lblConfirmed.Visible = false;
             }
         }
         private void lblSettings_Click(object sender, EventArgs e)
@@ -155,6 +148,15 @@ namespace APIAccessTEST01
                 coin7 = Profile1Loaded[6];
                 coin8 = Profile1Loaded[7];
                 coin9 = Profile1Loaded[8];
+                txtCustom01.Text = coin1;
+                txtCustom02.Text = coin2;
+                txtCustom03.Text = coin3;
+                txtCustom04.Text = coin4;
+                txtCustom05.Text = coin5;
+                txtCustom06.Text = coin6;
+                txtCustom07.Text = coin7;
+                txtCustom08.Text = coin8;
+                txtCustom09.Text = coin9;
                 ProfileLoaded = true;
             }
         }
@@ -171,11 +173,10 @@ namespace APIAccessTEST01
                 coin7 = txtCustom07.Text;
                 coin8 = txtCustom08.Text;
                 coin9 = txtCustom09.Text;
-                SaveProfile();
             }
             else
             {
-                SaveProfile();
+
             }
         }
         void SaveProfile()
@@ -229,7 +230,7 @@ namespace APIAccessTEST01
                 }
             }
         }
-        void GETINFOUSD(string CRYPTO, string customCoin, Label xUSDv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xUSD, Label xBTC, GroupBox Number)
+        void GETINFOUSD(string CRYPTO, string customCoin, Label xUSDv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xUSD, Label xBTC, Label xTimev, GroupBox Number)
         {
             if(CRYPTO == "" || customCoin == "")
             {
@@ -240,7 +241,17 @@ namespace APIAccessTEST01
                 xUSDp.Text = "No Data";
                 xUSD24p.Text = "No Data";
                 xUSD7p.Text = "No Data";
+                xUSDc.Text = "";
+                xUSD24c.Text = "";
+                xUSD7c.Text = "";
                 Number.Text = "XXX";
+                xTimev.Text = "No Data";
+
+                xUSDv.ForeColor = Color.White;
+                xBTCv.ForeColor = Color.White;
+                xUSDp.ForeColor = Color.White;
+                xUSD24p.ForeColor = Color.White;
+                xUSD7p.ForeColor = Color.White;
             }
             else
             {
@@ -252,6 +263,17 @@ namespace APIAccessTEST01
                 xBTC.Text = customCoin + "/BTC";
                 Number.Text = customCoin;
 
+                foreach (var data in CoinsDetailed)         //Calculate Last Updated Time.
+                {
+                    string Time;
+                    string FinalTime;
+                    double DTime;
+                    Time = data.last_updated;
+                    Time = RemoveExtraText(Time);
+                    DTime = Convert.ToDouble(Time);
+                    FinalTime = String.Format("{0:d/M/yyyy HH:mm:ss}", new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(DTime));
+                    xTimev.Text = FinalTime + " UTC";
+                }
                 foreach (var data in CoinsDetailed)             //Coin Against USD
                 {
                     string price_usd;
@@ -630,6 +652,7 @@ namespace APIAccessTEST01
         }
         void ConfirmSummary()
         {
+            lblConfirmed.Visible = true;
             while (ConfirmAllowed == true)
             {
                 txtCustom01.ReadOnly = true;
@@ -657,23 +680,23 @@ namespace APIAccessTEST01
         }
         void GETINFOSummary()
         {
-            GETINFOUSD(coin1FN, coin1, lblCustomUSDv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomUSD01, lblCustomBTC01, customGroup01);
+            GETINFOUSD(coin1FN, coin1, lblCustomUSDv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomUSD01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin2FN, coin2, lblCustomUSDv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomUSD02, lblCustomBTC02, customGroup02);
+            GETINFOUSD(coin2FN, coin2, lblCustomUSDv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomUSD02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin3FN, coin3, lblCustomUSDv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomUSD03, lblCustomBTC03, customGroup03);
+            GETINFOUSD(coin3FN, coin3, lblCustomUSDv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomUSD03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin4FN, coin4, lblCustomUSDv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomUSD04, lblCustomBTC04, customGroup04);
+            GETINFOUSD(coin4FN, coin4, lblCustomUSDv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomUSD04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin5FN, coin5, lblCustomUSDv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomUSD05, lblCustomBTC05, customGroup05);
+            GETINFOUSD(coin5FN, coin5, lblCustomUSDv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomUSD05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin6FN, coin6, lblCustomUSDv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomUSD06, lblCustomBTC06, customGroup06);
+            GETINFOUSD(coin6FN, coin6, lblCustomUSDv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomUSD06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin7FN, coin7, lblCustomUSDv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomUSD07, lblCustomBTC07, customGroup07);
+            GETINFOUSD(coin7FN, coin7, lblCustomUSDv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomUSD07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin8FN, coin8, lblCustomUSDv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomUSD08, lblCustomBTC08, customGroup08);
+            GETINFOUSD(coin8FN, coin8, lblCustomUSDv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomUSD08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin9FN, coin9, lblCustomUSDv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09,lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomUSD09, lblCustomBTC09, customGroup09);
+            GETINFOUSD(coin9FN, coin9, lblCustomUSDv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomUSD09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
         }
         void TestCoinSummary()
         {
@@ -696,6 +719,18 @@ namespace APIAccessTEST01
             System.Threading.Thread.Sleep(50);
             TestOptionCoins(ref coin9, ref coin9FN);
             System.Threading.Thread.Sleep(50);
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveProfile_Click(object sender, EventArgs e)
+        {
+            SaveProfile();
+            lblSaved.Visible = true;
+            lblSaved.Text = "Saved to Profile " + Convert.ToString(Profile);
         }
     }
 }

@@ -43,6 +43,8 @@
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.Summary01 = new System.Windows.Forms.Panel();
             this.customGroup09 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated09 = new System.Windows.Forms.Label();
             this.lblCustomBTC09 = new System.Windows.Forms.Label();
             this.lblCustomUSD09 = new System.Windows.Forms.Label();
             this.lblCustom1Hp09 = new System.Windows.Forms.Label();
@@ -57,6 +59,8 @@
             this.lblCustom7Dp09 = new System.Windows.Forms.Label();
             this.lbl1Hr09 = new System.Windows.Forms.Label();
             this.customGroup06 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated06 = new System.Windows.Forms.Label();
             this.lblCustomBTC06 = new System.Windows.Forms.Label();
             this.lblCustomUSD06 = new System.Windows.Forms.Label();
             this.lblCustom1Hp06 = new System.Windows.Forms.Label();
@@ -71,6 +75,8 @@
             this.lblCustom7Dp06 = new System.Windows.Forms.Label();
             this.lbl1Hr06 = new System.Windows.Forms.Label();
             this.customGroup08 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated08 = new System.Windows.Forms.Label();
             this.lblCustomBTC08 = new System.Windows.Forms.Label();
             this.lblCustomUSD08 = new System.Windows.Forms.Label();
             this.lblCustom1Hp08 = new System.Windows.Forms.Label();
@@ -85,6 +91,8 @@
             this.lblCustom7Dp08 = new System.Windows.Forms.Label();
             this.lbl1Hr08 = new System.Windows.Forms.Label();
             this.customGroup05 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated05 = new System.Windows.Forms.Label();
             this.lblCustomBTC05 = new System.Windows.Forms.Label();
             this.lblCustomUSD05 = new System.Windows.Forms.Label();
             this.lblCustom1Hp05 = new System.Windows.Forms.Label();
@@ -99,6 +107,8 @@
             this.lblCustom7Dp05 = new System.Windows.Forms.Label();
             this.lbl1Hr05 = new System.Windows.Forms.Label();
             this.customGroup07 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated07 = new System.Windows.Forms.Label();
             this.lblCustomBTC07 = new System.Windows.Forms.Label();
             this.lblCustomUSD07 = new System.Windows.Forms.Label();
             this.lblCustom1Hp07 = new System.Windows.Forms.Label();
@@ -113,6 +123,8 @@
             this.lblCustom7Dp07 = new System.Windows.Forms.Label();
             this.lbl1Hr07 = new System.Windows.Forms.Label();
             this.customGroup04 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated04 = new System.Windows.Forms.Label();
             this.lblCustomBTC04 = new System.Windows.Forms.Label();
             this.lblCustomUSD04 = new System.Windows.Forms.Label();
             this.lblCustom1Hp04 = new System.Windows.Forms.Label();
@@ -127,6 +139,8 @@
             this.lblCustom7Dp04 = new System.Windows.Forms.Label();
             this.lbl1Hr04 = new System.Windows.Forms.Label();
             this.customGroup03 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated03 = new System.Windows.Forms.Label();
             this.lblCustomBTC03 = new System.Windows.Forms.Label();
             this.lblCustomUSD03 = new System.Windows.Forms.Label();
             this.lblCustom1Hp03 = new System.Windows.Forms.Label();
@@ -141,6 +155,8 @@
             this.lblCustom7Dp03 = new System.Windows.Forms.Label();
             this.lbl1Hr03 = new System.Windows.Forms.Label();
             this.customGroup02 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated02 = new System.Windows.Forms.Label();
             this.lblCustomBTC02 = new System.Windows.Forms.Label();
             this.lblCustomUSD02 = new System.Windows.Forms.Label();
             this.lblCustom1Hp02 = new System.Windows.Forms.Label();
@@ -155,6 +171,8 @@
             this.lblCustom7Dp02 = new System.Windows.Forms.Label();
             this.lbl1Hr02 = new System.Windows.Forms.Label();
             this.customGroup01 = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
             this.lblCustomBTC01 = new System.Windows.Forms.Label();
             this.lblCustomUSD01 = new System.Windows.Forms.Label();
             this.lblCustom1Hp01 = new System.Windows.Forms.Label();
@@ -172,7 +190,17 @@
             this.Options = new System.Windows.Forms.Panel();
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
+            this.btnNewPage = new System.Windows.Forms.Button();
+            this.Pagev = new System.Windows.Forms.ComboBox();
+            this.lblPage = new System.Windows.Forms.Label();
+            this.Currencyv = new System.Windows.Forms.ComboBox();
+            this.lblCurrency = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.optionsSummary = new System.Windows.Forms.Panel();
+            this.lblConfirmed = new System.Windows.Forms.Label();
+            this.lblSaved = new System.Windows.Forms.Label();
+            this.btnSaveProfile = new System.Windows.Forms.Button();
             this.btnConfirmSummary = new System.Windows.Forms.Button();
             this.btnEditSummary = new System.Windows.Forms.Button();
             this.lblSummaryCoins = new System.Windows.Forms.Label();
@@ -196,33 +224,10 @@
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated04 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated02 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated03 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated05 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated06 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated07 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated08 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated09 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
-            this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
-            this.btnSaveProfile = new System.Windows.Forms.Button();
-            this.lblSaved = new System.Windows.Forms.Label();
-            this.lblConfirmed = new System.Windows.Forms.Label();
-            this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblCurrency = new System.Windows.Forms.Label();
-            this.Currencyv = new System.Windows.Forms.ComboBox();
-            this.Pagev = new System.Windows.Forms.ComboBox();
-            this.lblPage = new System.Windows.Forms.Label();
+            this.timerPageCheck = new System.Windows.Forms.Timer(this.components);
+            this.lblNoSave = new System.Windows.Forms.Label();
+            this.lblNewPage = new System.Windows.Forms.Label();
+            this.lblSaveFound = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
@@ -244,8 +249,8 @@
             this.Options.SuspendLayout();
             this.tabOptions.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.optionsSummary.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
+            this.optionsSummary.SuspendLayout();
             this.SuspendLayout();
             // 
             // Sidebar
@@ -416,6 +421,25 @@
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "LTC";
             // 
+            // lblCustomUpdatedv09
+            // 
+            this.lblCustomUpdatedv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv09.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv09.Name = "lblCustomUpdatedv09";
+            this.lblCustomUpdatedv09.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv09.TabIndex = 36;
+            this.lblCustomUpdatedv09.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated09
+            // 
+            this.lblCustomUpdated09.AutoSize = true;
+            this.lblCustomUpdated09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated09.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated09.Name = "lblCustomUpdated09";
+            this.lblCustomUpdated09.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated09.TabIndex = 35;
+            this.lblCustomUpdated09.Text = "LAST UPDATED";
+            // 
             // lblCustomBTC09
             // 
             this.lblCustomBTC09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -566,6 +590,25 @@
             this.customGroup06.TabIndex = 40;
             this.customGroup06.TabStop = false;
             this.customGroup06.Text = "LTC";
+            // 
+            // lblCustomUpdatedv06
+            // 
+            this.lblCustomUpdatedv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv06.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv06.Name = "lblCustomUpdatedv06";
+            this.lblCustomUpdatedv06.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv06.TabIndex = 33;
+            this.lblCustomUpdatedv06.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated06
+            // 
+            this.lblCustomUpdated06.AutoSize = true;
+            this.lblCustomUpdated06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated06.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated06.Name = "lblCustomUpdated06";
+            this.lblCustomUpdated06.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated06.TabIndex = 32;
+            this.lblCustomUpdated06.Text = "LAST UPDATED";
             // 
             // lblCustomBTC06
             // 
@@ -718,6 +761,25 @@
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "ETH";
             // 
+            // lblCustomUpdatedv08
+            // 
+            this.lblCustomUpdatedv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv08.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv08.Name = "lblCustomUpdatedv08";
+            this.lblCustomUpdatedv08.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv08.TabIndex = 35;
+            this.lblCustomUpdatedv08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated08
+            // 
+            this.lblCustomUpdated08.AutoSize = true;
+            this.lblCustomUpdated08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated08.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated08.Name = "lblCustomUpdated08";
+            this.lblCustomUpdated08.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated08.TabIndex = 34;
+            this.lblCustomUpdated08.Text = "LAST UPDATED";
+            // 
             // lblCustomBTC08
             // 
             this.lblCustomBTC08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -868,6 +930,25 @@
             this.customGroup05.TabIndex = 42;
             this.customGroup05.TabStop = false;
             this.customGroup05.Text = "ETH";
+            // 
+            // lblCustomUpdatedv05
+            // 
+            this.lblCustomUpdatedv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv05.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv05.Name = "lblCustomUpdatedv05";
+            this.lblCustomUpdatedv05.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv05.TabIndex = 32;
+            this.lblCustomUpdatedv05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated05
+            // 
+            this.lblCustomUpdated05.AutoSize = true;
+            this.lblCustomUpdated05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated05.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated05.Name = "lblCustomUpdated05";
+            this.lblCustomUpdated05.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated05.TabIndex = 31;
+            this.lblCustomUpdated05.Text = "LAST UPDATED";
             // 
             // lblCustomBTC05
             // 
@@ -1020,6 +1101,25 @@
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "BTC";
             // 
+            // lblCustomUpdatedv07
+            // 
+            this.lblCustomUpdatedv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv07.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv07.Name = "lblCustomUpdatedv07";
+            this.lblCustomUpdatedv07.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv07.TabIndex = 34;
+            this.lblCustomUpdatedv07.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated07
+            // 
+            this.lblCustomUpdated07.AutoSize = true;
+            this.lblCustomUpdated07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated07.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated07.Name = "lblCustomUpdated07";
+            this.lblCustomUpdated07.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated07.TabIndex = 33;
+            this.lblCustomUpdated07.Text = "LAST UPDATED";
+            // 
             // lblCustomBTC07
             // 
             this.lblCustomBTC07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -1170,6 +1270,25 @@
             this.customGroup04.TabIndex = 41;
             this.customGroup04.TabStop = false;
             this.customGroup04.Text = "BTC";
+            // 
+            // lblCustomUpdatedv04
+            // 
+            this.lblCustomUpdatedv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv04.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv04.Name = "lblCustomUpdatedv04";
+            this.lblCustomUpdatedv04.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv04.TabIndex = 31;
+            this.lblCustomUpdatedv04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated04
+            // 
+            this.lblCustomUpdated04.AutoSize = true;
+            this.lblCustomUpdated04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated04.Location = new System.Drawing.Point(6, 126);
+            this.lblCustomUpdated04.Name = "lblCustomUpdated04";
+            this.lblCustomUpdated04.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated04.TabIndex = 28;
+            this.lblCustomUpdated04.Text = "LAST UPDATED";
             // 
             // lblCustomBTC04
             // 
@@ -1322,6 +1441,25 @@
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "LTC";
             // 
+            // lblCustomUpdatedv03
+            // 
+            this.lblCustomUpdatedv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv03.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv03.Name = "lblCustomUpdatedv03";
+            this.lblCustomUpdatedv03.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv03.TabIndex = 30;
+            this.lblCustomUpdatedv03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated03
+            // 
+            this.lblCustomUpdated03.AutoSize = true;
+            this.lblCustomUpdated03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated03.Location = new System.Drawing.Point(7, 126);
+            this.lblCustomUpdated03.Name = "lblCustomUpdated03";
+            this.lblCustomUpdated03.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated03.TabIndex = 30;
+            this.lblCustomUpdated03.Text = "LAST UPDATED";
+            // 
             // lblCustomBTC03
             // 
             this.lblCustomBTC03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -1472,6 +1610,25 @@
             this.customGroup02.TabIndex = 38;
             this.customGroup02.TabStop = false;
             this.customGroup02.Text = "ETH";
+            // 
+            // lblCustomUpdatedv02
+            // 
+            this.lblCustomUpdatedv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv02.Location = new System.Drawing.Point(103, 126);
+            this.lblCustomUpdatedv02.Name = "lblCustomUpdatedv02";
+            this.lblCustomUpdatedv02.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv02.TabIndex = 29;
+            this.lblCustomUpdatedv02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated02
+            // 
+            this.lblCustomUpdated02.AutoSize = true;
+            this.lblCustomUpdated02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated02.Location = new System.Drawing.Point(7, 126);
+            this.lblCustomUpdated02.Name = "lblCustomUpdated02";
+            this.lblCustomUpdated02.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated02.TabIndex = 29;
+            this.lblCustomUpdated02.Text = "LAST UPDATED";
             // 
             // lblCustomBTC02
             // 
@@ -1624,6 +1781,25 @@
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "BTC";
             // 
+            // lblCustomUpdatedv01
+            // 
+            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(103, 128);
+            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
+            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(160, 13);
+            this.lblCustomUpdatedv01.TabIndex = 28;
+            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated01
+            // 
+            this.lblCustomUpdated01.AutoSize = true;
+            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
+            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
+            this.lblCustomUpdated01.Size = new System.Drawing.Size(84, 13);
+            this.lblCustomUpdated01.TabIndex = 27;
+            this.lblCustomUpdated01.Text = "LAST UPDATED";
+            // 
             // lblCustomBTC01
             // 
             this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -1752,7 +1928,7 @@
             // timerAutoRefresh
             // 
             this.timerAutoRefresh.Enabled = true;
-            this.timerAutoRefresh.Interval = 10000;
+            this.timerAutoRefresh.Interval = 30000;
             this.timerAutoRefresh.Tick += new System.EventHandler(this.timerAutoRefresh_Tick);
             // 
             // Options
@@ -1792,6 +1968,94 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Summary";
             // 
+            // optionsSummaryAdvaned
+            // 
+            this.optionsSummaryAdvaned.Controls.Add(this.lblSaveFound);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblNewPage);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblNoSave);
+            this.optionsSummaryAdvaned.Controls.Add(this.btnNewPage);
+            this.optionsSummaryAdvaned.Controls.Add(this.Pagev);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblPage);
+            this.optionsSummaryAdvaned.Controls.Add(this.Currencyv);
+            this.optionsSummaryAdvaned.Controls.Add(this.lblCurrency);
+            this.optionsSummaryAdvaned.Controls.Add(this.label2);
+            this.optionsSummaryAdvaned.Dock = System.Windows.Forms.DockStyle.Right;
+            this.optionsSummaryAdvaned.Location = new System.Drawing.Point(452, 3);
+            this.optionsSummaryAdvaned.Margin = new System.Windows.Forms.Padding(0);
+            this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
+            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 375);
+            this.optionsSummaryAdvaned.TabIndex = 22;
+            // 
+            // btnNewPage
+            // 
+            this.btnNewPage.BackColor = System.Drawing.Color.DimGray;
+            this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnNewPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewPage.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnNewPage.Location = new System.Drawing.Point(35, 205);
+            this.btnNewPage.Name = "btnNewPage";
+            this.btnNewPage.Size = new System.Drawing.Size(121, 30);
+            this.btnNewPage.TabIndex = 45;
+            this.btnNewPage.Text = "NEW PAGE";
+            this.btnNewPage.UseVisualStyleBackColor = false;
+            this.btnNewPage.Click += new System.EventHandler(this.btnNewPage_Click);
+            // 
+            // Pagev
+            // 
+            this.Pagev.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.Pagev.FormattingEnabled = true;
+            this.Pagev.Location = new System.Drawing.Point(35, 170);
+            this.Pagev.Name = "Pagev";
+            this.Pagev.Size = new System.Drawing.Size(121, 29);
+            this.Pagev.TabIndex = 44;
+            this.Pagev.SelectedIndexChanged += new System.EventHandler(this.Pagev_SelectedIndexChanged);
+            // 
+            // lblPage
+            // 
+            this.lblPage.AutoSize = true;
+            this.lblPage.Font = new System.Drawing.Font("Walkway Bold", 20F);
+            this.lblPage.Location = new System.Drawing.Point(30, 140);
+            this.lblPage.Name = "lblPage";
+            this.lblPage.Size = new System.Drawing.Size(74, 29);
+            this.lblPage.TabIndex = 43;
+            this.lblPage.Text = "Page";
+            // 
+            // Currencyv
+            // 
+            this.Currencyv.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.Currencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Currencyv.DisplayMember = "(Collection)";
+            this.Currencyv.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.Currencyv.FormattingEnabled = true;
+            this.Currencyv.Items.AddRange(new object[] {
+            "USD ($)",
+            "AUD ($)"});
+            this.Currencyv.Location = new System.Drawing.Point(35, 88);
+            this.Currencyv.Name = "Currencyv";
+            this.Currencyv.Size = new System.Drawing.Size(121, 29);
+            this.Currencyv.TabIndex = 42;
+            // 
+            // lblCurrency
+            // 
+            this.lblCurrency.AutoSize = true;
+            this.lblCurrency.Font = new System.Drawing.Font("Walkway Bold", 20F);
+            this.lblCurrency.Location = new System.Drawing.Point(30, 58);
+            this.lblCurrency.Name = "lblCurrency";
+            this.lblCurrency.Size = new System.Drawing.Size(120, 29);
+            this.lblCurrency.TabIndex = 41;
+            this.lblCurrency.Text = "Currency";
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label2.Font = new System.Drawing.Font("Walkway Bold", 22F);
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(379, 40);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Advanced Options";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // optionsSummary
             // 
             this.optionsSummary.Controls.Add(this.lblConfirmed);
@@ -1820,10 +2084,46 @@
             this.optionsSummary.Controls.Add(this.txtCustom01);
             this.optionsSummary.Dock = System.Windows.Forms.DockStyle.Left;
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
-            this.optionsSummary.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
+            this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummary.Name = "optionsSummary";
             this.optionsSummary.Size = new System.Drawing.Size(449, 375);
             this.optionsSummary.TabIndex = 21;
+            // 
+            // lblConfirmed
+            // 
+            this.lblConfirmed.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblConfirmed.Location = new System.Drawing.Point(158, 351);
+            this.lblConfirmed.Name = "lblConfirmed";
+            this.lblConfirmed.Size = new System.Drawing.Size(135, 17);
+            this.lblConfirmed.TabIndex = 44;
+            this.lblConfirmed.Text = "Selection Confirmed";
+            this.lblConfirmed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblConfirmed.Visible = false;
+            // 
+            // lblSaved
+            // 
+            this.lblSaved.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblSaved.Location = new System.Drawing.Point(306, 351);
+            this.lblSaved.Name = "lblSaved";
+            this.lblSaved.Size = new System.Drawing.Size(121, 17);
+            this.lblSaved.TabIndex = 43;
+            this.lblSaved.Text = "Saved to Profile 1";
+            this.lblSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSaved.Visible = false;
+            // 
+            // btnSaveProfile
+            // 
+            this.btnSaveProfile.BackColor = System.Drawing.Color.DimGray;
+            this.btnSaveProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSaveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveProfile.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnSaveProfile.Location = new System.Drawing.Point(316, 315);
+            this.btnSaveProfile.Name = "btnSaveProfile";
+            this.btnSaveProfile.Size = new System.Drawing.Size(100, 30);
+            this.btnSaveProfile.TabIndex = 42;
+            this.btnSaveProfile.Text = "SAVE";
+            this.btnSaveProfile.UseVisualStyleBackColor = false;
+            this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
             // 
             // btnConfirmSummary
             // 
@@ -2103,288 +2403,43 @@
             this.label1.Text = "OPTIONS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblCustomUpdated01
+            // timerPageCheck
             // 
-            this.lblCustomUpdated01.AutoSize = true;
-            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
-            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
-            this.lblCustomUpdated01.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated01.TabIndex = 27;
-            this.lblCustomUpdated01.Text = "LAST UPDATED";
+            this.timerPageCheck.Enabled = true;
+            this.timerPageCheck.Tick += new System.EventHandler(this.timerPageCheck_Tick);
             // 
-            // lblCustomUpdated04
+            // lblNoSave
             // 
-            this.lblCustomUpdated04.AutoSize = true;
-            this.lblCustomUpdated04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated04.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated04.Name = "lblCustomUpdated04";
-            this.lblCustomUpdated04.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated04.TabIndex = 28;
-            this.lblCustomUpdated04.Text = "LAST UPDATED";
+            this.lblNoSave.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblNoSave.Location = new System.Drawing.Point(35, 240);
+            this.lblNoSave.Name = "lblNoSave";
+            this.lblNoSave.Size = new System.Drawing.Size(121, 17);
+            this.lblNoSave.TabIndex = 45;
+            this.lblNoSave.Text = "No Save Found";
+            this.lblNoSave.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNoSave.Visible = false;
             // 
-            // lblCustomUpdated02
+            // lblNewPage
             // 
-            this.lblCustomUpdated02.AutoSize = true;
-            this.lblCustomUpdated02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated02.Location = new System.Drawing.Point(7, 126);
-            this.lblCustomUpdated02.Name = "lblCustomUpdated02";
-            this.lblCustomUpdated02.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated02.TabIndex = 29;
-            this.lblCustomUpdated02.Text = "LAST UPDATED";
+            this.lblNewPage.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblNewPage.Location = new System.Drawing.Point(29, 240);
+            this.lblNewPage.Name = "lblNewPage";
+            this.lblNewPage.Size = new System.Drawing.Size(133, 17);
+            this.lblNewPage.TabIndex = 46;
+            this.lblNewPage.Text = "New Page Created";
+            this.lblNewPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNewPage.Visible = false;
             // 
-            // lblCustomUpdated03
+            // lblSaveFound
             // 
-            this.lblCustomUpdated03.AutoSize = true;
-            this.lblCustomUpdated03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated03.Location = new System.Drawing.Point(7, 126);
-            this.lblCustomUpdated03.Name = "lblCustomUpdated03";
-            this.lblCustomUpdated03.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated03.TabIndex = 30;
-            this.lblCustomUpdated03.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdated05
-            // 
-            this.lblCustomUpdated05.AutoSize = true;
-            this.lblCustomUpdated05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated05.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated05.Name = "lblCustomUpdated05";
-            this.lblCustomUpdated05.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated05.TabIndex = 31;
-            this.lblCustomUpdated05.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdated06
-            // 
-            this.lblCustomUpdated06.AutoSize = true;
-            this.lblCustomUpdated06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated06.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated06.Name = "lblCustomUpdated06";
-            this.lblCustomUpdated06.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated06.TabIndex = 32;
-            this.lblCustomUpdated06.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdated07
-            // 
-            this.lblCustomUpdated07.AutoSize = true;
-            this.lblCustomUpdated07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated07.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated07.Name = "lblCustomUpdated07";
-            this.lblCustomUpdated07.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated07.TabIndex = 33;
-            this.lblCustomUpdated07.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdated08
-            // 
-            this.lblCustomUpdated08.AutoSize = true;
-            this.lblCustomUpdated08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated08.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated08.Name = "lblCustomUpdated08";
-            this.lblCustomUpdated08.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated08.TabIndex = 34;
-            this.lblCustomUpdated08.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdated09
-            // 
-            this.lblCustomUpdated09.AutoSize = true;
-            this.lblCustomUpdated09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated09.Location = new System.Drawing.Point(6, 126);
-            this.lblCustomUpdated09.Name = "lblCustomUpdated09";
-            this.lblCustomUpdated09.Size = new System.Drawing.Size(84, 13);
-            this.lblCustomUpdated09.TabIndex = 35;
-            this.lblCustomUpdated09.Text = "LAST UPDATED";
-            // 
-            // lblCustomUpdatedv01
-            // 
-            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(103, 128);
-            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
-            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv01.TabIndex = 28;
-            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv02
-            // 
-            this.lblCustomUpdatedv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv02.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv02.Name = "lblCustomUpdatedv02";
-            this.lblCustomUpdatedv02.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv02.TabIndex = 29;
-            this.lblCustomUpdatedv02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv03
-            // 
-            this.lblCustomUpdatedv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv03.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv03.Name = "lblCustomUpdatedv03";
-            this.lblCustomUpdatedv03.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv03.TabIndex = 30;
-            this.lblCustomUpdatedv03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv04
-            // 
-            this.lblCustomUpdatedv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv04.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv04.Name = "lblCustomUpdatedv04";
-            this.lblCustomUpdatedv04.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv04.TabIndex = 31;
-            this.lblCustomUpdatedv04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv05
-            // 
-            this.lblCustomUpdatedv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv05.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv05.Name = "lblCustomUpdatedv05";
-            this.lblCustomUpdatedv05.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv05.TabIndex = 32;
-            this.lblCustomUpdatedv05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv06
-            // 
-            this.lblCustomUpdatedv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv06.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv06.Name = "lblCustomUpdatedv06";
-            this.lblCustomUpdatedv06.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv06.TabIndex = 33;
-            this.lblCustomUpdatedv06.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv07
-            // 
-            this.lblCustomUpdatedv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv07.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv07.Name = "lblCustomUpdatedv07";
-            this.lblCustomUpdatedv07.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv07.TabIndex = 34;
-            this.lblCustomUpdatedv07.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv08
-            // 
-            this.lblCustomUpdatedv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv08.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv08.Name = "lblCustomUpdatedv08";
-            this.lblCustomUpdatedv08.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv08.TabIndex = 35;
-            this.lblCustomUpdatedv08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustomUpdatedv09
-            // 
-            this.lblCustomUpdatedv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv09.Location = new System.Drawing.Point(103, 126);
-            this.lblCustomUpdatedv09.Name = "lblCustomUpdatedv09";
-            this.lblCustomUpdatedv09.Size = new System.Drawing.Size(160, 13);
-            this.lblCustomUpdatedv09.TabIndex = 36;
-            this.lblCustomUpdatedv09.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // btnSaveProfile
-            // 
-            this.btnSaveProfile.BackColor = System.Drawing.Color.DimGray;
-            this.btnSaveProfile.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSaveProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveProfile.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnSaveProfile.Location = new System.Drawing.Point(316, 315);
-            this.btnSaveProfile.Name = "btnSaveProfile";
-            this.btnSaveProfile.Size = new System.Drawing.Size(100, 30);
-            this.btnSaveProfile.TabIndex = 42;
-            this.btnSaveProfile.Text = "SAVE";
-            this.btnSaveProfile.UseVisualStyleBackColor = false;
-            this.btnSaveProfile.Click += new System.EventHandler(this.btnSaveProfile_Click);
-            // 
-            // lblSaved
-            // 
-            this.lblSaved.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblSaved.Location = new System.Drawing.Point(306, 351);
-            this.lblSaved.Name = "lblSaved";
-            this.lblSaved.Size = new System.Drawing.Size(121, 17);
-            this.lblSaved.TabIndex = 43;
-            this.lblSaved.Text = "Saved to Profile 1";
-            this.lblSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblSaved.Visible = false;
-            // 
-            // lblConfirmed
-            // 
-            this.lblConfirmed.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblConfirmed.Location = new System.Drawing.Point(158, 351);
-            this.lblConfirmed.Name = "lblConfirmed";
-            this.lblConfirmed.Size = new System.Drawing.Size(135, 17);
-            this.lblConfirmed.TabIndex = 44;
-            this.lblConfirmed.Text = "Selection Confirmed";
-            this.lblConfirmed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblConfirmed.Visible = false;
-            // 
-            // optionsSummaryAdvaned
-            // 
-            this.optionsSummaryAdvaned.Controls.Add(this.Pagev);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblPage);
-            this.optionsSummaryAdvaned.Controls.Add(this.Currencyv);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblCurrency);
-            this.optionsSummaryAdvaned.Controls.Add(this.label2);
-            this.optionsSummaryAdvaned.Dock = System.Windows.Forms.DockStyle.Right;
-            this.optionsSummaryAdvaned.Location = new System.Drawing.Point(452, 3);
-            this.optionsSummaryAdvaned.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
-            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 375);
-            this.optionsSummaryAdvaned.TabIndex = 22;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Walkway Bold", 22F);
-            this.label2.Location = new System.Drawing.Point(0, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(379, 40);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Advanced Options";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblCurrency
-            // 
-            this.lblCurrency.AutoSize = true;
-            this.lblCurrency.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCurrency.Location = new System.Drawing.Point(30, 58);
-            this.lblCurrency.Name = "lblCurrency";
-            this.lblCurrency.Size = new System.Drawing.Size(120, 29);
-            this.lblCurrency.TabIndex = 41;
-            this.lblCurrency.Text = "Currency";
-            // 
-            // Currencyv
-            // 
-            this.Currencyv.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.Currencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Currencyv.DisplayMember = "(Collection)";
-            this.Currencyv.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.Currencyv.FormattingEnabled = true;
-            this.Currencyv.Items.AddRange(new object[] {
-            "USD ($)",
-            "AUD ($)"});
-            this.Currencyv.Location = new System.Drawing.Point(35, 88);
-            this.Currencyv.Name = "Currencyv";
-            this.Currencyv.Size = new System.Drawing.Size(121, 29);
-            this.Currencyv.TabIndex = 42;
-            // 
-            // Pagev
-            // 
-            this.Pagev.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.Pagev.FormattingEnabled = true;
-            this.Pagev.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.Pagev.Location = new System.Drawing.Point(35, 170);
-            this.Pagev.Name = "Pagev";
-            this.Pagev.Size = new System.Drawing.Size(121, 29);
-            this.Pagev.TabIndex = 44;
-            // 
-            // lblPage
-            // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblPage.Location = new System.Drawing.Point(30, 140);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(74, 29);
-            this.lblPage.TabIndex = 43;
-            this.lblPage.Text = "Page";
+            this.lblSaveFound.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblSaveFound.Location = new System.Drawing.Point(53, 240);
+            this.lblSaveFound.Name = "lblSaveFound";
+            this.lblSaveFound.Size = new System.Drawing.Size(85, 17);
+            this.lblSaveFound.TabIndex = 47;
+            this.lblSaveFound.Text = "Save Found";
+            this.lblSaveFound.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblSaveFound.Visible = false;
             // 
             // Crypto
             // 
@@ -2434,10 +2489,10 @@
             this.Options.PerformLayout();
             this.tabOptions.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.optionsSummary.ResumeLayout(false);
-            this.optionsSummary.PerformLayout();
             this.optionsSummaryAdvaned.ResumeLayout(false);
             this.optionsSummaryAdvaned.PerformLayout();
+            this.optionsSummary.ResumeLayout(false);
+            this.optionsSummary.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2637,5 +2692,10 @@
         private System.Windows.Forms.Label lblCurrency;
         private System.Windows.Forms.ComboBox Pagev;
         private System.Windows.Forms.Label lblPage;
+        private System.Windows.Forms.Button btnNewPage;
+        private System.Windows.Forms.Timer timerPageCheck;
+        private System.Windows.Forms.Label lblNoSave;
+        private System.Windows.Forms.Label lblNewPage;
+        private System.Windows.Forms.Label lblSaveFound;
     }
 }

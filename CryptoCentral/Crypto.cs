@@ -12,6 +12,20 @@ namespace APIAccessTEST01
 {
     public partial class Crypto : Form
     {
+        private class Item
+        {
+            public string Name;
+            public int Value;
+            public Item(string name, int value)
+            {
+                Name = name; Value = value;
+            }
+
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
         public Crypto()
         {
             InitializeComponent();
@@ -57,15 +71,25 @@ namespace APIAccessTEST01
         string coin8FN = "";
         string coin9FN = "";
 
-        string[] Profile1 = new string[9];
-        string[] Profile1Loaded = new string[9];
+        string PageNumber;
+        string pagenumbers;
+        string SavedPageNumber;
+
+        string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
+        public string[] Profile1Loaded = new string[10];
+        string[] stringPagesSaved = new string[10];
+        string[] NewPagesSaved = { "0", "0", "0", "0", "0" };
 
         bool bOptions = false;
         bool bSummary = true;
         bool ConfirmAllowed = false;
         bool ProfileLoaded = false;
+        bool NewSave;
 
         double Profile;
+
+        int pages = 1;
+        int PageCalculation;
 
         void Summary01RESET()
         {
@@ -78,13 +102,30 @@ namespace APIAccessTEST01
             Options.Location = new Point(222, 78);
             Options.Size = new Size(842, 468);
         }
+        void CreateMustFiles()
+        {
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt"))
+            {
+                pagenumbers = Convert.ToString(pages);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", pagenumbers);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
+                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", Profile1);
+                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", NewPagesSaved);
+            }
+            else
+            {
+
+            }
+        }
         private void Crypto_Load(object sender, EventArgs e)
         {
             ProfileLoaded = false;
             Profile = 1;
+            CreateMustFiles();
             LoadProfile(Profile);
             TestCoinSummary();
             Summary01RESET();
+            Pagev.SelectedIndex = Convert.ToInt32(PageNumber);
             Options.Visible = false;
             Summary01.Visible = true;
             this.Size = new Size(1064, 546);
@@ -111,6 +152,8 @@ namespace APIAccessTEST01
         private void btnClose_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
+            PageNumber = Convert.ToString(Pagev.SelectedIndex);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -138,26 +181,134 @@ namespace APIAccessTEST01
         {
             if (ProfileNumber == 1)
             {
-                Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\Profile1.txt");
-                coin1 = Profile1Loaded[0];
-                coin2 = Profile1Loaded[1];
-                coin3 = Profile1Loaded[2];
-                coin4 = Profile1Loaded[3];
-                coin5 = Profile1Loaded[4];
-                coin6 = Profile1Loaded[5];
-                coin7 = Profile1Loaded[6];
-                coin8 = Profile1Loaded[7];
-                coin9 = Profile1Loaded[8];
-                txtCustom01.Text = coin1;
-                txtCustom02.Text = coin2;
-                txtCustom03.Text = coin3;
-                txtCustom04.Text = coin4;
-                txtCustom05.Text = coin5;
-                txtCustom06.Text = coin6;
-                txtCustom07.Text = coin7;
-                txtCustom08.Text = coin8;
-                txtCustom09.Text = coin9;
-                ProfileLoaded = true;
+                try
+                {
+                    stringPagesSaved = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt");
+                    PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
+                    pagenumbers = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
+                    PageCalculation = Convert.ToInt32(pagenumbers);
+                    for (int i = 0; i < PageCalculation; i++)
+                    {
+                        Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
+                        pages = pages + 1;
+                        if (pages > PageCalculation)
+                        {
+                            pages = pages - 1;
+                        }
+                        
+                    }
+                    if(stringPagesSaved[Convert.ToInt32(PageNumber)] == "0")
+                    {
+                        SavedPageNumber = "0";
+                    }
+                    else
+                    {
+                        SavedPageNumber = PageNumber;
+                    }
+                    Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + SavedPageNumber + ".txt");
+                    coin1 = Profile1Loaded[0];
+                    coin2 = Profile1Loaded[1];
+                    coin3 = Profile1Loaded[2];
+                    coin4 = Profile1Loaded[3];
+                    coin5 = Profile1Loaded[4];
+                    coin6 = Profile1Loaded[5];
+                    coin7 = Profile1Loaded[6];
+                    coin8 = Profile1Loaded[7];
+                    coin9 = Profile1Loaded[8];
+                    txtCustom01.Text = coin1;
+                    txtCustom02.Text = coin2;
+                    txtCustom03.Text = coin3;
+                    txtCustom04.Text = coin4;
+                    txtCustom05.Text = coin5;
+                    txtCustom06.Text = coin6;
+                    txtCustom07.Text = coin7;
+                    txtCustom08.Text = coin8;
+                    txtCustom09.Text = coin9;
+                    ProfileLoaded = true;
+                }
+                catch (Exception)
+                {
+
+                }
+                
+            }
+        }
+        void IndexChanged(int SelectedIndex)
+        {
+            Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + Convert.ToString(SelectedIndex) + ".txt");
+            coin1 = Profile1Loaded[0];
+            coin2 = Profile1Loaded[1];
+            coin3 = Profile1Loaded[2];
+            coin4 = Profile1Loaded[3];
+            coin5 = Profile1Loaded[4];
+            coin6 = Profile1Loaded[5];
+            coin7 = Profile1Loaded[6];
+            coin8 = Profile1Loaded[7];
+            coin9 = Profile1Loaded[8];
+            txtCustom01.Text = coin1;
+            txtCustom02.Text = coin2;
+            txtCustom03.Text = coin3;
+            txtCustom04.Text = coin4;
+            txtCustom05.Text = coin5;
+            txtCustom06.Text = coin6;
+            txtCustom07.Text = coin7;
+            txtCustom08.Text = coin8;
+            txtCustom09.Text = coin9;
+            TestCoinSummary();
+            GETINFOSummary();
+            HideConfirmationLabelsSave();
+        }
+        private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(NewSave == true)
+            {
+                lblNoSave.Visible = false;
+                lblNewPage.Text = "New Page Created";
+                lblNewPage.Visible = true;
+                NewSave = false;
+            }
+            else
+            {
+                if (Pagev.SelectedIndex == 0)
+                {
+                    try
+                    {
+                        IndexChanged(Pagev.SelectedIndex);
+                    }
+                    catch (Exception)
+                    {
+                        EmptySummary();
+                        lblNoSave.Visible = true;
+                        HideConfirmationLabelsNoSave();
+
+                    }
+                }
+                else if (Pagev.SelectedIndex == 1)
+                {
+                    try
+                    {
+                        IndexChanged(Pagev.SelectedIndex);
+                    }
+                    catch (Exception)
+                    {
+                        EmptySummary();
+                        lblNoSave.Visible = true;
+                        HideConfirmationLabelsNoSave();
+                    }
+                }
+                else if (Pagev.SelectedIndex == 2)
+                {
+                    try
+                    {
+                        IndexChanged(Pagev.SelectedIndex);
+                    }
+                    catch (Exception)
+                    {
+                        EmptySummary();
+                        lblNoSave.Visible = true;
+                        HideConfirmationLabelsNoSave();
+                    }
+                }
             }
         }
         void ConfirmOptionCoins()
@@ -192,8 +343,10 @@ namespace APIAccessTEST01
                 Profile1[6] = coin7;
                 Profile1[7] = coin8;
                 Profile1[8] = coin9;
-                Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles");
-                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\Profile1.txt", Profile1);
+                PageNumber = Convert.ToString(Pagev.SelectedIndex);
+                Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
+                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", Profile1);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
             }
         }
         public void TestOptionCoins(ref string RealCoin, ref string RealCoinFN)
@@ -652,7 +805,6 @@ namespace APIAccessTEST01
         }
         void ConfirmSummary()
         {
-            lblConfirmed.Visible = true;
             while (ConfirmAllowed == true)
             {
                 txtCustom01.ReadOnly = true;
@@ -673,6 +825,7 @@ namespace APIAccessTEST01
                 txtCustom07.BackColor = Color.Gray;
                 txtCustom08.BackColor = Color.Gray;
                 txtCustom09.BackColor = Color.Gray;
+                lblConfirmed.Visible = true;
                 TestCoinSummary();
                 GETINFOSummary();
                 ConfirmAllowed = false;
@@ -730,7 +883,76 @@ namespace APIAccessTEST01
         {
             SaveProfile();
             lblSaved.Visible = true;
-            lblSaved.Text = "Saved to Profile " + Convert.ToString(Profile);
+            int CurrentPage = Pagev.SelectedIndex + 1;
+            int CurrentIndex = Pagev.SelectedIndex;
+            lblSaved.Text = "Saved to Page " + Convert.ToString(CurrentPage);
+            File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", stringPagesSaved);
+        }
+
+        private void btnNewPage_Click(object sender, EventArgs e)
+        {
+            NewSave = true;
+            pages = pages + 1;
+            Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
+            pagenumbers = Convert.ToString(pages);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", pagenumbers);
+            lblConfirmed.Visible = false;
+            lblSaved.Visible = false;
+            Pagev.SelectedIndex = pages - 1;
+            EmptySummary();
+        }
+
+        private void timerPageCheck_Tick(object sender, EventArgs e)
+        {
+
+        }
+        void EmptySummary()
+        {
+            txtCustom01.ReadOnly = true;
+            txtCustom02.ReadOnly = true;
+            txtCustom03.ReadOnly = true;
+            txtCustom04.ReadOnly = true;
+            txtCustom05.ReadOnly = true;
+            txtCustom06.ReadOnly = true;
+            txtCustom07.ReadOnly = true;
+            txtCustom08.ReadOnly = true;
+            txtCustom09.ReadOnly = true;
+            txtCustom01.BackColor = Color.Gray;
+            txtCustom02.BackColor = Color.Gray;
+            txtCustom03.BackColor = Color.Gray;
+            txtCustom04.BackColor = Color.Gray;
+            txtCustom05.BackColor = Color.Gray;
+            txtCustom06.BackColor = Color.Gray;
+            txtCustom07.BackColor = Color.Gray;
+            txtCustom08.BackColor = Color.Gray;
+            txtCustom09.BackColor = Color.Gray;
+            txtCustom01.Text = "";
+            txtCustom02.Text = "";
+            txtCustom03.Text = "";
+            txtCustom04.Text = "";
+            txtCustom05.Text = "";
+            txtCustom06.Text = "";
+            txtCustom07.Text = "";
+            txtCustom08.Text = "";
+            txtCustom09.Text = "";
+            TestCoinSummary();
+            GETINFOSummary();
+        }
+        void HideConfirmationLabelsSave()
+        {
+            lblConfirmed.Visible = false;
+            lblSaved.Visible = false;
+            lblNewPage.Visible = false;
+            lblNoSave.Visible = false;
+            lblSaveFound.Visible = true;
+        }
+        void HideConfirmationLabelsNoSave()
+        {
+            lblConfirmed.Visible = false;
+            lblSaved.Visible = false;
+            lblNewPage.Visible = false;
+            lblNoSave.Visible = true;
+            lblSaveFound.Visible = false;
         }
     }
 }

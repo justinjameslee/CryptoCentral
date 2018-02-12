@@ -31,8 +31,6 @@ namespace APIAccessTEST01
             InitializeComponent();
         }
 
-        Color BrightRed = ColorTranslator.FromHtml("#FF0000");
-
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -106,6 +104,7 @@ namespace APIAccessTEST01
         {
             if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt"))
             {
+                Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
                 pagenumbers = Convert.ToString(pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", pagenumbers);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
@@ -368,18 +367,27 @@ namespace APIAccessTEST01
             {
                 foreach (var coin in Coins)
                 {
-                    if (coin.name.ToUpper() == RealCoin.ToUpper())
+                    if (RealCoin.ToUpper() != coin.symbol)
                     {
-                        RealCoin = coin.symbol;
-                        RealCoinFN = coin.id.ToLower();
-                        break;
+                        RealCoin = "";
+                        RealCoinFN = "";
                     }
-                    else if (coin.symbol == RealCoin.ToUpper())
+                    else
                     {
-                        RealCoin = coin.symbol;
-                        RealCoinFN = coin.id;
-                        break;
+                        if (coin.name.ToUpper() == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id.ToLower();
+                            break;
+                        }
+                        else if (coin.symbol == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id;
+                            break;
+                        }
                     }
+                    
                 }
             }
         }
@@ -450,7 +458,7 @@ namespace APIAccessTEST01
                     }
                     else if (Dpercent == 0)
                     {
-                        xUSDv.ForeColor = Color.Yellow;
+                        xUSDv.ForeColor = Color.White;
                     }
                     xUSDv.Text = price_usd;
                 }
@@ -471,12 +479,12 @@ namespace APIAccessTEST01
                     else if (Dchange < 0)
                     {
                         if (data.symbol == "BTC") { }
-                        else { xBTCv.ForeColor = BrightRed; }
+                        else { xBTCv.ForeColor = Color.Red; }
                     }
                     else if (Dchange == 0)
                     {
                         if (data.symbol == "BTC") { }
-                        else { xBTCv.ForeColor = Color.Yellow; }
+                        else { xBTCv.ForeColor = Color.White; }
                     }
                     string price_btc;
                     price_btc = data.price_btc;
@@ -517,7 +525,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSDc.ForeColor = Color.Yellow;
+                            xUSDc.ForeColor = Color.White;
                         }
                         else
                         {
@@ -531,7 +539,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSDc.ForeColor = Color.Yellow;
+                            xUSDc.ForeColor = Color.White;
                         }
                         else
                         {
@@ -577,7 +585,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSD24c.ForeColor = Color.Yellow;
+                            xUSD24c.ForeColor = Color.White;
                         }
                         else
                         {
@@ -591,7 +599,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSD24c.ForeColor = Color.Yellow;
+                            xUSD24c.ForeColor = Color.White;
                         }
                         else
                         {
@@ -636,7 +644,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSD7c.ForeColor = Color.Yellow;
+                            xUSD7c.ForeColor = Color.White;
                         }
                         else
                         {
@@ -651,7 +659,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            xUSD7c.ForeColor = Color.Yellow;
+                            xUSD7c.ForeColor = Color.White;
                         }
                         else
                         {
@@ -681,7 +689,7 @@ namespace APIAccessTEST01
                     }
                     else if (Dchange == 0)
                     {
-                        xUSDp.ForeColor = Color.Yellow;
+                        xUSDp.ForeColor = Color.White;
                     }
                     xUSDp.Text = percent_change_1h;
                 }
@@ -703,7 +711,7 @@ namespace APIAccessTEST01
                     }
                     else if (Dchange == 0)
                     {
-                        xUSD24p.ForeColor = Color.Yellow;
+                        xUSD24p.ForeColor = Color.White;
                     }
                     xUSD24p.Text = percent_change_24h;
                 }
@@ -721,11 +729,11 @@ namespace APIAccessTEST01
                     }
                     else if (Dchange < 0)
                     {
-                        xUSD7p.ForeColor = BrightRed;
+                        xUSD7p.ForeColor = Color.Red;
                     }
                     else if (Dchange == 0)
                     {
-                        xUSD7p.ForeColor = Color.Yellow;
+                        xUSD7p.ForeColor = Color.White;
                     }
                     xUSD7p.Text = percent_change_7d;
                 }
@@ -900,6 +908,7 @@ namespace APIAccessTEST01
             lblSaved.Visible = false;
             Pagev.SelectedIndex = pages - 1;
             EmptySummary();
+            HideConfirmationLabelsNewSave();
         }
 
         private void timerPageCheck_Tick(object sender, EventArgs e)
@@ -953,6 +962,19 @@ namespace APIAccessTEST01
             lblNewPage.Visible = false;
             lblNoSave.Visible = true;
             lblSaveFound.Visible = false;
+        }
+        void HideConfirmationLabelsNewSave()
+        {
+            lblConfirmed.Visible = false;
+            lblSaved.Visible = false;
+            lblNewPage.Visible = true;
+            lblNoSave.Visible = false;
+            lblSaveFound.Visible = false;
+        }
+
+        private void btnClearSummary_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

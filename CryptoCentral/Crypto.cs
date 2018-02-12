@@ -70,7 +70,7 @@ namespace APIAccessTEST01
         string coin9FN = "";
 
         string PageNumber;
-        string pagenumbers;
+        string Pages;
         string SavedPageNumber;
 
         string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
@@ -83,11 +83,14 @@ namespace APIAccessTEST01
         bool ConfirmAllowed = false;
         bool ProfileLoaded = false;
         bool NewSave;
+        bool PageChanged;
 
         double Profile;
 
         int pages = 1;
         int PageCalculation;
+        int CurrentPage;
+        int MaxPages;
 
         void Summary01RESET()
         {
@@ -105,8 +108,8 @@ namespace APIAccessTEST01
             if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt"))
             {
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
-                pagenumbers = Convert.ToString(pages);
-                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", pagenumbers);
+                Pages = Convert.ToString(pages);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", Pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", Profile1);
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", NewPagesSaved);
@@ -130,6 +133,7 @@ namespace APIAccessTEST01
             this.Size = new Size(1064, 546);
             this.CenterToScreen();
             GETINFOSummary();
+            lblSaveFound.Visible = false;
         }
         private void Header_MouseDown(object sender, MouseEventArgs e)
         {
@@ -154,7 +158,20 @@ namespace APIAccessTEST01
             PageNumber = Convert.ToString(Pagev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
         }
-
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            if (bOptions == true)
+            {
+                bOptions = false;
+                bSummary = true;
+                Summary01RESET();
+                Summary01.Visible = true;
+                Options.Visible = false;
+                lblSaved.Visible = false;
+                lblConfirmed.Visible = false;
+                lblMaxPages.Visible = false;
+            }
+        }
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (bOptions == true)
@@ -166,6 +183,36 @@ namespace APIAccessTEST01
                 Options.Visible = false;
                 lblSaved.Visible = false;
                 lblConfirmed.Visible = false;
+                lblMaxPages.Visible = false;
+            }
+        }
+        private void btnPageLeft_Click(object sender, EventArgs e)
+        {
+            if(Pagev.SelectedIndex == 0)
+            {
+            }
+            else
+            {
+                PageChanged = true;
+                btnPageLeft.Enabled = true;
+                Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
+                UpdatingCurrentPage();
+            }
+        }
+        private void btnPageRight_Click(object sender, EventArgs e)
+        {
+            MaxPages = Convert.ToInt32(Pages);
+            MaxPages = MaxPages - 1;
+            if(Pagev.SelectedIndex == MaxPages)
+            {
+
+            }
+            else
+            {
+                PageChanged = true;
+                btnPageRight.Enabled = true;
+                Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
+                UpdatingCurrentPage();
             }
         }
         private void lblSettings_Click(object sender, EventArgs e)
@@ -184,8 +231,8 @@ namespace APIAccessTEST01
                 {
                     stringPagesSaved = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt");
                     PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
-                    pagenumbers = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
-                    PageCalculation = Convert.ToInt32(pagenumbers);
+                    Pages = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
+                    PageCalculation = Convert.ToInt32(Pages);
                     for (int i = 0; i < PageCalculation; i++)
                     {
                         Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
@@ -257,9 +304,34 @@ namespace APIAccessTEST01
             GETINFOSummary();
             HideConfirmationLabelsSave();
         }
+        void UpdatingCurrentPage()
+        {
+            CurrentPage = Pagev.SelectedIndex + 1;
+            lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
+        }
+        void SelectedIndexChanged(int Index)
+        {
+            lblMaxPages.Visible = false;
+            if (Pagev.SelectedIndex == Index)
+            {
+                UpdatingCurrentPage();
+                try
+                {
+                    IndexChanged(Pagev.SelectedIndex);
+                }
+                catch (Exception)
+                {
+                    EmptySummary();
+                    TestCoinSummary();
+                    GETINFOSummary();
+                    HideConfirmationLabelsNoSave();
+
+                }
+            }
+        }
         private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(NewSave == true)
+            if (NewSave == true)
             {
                 lblNoSave.Visible = false;
                 lblNewPage.Text = "New Page Created";
@@ -268,46 +340,12 @@ namespace APIAccessTEST01
             }
             else
             {
-                if (Pagev.SelectedIndex == 0)
-                {
-                    try
-                    {
-                        IndexChanged(Pagev.SelectedIndex);
-                    }
-                    catch (Exception)
-                    {
-                        EmptySummary();
-                        lblNoSave.Visible = true;
-                        HideConfirmationLabelsNoSave();
-
-                    }
-                }
-                else if (Pagev.SelectedIndex == 1)
-                {
-                    try
-                    {
-                        IndexChanged(Pagev.SelectedIndex);
-                    }
-                    catch (Exception)
-                    {
-                        EmptySummary();
-                        lblNoSave.Visible = true;
-                        HideConfirmationLabelsNoSave();
-                    }
-                }
-                else if (Pagev.SelectedIndex == 2)
-                {
-                    try
-                    {
-                        IndexChanged(Pagev.SelectedIndex);
-                    }
-                    catch (Exception)
-                    {
-                        EmptySummary();
-                        lblNoSave.Visible = true;
-                        HideConfirmationLabelsNoSave();
-                    }
-                }
+                SelectedIndexChanged(0);
+                SelectedIndexChanged(1);
+                SelectedIndexChanged(2);
+                SelectedIndexChanged(3);
+                SelectedIndexChanged(4);
+                SelectedIndexChanged(5);
             }
         }
         void ConfirmOptionCoins()
@@ -323,6 +361,19 @@ namespace APIAccessTEST01
                 coin7 = txtCustom07.Text;
                 coin8 = txtCustom08.Text;
                 coin9 = txtCustom09.Text;
+            }
+            else if (PageChanged = true)
+            {
+                coin1 = txtCustom01.Text;
+                coin2 = txtCustom02.Text;
+                coin3 = txtCustom03.Text;
+                coin4 = txtCustom04.Text;
+                coin5 = txtCustom05.Text;
+                coin6 = txtCustom06.Text;
+                coin7 = txtCustom07.Text;
+                coin8 = txtCustom08.Text;
+                coin9 = txtCustom09.Text;
+                PageChanged = false;
             }
             else
             {
@@ -352,6 +403,8 @@ namespace APIAccessTEST01
         {
             API(@"https://api.coinmarketcap.com/v1/ticker/");
 
+            double counting = 0;
+
             Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
             if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
             {
@@ -367,27 +420,24 @@ namespace APIAccessTEST01
             {
                 foreach (var coin in Coins)
                 {
-                    if (RealCoin.ToUpper() != coin.symbol)
+                    counting = counting + 1;
+                    if (coin.name.ToUpper() == RealCoin.ToUpper())
+                    {
+                        RealCoin = coin.symbol;
+                        RealCoinFN = coin.id.ToLower();
+                        break;
+                    }
+                    else if (coin.symbol == RealCoin.ToUpper())
+                    {
+                        RealCoin = coin.symbol;
+                        RealCoinFN = coin.id;
+                        break;
+                    }
+                    else if (counting == 100)
                     {
                         RealCoin = "";
                         RealCoinFN = "";
                     }
-                    else
-                    {
-                        if (coin.name.ToUpper() == RealCoin.ToUpper())
-                        {
-                            RealCoin = coin.symbol;
-                            RealCoinFN = coin.id.ToLower();
-                            break;
-                        }
-                        else if (coin.symbol == RealCoin.ToUpper())
-                        {
-                            RealCoin = coin.symbol;
-                            RealCoinFN = coin.id;
-                            break;
-                        }
-                    }
-                    
                 }
             }
         }
@@ -782,11 +832,15 @@ namespace APIAccessTEST01
         private void btnEditSummary_Click(object sender, EventArgs e)
         {
             EditSummary();
+            btnEditSummary.Visible = false;
+            btnClearSummary.Visible = true;
         }
 
         private void btnConfirmSummary_Click(object sender, EventArgs e)
         {
             ConfirmSummary();
+            btnEditSummary.Visible = true;
+            btnClearSummary.Visible = false;
         }
         void EditSummary()
         {
@@ -881,12 +935,6 @@ namespace APIAccessTEST01
             TestOptionCoins(ref coin9, ref coin9FN);
             System.Threading.Thread.Sleep(50);
         }
-
-        private void btnHome_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
             SaveProfile();
@@ -899,16 +947,27 @@ namespace APIAccessTEST01
 
         private void btnNewPage_Click(object sender, EventArgs e)
         {
+            HideConfirmationLabelsNewSave();
             NewSave = true;
             pages = pages + 1;
-            Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
-            pagenumbers = Convert.ToString(pages);
-            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", pagenumbers);
-            lblConfirmed.Visible = false;
-            lblSaved.Visible = false;
-            Pagev.SelectedIndex = pages - 1;
-            EmptySummary();
-            HideConfirmationLabelsNewSave();
+            if (pages == 7)
+            {
+                pages = pages - 1;
+                lblMaxPages.Visible = true;
+                lblNoSave.Visible = false;
+                lblNewPage.Visible = false;
+                NewSave = false;
+            }
+            else
+            {
+                Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
+                Pages = Convert.ToString(pages);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", Pages);
+                Pagev.SelectedIndex = pages - 1;
+                CurrentPage = Pagev.SelectedIndex + 1;
+                lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
+                EmptySummary();
+            }
         }
 
         private void timerPageCheck_Tick(object sender, EventArgs e)
@@ -949,6 +1008,7 @@ namespace APIAccessTEST01
         }
         void HideConfirmationLabelsSave()
         {
+            lblMaxPages.Visible = false;
             lblConfirmed.Visible = false;
             lblSaved.Visible = false;
             lblNewPage.Visible = false;
@@ -960,21 +1020,31 @@ namespace APIAccessTEST01
             lblConfirmed.Visible = false;
             lblSaved.Visible = false;
             lblNewPage.Visible = false;
-            lblNoSave.Visible = true;
             lblSaveFound.Visible = false;
+            lblMaxPages.Visible = false;
+            lblNoSave.Visible = true;
         }
         void HideConfirmationLabelsNewSave()
         {
+            lblMaxPages.Visible = false;
             lblConfirmed.Visible = false;
             lblSaved.Visible = false;
-            lblNewPage.Visible = true;
             lblNoSave.Visible = false;
             lblSaveFound.Visible = false;
+            lblNewPage.Visible = true;
         }
 
         private void btnClearSummary_Click(object sender, EventArgs e)
         {
-
+            txtCustom01.Text = "";
+            txtCustom02.Text = "";
+            txtCustom03.Text = "";
+            txtCustom04.Text = "";
+            txtCustom05.Text = "";
+            txtCustom06.Text = "";
+            txtCustom07.Text = "";
+            txtCustom08.Text = "";
+            txtCustom09.Text = "";
         }
     }
 }

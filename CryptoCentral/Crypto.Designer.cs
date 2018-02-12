@@ -40,6 +40,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.btnPageRight = new System.Windows.Forms.PictureBox();
+            this.btnPageLeft = new System.Windows.Forms.PictureBox();
+            this.lblCurrentPage = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.Summary01 = new System.Windows.Forms.Panel();
             this.customGroup09 = new System.Windows.Forms.GroupBox();
@@ -201,6 +204,7 @@
             this.lblCurrency = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.optionsSummary = new System.Windows.Forms.Panel();
+            this.btnClearSummary = new System.Windows.Forms.Button();
             this.lblConfirmed = new System.Windows.Forms.Label();
             this.lblSaved = new System.Windows.Forms.Label();
             this.btnSaveProfile = new System.Windows.Forms.Button();
@@ -228,7 +232,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.timerPageCheck = new System.Windows.Forms.Timer(this.components);
-            this.btnClearSummary = new System.Windows.Forms.Button();
+            this.lblMaxPages = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
@@ -236,6 +240,8 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.Summary01.SuspendLayout();
             this.customGroup09.SuspendLayout();
@@ -362,6 +368,9 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.DimGray;
+            this.Header.Controls.Add(this.btnPageRight);
+            this.Header.Controls.Add(this.btnPageLeft);
+            this.Header.Controls.Add(this.lblCurrentPage);
             this.Header.Controls.Add(this.btnClose);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
@@ -369,6 +378,41 @@
             this.Header.Size = new System.Drawing.Size(1710, 78);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
+            // 
+            // btnPageRight
+            // 
+            this.btnPageRight.Image = ((System.Drawing.Image)(resources.GetObject("btnPageRight.Image")));
+            this.btnPageRight.Location = new System.Drawing.Point(115, 47);
+            this.btnPageRight.Name = "btnPageRight";
+            this.btnPageRight.Size = new System.Drawing.Size(24, 24);
+            this.btnPageRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnPageRight.TabIndex = 10;
+            this.btnPageRight.TabStop = false;
+            this.btnPageRight.Click += new System.EventHandler(this.btnPageRight_Click);
+            // 
+            // btnPageLeft
+            // 
+            this.btnPageLeft.BackColor = System.Drawing.Color.DimGray;
+            this.btnPageLeft.Image = ((System.Drawing.Image)(resources.GetObject("btnPageLeft.Image")));
+            this.btnPageLeft.Location = new System.Drawing.Point(6, 47);
+            this.btnPageLeft.Name = "btnPageLeft";
+            this.btnPageLeft.Size = new System.Drawing.Size(24, 24);
+            this.btnPageLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.btnPageLeft.TabIndex = 9;
+            this.btnPageLeft.TabStop = false;
+            this.btnPageLeft.Click += new System.EventHandler(this.btnPageLeft_Click);
+            // 
+            // lblCurrentPage
+            // 
+            this.lblCurrentPage.AutoSize = true;
+            this.lblCurrentPage.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblCurrentPage.ForeColor = System.Drawing.Color.White;
+            this.lblCurrentPage.Location = new System.Drawing.Point(36, 49);
+            this.lblCurrentPage.Name = "lblCurrentPage";
+            this.lblCurrentPage.Size = new System.Drawing.Size(73, 20);
+            this.lblCurrentPage.TabIndex = 9;
+            this.lblCurrentPage.Text = "PAGE 1";
+            this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
             // 
@@ -1971,6 +2015,7 @@
             // 
             // optionsSummaryAdvaned
             // 
+            this.optionsSummaryAdvaned.Controls.Add(this.lblMaxPages);
             this.optionsSummaryAdvaned.Controls.Add(this.lblSaveFound);
             this.optionsSummaryAdvaned.Controls.Add(this.lblNewPage);
             this.optionsSummaryAdvaned.Controls.Add(this.lblNoSave);
@@ -2123,6 +2168,21 @@
             this.optionsSummary.Name = "optionsSummary";
             this.optionsSummary.Size = new System.Drawing.Size(449, 375);
             this.optionsSummary.TabIndex = 21;
+            // 
+            // btnClearSummary
+            // 
+            this.btnClearSummary.BackColor = System.Drawing.Color.DimGray;
+            this.btnClearSummary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnClearSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClearSummary.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnClearSummary.Location = new System.Drawing.Point(37, 315);
+            this.btnClearSummary.Name = "btnClearSummary";
+            this.btnClearSummary.Size = new System.Drawing.Size(100, 30);
+            this.btnClearSummary.TabIndex = 45;
+            this.btnClearSummary.Text = "CLEAR";
+            this.btnClearSummary.UseVisualStyleBackColor = false;
+            this.btnClearSummary.Visible = false;
+            this.btnClearSummary.Click += new System.EventHandler(this.btnClearSummary_Click);
             // 
             // lblConfirmed
             // 
@@ -2443,20 +2503,16 @@
             this.timerPageCheck.Enabled = true;
             this.timerPageCheck.Tick += new System.EventHandler(this.timerPageCheck_Tick);
             // 
-            // btnClearSummary
+            // lblMaxPages
             // 
-            this.btnClearSummary.BackColor = System.Drawing.Color.DimGray;
-            this.btnClearSummary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnClearSummary.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClearSummary.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnClearSummary.Location = new System.Drawing.Point(37, 315);
-            this.btnClearSummary.Name = "btnClearSummary";
-            this.btnClearSummary.Size = new System.Drawing.Size(100, 30);
-            this.btnClearSummary.TabIndex = 45;
-            this.btnClearSummary.Text = "CLEAR";
-            this.btnClearSummary.UseVisualStyleBackColor = false;
-            this.btnClearSummary.Visible = false;
-            this.btnClearSummary.Click += new System.EventHandler(this.btnClearSummary_Click);
+            this.lblMaxPages.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblMaxPages.Location = new System.Drawing.Point(43, 240);
+            this.lblMaxPages.Name = "lblMaxPages";
+            this.lblMaxPages.Size = new System.Drawing.Size(104, 17);
+            this.lblMaxPages.TabIndex = 48;
+            this.lblMaxPages.Text = "No More Pages";
+            this.lblMaxPages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMaxPages.Visible = false;
             // 
             // Crypto
             // 
@@ -2482,6 +2538,9 @@
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.Header.ResumeLayout(false);
+            this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.Summary01.ResumeLayout(false);
             this.customGroup09.ResumeLayout(false);
@@ -2715,5 +2774,9 @@
         private System.Windows.Forms.Label lblNewPage;
         private System.Windows.Forms.Label lblSaveFound;
         private System.Windows.Forms.Button btnClearSummary;
+        private System.Windows.Forms.Label lblCurrentPage;
+        private System.Windows.Forms.PictureBox btnPageLeft;
+        private System.Windows.Forms.PictureBox btnPageRight;
+        private System.Windows.Forms.Label lblMaxPages;
     }
 }

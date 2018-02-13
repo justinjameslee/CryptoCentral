@@ -41,7 +41,6 @@ namespace APIAccessTEST01
 
         List<MarketCap> Coins;
         List<MarketCap> CoinsDetailed;
-        List<string> CurrencyList = new List<string> { "aud", "usd"};
 
         string CURRENCY;
         string COIN;
@@ -72,6 +71,7 @@ namespace APIAccessTEST01
         string PageNumber;
         string Pages;
         string SavedPageNumber;
+        string StartingCurrency;
 
         string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
         public string[] Profile1Loaded = new string[10];
@@ -106,7 +106,7 @@ namespace APIAccessTEST01
         }
         void CreateMustFiles()
         {
-            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt"))
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt"))
             {
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
                 Pages = Convert.ToString(pages);
@@ -114,6 +114,7 @@ namespace APIAccessTEST01
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", Profile1);
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", NewPagesSaved);
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", Convert.ToString(0));
             }
             else
             {
@@ -129,7 +130,6 @@ namespace APIAccessTEST01
             TestCoinSummary();
             Summary01RESET();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);
-            Currencyv.SelectedIndex = 0;
             Options.Visible = false;
             Summary01.Visible = true;
             this.Size = new Size(1064, 546);
@@ -159,6 +159,8 @@ namespace APIAccessTEST01
             this.Close();
             PageNumber = Convert.ToString(Pagev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
+            StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
@@ -226,9 +228,11 @@ namespace APIAccessTEST01
             {
                 try
                 {
+                    StartingCurrency = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt");
                     stringPagesSaved = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt");
                     PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
                     Pages = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
+                    CurrencyNumber = Convert.ToInt32(StartingCurrency);
                     PageCalculation = Convert.ToInt32(Pages);
                     for (int i = 0; i < PageCalculation; i++)
                     {
@@ -247,6 +251,19 @@ namespace APIAccessTEST01
                     else
                     {
                         SavedPageNumber = PageNumber;
+                    }
+
+                    if (CurrencyNumber == 0)
+                    {
+                        Currencyv.SelectedIndex = 0;
+                    }
+                    else if (CurrencyNumber == 1)
+                    {
+                        Currencyv.SelectedIndex = 1;
+                    }
+                    else
+                    {
+                        Console.WriteLine("TEST");
                     }
                     Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + SavedPageNumber + ".txt");
                     coin1 = Profile1Loaded[0];
@@ -429,13 +446,29 @@ namespace APIAccessTEST01
                 }
             }
         }
-        void GETINFOUSD(string CRYPTO, string customCoin, Label xUSDv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xUSD, Label xBTC, Label xTimev, GroupBox Number)
+        void GETINFO(string CRYPTO, string customCoin, Label xCv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xC, Label xBTC, Label xTimev, GroupBox Number)
         {
-            if(CRYPTO == "" || customCoin == "")
+            if (Currencyv.SelectedIndex == 0)
             {
-                xUSD.Text = "XXX/USD";
+                CURRENCY = "USD";
+            }
+            else if (Currencyv.SelectedIndex == 1)
+            {
+                CURRENCY = "AUD";
+            }
+
+            if (CRYPTO == "" || customCoin == "")
+            {
+                if(Currencyv.SelectedIndex == 0)
+                {
+                    xC.Text = "XXX/USD";
+                }
+                else if (Currencyv.SelectedIndex == 1)
+                {
+                    xC.Text = "XXX/AUD";
+                }
                 xBTC.Text = "XXX/BTC";
-                xUSDv.Text = "No Data";
+                xCv.Text = "No Data";
                 xBTCv.Text = "No Data";
                 xUSDp.Text = "No Data";
                 xUSD24p.Text = "No Data";
@@ -446,7 +479,7 @@ namespace APIAccessTEST01
                 Number.Text = "XXX";
                 xTimev.Text = "No Data";
 
-                xUSDv.ForeColor = Color.White;
+                xCv.ForeColor = Color.White;
                 xBTCv.ForeColor = Color.White;
                 xUSDp.ForeColor = Color.White;
                 xUSD24p.ForeColor = Color.White;
@@ -454,11 +487,76 @@ namespace APIAccessTEST01
             }
             else
             {
-                API(@"https://api.coinmarketcap.com/v1/ticker/" + CRYPTO);
+                API(@"https://api.coinmarketcap.com/v1/ticker/" + CRYPTO + @"/?convert=" + CURRENCY);
 
                 CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
 
-                xUSD.Text = customCoin + "/USD";
+                if (Currencyv.SelectedIndex == 0)
+                {
+                    xC.Text = customCoin + "/USD";
+                    foreach (var data in CoinsDetailed)             //Coin Against USD
+                    {
+                        string price_usd;
+                        string percent;
+                        double Dpercent;
+                        price_usd = data.price_usd;
+                        price_usd = RemoveExtraText(price_usd);
+                        price_usd = "$" + price_usd;
+                        percent = data.percent_change_1h;
+                        percent = RemoveExtraText(percent);
+                        Dpercent = Convert.ToDouble(percent);
+                        if (Dpercent > 0)
+                        {
+                            price_usd = "▲ " + price_usd;
+                            xCv.ForeColor = Color.Green;
+                        }
+                        else if (Dpercent < 0)
+                        {
+                            price_usd = "▼ " + price_usd;
+                            xCv.ForeColor = Color.Red;
+                        }
+                        else if (Dpercent == 0)
+                        {
+                            xCv.ForeColor = Color.White;
+                        }
+                        xCv.Text = price_usd;
+                    }
+                }
+                else if (Currencyv.SelectedIndex == 1)
+                {
+                    xC.Text = customCoin + "/AUD";
+                    foreach (var data in CoinsDetailed)             //Coin Against AUD
+                    {
+                        string price_aud;
+                        string percent;
+                        double Dpercent;
+                        double newprice;
+                        price_aud = data.price_aud;
+                        price_aud = RemoveExtraText(price_aud);
+                        newprice = Convert.ToDouble(price_aud);
+                        newprice = Math.Round(newprice, 2);
+                        price_aud = string.Format("{0:0,0.00}", newprice);
+                        price_aud = "$" + price_aud;
+                        percent = data.percent_change_1h;
+                        percent = RemoveExtraText(percent);
+                        Dpercent = Convert.ToDouble(percent);
+                        if (Dpercent > 0)
+                        {
+                            price_aud = "▲ " + price_aud;
+                            xCv.ForeColor = Color.Green;
+                        }
+                        else if (Dpercent < 0)
+                        {
+                            price_aud = "▼ " + price_aud;
+                            xCv.ForeColor = Color.Red;
+                        }
+                        else if (Dpercent == 0)
+                        {
+                            xCv.ForeColor = Color.White;
+                        }
+                        xCv.Text = price_aud;
+                    }
+                }
                 xBTC.Text = customCoin + "/BTC";
                 Number.Text = customCoin;
 
@@ -473,34 +571,6 @@ namespace APIAccessTEST01
                     FinalTime = String.Format("{0:d/M/yyyy HH:mm:ss}", new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(DTime));
                     xTimev.Text = FinalTime + " UTC";
                 }
-                foreach (var data in CoinsDetailed)             //Coin Against USD
-                {
-                    string price_usd;
-                    string percent;
-                    double Dpercent;
-                    price_usd = data.price_usd;
-                    price_usd = RemoveExtraText(price_usd);
-                    price_usd = "$" + price_usd;
-                    percent = data.percent_change_1h;
-                    percent = RemoveExtraText(percent);
-                    Dpercent = Convert.ToDouble(percent);
-                    if (Dpercent > 0)
-                    {
-                        price_usd = "▲ " + price_usd;
-                        xUSDv.ForeColor = Color.Green;
-                    }
-                    else if (Dpercent < 0)
-                    {
-                        price_usd = "▼ " + price_usd;
-                        xUSDv.ForeColor = Color.Red;
-                    }
-                    else if (Dpercent == 0)
-                    {
-                        xUSDv.ForeColor = Color.White;
-                    }
-                    xUSDv.Text = price_usd;
-                }
-
                 foreach (var data in CoinsDetailed)         //Coin Against BTC
                 {
                     string percent_change_1h;
@@ -890,23 +960,23 @@ namespace APIAccessTEST01
         }
         void GETINFOSummary()
         {
-            GETINFOUSD(coin1FN, coin1, lblCustomUSDv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomUSD01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
+            GETINFO(coin1FN, coin1, lblCustomCv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomC01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin2FN, coin2, lblCustomUSDv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomUSD02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
+            GETINFO(coin2FN, coin2, lblCustomCv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomC02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin3FN, coin3, lblCustomUSDv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomUSD03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
+            GETINFO(coin3FN, coin3, lblCustomCv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomC03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin4FN, coin4, lblCustomUSDv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomUSD04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
+            GETINFO(coin4FN, coin4, lblCustomCv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomC04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin5FN, coin5, lblCustomUSDv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomUSD05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
+            GETINFO(coin5FN, coin5, lblCustomCv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomC05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin6FN, coin6, lblCustomUSDv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomUSD06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
+            GETINFO(coin6FN, coin6, lblCustomCv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomC06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin7FN, coin7, lblCustomUSDv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomUSD07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
+            GETINFO(coin7FN, coin7, lblCustomCv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomC07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin8FN, coin8, lblCustomUSDv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomUSD08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
+            GETINFO(coin8FN, coin8, lblCustomCv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomC08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
             System.Threading.Thread.Sleep(50);
-            GETINFOUSD(coin9FN, coin9, lblCustomUSDv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomUSD09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
+            GETINFO(coin9FN, coin9, lblCustomCv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomC09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
         }
         void TestCoinSummary()
         {
@@ -1040,6 +1110,11 @@ namespace APIAccessTEST01
             txtCustom07.Text = "";
             txtCustom08.Text = "";
             txtCustom09.Text = "";
+        }
+
+        private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GETINFOSummary();
         }
     }
 }

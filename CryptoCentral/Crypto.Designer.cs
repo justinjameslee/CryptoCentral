@@ -49,10 +49,10 @@
             this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
             this.lblCustomUpdated09 = new System.Windows.Forms.Label();
             this.lblCustomBTC09 = new System.Windows.Forms.Label();
-            this.lblCustomUSD09 = new System.Windows.Forms.Label();
+            this.lblCustomC09 = new System.Windows.Forms.Label();
             this.lblCustom1Hp09 = new System.Windows.Forms.Label();
             this.lblCustom7Dc09 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv09 = new System.Windows.Forms.Label();
+            this.lblCustomCv09 = new System.Windows.Forms.Label();
             this.lbl7D09 = new System.Windows.Forms.Label();
             this.lblCustom1Hc09 = new System.Windows.Forms.Label();
             this.lblCustomBTCv09 = new System.Windows.Forms.Label();
@@ -65,10 +65,10 @@
             this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
             this.lblCustomUpdated06 = new System.Windows.Forms.Label();
             this.lblCustomBTC06 = new System.Windows.Forms.Label();
-            this.lblCustomUSD06 = new System.Windows.Forms.Label();
+            this.lblCustomC06 = new System.Windows.Forms.Label();
             this.lblCustom1Hp06 = new System.Windows.Forms.Label();
             this.lblCustom7Dc06 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv06 = new System.Windows.Forms.Label();
+            this.lblCustomCv06 = new System.Windows.Forms.Label();
             this.lbl7D06 = new System.Windows.Forms.Label();
             this.lblCustom1Hc06 = new System.Windows.Forms.Label();
             this.lblCustomBTCv06 = new System.Windows.Forms.Label();
@@ -81,10 +81,10 @@
             this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
             this.lblCustomUpdated08 = new System.Windows.Forms.Label();
             this.lblCustomBTC08 = new System.Windows.Forms.Label();
-            this.lblCustomUSD08 = new System.Windows.Forms.Label();
+            this.lblCustomC08 = new System.Windows.Forms.Label();
             this.lblCustom1Hp08 = new System.Windows.Forms.Label();
             this.lblCustom7Dc08 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv08 = new System.Windows.Forms.Label();
+            this.lblCustomCv08 = new System.Windows.Forms.Label();
             this.lbl7D08 = new System.Windows.Forms.Label();
             this.lblCustom1Hc08 = new System.Windows.Forms.Label();
             this.lblCustomBTCv08 = new System.Windows.Forms.Label();
@@ -97,10 +97,10 @@
             this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
             this.lblCustomUpdated05 = new System.Windows.Forms.Label();
             this.lblCustomBTC05 = new System.Windows.Forms.Label();
-            this.lblCustomUSD05 = new System.Windows.Forms.Label();
+            this.lblCustomC05 = new System.Windows.Forms.Label();
             this.lblCustom1Hp05 = new System.Windows.Forms.Label();
             this.lblCustom7Dc05 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv05 = new System.Windows.Forms.Label();
+            this.lblCustomCv05 = new System.Windows.Forms.Label();
             this.lbl7D05 = new System.Windows.Forms.Label();
             this.lblCustom1Hc05 = new System.Windows.Forms.Label();
             this.lblCustomBTCv05 = new System.Windows.Forms.Label();
@@ -113,10 +113,10 @@
             this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
             this.lblCustomUpdated07 = new System.Windows.Forms.Label();
             this.lblCustomBTC07 = new System.Windows.Forms.Label();
-            this.lblCustomUSD07 = new System.Windows.Forms.Label();
+            this.lblCustomC07 = new System.Windows.Forms.Label();
             this.lblCustom1Hp07 = new System.Windows.Forms.Label();
             this.lblCustom7Dc07 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv07 = new System.Windows.Forms.Label();
+            this.lblCustomCv07 = new System.Windows.Forms.Label();
             this.lbl7D07 = new System.Windows.Forms.Label();
             this.lblCustom1Hc07 = new System.Windows.Forms.Label();
             this.lblCustomBTCv07 = new System.Windows.Forms.Label();
@@ -129,10 +129,10 @@
             this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
             this.lblCustomUpdated04 = new System.Windows.Forms.Label();
             this.lblCustomBTC04 = new System.Windows.Forms.Label();
-            this.lblCustomUSD04 = new System.Windows.Forms.Label();
+            this.lblCustomC04 = new System.Windows.Forms.Label();
             this.lblCustom1Hp04 = new System.Windows.Forms.Label();
             this.lblCustom7Dc04 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv04 = new System.Windows.Forms.Label();
+            this.lblCustomCv04 = new System.Windows.Forms.Label();
             this.lbl7D04 = new System.Windows.Forms.Label();
             this.lblCustom1Hc04 = new System.Windows.Forms.Label();
             this.lblCustomBTCv04 = new System.Windows.Forms.Label();
@@ -145,10 +145,10 @@
             this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
             this.lblCustomUpdated03 = new System.Windows.Forms.Label();
             this.lblCustomBTC03 = new System.Windows.Forms.Label();
-            this.lblCustomUSD03 = new System.Windows.Forms.Label();
+            this.lblCustomC03 = new System.Windows.Forms.Label();
             this.lblCustom1Hp03 = new System.Windows.Forms.Label();
             this.lblCustom7Dc03 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv03 = new System.Windows.Forms.Label();
+            this.lblCustomCv03 = new System.Windows.Forms.Label();
             this.lbl7D03 = new System.Windows.Forms.Label();
             this.lblCustom1Hc03 = new System.Windows.Forms.Label();
             this.lblCustomBTCv03 = new System.Windows.Forms.Label();
@@ -161,10 +161,10 @@
             this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
             this.lblCustomUpdated02 = new System.Windows.Forms.Label();
             this.lblCustomBTC02 = new System.Windows.Forms.Label();
-            this.lblCustomUSD02 = new System.Windows.Forms.Label();
+            this.lblCustomC02 = new System.Windows.Forms.Label();
             this.lblCustom1Hp02 = new System.Windows.Forms.Label();
             this.lblCustom7Dc02 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv02 = new System.Windows.Forms.Label();
+            this.lblCustomCv02 = new System.Windows.Forms.Label();
             this.lbl7D02 = new System.Windows.Forms.Label();
             this.lblCustom1Hc02 = new System.Windows.Forms.Label();
             this.lblCustomBTCv02 = new System.Windows.Forms.Label();
@@ -177,10 +177,10 @@
             this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
             this.lblCustomUpdated01 = new System.Windows.Forms.Label();
             this.lblCustomBTC01 = new System.Windows.Forms.Label();
-            this.lblCustomUSD01 = new System.Windows.Forms.Label();
+            this.lblCustomC01 = new System.Windows.Forms.Label();
             this.lblCustom1Hp01 = new System.Windows.Forms.Label();
             this.lblCustom7Dc01 = new System.Windows.Forms.Label();
-            this.lblCustomUSDv01 = new System.Windows.Forms.Label();
+            this.lblCustomCv01 = new System.Windows.Forms.Label();
             this.lbl7D01 = new System.Windows.Forms.Label();
             this.lblCustom1Hc01 = new System.Windows.Forms.Label();
             this.lblCustomBTCv01 = new System.Windows.Forms.Label();
@@ -445,10 +445,10 @@
             this.customGroup09.Controls.Add(this.lblCustomUpdatedv09);
             this.customGroup09.Controls.Add(this.lblCustomUpdated09);
             this.customGroup09.Controls.Add(this.lblCustomBTC09);
-            this.customGroup09.Controls.Add(this.lblCustomUSD09);
+            this.customGroup09.Controls.Add(this.lblCustomC09);
             this.customGroup09.Controls.Add(this.lblCustom1Hp09);
             this.customGroup09.Controls.Add(this.lblCustom7Dc09);
-            this.customGroup09.Controls.Add(this.lblCustomUSDv09);
+            this.customGroup09.Controls.Add(this.lblCustomCv09);
             this.customGroup09.Controls.Add(this.lbl7D09);
             this.customGroup09.Controls.Add(this.lblCustom1Hc09);
             this.customGroup09.Controls.Add(this.lblCustomBTCv09);
@@ -495,15 +495,15 @@
             this.lblCustomBTC09.Text = "ETH/BTC";
             this.lblCustomBTC09.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD09
+            // lblCustomC09
             // 
-            this.lblCustomUSD09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD09.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD09.Name = "lblCustomUSD09";
-            this.lblCustomUSD09.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD09.TabIndex = 3;
-            this.lblCustomUSD09.Text = "LTC/USD";
-            this.lblCustomUSD09.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC09.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC09.Name = "lblCustomC09";
+            this.lblCustomC09.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC09.TabIndex = 3;
+            this.lblCustomC09.Text = "LTC/USD";
+            this.lblCustomC09.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp09
             // 
@@ -523,14 +523,14 @@
             this.lblCustom7Dc09.TabIndex = 25;
             this.lblCustom7Dc09.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv09
+            // lblCustomCv09
             // 
-            this.lblCustomUSDv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv09.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv09.Name = "lblCustomUSDv09";
-            this.lblCustomUSDv09.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv09.TabIndex = 8;
-            this.lblCustomUSDv09.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv09.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv09.Name = "lblCustomCv09";
+            this.lblCustomCv09.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv09.TabIndex = 8;
+            this.lblCustomCv09.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D09
             // 
@@ -615,10 +615,10 @@
             this.customGroup06.Controls.Add(this.lblCustomUpdatedv06);
             this.customGroup06.Controls.Add(this.lblCustomUpdated06);
             this.customGroup06.Controls.Add(this.lblCustomBTC06);
-            this.customGroup06.Controls.Add(this.lblCustomUSD06);
+            this.customGroup06.Controls.Add(this.lblCustomC06);
             this.customGroup06.Controls.Add(this.lblCustom1Hp06);
             this.customGroup06.Controls.Add(this.lblCustom7Dc06);
-            this.customGroup06.Controls.Add(this.lblCustomUSDv06);
+            this.customGroup06.Controls.Add(this.lblCustomCv06);
             this.customGroup06.Controls.Add(this.lbl7D06);
             this.customGroup06.Controls.Add(this.lblCustom1Hc06);
             this.customGroup06.Controls.Add(this.lblCustomBTCv06);
@@ -665,15 +665,15 @@
             this.lblCustomBTC06.Text = "ETH/BTC";
             this.lblCustomBTC06.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD06
+            // lblCustomC06
             // 
-            this.lblCustomUSD06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD06.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD06.Name = "lblCustomUSD06";
-            this.lblCustomUSD06.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD06.TabIndex = 3;
-            this.lblCustomUSD06.Text = "LTC/USD";
-            this.lblCustomUSD06.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC06.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC06.Name = "lblCustomC06";
+            this.lblCustomC06.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC06.TabIndex = 3;
+            this.lblCustomC06.Text = "LTC/USD";
+            this.lblCustomC06.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp06
             // 
@@ -693,14 +693,14 @@
             this.lblCustom7Dc06.TabIndex = 25;
             this.lblCustom7Dc06.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv06
+            // lblCustomCv06
             // 
-            this.lblCustomUSDv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv06.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv06.Name = "lblCustomUSDv06";
-            this.lblCustomUSDv06.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv06.TabIndex = 8;
-            this.lblCustomUSDv06.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv06.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv06.Name = "lblCustomCv06";
+            this.lblCustomCv06.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv06.TabIndex = 8;
+            this.lblCustomCv06.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D06
             // 
@@ -785,10 +785,10 @@
             this.customGroup08.Controls.Add(this.lblCustomUpdatedv08);
             this.customGroup08.Controls.Add(this.lblCustomUpdated08);
             this.customGroup08.Controls.Add(this.lblCustomBTC08);
-            this.customGroup08.Controls.Add(this.lblCustomUSD08);
+            this.customGroup08.Controls.Add(this.lblCustomC08);
             this.customGroup08.Controls.Add(this.lblCustom1Hp08);
             this.customGroup08.Controls.Add(this.lblCustom7Dc08);
-            this.customGroup08.Controls.Add(this.lblCustomUSDv08);
+            this.customGroup08.Controls.Add(this.lblCustomCv08);
             this.customGroup08.Controls.Add(this.lbl7D08);
             this.customGroup08.Controls.Add(this.lblCustom1Hc08);
             this.customGroup08.Controls.Add(this.lblCustomBTCv08);
@@ -835,15 +835,15 @@
             this.lblCustomBTC08.Text = "ETH/BTC";
             this.lblCustomBTC08.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD08
+            // lblCustomC08
             // 
-            this.lblCustomUSD08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD08.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD08.Name = "lblCustomUSD08";
-            this.lblCustomUSD08.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD08.TabIndex = 3;
-            this.lblCustomUSD08.Text = "ETH/USD";
-            this.lblCustomUSD08.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC08.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC08.Name = "lblCustomC08";
+            this.lblCustomC08.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC08.TabIndex = 3;
+            this.lblCustomC08.Text = "ETH/USD";
+            this.lblCustomC08.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp08
             // 
@@ -863,14 +863,14 @@
             this.lblCustom7Dc08.TabIndex = 25;
             this.lblCustom7Dc08.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv08
+            // lblCustomCv08
             // 
-            this.lblCustomUSDv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv08.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv08.Name = "lblCustomUSDv08";
-            this.lblCustomUSDv08.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv08.TabIndex = 8;
-            this.lblCustomUSDv08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv08.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv08.Name = "lblCustomCv08";
+            this.lblCustomCv08.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv08.TabIndex = 8;
+            this.lblCustomCv08.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D08
             // 
@@ -955,10 +955,10 @@
             this.customGroup05.Controls.Add(this.lblCustomUpdatedv05);
             this.customGroup05.Controls.Add(this.lblCustomUpdated05);
             this.customGroup05.Controls.Add(this.lblCustomBTC05);
-            this.customGroup05.Controls.Add(this.lblCustomUSD05);
+            this.customGroup05.Controls.Add(this.lblCustomC05);
             this.customGroup05.Controls.Add(this.lblCustom1Hp05);
             this.customGroup05.Controls.Add(this.lblCustom7Dc05);
-            this.customGroup05.Controls.Add(this.lblCustomUSDv05);
+            this.customGroup05.Controls.Add(this.lblCustomCv05);
             this.customGroup05.Controls.Add(this.lbl7D05);
             this.customGroup05.Controls.Add(this.lblCustom1Hc05);
             this.customGroup05.Controls.Add(this.lblCustomBTCv05);
@@ -1005,15 +1005,15 @@
             this.lblCustomBTC05.Text = "ETH/BTC";
             this.lblCustomBTC05.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD05
+            // lblCustomC05
             // 
-            this.lblCustomUSD05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD05.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD05.Name = "lblCustomUSD05";
-            this.lblCustomUSD05.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD05.TabIndex = 3;
-            this.lblCustomUSD05.Text = "ETH/USD";
-            this.lblCustomUSD05.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC05.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC05.Name = "lblCustomC05";
+            this.lblCustomC05.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC05.TabIndex = 3;
+            this.lblCustomC05.Text = "ETH/USD";
+            this.lblCustomC05.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp05
             // 
@@ -1033,14 +1033,14 @@
             this.lblCustom7Dc05.TabIndex = 25;
             this.lblCustom7Dc05.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv05
+            // lblCustomCv05
             // 
-            this.lblCustomUSDv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv05.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv05.Name = "lblCustomUSDv05";
-            this.lblCustomUSDv05.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv05.TabIndex = 8;
-            this.lblCustomUSDv05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv05.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv05.Name = "lblCustomCv05";
+            this.lblCustomCv05.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv05.TabIndex = 8;
+            this.lblCustomCv05.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D05
             // 
@@ -1125,10 +1125,10 @@
             this.customGroup07.Controls.Add(this.lblCustomUpdatedv07);
             this.customGroup07.Controls.Add(this.lblCustomUpdated07);
             this.customGroup07.Controls.Add(this.lblCustomBTC07);
-            this.customGroup07.Controls.Add(this.lblCustomUSD07);
+            this.customGroup07.Controls.Add(this.lblCustomC07);
             this.customGroup07.Controls.Add(this.lblCustom1Hp07);
             this.customGroup07.Controls.Add(this.lblCustom7Dc07);
-            this.customGroup07.Controls.Add(this.lblCustomUSDv07);
+            this.customGroup07.Controls.Add(this.lblCustomCv07);
             this.customGroup07.Controls.Add(this.lbl7D07);
             this.customGroup07.Controls.Add(this.lblCustom1Hc07);
             this.customGroup07.Controls.Add(this.lblCustomBTCv07);
@@ -1175,15 +1175,15 @@
             this.lblCustomBTC07.Text = "BTC/BTC";
             this.lblCustomBTC07.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD07
+            // lblCustomC07
             // 
-            this.lblCustomUSD07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD07.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD07.Name = "lblCustomUSD07";
-            this.lblCustomUSD07.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD07.TabIndex = 3;
-            this.lblCustomUSD07.Text = "BTC/USD";
-            this.lblCustomUSD07.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC07.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC07.Name = "lblCustomC07";
+            this.lblCustomC07.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC07.TabIndex = 3;
+            this.lblCustomC07.Text = "BTC/USD";
+            this.lblCustomC07.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp07
             // 
@@ -1203,14 +1203,14 @@
             this.lblCustom7Dc07.TabIndex = 25;
             this.lblCustom7Dc07.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv07
+            // lblCustomCv07
             // 
-            this.lblCustomUSDv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv07.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv07.Name = "lblCustomUSDv07";
-            this.lblCustomUSDv07.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv07.TabIndex = 8;
-            this.lblCustomUSDv07.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv07.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv07.Name = "lblCustomCv07";
+            this.lblCustomCv07.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv07.TabIndex = 8;
+            this.lblCustomCv07.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D07
             // 
@@ -1295,10 +1295,10 @@
             this.customGroup04.Controls.Add(this.lblCustomUpdatedv04);
             this.customGroup04.Controls.Add(this.lblCustomUpdated04);
             this.customGroup04.Controls.Add(this.lblCustomBTC04);
-            this.customGroup04.Controls.Add(this.lblCustomUSD04);
+            this.customGroup04.Controls.Add(this.lblCustomC04);
             this.customGroup04.Controls.Add(this.lblCustom1Hp04);
             this.customGroup04.Controls.Add(this.lblCustom7Dc04);
-            this.customGroup04.Controls.Add(this.lblCustomUSDv04);
+            this.customGroup04.Controls.Add(this.lblCustomCv04);
             this.customGroup04.Controls.Add(this.lbl7D04);
             this.customGroup04.Controls.Add(this.lblCustom1Hc04);
             this.customGroup04.Controls.Add(this.lblCustomBTCv04);
@@ -1345,15 +1345,15 @@
             this.lblCustomBTC04.Text = "BTC/BTC";
             this.lblCustomBTC04.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD04
+            // lblCustomC04
             // 
-            this.lblCustomUSD04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD04.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD04.Name = "lblCustomUSD04";
-            this.lblCustomUSD04.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD04.TabIndex = 3;
-            this.lblCustomUSD04.Text = "BTC/USD";
-            this.lblCustomUSD04.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC04.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC04.Name = "lblCustomC04";
+            this.lblCustomC04.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC04.TabIndex = 3;
+            this.lblCustomC04.Text = "BTC/USD";
+            this.lblCustomC04.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp04
             // 
@@ -1373,14 +1373,14 @@
             this.lblCustom7Dc04.TabIndex = 25;
             this.lblCustom7Dc04.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv04
+            // lblCustomCv04
             // 
-            this.lblCustomUSDv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv04.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv04.Name = "lblCustomUSDv04";
-            this.lblCustomUSDv04.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv04.TabIndex = 8;
-            this.lblCustomUSDv04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv04.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv04.Name = "lblCustomCv04";
+            this.lblCustomCv04.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv04.TabIndex = 8;
+            this.lblCustomCv04.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D04
             // 
@@ -1465,10 +1465,10 @@
             this.customGroup03.Controls.Add(this.lblCustomUpdatedv03);
             this.customGroup03.Controls.Add(this.lblCustomUpdated03);
             this.customGroup03.Controls.Add(this.lblCustomBTC03);
-            this.customGroup03.Controls.Add(this.lblCustomUSD03);
+            this.customGroup03.Controls.Add(this.lblCustomC03);
             this.customGroup03.Controls.Add(this.lblCustom1Hp03);
             this.customGroup03.Controls.Add(this.lblCustom7Dc03);
-            this.customGroup03.Controls.Add(this.lblCustomUSDv03);
+            this.customGroup03.Controls.Add(this.lblCustomCv03);
             this.customGroup03.Controls.Add(this.lbl7D03);
             this.customGroup03.Controls.Add(this.lblCustom1Hc03);
             this.customGroup03.Controls.Add(this.lblCustomBTCv03);
@@ -1515,15 +1515,15 @@
             this.lblCustomBTC03.Text = "ETH/BTC";
             this.lblCustomBTC03.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD03
+            // lblCustomC03
             // 
-            this.lblCustomUSD03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD03.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD03.Name = "lblCustomUSD03";
-            this.lblCustomUSD03.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD03.TabIndex = 3;
-            this.lblCustomUSD03.Text = "LTC/USD";
-            this.lblCustomUSD03.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC03.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC03.Name = "lblCustomC03";
+            this.lblCustomC03.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC03.TabIndex = 3;
+            this.lblCustomC03.Text = "LTC/USD";
+            this.lblCustomC03.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp03
             // 
@@ -1543,14 +1543,14 @@
             this.lblCustom7Dc03.TabIndex = 25;
             this.lblCustom7Dc03.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv03
+            // lblCustomCv03
             // 
-            this.lblCustomUSDv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv03.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv03.Name = "lblCustomUSDv03";
-            this.lblCustomUSDv03.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv03.TabIndex = 8;
-            this.lblCustomUSDv03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv03.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv03.Name = "lblCustomCv03";
+            this.lblCustomCv03.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv03.TabIndex = 8;
+            this.lblCustomCv03.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D03
             // 
@@ -1635,10 +1635,10 @@
             this.customGroup02.Controls.Add(this.lblCustomUpdatedv02);
             this.customGroup02.Controls.Add(this.lblCustomUpdated02);
             this.customGroup02.Controls.Add(this.lblCustomBTC02);
-            this.customGroup02.Controls.Add(this.lblCustomUSD02);
+            this.customGroup02.Controls.Add(this.lblCustomC02);
             this.customGroup02.Controls.Add(this.lblCustom1Hp02);
             this.customGroup02.Controls.Add(this.lblCustom7Dc02);
-            this.customGroup02.Controls.Add(this.lblCustomUSDv02);
+            this.customGroup02.Controls.Add(this.lblCustomCv02);
             this.customGroup02.Controls.Add(this.lbl7D02);
             this.customGroup02.Controls.Add(this.lblCustom1Hc02);
             this.customGroup02.Controls.Add(this.lblCustomBTCv02);
@@ -1685,15 +1685,15 @@
             this.lblCustomBTC02.Text = "ETH/BTC";
             this.lblCustomBTC02.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD02
+            // lblCustomC02
             // 
-            this.lblCustomUSD02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD02.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD02.Name = "lblCustomUSD02";
-            this.lblCustomUSD02.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD02.TabIndex = 3;
-            this.lblCustomUSD02.Text = "ETH/USD";
-            this.lblCustomUSD02.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC02.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC02.Name = "lblCustomC02";
+            this.lblCustomC02.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC02.TabIndex = 3;
+            this.lblCustomC02.Text = "ETH/USD";
+            this.lblCustomC02.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp02
             // 
@@ -1713,14 +1713,14 @@
             this.lblCustom7Dc02.TabIndex = 25;
             this.lblCustom7Dc02.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv02
+            // lblCustomCv02
             // 
-            this.lblCustomUSDv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv02.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv02.Name = "lblCustomUSDv02";
-            this.lblCustomUSDv02.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv02.TabIndex = 8;
-            this.lblCustomUSDv02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv02.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv02.Name = "lblCustomCv02";
+            this.lblCustomCv02.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv02.TabIndex = 8;
+            this.lblCustomCv02.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D02
             // 
@@ -1805,10 +1805,10 @@
             this.customGroup01.Controls.Add(this.lblCustomUpdatedv01);
             this.customGroup01.Controls.Add(this.lblCustomUpdated01);
             this.customGroup01.Controls.Add(this.lblCustomBTC01);
-            this.customGroup01.Controls.Add(this.lblCustomUSD01);
+            this.customGroup01.Controls.Add(this.lblCustomC01);
             this.customGroup01.Controls.Add(this.lblCustom1Hp01);
             this.customGroup01.Controls.Add(this.lblCustom7Dc01);
-            this.customGroup01.Controls.Add(this.lblCustomUSDv01);
+            this.customGroup01.Controls.Add(this.lblCustomCv01);
             this.customGroup01.Controls.Add(this.lbl7D01);
             this.customGroup01.Controls.Add(this.lblCustom1Hc01);
             this.customGroup01.Controls.Add(this.lblCustomBTCv01);
@@ -1855,15 +1855,15 @@
             this.lblCustomBTC01.Text = "BTC/BTC";
             this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomUSD01
+            // lblCustomC01
             // 
-            this.lblCustomUSD01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSD01.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomUSD01.Name = "lblCustomUSD01";
-            this.lblCustomUSD01.Size = new System.Drawing.Size(90, 23);
-            this.lblCustomUSD01.TabIndex = 3;
-            this.lblCustomUSD01.Text = "BTC/USD";
-            this.lblCustomUSD01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCustomC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC01.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC01.Name = "lblCustomC01";
+            this.lblCustomC01.Size = new System.Drawing.Size(102, 23);
+            this.lblCustomC01.TabIndex = 3;
+            this.lblCustomC01.Text = "BTC/USD";
+            this.lblCustomC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustom1Hp01
             // 
@@ -1883,14 +1883,14 @@
             this.lblCustom7Dc01.TabIndex = 25;
             this.lblCustom7Dc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomUSDv01
+            // lblCustomCv01
             // 
-            this.lblCustomUSDv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomUSDv01.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomUSDv01.Name = "lblCustomUSDv01";
-            this.lblCustomUSDv01.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomUSDv01.TabIndex = 8;
-            this.lblCustomUSDv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblCustomCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv01.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv01.Name = "lblCustomCv01";
+            this.lblCustomCv01.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv01.TabIndex = 8;
+            this.lblCustomCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbl7D01
             // 
@@ -2124,6 +2124,7 @@
             this.Currencyv.Name = "Currencyv";
             this.Currencyv.Size = new System.Drawing.Size(121, 29);
             this.Currencyv.TabIndex = 42;
+            this.Currencyv.SelectedIndexChanged += new System.EventHandler(this.Currencyv_SelectedIndexChanged);
             // 
             // lblCurrency
             // 
@@ -2588,10 +2589,10 @@
         private System.Windows.Forms.Panel Summary01;
         private System.Windows.Forms.GroupBox customGroup09;
         private System.Windows.Forms.Label lblCustomBTC09;
-        private System.Windows.Forms.Label lblCustomUSD09;
+        private System.Windows.Forms.Label lblCustomC09;
         private System.Windows.Forms.Label lblCustom1Hp09;
         private System.Windows.Forms.Label lblCustom7Dc09;
-        private System.Windows.Forms.Label lblCustomUSDv09;
+        private System.Windows.Forms.Label lblCustomCv09;
         private System.Windows.Forms.Label lbl7D09;
         private System.Windows.Forms.Label lblCustom1Hc09;
         private System.Windows.Forms.Label lblCustomBTCv09;
@@ -2602,10 +2603,10 @@
         private System.Windows.Forms.Label lbl1Hr09;
         private System.Windows.Forms.GroupBox customGroup06;
         private System.Windows.Forms.Label lblCustomBTC06;
-        private System.Windows.Forms.Label lblCustomUSD06;
+        private System.Windows.Forms.Label lblCustomC06;
         private System.Windows.Forms.Label lblCustom1Hp06;
         private System.Windows.Forms.Label lblCustom7Dc06;
-        private System.Windows.Forms.Label lblCustomUSDv06;
+        private System.Windows.Forms.Label lblCustomCv06;
         private System.Windows.Forms.Label lbl7D06;
         private System.Windows.Forms.Label lblCustom1Hc06;
         private System.Windows.Forms.Label lblCustomBTCv06;
@@ -2616,10 +2617,10 @@
         private System.Windows.Forms.Label lbl1Hr06;
         private System.Windows.Forms.GroupBox customGroup08;
         private System.Windows.Forms.Label lblCustomBTC08;
-        private System.Windows.Forms.Label lblCustomUSD08;
+        private System.Windows.Forms.Label lblCustomC08;
         private System.Windows.Forms.Label lblCustom1Hp08;
         private System.Windows.Forms.Label lblCustom7Dc08;
-        private System.Windows.Forms.Label lblCustomUSDv08;
+        private System.Windows.Forms.Label lblCustomCv08;
         private System.Windows.Forms.Label lbl7D08;
         private System.Windows.Forms.Label lblCustom1Hc08;
         private System.Windows.Forms.Label lblCustomBTCv08;
@@ -2630,10 +2631,10 @@
         private System.Windows.Forms.Label lbl1Hr08;
         private System.Windows.Forms.GroupBox customGroup05;
         private System.Windows.Forms.Label lblCustomBTC05;
-        private System.Windows.Forms.Label lblCustomUSD05;
+        private System.Windows.Forms.Label lblCustomC05;
         private System.Windows.Forms.Label lblCustom1Hp05;
         private System.Windows.Forms.Label lblCustom7Dc05;
-        private System.Windows.Forms.Label lblCustomUSDv05;
+        private System.Windows.Forms.Label lblCustomCv05;
         private System.Windows.Forms.Label lbl7D05;
         private System.Windows.Forms.Label lblCustom1Hc05;
         private System.Windows.Forms.Label lblCustomBTCv05;
@@ -2644,10 +2645,10 @@
         private System.Windows.Forms.Label lbl1Hr05;
         private System.Windows.Forms.GroupBox customGroup07;
         private System.Windows.Forms.Label lblCustomBTC07;
-        private System.Windows.Forms.Label lblCustomUSD07;
+        private System.Windows.Forms.Label lblCustomC07;
         private System.Windows.Forms.Label lblCustom1Hp07;
         private System.Windows.Forms.Label lblCustom7Dc07;
-        private System.Windows.Forms.Label lblCustomUSDv07;
+        private System.Windows.Forms.Label lblCustomCv07;
         private System.Windows.Forms.Label lbl7D07;
         private System.Windows.Forms.Label lblCustom1Hc07;
         private System.Windows.Forms.Label lblCustomBTCv07;
@@ -2658,10 +2659,10 @@
         private System.Windows.Forms.Label lbl1Hr07;
         private System.Windows.Forms.GroupBox customGroup04;
         private System.Windows.Forms.Label lblCustomBTC04;
-        private System.Windows.Forms.Label lblCustomUSD04;
+        private System.Windows.Forms.Label lblCustomC04;
         private System.Windows.Forms.Label lblCustom1Hp04;
         private System.Windows.Forms.Label lblCustom7Dc04;
-        private System.Windows.Forms.Label lblCustomUSDv04;
+        private System.Windows.Forms.Label lblCustomCv04;
         private System.Windows.Forms.Label lbl7D04;
         private System.Windows.Forms.Label lblCustom1Hc04;
         private System.Windows.Forms.Label lblCustomBTCv04;
@@ -2672,10 +2673,10 @@
         private System.Windows.Forms.Label lbl1Hr04;
         private System.Windows.Forms.GroupBox customGroup03;
         private System.Windows.Forms.Label lblCustomBTC03;
-        private System.Windows.Forms.Label lblCustomUSD03;
+        private System.Windows.Forms.Label lblCustomC03;
         private System.Windows.Forms.Label lblCustom1Hp03;
         private System.Windows.Forms.Label lblCustom7Dc03;
-        private System.Windows.Forms.Label lblCustomUSDv03;
+        private System.Windows.Forms.Label lblCustomCv03;
         private System.Windows.Forms.Label lbl7D03;
         private System.Windows.Forms.Label lblCustom1Hc03;
         private System.Windows.Forms.Label lblCustomBTCv03;
@@ -2686,10 +2687,10 @@
         private System.Windows.Forms.Label lbl1Hr03;
         private System.Windows.Forms.GroupBox customGroup02;
         private System.Windows.Forms.Label lblCustomBTC02;
-        private System.Windows.Forms.Label lblCustomUSD02;
+        private System.Windows.Forms.Label lblCustomC02;
         private System.Windows.Forms.Label lblCustom1Hp02;
         private System.Windows.Forms.Label lblCustom7Dc02;
-        private System.Windows.Forms.Label lblCustomUSDv02;
+        private System.Windows.Forms.Label lblCustomCv02;
         private System.Windows.Forms.Label lbl7D02;
         private System.Windows.Forms.Label lblCustom1Hc02;
         private System.Windows.Forms.Label lblCustomBTCv02;
@@ -2700,10 +2701,10 @@
         private System.Windows.Forms.Label lbl1Hr02;
         private System.Windows.Forms.GroupBox customGroup01;
         private System.Windows.Forms.Label lblCustomBTC01;
-        private System.Windows.Forms.Label lblCustomUSD01;
+        private System.Windows.Forms.Label lblCustomC01;
         private System.Windows.Forms.Label lblCustom1Hp01;
         private System.Windows.Forms.Label lblCustom7Dc01;
-        private System.Windows.Forms.Label lblCustomUSDv01;
+        private System.Windows.Forms.Label lblCustomCv01;
         private System.Windows.Forms.Label lbl7D01;
         private System.Windows.Forms.Label lblCustom1Hc01;
         private System.Windows.Forms.Label lblCustomBTCv01;

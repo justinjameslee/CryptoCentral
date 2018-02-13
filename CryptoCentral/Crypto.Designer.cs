@@ -194,6 +194,7 @@
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
+            this.lblMaxPages = new System.Windows.Forms.Label();
             this.lblSaveFound = new System.Windows.Forms.Label();
             this.lblNewPage = new System.Windows.Forms.Label();
             this.lblNoSave = new System.Windows.Forms.Label();
@@ -232,7 +233,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.timerPageCheck = new System.Windows.Forms.Timer(this.components);
-            this.lblMaxPages = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
@@ -435,7 +435,7 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
-            this.Summary01.Location = new System.Drawing.Point(1061, 98);
+            this.Summary01.Location = new System.Drawing.Point(228, 84);
             this.Summary01.Name = "Summary01";
             this.Summary01.Size = new System.Drawing.Size(842, 468);
             this.Summary01.TabIndex = 3;
@@ -1980,7 +1980,7 @@
             // 
             this.Options.Controls.Add(this.tabOptions);
             this.Options.Controls.Add(this.label1);
-            this.Options.Location = new System.Drawing.Point(228, 84);
+            this.Options.Location = new System.Drawing.Point(1283, 594);
             this.Options.Name = "Options";
             this.Options.Size = new System.Drawing.Size(842, 468);
             this.Options.TabIndex = 4;
@@ -2031,6 +2031,17 @@
             this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
             this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 375);
             this.optionsSummaryAdvaned.TabIndex = 22;
+            // 
+            // lblMaxPages
+            // 
+            this.lblMaxPages.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblMaxPages.Location = new System.Drawing.Point(43, 240);
+            this.lblMaxPages.Name = "lblMaxPages";
+            this.lblMaxPages.Size = new System.Drawing.Size(104, 17);
+            this.lblMaxPages.TabIndex = 48;
+            this.lblMaxPages.Text = "No More Pages";
+            this.lblMaxPages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblMaxPages.Visible = false;
             // 
             // lblSaveFound
             // 
@@ -2502,17 +2513,6 @@
             // 
             this.timerPageCheck.Enabled = true;
             this.timerPageCheck.Tick += new System.EventHandler(this.timerPageCheck_Tick);
-            // 
-            // lblMaxPages
-            // 
-            this.lblMaxPages.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblMaxPages.Location = new System.Drawing.Point(43, 240);
-            this.lblMaxPages.Name = "lblMaxPages";
-            this.lblMaxPages.Size = new System.Drawing.Size(104, 17);
-            this.lblMaxPages.TabIndex = 48;
-            this.lblMaxPages.Text = "No More Pages";
-            this.lblMaxPages.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMaxPages.Visible = false;
             // 
             // Crypto
             // 

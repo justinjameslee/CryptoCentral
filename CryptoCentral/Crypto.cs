@@ -41,7 +41,7 @@ namespace APIAccessTEST01
 
         List<MarketCap> Coins;
         List<MarketCap> CoinsDetailed;
-        List<string> CurrencyList = new List<string> { "aud", "usd", "jpy", "krw" };
+        List<string> CurrencyList = new List<string> { "aud", "usd"};
 
         string CURRENCY;
         string COIN;
@@ -76,21 +76,22 @@ namespace APIAccessTEST01
         string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
         public string[] Profile1Loaded = new string[10];
         string[] stringPagesSaved = new string[10];
-        string[] NewPagesSaved = { "0", "0", "0", "0", "0" };
+        string[] NewPagesSaved = { "0", "0", "0", "0", "0", "0" };
 
         bool bOptions = false;
         bool bSummary = true;
         bool ConfirmAllowed = false;
         bool ProfileLoaded = false;
         bool NewSave;
-        bool PageChanged;
 
         double Profile;
 
         int pages = 1;
         int PageCalculation;
         int CurrentPage;
+
         int MaxPages;
+        int CurrencyNumber;
 
         void Summary01RESET()
         {
@@ -128,6 +129,7 @@ namespace APIAccessTEST01
             TestCoinSummary();
             Summary01RESET();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);
+            Currencyv.SelectedIndex = 0;
             Options.Visible = false;
             Summary01.Visible = true;
             this.Size = new Size(1064, 546);
@@ -162,29 +164,26 @@ namespace APIAccessTEST01
         {
             if (bOptions == true)
             {
-                bOptions = false;
-                bSummary = true;
-                Summary01RESET();
-                Summary01.Visible = true;
-                Options.Visible = false;
-                lblSaved.Visible = false;
-                lblConfirmed.Visible = false;
-                lblMaxPages.Visible = false;
+                LeavingOptions();
             }
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
             if (bOptions == true)
             {
-                bOptions = false;
-                bSummary = true;
-                Summary01RESET();
-                Summary01.Visible = true;
-                Options.Visible = false;
-                lblSaved.Visible = false;
-                lblConfirmed.Visible = false;
-                lblMaxPages.Visible = false;
+                LeavingOptions();
             }
+        }
+        void LeavingOptions()
+        {
+            bOptions = false;
+            bSummary = true;
+            Summary01RESET();
+            Summary01.Visible = true;
+            Options.Visible = false;
+            lblSaved.Visible = false;
+            lblConfirmed.Visible = false;
+            lblMaxPages.Visible = false;
         }
         private void btnPageLeft_Click(object sender, EventArgs e)
         {
@@ -193,7 +192,6 @@ namespace APIAccessTEST01
             }
             else
             {
-                PageChanged = true;
                 btnPageLeft.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
                 UpdatingCurrentPage();
@@ -209,7 +207,6 @@ namespace APIAccessTEST01
             }
             else
             {
-                PageChanged = true;
                 btnPageRight.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
                 UpdatingCurrentPage();
@@ -352,33 +349,24 @@ namespace APIAccessTEST01
         {
             if (ProfileLoaded != true)
             {
-                coin1 = txtCustom01.Text;
-                coin2 = txtCustom02.Text;
-                coin3 = txtCustom03.Text;
-                coin4 = txtCustom04.Text;
-                coin5 = txtCustom05.Text;
-                coin6 = txtCustom06.Text;
-                coin7 = txtCustom07.Text;
-                coin8 = txtCustom08.Text;
-                coin9 = txtCustom09.Text;
-            }
-            else if (PageChanged = true)
-            {
-                coin1 = txtCustom01.Text;
-                coin2 = txtCustom02.Text;
-                coin3 = txtCustom03.Text;
-                coin4 = txtCustom04.Text;
-                coin5 = txtCustom05.Text;
-                coin6 = txtCustom06.Text;
-                coin7 = txtCustom07.Text;
-                coin8 = txtCustom08.Text;
-                coin9 = txtCustom09.Text;
-                PageChanged = false;
+                SetConfirmationSummary();
             }
             else
             {
 
             }
+        }
+        void SetConfirmationSummary()
+        {
+            coin1 = txtCustom01.Text;
+            coin2 = txtCustom02.Text;
+            coin3 = txtCustom03.Text;
+            coin4 = txtCustom04.Text;
+            coin5 = txtCustom05.Text;
+            coin6 = txtCustom06.Text;
+            coin7 = txtCustom07.Text;
+            coin8 = txtCustom08.Text;
+            coin9 = txtCustom09.Text;
         }
         void SaveProfile()
         {
@@ -817,11 +805,18 @@ namespace APIAccessTEST01
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            try
             {
-                jsonString = reader.ReadToEnd();
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    jsonString = reader.ReadToEnd();
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Recalibrating...");
             }
         }
 

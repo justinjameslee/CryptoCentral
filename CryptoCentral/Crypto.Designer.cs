@@ -40,6 +40,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.lblHeaderCurrency = new System.Windows.Forms.Label();
+            this.HeaderCurrencyv = new System.Windows.Forms.ComboBox();
             this.btnPageRight = new System.Windows.Forms.PictureBox();
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
             this.lblCurrentPage = new System.Windows.Forms.Label();
@@ -200,9 +202,7 @@
             this.lblNoSave = new System.Windows.Forms.Label();
             this.btnNewPage = new System.Windows.Forms.Button();
             this.Pagev = new System.Windows.Forms.ComboBox();
-            this.lblPage = new System.Windows.Forms.Label();
             this.Currencyv = new System.Windows.Forms.ComboBox();
-            this.lblCurrency = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.optionsSummary = new System.Windows.Forms.Panel();
             this.btnClearSummary = new System.Windows.Forms.Button();
@@ -232,7 +232,25 @@
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
-            this.timerPageCheck = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdating = new System.Windows.Forms.Timer(this.components);
+            this.iconMining = new System.Windows.Forms.PictureBox();
+            this.btnMining = new System.Windows.Forms.Label();
+            this.Mining01 = new System.Windows.Forms.Panel();
+            this.tabPools = new System.Windows.Forms.TabControl();
+            this.tabMiningDashboard = new System.Windows.Forms.TabPage();
+            this.tabNicehash = new System.Windows.Forms.TabPage();
+            this.lblMiningTitle = new System.Windows.Forms.Label();
+            this.tabZPool = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBoxCurrency = new System.Windows.Forms.GroupBox();
+            this.groupBoxPages = new System.Windows.Forms.GroupBox();
+            this.btnCurrencyDefault = new System.Windows.Forms.Button();
+            this.lblDefaultSet = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
@@ -258,11 +276,21 @@
             this.tabPage1.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
             this.optionsSummary.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
+            this.Mining01.SuspendLayout();
+            this.tabPools.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxCurrency.SuspendLayout();
+            this.groupBoxPages.SuspendLayout();
             this.SuspendLayout();
             // 
             // Sidebar
             // 
             this.Sidebar.BackColor = System.Drawing.Color.Gray;
+            this.Sidebar.Controls.Add(this.iconMining);
+            this.Sidebar.Controls.Add(this.btnMining);
             this.Sidebar.Controls.Add(this.iconSettings);
             this.Sidebar.Controls.Add(this.btnSettings);
             this.Sidebar.Controls.Add(this.btnHome);
@@ -273,13 +301,13 @@
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(222, 921);
+            this.Sidebar.Size = new System.Drawing.Size(222, 1100);
             this.Sidebar.TabIndex = 0;
             // 
             // iconSettings
             // 
             this.iconSettings.Image = ((System.Drawing.Image)(resources.GetObject("iconSettings.Image")));
-            this.iconSettings.Location = new System.Drawing.Point(26, 134);
+            this.iconSettings.Location = new System.Drawing.Point(26, 171);
             this.iconSettings.Name = "iconSettings";
             this.iconSettings.Size = new System.Drawing.Size(24, 24);
             this.iconSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -291,7 +319,7 @@
             this.btnSettings.AutoSize = true;
             this.btnSettings.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(56, 138);
+            this.btnSettings.Location = new System.Drawing.Point(56, 175);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(87, 20);
             this.btnSettings.TabIndex = 7;
@@ -324,7 +352,7 @@
             // iconBack
             // 
             this.iconBack.Image = ((System.Drawing.Image)(resources.GetObject("iconBack.Image")));
-            this.iconBack.Location = new System.Drawing.Point(26, 169);
+            this.iconBack.Location = new System.Drawing.Point(26, 208);
             this.iconBack.Name = "iconBack";
             this.iconBack.Size = new System.Drawing.Size(24, 24);
             this.iconBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -336,7 +364,7 @@
             this.btnBack.AutoSize = true;
             this.btnBack.Font = new System.Drawing.Font("Walkway Bold", 15F);
             this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(56, 172);
+            this.btnBack.Location = new System.Drawing.Point(56, 211);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(63, 21);
             this.btnBack.TabIndex = 3;
@@ -368,6 +396,8 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.DimGray;
+            this.Header.Controls.Add(this.lblHeaderCurrency);
+            this.Header.Controls.Add(this.HeaderCurrencyv);
             this.Header.Controls.Add(this.btnPageRight);
             this.Header.Controls.Add(this.btnPageLeft);
             this.Header.Controls.Add(this.lblCurrentPage);
@@ -375,14 +405,43 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1710, 78);
+            this.Header.Size = new System.Drawing.Size(1977, 78);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
+            // 
+            // lblHeaderCurrency
+            // 
+            this.lblHeaderCurrency.AutoSize = true;
+            this.lblHeaderCurrency.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblHeaderCurrency.ForeColor = System.Drawing.Color.White;
+            this.lblHeaderCurrency.Location = new System.Drawing.Point(1026, 14);
+            this.lblHeaderCurrency.Name = "lblHeaderCurrency";
+            this.lblHeaderCurrency.Size = new System.Drawing.Size(115, 20);
+            this.lblHeaderCurrency.TabIndex = 44;
+            this.lblHeaderCurrency.Text = "CURRENCY:";
+            this.lblHeaderCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeaderCurrencyv
+            // 
+            this.HeaderCurrencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.HeaderCurrencyv.DisplayMember = "(Collection)";
+            this.HeaderCurrencyv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HeaderCurrencyv.Font = new System.Drawing.Font("Walkway Bold", 11F);
+            this.HeaderCurrencyv.FormattingEnabled = true;
+            this.HeaderCurrencyv.Items.AddRange(new object[] {
+            "USD ($)",
+            "AUD ($)"});
+            this.HeaderCurrencyv.Location = new System.Drawing.Point(1147, 12);
+            this.HeaderCurrencyv.Name = "HeaderCurrencyv";
+            this.HeaderCurrencyv.Size = new System.Drawing.Size(121, 24);
+            this.HeaderCurrencyv.TabIndex = 43;
+            this.HeaderCurrencyv.TabStop = false;
+            this.HeaderCurrencyv.SelectedIndexChanged += new System.EventHandler(this.HeaderCurrencyv_SelectedIndexChanged);
             // 
             // btnPageRight
             // 
             this.btnPageRight.Image = ((System.Drawing.Image)(resources.GetObject("btnPageRight.Image")));
-            this.btnPageRight.Location = new System.Drawing.Point(115, 47);
+            this.btnPageRight.Location = new System.Drawing.Point(972, 12);
             this.btnPageRight.Name = "btnPageRight";
             this.btnPageRight.Size = new System.Drawing.Size(24, 24);
             this.btnPageRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -394,7 +453,7 @@
             // 
             this.btnPageLeft.BackColor = System.Drawing.Color.DimGray;
             this.btnPageLeft.Image = ((System.Drawing.Image)(resources.GetObject("btnPageLeft.Image")));
-            this.btnPageLeft.Location = new System.Drawing.Point(6, 47);
+            this.btnPageLeft.Location = new System.Drawing.Point(863, 12);
             this.btnPageLeft.Name = "btnPageLeft";
             this.btnPageLeft.Size = new System.Drawing.Size(24, 24);
             this.btnPageLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -407,7 +466,7 @@
             this.lblCurrentPage.AutoSize = true;
             this.lblCurrentPage.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.lblCurrentPage.ForeColor = System.Drawing.Color.White;
-            this.lblCurrentPage.Location = new System.Drawing.Point(36, 49);
+            this.lblCurrentPage.Location = new System.Drawing.Point(893, 14);
             this.lblCurrentPage.Name = "lblCurrentPage";
             this.lblCurrentPage.Size = new System.Drawing.Size(73, 20);
             this.lblCurrentPage.TabIndex = 9;
@@ -435,9 +494,9 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
-            this.Summary01.Location = new System.Drawing.Point(228, 84);
+            this.Summary01.Location = new System.Drawing.Point(1128, 100);
             this.Summary01.Name = "Summary01";
-            this.Summary01.Size = new System.Drawing.Size(842, 468);
+            this.Summary01.Size = new System.Drawing.Size(843, 468);
             this.Summary01.TabIndex = 3;
             // 
             // customGroup09
@@ -465,6 +524,7 @@
             this.customGroup09.TabIndex = 43;
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "LTC";
+            this.customGroup09.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv09
             // 
@@ -490,7 +550,7 @@
             this.lblCustomBTC09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC09.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC09.Name = "lblCustomBTC09";
-            this.lblCustomBTC09.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC09.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC09.TabIndex = 26;
             this.lblCustomBTC09.Text = "ETH/BTC";
             this.lblCustomBTC09.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -635,6 +695,7 @@
             this.customGroup06.TabIndex = 40;
             this.customGroup06.TabStop = false;
             this.customGroup06.Text = "LTC";
+            this.customGroup06.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv06
             // 
@@ -660,7 +721,7 @@
             this.lblCustomBTC06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC06.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC06.Name = "lblCustomBTC06";
-            this.lblCustomBTC06.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC06.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC06.TabIndex = 26;
             this.lblCustomBTC06.Text = "ETH/BTC";
             this.lblCustomBTC06.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -805,6 +866,7 @@
             this.customGroup08.TabIndex = 45;
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "ETH";
+            this.customGroup08.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv08
             // 
@@ -830,7 +892,7 @@
             this.lblCustomBTC08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC08.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC08.Name = "lblCustomBTC08";
-            this.lblCustomBTC08.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC08.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC08.TabIndex = 26;
             this.lblCustomBTC08.Text = "ETH/BTC";
             this.lblCustomBTC08.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -975,6 +1037,7 @@
             this.customGroup05.TabIndex = 42;
             this.customGroup05.TabStop = false;
             this.customGroup05.Text = "ETH";
+            this.customGroup05.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv05
             // 
@@ -1000,7 +1063,7 @@
             this.lblCustomBTC05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC05.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC05.Name = "lblCustomBTC05";
-            this.lblCustomBTC05.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC05.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC05.TabIndex = 26;
             this.lblCustomBTC05.Text = "ETH/BTC";
             this.lblCustomBTC05.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1145,6 +1208,7 @@
             this.customGroup07.TabIndex = 44;
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "BTC";
+            this.customGroup07.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv07
             // 
@@ -1170,7 +1234,7 @@
             this.lblCustomBTC07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC07.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC07.Name = "lblCustomBTC07";
-            this.lblCustomBTC07.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC07.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC07.TabIndex = 26;
             this.lblCustomBTC07.Text = "BTC/BTC";
             this.lblCustomBTC07.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1315,6 +1379,7 @@
             this.customGroup04.TabIndex = 41;
             this.customGroup04.TabStop = false;
             this.customGroup04.Text = "BTC";
+            this.customGroup04.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv04
             // 
@@ -1340,7 +1405,7 @@
             this.lblCustomBTC04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC04.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC04.Name = "lblCustomBTC04";
-            this.lblCustomBTC04.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC04.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC04.TabIndex = 26;
             this.lblCustomBTC04.Text = "BTC/BTC";
             this.lblCustomBTC04.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1485,6 +1550,7 @@
             this.customGroup03.TabIndex = 39;
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "LTC";
+            this.customGroup03.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv03
             // 
@@ -1510,9 +1576,9 @@
             this.lblCustomBTC03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC03.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC03.Name = "lblCustomBTC03";
-            this.lblCustomBTC03.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC03.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC03.TabIndex = 26;
-            this.lblCustomBTC03.Text = "ETH/BTC";
+            this.lblCustomBTC03.Text = "LTC/BTC";
             this.lblCustomBTC03.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblCustomC03
@@ -1655,6 +1721,7 @@
             this.customGroup02.TabIndex = 38;
             this.customGroup02.TabStop = false;
             this.customGroup02.Text = "ETH";
+            this.customGroup02.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv02
             // 
@@ -1680,7 +1747,7 @@
             this.lblCustomBTC02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC02.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC02.Name = "lblCustomBTC02";
-            this.lblCustomBTC02.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC02.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC02.TabIndex = 26;
             this.lblCustomBTC02.Text = "ETH/BTC";
             this.lblCustomBTC02.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1825,6 +1892,7 @@
             this.customGroup01.TabIndex = 37;
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "BTC";
+            this.customGroup01.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv01
             // 
@@ -1850,7 +1918,7 @@
             this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC01.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC01.Name = "lblCustomBTC01";
-            this.lblCustomBTC01.Size = new System.Drawing.Size(90, 23);
+            this.lblCustomBTC01.Size = new System.Drawing.Size(102, 23);
             this.lblCustomBTC01.TabIndex = 26;
             this.lblCustomBTC01.Text = "BTC/BTC";
             this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1980,7 +2048,7 @@
             // 
             this.Options.Controls.Add(this.tabOptions);
             this.Options.Controls.Add(this.label1);
-            this.Options.Location = new System.Drawing.Point(1283, 594);
+            this.Options.Location = new System.Drawing.Point(1128, 574);
             this.Options.Name = "Options";
             this.Options.Size = new System.Drawing.Size(842, 468);
             this.Options.TabIndex = 4;
@@ -2015,15 +2083,8 @@
             // 
             // optionsSummaryAdvaned
             // 
-            this.optionsSummaryAdvaned.Controls.Add(this.lblMaxPages);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblSaveFound);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblNewPage);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblNoSave);
-            this.optionsSummaryAdvaned.Controls.Add(this.btnNewPage);
-            this.optionsSummaryAdvaned.Controls.Add(this.Pagev);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblPage);
-            this.optionsSummaryAdvaned.Controls.Add(this.Currencyv);
-            this.optionsSummaryAdvaned.Controls.Add(this.lblCurrency);
+            this.optionsSummaryAdvaned.Controls.Add(this.groupBoxPages);
+            this.optionsSummaryAdvaned.Controls.Add(this.groupBoxCurrency);
             this.optionsSummaryAdvaned.Controls.Add(this.label2);
             this.optionsSummaryAdvaned.Dock = System.Windows.Forms.DockStyle.Right;
             this.optionsSummaryAdvaned.Location = new System.Drawing.Point(452, 3);
@@ -2035,7 +2096,7 @@
             // lblMaxPages
             // 
             this.lblMaxPages.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblMaxPages.Location = new System.Drawing.Point(43, 240);
+            this.lblMaxPages.Location = new System.Drawing.Point(23, 103);
             this.lblMaxPages.Name = "lblMaxPages";
             this.lblMaxPages.Size = new System.Drawing.Size(104, 17);
             this.lblMaxPages.TabIndex = 48;
@@ -2046,7 +2107,7 @@
             // lblSaveFound
             // 
             this.lblSaveFound.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblSaveFound.Location = new System.Drawing.Point(53, 240);
+            this.lblSaveFound.Location = new System.Drawing.Point(33, 103);
             this.lblSaveFound.Name = "lblSaveFound";
             this.lblSaveFound.Size = new System.Drawing.Size(85, 17);
             this.lblSaveFound.TabIndex = 47;
@@ -2057,7 +2118,7 @@
             // lblNewPage
             // 
             this.lblNewPage.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblNewPage.Location = new System.Drawing.Point(29, 240);
+            this.lblNewPage.Location = new System.Drawing.Point(9, 103);
             this.lblNewPage.Name = "lblNewPage";
             this.lblNewPage.Size = new System.Drawing.Size(133, 17);
             this.lblNewPage.TabIndex = 46;
@@ -2068,7 +2129,7 @@
             // lblNoSave
             // 
             this.lblNoSave.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblNoSave.Location = new System.Drawing.Point(35, 240);
+            this.lblNoSave.Location = new System.Drawing.Point(15, 103);
             this.lblNoSave.Name = "lblNoSave";
             this.lblNoSave.Size = new System.Drawing.Size(121, 17);
             this.lblNoSave.TabIndex = 45;
@@ -2082,7 +2143,7 @@
             this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnNewPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewPage.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnNewPage.Location = new System.Drawing.Point(35, 205);
+            this.btnNewPage.Location = new System.Drawing.Point(15, 68);
             this.btnNewPage.Name = "btnNewPage";
             this.btnNewPage.Size = new System.Drawing.Size(121, 30);
             this.btnNewPage.TabIndex = 45;
@@ -2092,49 +2153,32 @@
             // 
             // Pagev
             // 
+            this.Pagev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Pagev.Font = new System.Drawing.Font("Walkway Bold", 15F);
             this.Pagev.FormattingEnabled = true;
-            this.Pagev.Location = new System.Drawing.Point(35, 170);
+            this.Pagev.Location = new System.Drawing.Point(15, 33);
             this.Pagev.Name = "Pagev";
             this.Pagev.Size = new System.Drawing.Size(121, 29);
             this.Pagev.TabIndex = 44;
+            this.Pagev.TabStop = false;
             this.Pagev.SelectedIndexChanged += new System.EventHandler(this.Pagev_SelectedIndexChanged);
-            // 
-            // lblPage
-            // 
-            this.lblPage.AutoSize = true;
-            this.lblPage.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblPage.Location = new System.Drawing.Point(30, 140);
-            this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(74, 29);
-            this.lblPage.TabIndex = 43;
-            this.lblPage.Text = "Page";
             // 
             // Currencyv
             // 
-            this.Currencyv.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.Currencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.Currencyv.DisplayMember = "(Collection)";
+            this.Currencyv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Currencyv.Font = new System.Drawing.Font("Walkway Bold", 15F);
             this.Currencyv.FormattingEnabled = true;
             this.Currencyv.Items.AddRange(new object[] {
             "USD ($)",
             "AUD ($)"});
-            this.Currencyv.Location = new System.Drawing.Point(35, 88);
+            this.Currencyv.Location = new System.Drawing.Point(14, 33);
             this.Currencyv.Name = "Currencyv";
             this.Currencyv.Size = new System.Drawing.Size(121, 29);
             this.Currencyv.TabIndex = 42;
+            this.Currencyv.TabStop = false;
             this.Currencyv.SelectedIndexChanged += new System.EventHandler(this.Currencyv_SelectedIndexChanged);
-            // 
-            // lblCurrency
-            // 
-            this.lblCurrency.AutoSize = true;
-            this.lblCurrency.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCurrency.Location = new System.Drawing.Point(30, 58);
-            this.lblCurrency.Name = "lblCurrency";
-            this.lblCurrency.Size = new System.Drawing.Size(120, 29);
-            this.lblCurrency.TabIndex = 41;
-            this.lblCurrency.Text = "Currency";
             // 
             // label2
             // 
@@ -2490,6 +2534,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -2510,10 +2556,224 @@
             this.label1.Text = "OPTIONS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timerPageCheck
+            // timerUpdating
             // 
-            this.timerPageCheck.Enabled = true;
-            this.timerPageCheck.Tick += new System.EventHandler(this.timerPageCheck_Tick);
+            this.timerUpdating.Enabled = true;
+            this.timerUpdating.Interval = 10;
+            this.timerUpdating.Tick += new System.EventHandler(this.timerUpdating_Tick);
+            // 
+            // iconMining
+            // 
+            this.iconMining.Image = ((System.Drawing.Image)(resources.GetObject("iconMining.Image")));
+            this.iconMining.Location = new System.Drawing.Point(26, 135);
+            this.iconMining.Name = "iconMining";
+            this.iconMining.Size = new System.Drawing.Size(24, 24);
+            this.iconMining.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.iconMining.TabIndex = 10;
+            this.iconMining.TabStop = false;
+            // 
+            // btnMining
+            // 
+            this.btnMining.AutoSize = true;
+            this.btnMining.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnMining.ForeColor = System.Drawing.Color.White;
+            this.btnMining.Location = new System.Drawing.Point(56, 139);
+            this.btnMining.Name = "btnMining";
+            this.btnMining.Size = new System.Drawing.Size(71, 20);
+            this.btnMining.TabIndex = 9;
+            this.btnMining.Text = "MINING";
+            this.btnMining.Click += new System.EventHandler(this.btnMining_Click);
+            // 
+            // Mining01
+            // 
+            this.Mining01.Controls.Add(this.tabPools);
+            this.Mining01.Controls.Add(this.lblMiningTitle);
+            this.Mining01.Location = new System.Drawing.Point(228, 85);
+            this.Mining01.Name = "Mining01";
+            this.Mining01.Size = new System.Drawing.Size(842, 468);
+            this.Mining01.TabIndex = 5;
+            // 
+            // tabPools
+            // 
+            this.tabPools.Controls.Add(this.tabMiningDashboard);
+            this.tabPools.Controls.Add(this.tabNicehash);
+            this.tabPools.Controls.Add(this.tabZPool);
+            this.tabPools.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabPools.HotTrack = true;
+            this.tabPools.Location = new System.Drawing.Point(0, 61);
+            this.tabPools.Multiline = true;
+            this.tabPools.Name = "tabPools";
+            this.tabPools.SelectedIndex = 0;
+            this.tabPools.Size = new System.Drawing.Size(842, 407);
+            this.tabPools.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.tabPools.TabIndex = 5;
+            // 
+            // tabMiningDashboard
+            // 
+            this.tabMiningDashboard.BackColor = System.Drawing.Color.DarkGray;
+            this.tabMiningDashboard.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.tabMiningDashboard.ForeColor = System.Drawing.Color.White;
+            this.tabMiningDashboard.Location = new System.Drawing.Point(4, 22);
+            this.tabMiningDashboard.Name = "tabMiningDashboard";
+            this.tabMiningDashboard.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMiningDashboard.Size = new System.Drawing.Size(834, 381);
+            this.tabMiningDashboard.TabIndex = 0;
+            this.tabMiningDashboard.Text = "Dashboard";
+            // 
+            // tabNicehash
+            // 
+            this.tabNicehash.BackColor = System.Drawing.Color.DarkGray;
+            this.tabNicehash.Location = new System.Drawing.Point(4, 22);
+            this.tabNicehash.Name = "tabNicehash";
+            this.tabNicehash.Padding = new System.Windows.Forms.Padding(3);
+            this.tabNicehash.Size = new System.Drawing.Size(834, 381);
+            this.tabNicehash.TabIndex = 1;
+            this.tabNicehash.Text = "Nicehash";
+            // 
+            // lblMiningTitle
+            // 
+            this.lblMiningTitle.AutoSize = true;
+            this.lblMiningTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblMiningTitle.Font = new System.Drawing.Font("Walkway Bold", 30F);
+            this.lblMiningTitle.ForeColor = System.Drawing.Color.White;
+            this.lblMiningTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblMiningTitle.Name = "lblMiningTitle";
+            this.lblMiningTitle.Size = new System.Drawing.Size(145, 42);
+            this.lblMiningTitle.TabIndex = 4;
+            this.lblMiningTitle.Text = "MINING";
+            this.lblMiningTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabZPool
+            // 
+            this.tabZPool.BackColor = System.Drawing.Color.DarkGray;
+            this.tabZPool.Location = new System.Drawing.Point(4, 22);
+            this.tabZPool.Name = "tabZPool";
+            this.tabZPool.Padding = new System.Windows.Forms.Padding(3);
+            this.tabZPool.Size = new System.Drawing.Size(834, 381);
+            this.tabZPool.TabIndex = 2;
+            this.tabZPool.Text = "ZPool";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.textBox3);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBox3.ForeColor = System.Drawing.Color.White;
+            this.groupBox3.Location = new System.Drawing.Point(423, 275);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(401, 100);
+            this.groupBox3.TabIndex = 55;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ZPOOL";
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.Color.DarkGray;
+            this.textBox3.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.textBox3.ForeColor = System.Drawing.Color.White;
+            this.textBox3.Location = new System.Drawing.Point(10, 61);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(290, 24);
+            this.textBox3.TabIndex = 47;
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(6, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(157, 23);
+            this.label5.TabIndex = 46;
+            this.label5.Text = "WALLET ADDRESS";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.Location = new System.Drawing.Point(12, 275);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(401, 100);
+            this.groupBox1.TabIndex = 54;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "NICEHASH";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.DarkGray;
+            this.textBox1.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.textBox1.ForeColor = System.Drawing.Color.White;
+            this.textBox1.Location = new System.Drawing.Point(10, 61);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(290, 24);
+            this.textBox1.TabIndex = 47;
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(6, 35);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(157, 23);
+            this.label3.TabIndex = 46;
+            this.label3.Text = "WALLET ADDRESS";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // groupBoxCurrency
+            // 
+            this.groupBoxCurrency.Controls.Add(this.lblDefaultSet);
+            this.groupBoxCurrency.Controls.Add(this.btnCurrencyDefault);
+            this.groupBoxCurrency.Controls.Add(this.Currencyv);
+            this.groupBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBoxCurrency.ForeColor = System.Drawing.Color.White;
+            this.groupBoxCurrency.Location = new System.Drawing.Point(206, 58);
+            this.groupBoxCurrency.Name = "groupBoxCurrency";
+            this.groupBoxCurrency.Size = new System.Drawing.Size(151, 131);
+            this.groupBoxCurrency.TabIndex = 49;
+            this.groupBoxCurrency.TabStop = false;
+            this.groupBoxCurrency.Text = "CURRENCY";
+            // 
+            // groupBoxPages
+            // 
+            this.groupBoxPages.Controls.Add(this.Pagev);
+            this.groupBoxPages.Controls.Add(this.btnNewPage);
+            this.groupBoxPages.Controls.Add(this.lblMaxPages);
+            this.groupBoxPages.Controls.Add(this.lblNoSave);
+            this.groupBoxPages.Controls.Add(this.lblSaveFound);
+            this.groupBoxPages.Controls.Add(this.lblNewPage);
+            this.groupBoxPages.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBoxPages.ForeColor = System.Drawing.Color.White;
+            this.groupBoxPages.Location = new System.Drawing.Point(32, 58);
+            this.groupBoxPages.Name = "groupBoxPages";
+            this.groupBoxPages.Size = new System.Drawing.Size(151, 131);
+            this.groupBoxPages.TabIndex = 50;
+            this.groupBoxPages.TabStop = false;
+            this.groupBoxPages.Text = "PAGES";
+            // 
+            // btnCurrencyDefault
+            // 
+            this.btnCurrencyDefault.BackColor = System.Drawing.Color.DimGray;
+            this.btnCurrencyDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnCurrencyDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCurrencyDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnCurrencyDefault.Location = new System.Drawing.Point(14, 68);
+            this.btnCurrencyDefault.Name = "btnCurrencyDefault";
+            this.btnCurrencyDefault.Size = new System.Drawing.Size(121, 30);
+            this.btnCurrencyDefault.TabIndex = 49;
+            this.btnCurrencyDefault.Text = "SET DEFAULT";
+            this.btnCurrencyDefault.UseVisualStyleBackColor = false;
+            this.btnCurrencyDefault.Click += new System.EventHandler(this.btnCurrencyDefault_Click);
+            // 
+            // lblDefaultSet
+            // 
+            this.lblDefaultSet.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblDefaultSet.Location = new System.Drawing.Point(23, 103);
+            this.lblDefaultSet.Name = "lblDefaultSet";
+            this.lblDefaultSet.Size = new System.Drawing.Size(104, 17);
+            this.lblDefaultSet.TabIndex = 49;
+            this.lblDefaultSet.Text = "Default Set";
+            this.lblDefaultSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDefaultSet.Visible = false;
             // 
             // Crypto
             // 
@@ -2521,12 +2781,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1932, 921);
+            this.ClientSize = new System.Drawing.Size(2199, 1100);
+            this.Controls.Add(this.Mining01);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.Summary01);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.Sidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1064, 518);
             this.Name = "Crypto";
             this.Text = "Crypto";
@@ -2567,9 +2829,19 @@
             this.tabOptions.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.optionsSummaryAdvaned.ResumeLayout(false);
-            this.optionsSummaryAdvaned.PerformLayout();
             this.optionsSummary.ResumeLayout(false);
             this.optionsSummary.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconMining)).EndInit();
+            this.Mining01.ResumeLayout(false);
+            this.Mining01.PerformLayout();
+            this.tabPools.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBoxCurrency.ResumeLayout(false);
+            this.groupBoxPages.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -2766,11 +3038,9 @@
         private System.Windows.Forms.Panel optionsSummaryAdvaned;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox Currencyv;
-        private System.Windows.Forms.Label lblCurrency;
         private System.Windows.Forms.ComboBox Pagev;
-        private System.Windows.Forms.Label lblPage;
         private System.Windows.Forms.Button btnNewPage;
-        private System.Windows.Forms.Timer timerPageCheck;
+        private System.Windows.Forms.Timer timerUpdating;
         private System.Windows.Forms.Label lblNoSave;
         private System.Windows.Forms.Label lblNewPage;
         private System.Windows.Forms.Label lblSaveFound;
@@ -2779,5 +3049,25 @@
         private System.Windows.Forms.PictureBox btnPageLeft;
         private System.Windows.Forms.PictureBox btnPageRight;
         private System.Windows.Forms.Label lblMaxPages;
+        private System.Windows.Forms.ComboBox HeaderCurrencyv;
+        private System.Windows.Forms.Label lblHeaderCurrency;
+        private System.Windows.Forms.PictureBox iconMining;
+        private System.Windows.Forms.Label btnMining;
+        private System.Windows.Forms.Panel Mining01;
+        private System.Windows.Forms.TabControl tabPools;
+        private System.Windows.Forms.TabPage tabMiningDashboard;
+        private System.Windows.Forms.TabPage tabNicehash;
+        private System.Windows.Forms.TabPage tabZPool;
+        private System.Windows.Forms.Label lblMiningTitle;
+        private System.Windows.Forms.GroupBox groupBoxPages;
+        private System.Windows.Forms.GroupBox groupBoxCurrency;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblDefaultSet;
+        private System.Windows.Forms.Button btnCurrencyDefault;
     }
 }

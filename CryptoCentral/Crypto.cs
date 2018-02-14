@@ -43,10 +43,7 @@ namespace APIAccessTEST01
         List<MarketCap> CoinsDetailed;
 
         string CURRENCY;
-        string COIN;
-        string CRYPTO;
         string jsonString;
-        string line;
 
         string coin1 = "";
         string coin2 = "";
@@ -70,16 +67,14 @@ namespace APIAccessTEST01
 
         string PageNumber;
         string Pages;
-        string SavedPageNumber;
         string StartingCurrency;
 
         string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
         public string[] Profile1Loaded = new string[10];
-        string[] stringPagesSaved = new string[10];
-        string[] NewPagesSaved = { "0", "0", "0", "0", "0", "0" };
 
         bool bOptions = false;
         bool bSummary = true;
+        bool bMining = false;
         bool ConfirmAllowed = false;
         bool ProfileLoaded = false;
         bool NewSave;
@@ -104,16 +99,28 @@ namespace APIAccessTEST01
             Options.Location = new Point(222, 78);
             Options.Size = new Size(842, 468);
         }
+        void MiningRESET()
+        {
+            Mining01.Location = new Point(222, 78);
+            Mining01.Size = new Size(842, 468);
+        }
+        void HeaderDefaultRESET()
+        {
+            btnPageLeft.Location = new Point(6, 47);
+            lblCurrentPage.Location = new Point(36, 49);
+            btnPageRight.Location = new Point(115, 47);
+            lblHeaderCurrency.Location = new Point(169, 49);
+            HeaderCurrencyv.Location = new Point(290, 47);
+        }
         void CreateMustFiles()
         {
-            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt"))
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt"))
             {
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
                 Pages = Convert.ToString(pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", Pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", Profile1);
-                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", NewPagesSaved);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", Convert.ToString(0));
             }
             else
@@ -129,8 +136,10 @@ namespace APIAccessTEST01
             LoadProfile(Profile);
             TestCoinSummary();
             Summary01RESET();
+            HeaderDefaultRESET();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);
             Options.Visible = false;
+            Mining01.Visible = false;
             Summary01.Visible = true;
             this.Size = new Size(1064, 546);
             this.CenterToScreen();
@@ -159,33 +168,62 @@ namespace APIAccessTEST01
             this.Close();
             PageNumber = Convert.ToString(Pagev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
-            StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
-            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
+        }
+        void HideAll()
+        {
+            bMining = false;
+            bOptions = false;
+            bSummary = false;
+            Mining01.Visible = false;
+            Options.Visible = false;
+            Summary01.Visible = false;
+            lblConfirmed.Visible = false;
+            lblMaxPages.Visible = false;
+            lblDefaultSet.Visible = false;
+        }
+        void HeaderDefault()
+        {
+            btnPageLeft.Visible = true;
+            btnPageRight.Visible = true;
+            lblCurrentPage.Visible = true;
+            lblHeaderCurrency.Visible = true;
+            HeaderCurrencyv.Visible = true;
         }
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (bOptions == true)
-            {
-                LeavingOptions();
-            }
+            HideAll();
+            bSummary = true;
+            Summary01.Visible = true;
+            Summary01RESET();
+            HeaderDefault();
+        }
+        private void btnMining_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            bMining = true;
+            Mining01.Visible = true;
+            MiningRESET();
+            btnPageLeft.Visible = false;
+            btnPageRight.Visible = false;
+            lblCurrentPage.Visible = false;
+            lblHeaderCurrency.Visible = false;
+            HeaderCurrencyv.Visible = false;
+        }
+        private void lblSettings_Click(object sender, EventArgs e)
+        {
+            HideAll();
+            bOptions = true;
+            Options.Visible = true;
+            OptionsRESET();
+            HeaderDefault();
         }
         private void btnBack_Click(object sender, EventArgs e)
         {
-            if (bOptions == true)
-            {
-                LeavingOptions();
-            }
-        }
-        void LeavingOptions()
-        {
-            bOptions = false;
+            HideAll();
             bSummary = true;
-            Summary01RESET();
             Summary01.Visible = true;
-            Options.Visible = false;
-            lblSaved.Visible = false;
-            lblConfirmed.Visible = false;
-            lblMaxPages.Visible = false;
+            Summary01RESET();
+            HeaderDefault();
         }
         private void btnPageLeft_Click(object sender, EventArgs e)
         {
@@ -214,14 +252,6 @@ namespace APIAccessTEST01
                 UpdatingCurrentPage();
             }
         }
-        private void lblSettings_Click(object sender, EventArgs e)
-        {
-            bOptions = true;
-            bSummary = false;
-            OptionsRESET();
-            Summary01.Visible = false;
-            Options.Visible = true;
-        }
         void LoadProfile(double ProfileNumber)
         {
             if (ProfileNumber == 1)
@@ -229,7 +259,6 @@ namespace APIAccessTEST01
                 try
                 {
                     StartingCurrency = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt");
-                    stringPagesSaved = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt");
                     PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
                     Pages = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
                     CurrencyNumber = Convert.ToInt32(StartingCurrency);
@@ -244,14 +273,6 @@ namespace APIAccessTEST01
                         }
                         
                     }
-                    if(stringPagesSaved[Convert.ToInt32(PageNumber)] == "0")
-                    {
-                        SavedPageNumber = "0";
-                    }
-                    else
-                    {
-                        SavedPageNumber = PageNumber;
-                    }
 
                     if (CurrencyNumber == 0)
                     {
@@ -261,11 +282,8 @@ namespace APIAccessTEST01
                     {
                         Currencyv.SelectedIndex = 1;
                     }
-                    else
-                    {
-                        Console.WriteLine("TEST");
-                    }
-                    Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + SavedPageNumber + ".txt");
+
+                    Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt");
                     coin1 = Profile1Loaded[0];
                     coin2 = Profile1Loaded[1];
                     coin3 = Profile1Loaded[2];
@@ -284,11 +302,13 @@ namespace APIAccessTEST01
                     txtCustom07.Text = coin7;
                     txtCustom08.Text = coin8;
                     txtCustom09.Text = coin9;
+                    TestCoinSummary();
+                    GETINFOSummary();
                     ProfileLoaded = true;
                 }
                 catch (Exception)
                 {
-
+                    Console.WriteLine("ERROR");
                 }
                 
             }
@@ -581,22 +601,28 @@ namespace APIAccessTEST01
                     percent_change_1h = percent_change_1h + "%";
                     if (Dchange > 0)
                     {
-                        if (data.symbol == "BTC") { }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
                         else { xBTCv.ForeColor = Color.Green; }
                     }
                     else if (Dchange < 0)
                     {
-                        if (data.symbol == "BTC") { }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
                         else { xBTCv.ForeColor = Color.Red; }
                     }
                     else if (Dchange == 0)
                     {
-                        if (data.symbol == "BTC") { }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
                         else { xBTCv.ForeColor = Color.White; }
                     }
                     string price_btc;
+                    double dprice_btc;
                     price_btc = data.price_btc;
                     price_btc = RemoveExtraText(price_btc);
+                    dprice_btc = Convert.ToDouble(price_btc);
+                    if (data.symbol == "BTC")
+                    { price_btc = String.Format("{0:0.0}", dprice_btc); }
+                    else
+                    { price_btc = String.Format("{0:0.00000000}", dprice_btc); }
                     price_btc = price_btc + " BTC";
                     xBTCv.Text = price_btc;
                 }
@@ -1007,7 +1033,6 @@ namespace APIAccessTEST01
             int CurrentPage = Pagev.SelectedIndex + 1;
             int CurrentIndex = Pagev.SelectedIndex;
             lblSaved.Text = "Saved to Page " + Convert.ToString(CurrentPage);
-            File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\SavedPages.txt", stringPagesSaved);
         }
 
         private void btnNewPage_Click(object sender, EventArgs e)
@@ -1033,11 +1058,6 @@ namespace APIAccessTEST01
                 lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
                 EmptySummary();
             }
-        }
-
-        private void timerPageCheck_Tick(object sender, EventArgs e)
-        {
-
         }
         void EmptySummary()
         {
@@ -1115,6 +1135,83 @@ namespace APIAccessTEST01
         private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
             GETINFOSummary();
+            HeaderCurrencyv.SelectedIndex = Currencyv.SelectedIndex;
+            lblDefaultSet.Visible = false;
         }
+
+        //void GETHOVERINFO(string customCoin, string CRYPTO, TextBox txtHover)
+        //{
+        //    if (customCoin == "")
+        //    {
+        //        txtHover.Text = "No Data" + Environment.NewLine + "No Data" + Environment.NewLine + "No Data";
+        //    }
+        //    else
+        //    {
+        //        API(@"https://api.coinmarketcap.com/v1/ticker/" + CRYPTO);
+
+        //        CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
+
+        //        foreach (var data in CoinsDetailed)             //Rank
+        //        {
+        //            string rank;
+        //            rank = data.rank;
+        //            Console.WriteLine(rank);
+        //            rank = "Rank: " + rank;
+
+        //            double volume_usd;
+        //            string volume_usdString;
+        //            volume_usd = data.DailyVolumeUSD;
+        //            volume_usdString = String.Format("{0:n}", volume_usd);
+        //            volume_usdString = "24Hr Volume USD: $" + volume_usdString;
+
+        //            double marketcap_usd;
+        //            string marketcap_usdString;
+        //            marketcap_usd = data.market_cap_usd;
+        //            marketcap_usdString = String.Format("{0:n}", marketcap_usd);
+        //            marketcap_usdString = "Market Cap USD: $" + marketcap_usdString;
+
+        //            txtHover.Text = rank + Environment.NewLine + volume_usdString + Environment.NewLine + marketcap_usdString;
+        //        }
+        //    }
+        //}
+        private void event_SummaryHover(object sender, EventArgs e)
+        {
+            //txtHoverInfo.Visible = true;
+            //string HoverCoin = ((GroupBox)sender).Text;
+            //string HoverCoinFN = "";
+            //TestOptionCoins(ref HoverCoin, ref HoverCoinFN);
+            //GETHOVERINFO(HoverCoin, HoverCoinFN, txtHoverInfo);
+            //txtHoverInfo.Location = new Point(Cursor.Position.X - 605, Cursor.Position.Y - 325);
+        }
+
+        private void timerUpdating_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Currencyv.SelectedIndex = HeaderCurrencyv.SelectedIndex;
+        }
+
+        private void btnCurrencyDefault_Click(object sender, EventArgs e)
+        {
+            StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
+            lblDefaultSet.Visible = true;
+        }
+
+
+
+
+
+
+
+
+
+
+
+        //MINING
+
     }
 }

@@ -632,59 +632,114 @@ namespace APIAccessTEST01
                     string convertedPercent;
                     string price_usd;
                     double Dprice_usd;
+                    string price_aud;
+                    double Dprice_aud;
                     double DChange;
 
                     convertedPercent = data.percent_change_1h;
                     convertedPercent = RemoveExtraText(convertedPercent);
-                    price_usd = data.price_usd;
-                    price_usd = RemoveExtraText(price_usd);
-                    double totalPercent;
-                    totalPercent = Convert.ToDouble(convertedPercent);
-                    totalPercent = totalPercent / 100;
-                    if (totalPercent >= 0)
+                    if (CURRENCY == "USD")
                     {
-                        totalPercent = totalPercent + 1;
-                    }
-                    else if (totalPercent < 0)
-                    {
-                        totalPercent = totalPercent - 1;
-                    }
-                    Dprice_usd = Convert.ToDouble(data.price_usd);
-                    DChange = Dprice_usd / totalPercent;
-                    value_changed = Convert.ToString(DChange);
-                    if (DChange < 0)
-                    {
-                        DChange = DChange * -1;
-                        DChange = Dprice_usd - DChange;
+                        price_usd = data.price_usd;
+                        price_usd = RemoveExtraText(price_usd);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_usd = Convert.ToDouble(data.price_usd);
+                        DChange = Dprice_usd / totalPercent;
                         value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
+                        if (DChange < 0)
                         {
-                            xUSDc.ForeColor = Color.White;
+                            DChange = DChange * -1;
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSDc.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSDc.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
                         }
-                        else
+                        else if (DChange > 0)
                         {
-                            xUSDc.ForeColor = Color.Red;
-                            value_changed = value_changed.Substring(0, 8);
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSDc.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSDc.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
+
                         }
+                        value_changed = "$" + value_changed;
+                        xUSDc.Text = value_changed;
                     }
-                    else if (DChange > 0)
+                    else if (CURRENCY == "AUD")
                     {
-                        DChange = Dprice_usd - DChange;
+                        price_aud = data.price_aud;
+                        price_aud = RemoveExtraText(price_aud);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_aud = Convert.ToDouble(data.price_aud);
+                        DChange = Dprice_aud / totalPercent;
                         value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
+                        if (DChange < 0)
                         {
-                            xUSDc.ForeColor = Color.White;
+                            DChange = DChange * -1;
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSDc.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSDc.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
                         }
-                        else
+                        else if (DChange > 0)
                         {
-                            xUSDc.ForeColor = Color.Green;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSDc.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSDc.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
 
+                        }
+                        value_changed = "$" + value_changed;
+                        xUSDc.Text = value_changed;
                     }
-                    value_changed = "$" + value_changed;
-                    xUSDc.Text = value_changed;
-
                 }
                 foreach (var data in CoinsDetailed)         //Change 24Hour BTC VALUE
                 {
@@ -692,58 +747,114 @@ namespace APIAccessTEST01
                     string convertedPercent;
                     string price_usd;
                     double Dprice_usd;
+                    string price_aud;
+                    double Dprice_aud;
                     double DChange;
 
                     convertedPercent = data.percent_change_24h;
                     convertedPercent = RemoveExtraText(convertedPercent);
-                    price_usd = data.price_usd;
-                    price_usd = RemoveExtraText(price_usd);
-                    double totalPercent;
-                    totalPercent = Convert.ToDouble(convertedPercent);
-                    totalPercent = totalPercent / 100;
-                    if (totalPercent >= 0)
+                    if (CURRENCY == "USD")
                     {
-                        totalPercent = totalPercent + 1;
-                    }
-                    else if (totalPercent < 0)
-                    {
-                        totalPercent = totalPercent - 1;
-                    }
-                    Dprice_usd = Convert.ToDouble(data.price_usd);
-                    DChange = Dprice_usd / totalPercent;
-                    value_changed = Convert.ToString(DChange);
-                    if (DChange < 0)
-                    {
-                        DChange = DChange * -1;
-                        DChange = Dprice_usd - DChange;
+                        price_usd = data.price_usd;
+                        price_usd = RemoveExtraText(price_usd);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_usd = Convert.ToDouble(data.price_usd);
+                        DChange = Dprice_usd / totalPercent;
                         value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
+                        if (DChange < 0)
                         {
-                            xUSD24c.ForeColor = Color.White;
+                            DChange = DChange * -1;
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD24c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD24c.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
                         }
-                        else
+                        else if (DChange > 0)
                         {
-                            xUSD24c.ForeColor = Color.Red;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
-                    }
-                    else if (DChange > 0)
-                    {
-                        DChange = Dprice_usd - DChange;
-                        value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
-                        {
-                            xUSD24c.ForeColor = Color.White;
-                        }
-                        else
-                        {
-                            xUSD24c.ForeColor = Color.Green;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD24c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD24c.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
 
+                        }
+                        value_changed = "$" + value_changed;
+                        xUSD24c.Text = value_changed;
                     }
-                    value_changed = "$" + value_changed;
-                    xUSD24c.Text = value_changed;
+                    else if (CURRENCY == "AUD")
+                    {
+                        price_aud = data.price_aud;
+                        price_aud = RemoveExtraText(price_aud);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_aud = Convert.ToDouble(data.price_aud);
+                        DChange = Dprice_aud / totalPercent;
+                        value_changed = Convert.ToString(DChange);
+                        if (DChange < 0)
+                        {
+                            DChange = DChange * -1;
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD24c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD24c.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
+                        }
+                        else if (DChange > 0)
+                        {
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD24c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD24c.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
+
+                        }
+                        value_changed = "$" + value_changed;
+                        xUSD24c.Text = value_changed;
+                    }
                 }
                 foreach (var data in CoinsDetailed)         //Change 7Day BTC VALUE
                 {
@@ -751,59 +862,114 @@ namespace APIAccessTEST01
                     string convertedPercent;
                     string price_usd;
                     double Dprice_usd;
+                    string price_aud;
+                    double Dprice_aud;
                     double DChange;
 
                     convertedPercent = data.percent_change_7d;
                     convertedPercent = RemoveExtraText(convertedPercent);
-                    price_usd = data.price_usd;
-                    price_usd = RemoveExtraText(price_usd);
-                    double totalPercent;
-                    totalPercent = Convert.ToDouble(convertedPercent);
-                    totalPercent = totalPercent / 100;
-                    if (totalPercent >= 0)
+                    if (CURRENCY == "USD")
                     {
-                        totalPercent = totalPercent + 1;
-                    }
-                    else if (totalPercent < 0)
-                    {
-                        totalPercent = totalPercent - 1;
-                    }
-                    Dprice_usd = Convert.ToDouble(data.price_usd);
-                    DChange = Dprice_usd / totalPercent;
-                    value_changed = Convert.ToString(DChange);
-                    if (DChange < 0)
-                    {
-                        DChange = DChange * -1;
-                        DChange = Dprice_usd - DChange;
+                        price_usd = data.price_usd;
+                        price_usd = RemoveExtraText(price_usd);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_usd = Convert.ToDouble(data.price_usd);
+                        DChange = Dprice_usd / totalPercent;
                         value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
+                        if (DChange < 0)
                         {
-                            xUSD7c.ForeColor = Color.White;
+                            DChange = DChange * -1;
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD7c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD7c.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
                         }
-                        else
+                        else if (DChange > 0)
                         {
-                            xUSD7c.ForeColor = Color.Red;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
+                            DChange = Dprice_usd - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD7c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD7c.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
 
+                        }
+                        value_changed = "$" + value_changed;
+                        xUSD7c.Text = value_changed;
                     }
-                    else if (DChange > 0)
+                    else if (CURRENCY == "AUD")
                     {
-                        DChange = Dprice_usd - DChange;
+                        price_aud = data.price_aud;
+                        price_aud = RemoveExtraText(price_aud);
+                        double totalPercent;
+                        totalPercent = Convert.ToDouble(convertedPercent);
+                        totalPercent = totalPercent / 100;
+                        if (totalPercent >= 0)
+                        {
+                            totalPercent = totalPercent + 1;
+                        }
+                        else if (totalPercent < 0)
+                        {
+                            totalPercent = totalPercent - 1;
+                        }
+                        Dprice_aud = Convert.ToDouble(data.price_aud);
+                        DChange = Dprice_aud / totalPercent;
                         value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
+                        if (DChange < 0)
                         {
-                            xUSD7c.ForeColor = Color.White;
+                            DChange = DChange * -1;
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD7c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD7c.ForeColor = Color.Red;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
                         }
-                        else
+                        else if (DChange > 0)
                         {
-                            xUSD7c.ForeColor = Color.Green;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
+                            DChange = Dprice_aud - DChange;
+                            value_changed = Convert.ToString(DChange);
+                            if (DChange == 0)
+                            {
+                                xUSD7c.ForeColor = Color.White;
+                            }
+                            else
+                            {
+                                xUSD7c.ForeColor = Color.Green;
+                                value_changed = value_changed.Substring(0, 8);
+                            }
 
+                        }
+                        value_changed = "$" + value_changed;
+                        xUSD7c.Text = value_changed;
                     }
-                    value_changed = "$" + value_changed;
-                    xUSD7c.Text = value_changed;
                 }
                 foreach (var data in CoinsDetailed)             //Change 1Hour BTC PERCENT
                 {

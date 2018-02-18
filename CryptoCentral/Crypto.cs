@@ -127,9 +127,9 @@ namespace APIAccessTEST01
             btnPageRight.Location = new Point(115, 47);
             lblHeaderCurrency.Location = new Point(169, 49);
             HeaderCurrencyv.Location = new Point(290, 47);
-            lblHeaderTime.Location = new Point(445, 49);
-            HeaderTimeZonev.Location = new Point(566, 47);
-            lblSync.Location = new Point(709, 49);
+            lblHeaderTime.Location = new Point(436, 49);
+            HeaderTimeZonev.Location = new Point(557, 47);
+            lblSync.Location = new Point(684, 49);
         }
         
         //Checking and Creating Requiered Files.
@@ -268,6 +268,7 @@ namespace APIAccessTEST01
             }
             else
             {
+                lblSync.Text = "SYNCING...";
                 btnPageLeft.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
                 UpdatingCurrentPage();
@@ -283,6 +284,7 @@ namespace APIAccessTEST01
             }
             else
             {
+                lblSync.Text = "SYNCING...";
                 btnPageRight.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
                 UpdatingCurrentPage();
@@ -369,6 +371,7 @@ namespace APIAccessTEST01
         //Updating Header Page Number
         void UpdatingCurrentPage()
         {
+            lblSync.Text = "SYNCING...";
             CurrentPage = Pagev.SelectedIndex + 1;
             lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
         }
@@ -398,9 +401,11 @@ namespace APIAccessTEST01
             TestCoinSummary();
             GETINFOSummary();
             HideConfirmationLabelsSave();
+            lblSync.Text = "SYNCED";
         }
         void SelectedIndexChanged(int Index)
         {
+            lblSync.Text = "SYNCING...";
             lblMaxPages.Visible = false;
             if (Pagev.SelectedIndex == Index)
             {
@@ -415,12 +420,12 @@ namespace APIAccessTEST01
                     TestCoinSummary();
                     GETINFOSummary();
                     HideConfirmationLabelsNoSave();
-
                 }
             }
         }
         private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblSync.Text = "SYNCING...";
             if (NewSave == true)
             {
                 lblNoSave.Visible = false;
@@ -1296,6 +1301,7 @@ namespace APIAccessTEST01
         }
         void GETINFOSummary()
         {
+            lblSync.Text = "SYNCED";
             try
             {
                 GETINFO(coin1FN, coin1, lblCustomCv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomC01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
@@ -1320,7 +1326,7 @@ namespace APIAccessTEST01
             }
             catch (Exception)
             {
-                lblSync.Text = "OUT OF SYNC";
+                lblSync.Text = "SYNC NOW";
                 lblSync.Visible = true;
             }
             
@@ -1483,7 +1489,7 @@ namespace APIAccessTEST01
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            lblSync.Text = "Refreshing...";
+            lblSync.Text = "SYNCING...";
             lblSync.Visible = true;
             GETINFOSummary();
             timerRefreshing.Enabled = true;

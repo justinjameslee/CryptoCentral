@@ -42,6 +42,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.lblHeaderTime = new System.Windows.Forms.Label();
+            this.HeaderTimeZonev = new System.Windows.Forms.ComboBox();
             this.btnRefresh = new System.Windows.Forms.PictureBox();
             this.lblSync = new System.Windows.Forms.Label();
             this.lblHeaderCurrency = new System.Windows.Forms.Label();
@@ -200,6 +203,10 @@
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTimeSet = new System.Windows.Forms.Label();
+            this.btnTimeDefault = new System.Windows.Forms.Button();
+            this.Timezonev = new System.Windows.Forms.ComboBox();
             this.groupBoxPages = new System.Windows.Forms.GroupBox();
             this.Pagev = new System.Windows.Forms.ComboBox();
             this.btnNewPage = new System.Windows.Forms.Button();
@@ -254,13 +261,6 @@
             this.tabZPool = new System.Windows.Forms.TabPage();
             this.lblMiningTitle = new System.Windows.Forms.Label();
             this.timerRefreshing = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblTimeSet = new System.Windows.Forms.Label();
-            this.btnTimeDefault = new System.Windows.Forms.Button();
-            this.Timezonev = new System.Windows.Forms.ComboBox();
-            this.lblHeaderTime = new System.Windows.Forms.Label();
-            this.HeaderTimeZonev = new System.Windows.Forms.ComboBox();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
@@ -269,6 +269,7 @@
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
@@ -287,6 +288,7 @@
             this.tabOptions.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBoxPages.SuspendLayout();
             this.groupBoxCurrency.SuspendLayout();
             this.optionsSummary.SuspendLayout();
@@ -295,8 +297,6 @@
             this.groupBox1.SuspendLayout();
             this.Mining01.SuspendLayout();
             this.tabPools.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             this.SuspendLayout();
             // 
             // Sidebar
@@ -449,10 +449,49 @@
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(752, 12);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimize.TabIndex = 49;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // lblHeaderTime
+            // 
+            this.lblHeaderTime.AutoSize = true;
+            this.lblHeaderTime.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblHeaderTime.ForeColor = System.Drawing.Color.White;
+            this.lblHeaderTime.Location = new System.Drawing.Point(436, 49);
+            this.lblHeaderTime.Name = "lblHeaderTime";
+            this.lblHeaderTime.Size = new System.Drawing.Size(111, 20);
+            this.lblHeaderTime.TabIndex = 48;
+            this.lblHeaderTime.Text = "TIME ZONE:";
+            this.lblHeaderTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeaderTimeZonev
+            // 
+            this.HeaderTimeZonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.HeaderTimeZonev.DisplayMember = "(Collection)";
+            this.HeaderTimeZonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HeaderTimeZonev.Font = new System.Drawing.Font("Walkway Bold", 11F);
+            this.HeaderTimeZonev.FormattingEnabled = true;
+            this.HeaderTimeZonev.Items.AddRange(new object[] {
+            "UTC",
+            "LOCAL"});
+            this.HeaderTimeZonev.Location = new System.Drawing.Point(557, 47);
+            this.HeaderTimeZonev.Name = "HeaderTimeZonev";
+            this.HeaderTimeZonev.Size = new System.Drawing.Size(121, 24);
+            this.HeaderTimeZonev.TabIndex = 47;
+            this.HeaderTimeZonev.TabStop = false;
+            this.HeaderTimeZonev.SelectedIndexChanged += new System.EventHandler(this.HeaderTimeZonev_SelectedIndexChanged);
+            // 
             // btnRefresh
             // 
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(744, 12);
+            this.btnRefresh.Location = new System.Drawing.Point(802, 47);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(24, 24);
             this.btnRefresh.TabIndex = 46;
@@ -463,11 +502,11 @@
             // 
             this.lblSync.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.lblSync.ForeColor = System.Drawing.Color.White;
-            this.lblSync.Location = new System.Drawing.Point(709, 49);
+            this.lblSync.Location = new System.Drawing.Point(684, 49);
             this.lblSync.Name = "lblSync";
-            this.lblSync.Size = new System.Drawing.Size(125, 20);
+            this.lblSync.Size = new System.Drawing.Size(112, 20);
             this.lblSync.TabIndex = 45;
-            this.lblSync.Text = "UP TO DATE";
+            this.lblSync.Text = "SYNCED";
             this.lblSync.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblHeaderCurrency
@@ -2119,6 +2158,7 @@
             this.tabOptions.Controls.Add(this.tabPage1);
             this.tabOptions.Controls.Add(this.tabPage2);
             this.tabOptions.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tabOptions.Font = new System.Drawing.Font("Walkway Bold", 11F);
             this.tabOptions.HotTrack = true;
             this.tabOptions.Location = new System.Drawing.Point(0, 61);
             this.tabOptions.Multiline = true;
@@ -2135,10 +2175,10 @@
             this.tabPage1.Controls.Add(this.optionsSummaryAdvaned);
             this.tabPage1.Controls.Add(this.optionsSummary);
             this.tabPage1.ForeColor = System.Drawing.Color.White;
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage1.Size = new System.Drawing.Size(834, 381);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(834, 378);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Summary";
             // 
@@ -2152,8 +2192,64 @@
             this.optionsSummaryAdvaned.Location = new System.Drawing.Point(452, 3);
             this.optionsSummaryAdvaned.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
-            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 375);
+            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 372);
             this.optionsSummaryAdvaned.TabIndex = 22;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblTimeSet);
+            this.groupBox2.Controls.Add(this.btnTimeDefault);
+            this.groupBox2.Controls.Add(this.Timezonev);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.Location = new System.Drawing.Point(32, 214);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(151, 131);
+            this.groupBox2.TabIndex = 51;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "TIME ZONE";
+            // 
+            // lblTimeSet
+            // 
+            this.lblTimeSet.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblTimeSet.Location = new System.Drawing.Point(23, 103);
+            this.lblTimeSet.Name = "lblTimeSet";
+            this.lblTimeSet.Size = new System.Drawing.Size(104, 17);
+            this.lblTimeSet.TabIndex = 49;
+            this.lblTimeSet.Text = "Default Set";
+            this.lblTimeSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTimeSet.Visible = false;
+            // 
+            // btnTimeDefault
+            // 
+            this.btnTimeDefault.BackColor = System.Drawing.Color.DimGray;
+            this.btnTimeDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnTimeDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTimeDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnTimeDefault.Location = new System.Drawing.Point(14, 68);
+            this.btnTimeDefault.Name = "btnTimeDefault";
+            this.btnTimeDefault.Size = new System.Drawing.Size(121, 30);
+            this.btnTimeDefault.TabIndex = 49;
+            this.btnTimeDefault.Text = "SET DEFAULT";
+            this.btnTimeDefault.UseVisualStyleBackColor = false;
+            this.btnTimeDefault.Click += new System.EventHandler(this.btnTimeDefault_Click);
+            // 
+            // Timezonev
+            // 
+            this.Timezonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.Timezonev.DisplayMember = "(Collection)";
+            this.Timezonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Timezonev.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.Timezonev.FormattingEnabled = true;
+            this.Timezonev.Items.AddRange(new object[] {
+            "UTC",
+            "LOCAL"});
+            this.Timezonev.Location = new System.Drawing.Point(14, 33);
+            this.Timezonev.Name = "Timezonev";
+            this.Timezonev.Size = new System.Drawing.Size(121, 29);
+            this.Timezonev.TabIndex = 42;
+            this.Timezonev.TabStop = false;
+            this.Timezonev.SelectedIndexChanged += new System.EventHandler(this.Timezonev_SelectedIndexChanged);
             // 
             // groupBoxPages
             // 
@@ -2340,7 +2436,7 @@
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
             this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummary.Name = "optionsSummary";
-            this.optionsSummary.Size = new System.Drawing.Size(449, 375);
+            this.optionsSummary.Size = new System.Drawing.Size(449, 372);
             this.optionsSummary.TabIndex = 21;
             // 
             // btnClearSummary
@@ -2656,7 +2752,7 @@
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(834, 381);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Mining";
@@ -2777,7 +2873,7 @@
             this.tabMiningDashboard.ForeColor = System.Drawing.Color.White;
             this.tabMiningDashboard.Location = new System.Drawing.Point(4, 22);
             this.tabMiningDashboard.Name = "tabMiningDashboard";
-            this.tabMiningDashboard.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabMiningDashboard.Padding = new System.Windows.Forms.Padding(3);
             this.tabMiningDashboard.Size = new System.Drawing.Size(834, 381);
             this.tabMiningDashboard.TabIndex = 0;
             this.tabMiningDashboard.Text = "Dashboard";
@@ -2787,7 +2883,7 @@
             this.tabNicehash.BackColor = System.Drawing.Color.DarkGray;
             this.tabNicehash.Location = new System.Drawing.Point(4, 22);
             this.tabNicehash.Name = "tabNicehash";
-            this.tabNicehash.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabNicehash.Padding = new System.Windows.Forms.Padding(3);
             this.tabNicehash.Size = new System.Drawing.Size(834, 381);
             this.tabNicehash.TabIndex = 1;
             this.tabNicehash.Text = "Nicehash";
@@ -2797,7 +2893,7 @@
             this.tabZPool.BackColor = System.Drawing.Color.DarkGray;
             this.tabZPool.Location = new System.Drawing.Point(4, 22);
             this.tabZPool.Name = "tabZPool";
-            this.tabZPool.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabZPool.Padding = new System.Windows.Forms.Padding(3);
             this.tabZPool.Size = new System.Drawing.Size(834, 381);
             this.tabZPool.TabIndex = 2;
             this.tabZPool.Text = "ZPool";
@@ -2819,101 +2915,6 @@
             // 
             this.timerRefreshing.Interval = 2000;
             this.timerRefreshing.Tick += new System.EventHandler(this.timerRefreshing_Tick);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblTimeSet);
-            this.groupBox2.Controls.Add(this.btnTimeDefault);
-            this.groupBox2.Controls.Add(this.Timezonev);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(32, 214);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(151, 131);
-            this.groupBox2.TabIndex = 51;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "TIME ZONE";
-            // 
-            // lblTimeSet
-            // 
-            this.lblTimeSet.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblTimeSet.Location = new System.Drawing.Point(23, 103);
-            this.lblTimeSet.Name = "lblTimeSet";
-            this.lblTimeSet.Size = new System.Drawing.Size(104, 17);
-            this.lblTimeSet.TabIndex = 49;
-            this.lblTimeSet.Text = "Default Set";
-            this.lblTimeSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblTimeSet.Visible = false;
-            // 
-            // btnTimeDefault
-            // 
-            this.btnTimeDefault.BackColor = System.Drawing.Color.DimGray;
-            this.btnTimeDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnTimeDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTimeDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnTimeDefault.Location = new System.Drawing.Point(14, 68);
-            this.btnTimeDefault.Name = "btnTimeDefault";
-            this.btnTimeDefault.Size = new System.Drawing.Size(121, 30);
-            this.btnTimeDefault.TabIndex = 49;
-            this.btnTimeDefault.Text = "SET DEFAULT";
-            this.btnTimeDefault.UseVisualStyleBackColor = false;
-            this.btnTimeDefault.Click += new System.EventHandler(this.btnTimeDefault_Click);
-            // 
-            // Timezonev
-            // 
-            this.Timezonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Timezonev.DisplayMember = "(Collection)";
-            this.Timezonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Timezonev.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.Timezonev.FormattingEnabled = true;
-            this.Timezonev.Items.AddRange(new object[] {
-            "UTC",
-            "LOCAL"});
-            this.Timezonev.Location = new System.Drawing.Point(14, 33);
-            this.Timezonev.Name = "Timezonev";
-            this.Timezonev.Size = new System.Drawing.Size(121, 29);
-            this.Timezonev.TabIndex = 42;
-            this.Timezonev.TabStop = false;
-            this.Timezonev.SelectedIndexChanged += new System.EventHandler(this.Timezonev_SelectedIndexChanged);
-            // 
-            // lblHeaderTime
-            // 
-            this.lblHeaderTime.AutoSize = true;
-            this.lblHeaderTime.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.lblHeaderTime.ForeColor = System.Drawing.Color.White;
-            this.lblHeaderTime.Location = new System.Drawing.Point(445, 49);
-            this.lblHeaderTime.Name = "lblHeaderTime";
-            this.lblHeaderTime.Size = new System.Drawing.Size(111, 20);
-            this.lblHeaderTime.TabIndex = 48;
-            this.lblHeaderTime.Text = "TIME ZONE:";
-            this.lblHeaderTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HeaderTimeZonev
-            // 
-            this.HeaderTimeZonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.HeaderTimeZonev.DisplayMember = "(Collection)";
-            this.HeaderTimeZonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HeaderTimeZonev.Font = new System.Drawing.Font("Walkway Bold", 11F);
-            this.HeaderTimeZonev.FormattingEnabled = true;
-            this.HeaderTimeZonev.Items.AddRange(new object[] {
-            "UTC",
-            "LOCAL"});
-            this.HeaderTimeZonev.Location = new System.Drawing.Point(566, 47);
-            this.HeaderTimeZonev.Name = "HeaderTimeZonev";
-            this.HeaderTimeZonev.Size = new System.Drawing.Size(121, 24);
-            this.HeaderTimeZonev.TabIndex = 47;
-            this.HeaderTimeZonev.TabStop = false;
-            this.HeaderTimeZonev.SelectedIndexChanged += new System.EventHandler(this.HeaderTimeZonev_SelectedIndexChanged);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(774, 12);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimize.TabIndex = 49;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // Crypto
             // 
@@ -2943,6 +2944,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
@@ -2971,6 +2973,7 @@
             this.tabOptions.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.optionsSummaryAdvaned.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
             this.groupBoxPages.ResumeLayout(false);
             this.groupBoxCurrency.ResumeLayout(false);
             this.optionsSummary.ResumeLayout(false);
@@ -2983,8 +2986,6 @@
             this.Mining01.ResumeLayout(false);
             this.Mining01.PerformLayout();
             this.tabPools.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             this.ResumeLayout(false);
 
         }

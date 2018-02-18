@@ -17,8 +17,8 @@ namespace APIAccessTEST01
         public string price_usd { get; set; }
         public string price_btc { get; set; }
         [JsonProperty("24h_volume_usd")]
-        public double DailyVolumeUSD { get; set; }
-        public double market_cap_usd { get; set; }
+        public string DailyVolumeUSD { get; set; }
+        public string market_cap_usd { get; set; }
         public string available_supply { get; set; }
         public string total_supply { get; set; }
         public string max_supply { get; set; }
@@ -28,7 +28,7 @@ namespace APIAccessTEST01
         public string last_updated { get; set; }
         public string price_aud { get; set; }
         [JsonProperty("24h_volume_aud")]
-        public double DailyVolumeAUD { get; set; }
+        public string DailyVolumeAUD { get; set; }
         public string market_cap_aud { get; set; }
     }
 }

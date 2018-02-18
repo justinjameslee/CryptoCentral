@@ -31,6 +31,7 @@ namespace APIAccessTEST01
             InitializeComponent();
         }
 
+        //Creating Varaibles For Moving Form.
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -39,12 +40,17 @@ namespace APIAccessTEST01
         [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
+        //Creating Lists for JSON.
         List<MarketCap> Coins;
         List<MarketCap> CoinsDetailed;
 
+        //Creating public varaibles.
         string CURRENCY;
-        string jsonString;
 
+        //Storing Json output as a string.
+        string jsonString; 
+
+        //Custom Coin inputs as Symbols eg "BTC".
         string coin1 = "";
         string coin2 = "";
         string coin3 = "";
@@ -55,6 +61,7 @@ namespace APIAccessTEST01
         string coin8 = "";
         string coin9 = "";
 
+        //Custom Coin inputs as full name eg "bitcoin".
         string coin1FN = "";
         string coin2FN = "";
         string coin3FN = "";
@@ -65,13 +72,16 @@ namespace APIAccessTEST01
         string coin8FN = "";
         string coin9FN = "";
 
+        //Variables related to saving to text files.
         string PageNumber;
         string Pages;
         string StartingCurrency;
 
+        //Storing Inputed Coins in an array     ***NEEED TO CHANGE NAME***
         string[] Profile1 = { "", "", "", "", "", "", "", "", "", "" };
         public string[] Profile1Loaded = new string[10];
 
+        //Booleans to Specify the current selected panel.
         bool bOptions = false;
         bool bSummary = true;
         bool bMining = false;
@@ -79,15 +89,17 @@ namespace APIAccessTEST01
         bool ProfileLoaded = false;
         bool NewSave;
 
+        //Profile Number
         double Profile;
 
+        //Variables that are not indexed. Eg Index: 0 is Page 1.
         int pages = 1;
         int PageCalculation;
         int CurrentPage;
-
         int MaxPages;
         int CurrencyNumber;
 
+        //Resetting Positions of Panels and Header.
         void Summary01RESET()
         {
             Summary01.Location = new Point(222, 78);
@@ -112,6 +124,8 @@ namespace APIAccessTEST01
             lblHeaderCurrency.Location = new Point(169, 49);
             HeaderCurrencyv.Location = new Point(290, 47);
         }
+        
+        //Checking and Creating Requiered Files.
         void CreateMustFiles()
         {
             if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt"))
@@ -128,24 +142,28 @@ namespace APIAccessTEST01
 
             }
         }
+        
+
         private void Crypto_Load(object sender, EventArgs e)
         {
-            ProfileLoaded = false;
-            Profile = 1;
+            ProfileLoaded = false;      //PLACEHOLDER
+            Profile = 1;                //PLACEHOLDER
             CreateMustFiles();
             LoadProfile(Profile);
             TestCoinSummary();
             Summary01RESET();
             HeaderDefaultRESET();
-            Pagev.SelectedIndex = Convert.ToInt32(PageNumber);
+            Pagev.SelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
             Options.Visible = false;
             Mining01.Visible = false;
             Summary01.Visible = true;
             this.Size = new Size(1064, 546);
             this.CenterToScreen();
-            GETINFOSummary();
-            lblSaveFound.Visible = false;
+            GETINFOSummary();                                 //Getting ALL API Information.
+            lblSaveFound.Visible = false;                    //Not Required on first startup.
         }
+        
+        //Events for moving the actual form.
         private void Header_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -169,6 +187,8 @@ namespace APIAccessTEST01
             PageNumber = Convert.ToString(Pagev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
         }
+
+        //Universal Hide All Function.
         void HideAll()
         {
             bMining = false;
@@ -180,6 +200,7 @@ namespace APIAccessTEST01
             lblConfirmed.Visible = false;
             lblMaxPages.Visible = false;
             lblDefaultSet.Visible = false;
+            lblSyncError.Visible = false;
         }
         void HeaderDefault()
         {
@@ -189,6 +210,8 @@ namespace APIAccessTEST01
             lblHeaderCurrency.Visible = true;
             HeaderCurrencyv.Visible = true;
         }
+
+        //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
         {
             HideAll();
@@ -252,6 +275,9 @@ namespace APIAccessTEST01
                 UpdatingCurrentPage();
             }
         }
+        
+        //Function for Loading the Selected Profile.
+        //ProfileNumber is sourced from LoginScreen.
         void LoadProfile(double ProfileNumber)
         {
             if (ProfileNumber == 1)
@@ -283,6 +309,8 @@ namespace APIAccessTEST01
                         Currencyv.SelectedIndex = 1;
                     }
 
+                    //Set all lines from txt file into Array
+                    //Set Custonm Coins to data taken from the Array
                     Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt");
                     coin1 = Profile1Loaded[0];
                     coin2 = Profile1Loaded[1];
@@ -304,15 +332,24 @@ namespace APIAccessTEST01
                     txtCustom09.Text = coin9;
                     TestCoinSummary();
                     GETINFOSummary();
-                    ProfileLoaded = true;
+                    ProfileLoaded = true;       //Make sure program understands profile loaded successfully.
+                    lblSyncError.Visible = false;   
                 }
                 catch (Exception)
                 {
-                    Console.WriteLine("ERROR");
+                    lblSyncError.Visible = true;
                 }
                 
             }
         }
+        //Updating Header Page Number
+        void UpdatingCurrentPage()
+        {
+            CurrentPage = Pagev.SelectedIndex + 1;
+            lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
+        }
+
+        //Function for when Index Changes
         void IndexChanged(int SelectedIndex)
         {
             Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + Convert.ToString(SelectedIndex) + ".txt");
@@ -337,11 +374,6 @@ namespace APIAccessTEST01
             TestCoinSummary();
             GETINFOSummary();
             HideConfirmationLabelsSave();
-        }
-        void UpdatingCurrentPage()
-        {
-            CurrentPage = Pagev.SelectedIndex + 1;
-            lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
         }
         void SelectedIndexChanged(int Index)
         {
@@ -382,6 +414,8 @@ namespace APIAccessTEST01
                 SelectedIndexChanged(5);
             }
         }
+
+        //Confirming New Coin Inputs.
         void ConfirmOptionCoins()
         {
             if (ProfileLoaded != true)
@@ -390,6 +424,7 @@ namespace APIAccessTEST01
             }
             else
             {
+
 
             }
         }
@@ -426,45 +461,54 @@ namespace APIAccessTEST01
         }
         public void TestOptionCoins(ref string RealCoin, ref string RealCoinFN)
         {
-            API(@"https://api.coinmarketcap.com/v1/ticker/");
+            try
+            {
+                API(@"https://api.coinmarketcap.com/v1/ticker/");
 
-            double counting = 0;
+                double counting = 0;
 
-            Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
-            if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
-            {
-                RealCoin = "BTC";
-                RealCoinFN = "bitcoin";
-            }
-            else if (RealCoin == "")
-            {
-                RealCoin = "";
-                RealCoinFN = "";
-            }
-            else
-            {
-                foreach (var coin in Coins)
+                Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
+                if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
                 {
-                    counting = counting + 1;
-                    if (coin.name.ToUpper() == RealCoin.ToUpper())
+                    RealCoin = "BTC";
+                    RealCoinFN = "bitcoin";
+                }
+                else if (RealCoin == "")
+                {
+                    RealCoin = "";
+                    RealCoinFN = "";
+                }
+                else
+                {
+                    foreach (var coin in Coins)
                     {
-                        RealCoin = coin.symbol;
-                        RealCoinFN = coin.id.ToLower();
-                        break;
-                    }
-                    else if (coin.symbol == RealCoin.ToUpper())
-                    {
-                        RealCoin = coin.symbol;
-                        RealCoinFN = coin.id;
-                        break;
-                    }
-                    else if (counting == 100)
-                    {
-                        RealCoin = "";
-                        RealCoinFN = "";
+                        counting = counting + 1;
+                        if (coin.name.ToUpper() == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id.ToLower();
+                            break;
+                        }
+                        else if (coin.symbol == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id;
+                            break;
+                        }
+                        else if (counting == 100)
+                        {
+                            RealCoin = "";
+                            RealCoinFN = "";
+                        }
                     }
                 }
+                lblSyncError.Visible = false;
             }
+            catch (Exception)
+            {
+                lblSyncError.Visible = true;
+            }
+            
         }
         void GETINFO(string CRYPTO, string customCoin, Label xCv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xC, Label xBTC, Label xTimev, GroupBox Number)
         {
@@ -1078,7 +1122,7 @@ namespace APIAccessTEST01
             }
             catch (Exception)
             {
-                MessageBox.Show("Recalibrating...");
+                lblSyncError.Visible = true;
             }
         }
 
@@ -1152,23 +1196,32 @@ namespace APIAccessTEST01
         }
         void GETINFOSummary()
         {
-            GETINFO(coin1FN, coin1, lblCustomCv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomC01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin2FN, coin2, lblCustomCv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomC02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin3FN, coin3, lblCustomCv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomC03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin4FN, coin4, lblCustomCv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomC04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin5FN, coin5, lblCustomCv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomC05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin6FN, coin6, lblCustomCv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomC06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin7FN, coin7, lblCustomCv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomC07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin8FN, coin8, lblCustomCv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomC08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
-            System.Threading.Thread.Sleep(50);
-            GETINFO(coin9FN, coin9, lblCustomCv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomC09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
+            try
+            {
+                GETINFO(coin1FN, coin1, lblCustomCv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomC01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin2FN, coin2, lblCustomCv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomC02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin3FN, coin3, lblCustomCv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomC03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin4FN, coin4, lblCustomCv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomC04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin5FN, coin5, lblCustomCv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomC05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin6FN, coin6, lblCustomCv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomC06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin7FN, coin7, lblCustomCv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomC07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin8FN, coin8, lblCustomCv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomC08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
+                System.Threading.Thread.Sleep(50);
+                GETINFO(coin9FN, coin9, lblCustomCv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomC09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
+                
+            }
+            catch (Exception)
+            {
+                lblSyncError.Visible = true;
+            }
+            
         }
         void TestCoinSummary()
         {
@@ -1365,6 +1418,19 @@ namespace APIAccessTEST01
             StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
             lblDefaultSet.Visible = true;
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            lblSyncError.Text = "Refreshing...";
+            lblSyncError.Visible = true;
+            GETINFOSummary();
+            timerRefreshing.Enabled = true;
+        }
+
+        private void timerRefreshing_Tick(object sender, EventArgs e)
+        {
+            timerRefreshing.Enabled = false;
         }
 
 

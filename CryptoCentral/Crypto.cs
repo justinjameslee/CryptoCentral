@@ -438,6 +438,26 @@ namespace APIAccessTEST01
                 SelectedIndexChanged(5);
             }
         }
+        private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Currencyv.SelectedIndex = HeaderCurrencyv.SelectedIndex;
+        }
+        private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SyncingTest();
+            HeaderCurrencyv.SelectedIndex = Currencyv.SelectedIndex;
+            lblDefaultSet.Visible = false;
+        }
+        private void HeaderTimeZonev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Timezonev.SelectedIndex = HeaderTimeZonev.SelectedIndex;
+        }
+        private void Timezonev_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SyncingTest();
+            HeaderTimeZonev.SelectedIndex = Timezonev.SelectedIndex;
+            lblTimeSet.Visible = false;
+        }
 
         //Confirming New Coin Inputs.
         void ConfirmOptionCoins()
@@ -482,57 +502,6 @@ namespace APIAccessTEST01
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", Profile1);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
             }
-        }
-        public void TestOptionCoins(ref string RealCoin, ref string RealCoinFN)
-        {
-            try
-            {
-                API(@"https://api.coinmarketcap.com/v1/ticker/?start=0&limit=0");
-
-                double counting = 0;
-
-                Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
-                if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
-                {
-                    RealCoin = "BTC";
-                    RealCoinFN = "bitcoin";
-                }
-                else if (RealCoin == "")
-                {
-                    RealCoin = "";
-                    RealCoinFN = "";
-                }
-                else
-                {
-                    foreach (var coin in Coins)
-                    {
-                        counting = counting + 1;
-                        if (coin.name.ToUpper() == RealCoin.ToUpper())
-                        {
-                            RealCoin = coin.symbol;
-                            RealCoinFN = coin.id.ToLower();
-                            break;
-                        }
-                        else if (coin.symbol == RealCoin.ToUpper())
-                        {
-                            RealCoin = coin.symbol;
-                            RealCoinFN = coin.id;
-                            break;
-                        }
-                        else if (counting == 1545)
-                        {
-                            RealCoin = "";
-                            RealCoinFN = "";
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                lblSync.Text = "Coin Error";
-                lblSync.Visible = true;
-            }
-            
         }
         void GETINFO(string CRYPTO, string customCoin, Label xCv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xC, Label xBTC, Label xTimev, GroupBox Number)
         {
@@ -579,6 +548,9 @@ namespace APIAccessTEST01
 
                 CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
 
+                xBTC.Text = customCoin + "/BTC";
+                Number.Text = customCoin;
+
                 if (Currencyv.SelectedIndex == 0)
                 {
                     xC.Text = customCoin + "/USD";
@@ -611,6 +583,7 @@ namespace APIAccessTEST01
                             xCv.ForeColor = Color.White;
                         }
                         xCv.Text = price_usd;
+                        break;
                     }
                 }
                 else if (Currencyv.SelectedIndex == 1)
@@ -645,11 +618,9 @@ namespace APIAccessTEST01
                             xCv.ForeColor = Color.White;
                         }
                         xCv.Text = price_aud;
+                        break;
                     }
                 }
-                xBTC.Text = customCoin + "/BTC";
-                Number.Text = customCoin;
-
                 foreach (var data in CoinsDetailed)         //Calculate Last Updated Time.
                 {
                     string Time;
@@ -672,8 +643,7 @@ namespace APIAccessTEST01
                         FinalTime = FinalTime.Substring(0, FinalTime.Length - 4);
                         xTimev.Text = FinalTime + " LOCAL";
                     }
-                    //FinalTime = String.Format("{0:d/M/yyyy HH:mm:ss}", new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(DTime));
-                    //xTimev.Text = FinalTime + " UTC";
+                    break;
                 }
                 foreach (var data in CoinsDetailed)         //Coin Against BTC
                 {
@@ -709,473 +679,184 @@ namespace APIAccessTEST01
                     { price_btc = String.Format("{0:0.00000000}", dprice_btc); }
                     price_btc = price_btc + " BTC";
                     xBTCv.Text = price_btc;
+                    break;
                 }
-                foreach (var data in CoinsDetailed)         //Change 1Hour BTC VALUE
+                foreach (var data in CoinsDetailed)         //Calculating all things related to percentages for ANY COIN.
                 {
-                    string value_changed;
-                    string convertedPercent;
+                    string value_changed = null;
+                    string convertedPercent = null;
                     string StartingPercent;
                     string price_usd;
-                    double Dprice_usd;
+                    double Dprice_usd = 0;
                     string price_aud;
-                    double Dprice_aud;
-                    double DChange;
+                    double Dprice_aud = 0;
+                    double DChange = 0;
+
+                    double Dchange = 0;
+                    string Data = null;
+                    string StartingPercentP;
+
+                    price_usd = data.price_usd;
+                    price_aud = data.price_aud;
 
                     StartingPercent = data.percent_change_1h;
-                    if (StartingPercent == null)
-                    {
-                        xUSDc.Text = "";
-                    }
-                    else
-                    {
-                        convertedPercent = RemoveExtraText(StartingPercent);
-                        if (CURRENCY == "USD")
-                        {
-                            price_usd = data.price_usd;
-                            price_usd = RemoveExtraText(price_usd);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_usd = Convert.ToDouble(data.price_usd);
-                            DChange = Dprice_usd / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSDc.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSDc.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSDc.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSDc.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSDc.Text = value_changed;
-                        }
-                        else if (CURRENCY == "AUD")
-                        {
-                            price_aud = data.price_aud;
-                            price_aud = RemoveExtraText(price_aud);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_aud = Convert.ToDouble(data.price_aud);
-                            DChange = Dprice_aud / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSDc.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSDc.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSDc.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSDc.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSDc.Text = value_changed;
-                        }
-                    }
-                }
-                foreach (var data in CoinsDetailed)         //Change 24Hour BTC VALUE
-                {
-                    string value_changed;
-                    string convertedPercent;
-                    string StartingPercent;
-                    string price_usd;
-                    double Dprice_usd;
-                    string price_aud;
-                    double Dprice_aud;
-                    double DChange;
-
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSDc);
                     StartingPercent = data.percent_change_24h;
-                    if (StartingPercent == null)
-                    {
-                        xUSD24c.Text = "";
-                    }
-                    else
-                    {
-                        convertedPercent = RemoveExtraText(StartingPercent);
-                        if (CURRENCY == "USD")
-                        {
-                            price_usd = data.price_usd;
-                            price_usd = RemoveExtraText(price_usd);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_usd = Convert.ToDouble(data.price_usd);
-                            DChange = Dprice_usd / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD24c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD24c.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD24c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD24c.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSD24c.Text = value_changed;
-                        }
-                        else if (CURRENCY == "AUD")
-                        {
-                            price_aud = data.price_aud;
-                            price_aud = RemoveExtraText(price_aud);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_aud = Convert.ToDouble(data.price_aud);
-                            DChange = Dprice_aud / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD24c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD24c.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD24c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD24c.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSD24c.Text = value_changed;
-                        }
-                    }
-                }
-                foreach (var data in CoinsDetailed)         //Change 7Day BTC VALUE
-                {
-                    string value_changed;
-                    string convertedPercent;
-                    string StartingPercent;
-                    string price_usd;
-                    double Dprice_usd;
-                    string price_aud;
-                    double Dprice_aud;
-                    double DChange;
-
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSD24c);
                     StartingPercent = data.percent_change_7d;
-                    if (StartingPercent == null)
-                    {
-                        xUSD7c.Text = "";
-                    }
-                    else
-                    {
-                        convertedPercent = RemoveExtraText(StartingPercent);
-                        if (CURRENCY == "USD")
-                        {
-                            price_usd = data.price_usd;
-                            price_usd = RemoveExtraText(price_usd);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_usd = Convert.ToDouble(data.price_usd);
-                            DChange = Dprice_usd / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD7c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD7c.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_usd - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD7c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD7c.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSD7c);
 
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSD7c.Text = value_changed;
-                        }
-                        else if (CURRENCY == "AUD")
-                        {
-                            price_aud = data.price_aud;
-                            price_aud = RemoveExtraText(price_aud);
-                            double totalPercent;
-                            totalPercent = Convert.ToDouble(convertedPercent);
-                            totalPercent = totalPercent / 100;
-                            if (totalPercent >= 0)
-                            {
-                                totalPercent = totalPercent + 1;
-                            }
-                            else if (totalPercent < 0)
-                            {
-                                totalPercent = totalPercent - 1;
-                            }
-                            Dprice_aud = Convert.ToDouble(data.price_aud);
-                            DChange = Dprice_aud / totalPercent;
-                            value_changed = Convert.ToString(DChange);
-                            if (DChange < 0)
-                            {
-                                DChange = DChange * -1;
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD7c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD7c.ForeColor = Color.Red;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-                            }
-                            else if (DChange > 0)
-                            {
-                                DChange = Dprice_aud - DChange;
-                                value_changed = Convert.ToString(DChange);
-                                if (DChange == 0)
-                                {
-                                    xUSD7c.ForeColor = Color.White;
-                                }
-                                else
-                                {
-                                    xUSD7c.ForeColor = Color.Green;
-                                    value_changed = value_changed.Substring(0, 8);
-                                }
-
-                            }
-                            value_changed = "$" + value_changed;
-                            xUSD7c.Text = value_changed;
-                        }
-                    }
-                }
-                foreach (var data in CoinsDetailed)             //Change 1Hour BTC PERCENT
-                {
-                    string percent_change_1h;
-                    string StartingPercent;
-                    double Dchange;
-                    StartingPercent = data.percent_change_1h;
-                    if (StartingPercent == null)
-                    {
-                        xUSDp.Text = "No Data";
-                        xUSDp.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        percent_change_1h = RemoveExtraText(StartingPercent);
-                        Dchange = Convert.ToDouble(percent_change_1h);
-                        percent_change_1h = percent_change_1h + "%";
-                        if (Dchange > 0)
-                        {
-                            xUSDp.ForeColor = Color.Green;
-                        }
-                        else if (Dchange < 0)
-                        {
-                            xUSDp.ForeColor = Color.Red;
-                        }
-                        else if (Dchange == 0)
-                        {
-                            xUSDp.ForeColor = Color.White;
-                        }
-                        xUSDp.Text = percent_change_1h;
-                    }
-                }
-                foreach (var data in CoinsDetailed)             //Change 24Hour BTC PERCENT
-                {
-                    double Dchange;
-                    string percent_change_24h;
-                    string StartingPercent;
-                    StartingPercent = data.percent_change_24h;
-                    if (StartingPercent == null)
-                    {
-                        xUSD24p.Text = "No Data";
-                        xUSD24p.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        percent_change_24h = RemoveExtraText(StartingPercent);
-                        Dchange = Convert.ToDouble(percent_change_24h);
-                        percent_change_24h = percent_change_24h + "%";
-                        if (Dchange > 0)
-                        {
-                            xUSD24p.ForeColor = Color.Green;
-                        }
-                        else if (Dchange < 0)
-                        {
-                            xUSD24p.ForeColor = Color.Red;
-                        }
-                        else if (Dchange == 0)
-                        {
-                            xUSD24p.ForeColor = Color.White;
-                        }
-                        xUSD24p.Text = percent_change_24h;
-                    }
-                }
-                foreach (var data in CoinsDetailed)             //Change 7Days BTC PERCENT
-                {
-                    double Dchange;
-                    string percent_change_7d;
-                    string StartingPercent;
-                    StartingPercent = data.percent_change_7d;
-                    if (StartingPercent == null)
-                    {
-                        xUSD7p.Text = "No Data";
-                        xUSD7p.ForeColor = Color.White;
-                    }
-                    else
-                    {
-                        percent_change_7d = RemoveExtraText(StartingPercent);
-                        Dchange = Convert.ToDouble(percent_change_7d);
-                        percent_change_7d = percent_change_7d + "%";
-                        if (Dchange > 0)
-                        {
-                            xUSD7p.ForeColor = Color.Green;
-                        }
-                        else if (Dchange < 0)
-                        {
-                            xUSD7p.ForeColor = Color.Red;
-                        }
-                        else if (Dchange == 0)
-                        {
-                            xUSD7p.ForeColor = Color.White;
-                        }
-                        xUSD7p.Text = percent_change_7d;
-                    }
+                    StartingPercentP = data.percent_change_1h;
+                    CalculatePercentage(Dchange, Data, StartingPercentP, xUSDp);
+                    StartingPercentP = data.percent_change_24h;
+                    CalculatePercentage(Dchange, Data, StartingPercentP, xUSD24p);
+                    StartingPercentP = data.percent_change_7d;
+                    CalculatePercentage(Dchange, Data, StartingPercentP, xUSD7p);
+                    break;
                 }
             }
             
         }
+        void CalculatePercentageValue(string value_changed, string convertedPercent, string StartingPercent, string price_usd, double Dprice_usd, string price_aud, double Dprice_aud, double DChange, Label ValueText)
+        {
+            if (StartingPercent == null)
+            {
+                ValueText.Text = "";
+            }
+            else
+            {
+                convertedPercent = RemoveExtraText(StartingPercent);
+                if (CURRENCY == "USD")
+                {
+                    
+                    price_usd = RemoveExtraText(price_usd);
+                    double totalPercent;
+                    totalPercent = Convert.ToDouble(convertedPercent);
+                    totalPercent = totalPercent / 100;
+                    if (totalPercent >= 0)
+                    {
+                        totalPercent = totalPercent + 1;
+                    }
+                    else if (totalPercent < 0)
+                    {
+                        totalPercent = totalPercent - 1;
+                    }
+                    Dprice_usd = Convert.ToDouble(price_usd);
+                    DChange = Dprice_usd / totalPercent;
+                    value_changed = Convert.ToString(DChange);
+                    if (DChange < 0)
+                    {
+                        DChange = DChange * -1;
+                        DChange = Dprice_usd - DChange;
+                        value_changed = Convert.ToString(DChange);
+                        if (DChange == 0)
+                        {
+                            ValueText.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            ValueText.ForeColor = Color.Red;
+                            value_changed = value_changed.Substring(0, 8);
+                        }
+                    }
+                    else if (DChange > 0)
+                    {
+                        DChange = Dprice_usd - DChange;
+                        value_changed = Convert.ToString(DChange);
+                        if (DChange == 0)
+                        {
+                            ValueText.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            ValueText.ForeColor = Color.Green;
+                            value_changed = value_changed.Substring(0, 8);
+                        }
 
+                    }
+                    value_changed = "$" + value_changed;
+                    ValueText.Text = value_changed;
+                }
+                else if (CURRENCY == "AUD")
+                {
+                    
+                    price_aud = RemoveExtraText(price_aud);
+                    double totalPercent;
+                    totalPercent = Convert.ToDouble(convertedPercent);
+                    totalPercent = totalPercent / 100;
+                    if (totalPercent >= 0)
+                    {
+                        totalPercent = totalPercent + 1;
+                    }
+                    else if (totalPercent < 0)
+                    {
+                        totalPercent = totalPercent - 1;
+                    }
+                    Dprice_aud = Convert.ToDouble(price_aud);
+                    DChange = Dprice_aud / totalPercent;
+                    value_changed = Convert.ToString(DChange);
+                    if (DChange < 0)
+                    {
+                        DChange = DChange * -1;
+                        DChange = Dprice_aud - DChange;
+                        value_changed = Convert.ToString(DChange);
+                        if (DChange == 0)
+                        {
+                            ValueText.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            ValueText.ForeColor = Color.Red;
+                            value_changed = value_changed.Substring(0, 8);
+                        }
+                    }
+                    else if (DChange > 0)
+                    {
+                        DChange = Dprice_aud - DChange;
+                        value_changed = Convert.ToString(DChange);
+                        if (DChange == 0)
+                        {
+                            ValueText.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            ValueText.ForeColor = Color.Green;
+                            value_changed = value_changed.Substring(0, 8);
+                        }
+
+                    }
+                    value_changed = "$" + value_changed;
+                    ValueText.Text = value_changed;
+                }
+            }
+        }
+        void CalculatePercentage(double Dchange, string Data, string StartingPercentP, Label PercentText)
+        {
+            if (StartingPercentP == null)
+            {
+                PercentText.Text = "No Data";
+                PercentText.ForeColor = Color.White;
+            }
+            else
+            {
+                Data = RemoveExtraText(StartingPercentP);
+                Dchange = Convert.ToDouble(Data);
+                Data = Data + "%";
+                if (Dchange > 0)
+                {
+                    PercentText.ForeColor = Color.Green;
+                }
+                else if (Dchange < 0)
+                {
+                    PercentText.ForeColor = Color.Red;
+                }
+                else if (Dchange == 0)
+                {
+                    PercentText.ForeColor = Color.White;
+                }
+                PercentText.Text = Data;
+            }
+        }
         private string RemoveExtraText(string value)
         {
             var allowedChars = "01234567890.,-";
@@ -1230,90 +911,18 @@ namespace APIAccessTEST01
         {
             GETINFOSummary();
         }
-        private void btnEditSummary_Click(object sender, EventArgs e)
-        {
-            EditSummary();
-            btnEditSummary.Visible = false;
-            btnClearSummary.Visible = true;
-        }
-
-        private void btnConfirmSummary_Click(object sender, EventArgs e)
-        {
-            ConfirmSummary();
-            btnEditSummary.Visible = true;
-            btnClearSummary.Visible = false;
-        }
-        void EditSummary()
-        {
-            txtCustom01.ReadOnly = false;
-            txtCustom02.ReadOnly = false;
-            txtCustom03.ReadOnly = false;
-            txtCustom04.ReadOnly = false;
-            txtCustom05.ReadOnly = false;
-            txtCustom06.ReadOnly = false;
-            txtCustom07.ReadOnly = false;
-            txtCustom08.ReadOnly = false;
-            txtCustom09.ReadOnly = false;
-            txtCustom01.BackColor = Color.DarkGray;
-            txtCustom02.BackColor = Color.DarkGray;
-            txtCustom03.BackColor = Color.DarkGray;
-            txtCustom04.BackColor = Color.DarkGray;
-            txtCustom05.BackColor = Color.DarkGray;
-            txtCustom06.BackColor = Color.DarkGray;
-            txtCustom07.BackColor = Color.DarkGray;
-            txtCustom08.BackColor = Color.DarkGray;
-            txtCustom09.BackColor = Color.DarkGray;
-            ConfirmAllowed = true;
-            ProfileLoaded = false;
-        }
-        void ConfirmSummary()
-        {
-            while (ConfirmAllowed == true)
-            {
-                txtCustom01.ReadOnly = true;
-                txtCustom02.ReadOnly = true;
-                txtCustom03.ReadOnly = true;
-                txtCustom04.ReadOnly = true;
-                txtCustom05.ReadOnly = true;
-                txtCustom06.ReadOnly = true;
-                txtCustom07.ReadOnly = true;
-                txtCustom08.ReadOnly = true;
-                txtCustom09.ReadOnly = true;
-                txtCustom01.BackColor = Color.Gray;
-                txtCustom02.BackColor = Color.Gray;
-                txtCustom03.BackColor = Color.Gray;
-                txtCustom04.BackColor = Color.Gray;
-                txtCustom05.BackColor = Color.Gray;
-                txtCustom06.BackColor = Color.Gray;
-                txtCustom07.BackColor = Color.Gray;
-                txtCustom08.BackColor = Color.Gray;
-                txtCustom09.BackColor = Color.Gray;
-                lblConfirmed.Visible = true;
-                TestCoinSummary();
-                GETINFOSummary();
-                ConfirmAllowed = false;
-            }
-        }
         void GETINFOSummary()
         {
             try
             {
                 GETINFO(coin1FN, coin1, lblCustomCv01, lblCustomBTCv01, lblCustom1Hc01, lblCustom24Hc01, lblCustom7Dc01, lblCustom1Hp01, lblCustom24Hp01, lblCustom7Dp01, lblCustomC01, lblCustomBTC01, lblCustomUpdatedv01, customGroup01);
-          
                 GETINFO(coin2FN, coin2, lblCustomCv02, lblCustomBTCv02, lblCustom1Hc02, lblCustom24Hc02, lblCustom7Dc02, lblCustom1Hp02, lblCustom24Hp02, lblCustom7Dp02, lblCustomC02, lblCustomBTC02, lblCustomUpdatedv02, customGroup02);
-                
                 GETINFO(coin3FN, coin3, lblCustomCv03, lblCustomBTCv03, lblCustom1Hc03, lblCustom24Hc03, lblCustom7Dc03, lblCustom1Hp03, lblCustom24Hp03, lblCustom7Dp03, lblCustomC03, lblCustomBTC03, lblCustomUpdatedv03, customGroup03);
-                
                 GETINFO(coin4FN, coin4, lblCustomCv04, lblCustomBTCv04, lblCustom1Hc04, lblCustom24Hc04, lblCustom7Dc04, lblCustom1Hp04, lblCustom24Hp04, lblCustom7Dp04, lblCustomC04, lblCustomBTC04, lblCustomUpdatedv04, customGroup04);
-                
                 GETINFO(coin5FN, coin5, lblCustomCv05, lblCustomBTCv05, lblCustom1Hc05, lblCustom24Hc05, lblCustom7Dc05, lblCustom1Hp05, lblCustom24Hp05, lblCustom7Dp05, lblCustomC05, lblCustomBTC05, lblCustomUpdatedv05, customGroup05);
-                
                 GETINFO(coin6FN, coin6, lblCustomCv06, lblCustomBTCv06, lblCustom1Hc06, lblCustom24Hc06, lblCustom7Dc06, lblCustom1Hp06, lblCustom24Hp06, lblCustom7Dp06, lblCustomC06, lblCustomBTC06, lblCustomUpdatedv06, customGroup06);
-                
                 GETINFO(coin7FN, coin7, lblCustomCv07, lblCustomBTCv07, lblCustom1Hc07, lblCustom24Hc07, lblCustom7Dc07, lblCustom1Hp07, lblCustom24Hp07, lblCustom7Dp07, lblCustomC07, lblCustomBTC07, lblCustomUpdatedv07, customGroup07);
-                
                 GETINFO(coin8FN, coin8, lblCustomCv08, lblCustomBTCv08, lblCustom1Hc08, lblCustom24Hc08, lblCustom7Dc08, lblCustom1Hp08, lblCustom24Hp08, lblCustom7Dp08, lblCustomC08, lblCustomBTC08, lblCustomUpdatedv08, customGroup08);
-                
                 GETINFO(coin9FN, coin9, lblCustomCv09, lblCustomBTCv09, lblCustom1Hc09, lblCustom24Hc09, lblCustom7Dc09, lblCustom1Hp09, lblCustom24Hp09, lblCustom7Dp09, lblCustomC09, lblCustomBTC09, lblCustomUpdatedv09, customGroup09);
                 SYNCED = true;
             }
@@ -1322,20 +931,34 @@ namespace APIAccessTEST01
                 lblSync.Text = "SYNC NOW";
                 lblSync.Visible = true;
             }
-            
+
         }
-        void TestCoinSummary()
+
+        //SETTINGS
+        //SETTINGS BUTTONS
+        private void btnEditSummary_Click(object sender, EventArgs e)
         {
-            ConfirmOptionCoins();
-            TestOptionCoins(ref coin1, ref coin1FN);
-            TestOptionCoins(ref coin2, ref coin2FN);
-            TestOptionCoins(ref coin3, ref coin3FN);
-            TestOptionCoins(ref coin4, ref coin4FN);
-            TestOptionCoins(ref coin5, ref coin5FN);
-            TestOptionCoins(ref coin6, ref coin6FN);
-            TestOptionCoins(ref coin7, ref coin7FN);
-            TestOptionCoins(ref coin8, ref coin8FN);
-            TestOptionCoins(ref coin9, ref coin9FN);
+            EditSummary();
+            btnEditSummary.Visible = false;
+            btnClearSummary.Visible = true;
+        }
+        private void btnConfirmSummary_Click(object sender, EventArgs e)
+        {
+            ConfirmSummary();
+            btnEditSummary.Visible = true;
+            btnClearSummary.Visible = false;
+        }
+        private void btnClearSummary_Click(object sender, EventArgs e)
+        {
+            txtCustom01.Text = "";
+            txtCustom02.Text = "";
+            txtCustom03.Text = "";
+            txtCustom04.Text = "";
+            txtCustom05.Text = "";
+            txtCustom06.Text = "";
+            txtCustom07.Text = "";
+            txtCustom08.Text = "";
+            txtCustom09.Text = "";
         }
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
@@ -1345,7 +968,6 @@ namespace APIAccessTEST01
             int CurrentIndex = Pagev.SelectedIndex;
             lblSaved.Text = "Saved to Page " + Convert.ToString(CurrentPage);
         }
-
         private void btnNewPage_Click(object sender, EventArgs e)
         {
             HideConfirmationLabelsNewSave();
@@ -1370,37 +992,190 @@ namespace APIAccessTEST01
                 EmptySummary();
             }
         }
+        private void btnTimeDefault_Click(object sender, EventArgs e)
+        {
+            StartingTimeZone = Convert.ToString(Timezonev.SelectedIndex);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", StartingTimeZone);
+            lblTimeSet.Visible = true;
+        }
+        private void btnCurrencyDefault_Click(object sender, EventArgs e)
+        {
+            StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
+            lblDefaultSet.Visible = true;
+        }
+        private void btnMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+            FormBorderStyle = FormBorderStyle.None;
+        }
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            SyncingTest();
+        }
+        void SyncingTest()
+        {
+            SYNCED = false;
+            lblSync.Text = "SYNCING...";
+            lblSync.Visible = true;
+            gifRefreshing.Visible = true;
+            GETINFOSummary();
+            timerRefreshing.Enabled = true;
+        }
+        public void TaskAwait()
+        {
+            new System.Threading.ManualResetEvent(false).WaitOne(50);
+        }
+        private void timerRefreshing_Tick(object sender, EventArgs e)
+        {
+            if (SYNCED == false)
+            {
+
+            }
+            else if (SYNCED == true)
+            {
+                timerRefreshing.Enabled = false;
+                lblSync.Text = "SYNCED";
+                gifRefreshing.Visible = false;
+            }
+
+        }
+        private void event_SummaryHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerUpdating_Tick(object sender, EventArgs e)
+        {
+
+        }
+        void TestCoinSummary()
+        {
+            ConfirmOptionCoins();
+            TestOptionCoins(ref coin1, ref coin1FN);
+            TestOptionCoins(ref coin2, ref coin2FN);
+            TestOptionCoins(ref coin3, ref coin3FN);
+            TestOptionCoins(ref coin4, ref coin4FN);
+            TestOptionCoins(ref coin5, ref coin5FN);
+            TestOptionCoins(ref coin6, ref coin6FN);
+            TestOptionCoins(ref coin7, ref coin7FN);
+            TestOptionCoins(ref coin8, ref coin8FN);
+            TestOptionCoins(ref coin9, ref coin9FN);
+        }
+        public void TestOptionCoins(ref string RealCoin, ref string RealCoinFN)
+        {
+            try
+            {
+                API(@"https://api.coinmarketcap.com/v1/ticker/?start=0&limit=0");
+
+                double counting = 0;
+
+                Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
+                if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
+                {
+                    RealCoin = "BTC";
+                    RealCoinFN = "bitcoin";
+                }
+                else if (RealCoin == "")
+                {
+                    RealCoin = "";
+                    RealCoinFN = "";
+                }
+                else
+                {
+                    foreach (var coin in Coins)
+                    {
+                        counting = counting + 1;
+                        if (coin.name.ToUpper() == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id.ToLower();
+                            break;
+                        }
+                        else if (coin.symbol == RealCoin.ToUpper())
+                        {
+                            RealCoin = coin.symbol;
+                            RealCoinFN = coin.id;
+                            break;
+                        }
+                        else if (counting == 1545)
+                        {
+                            RealCoin = "";
+                            RealCoinFN = "";
+                            break;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                lblSync.Text = "Coin Error";
+                lblSync.Visible = true;
+            }
+
+        }
+        void EditSummaryIndividual(TextBox Custom)
+        {
+            Custom.ReadOnly = false;
+            Custom.BackColor = Color.DarkGray;
+        }
+        void EditSummary()
+        {
+            EditSummaryIndividual(txtCustom01);
+            EditSummaryIndividual(txtCustom02);
+            EditSummaryIndividual(txtCustom03);
+            EditSummaryIndividual(txtCustom04);
+            EditSummaryIndividual(txtCustom05);
+            EditSummaryIndividual(txtCustom06);
+            EditSummaryIndividual(txtCustom07);
+            EditSummaryIndividual(txtCustom08);
+            EditSummaryIndividual(txtCustom09);
+            ConfirmAllowed = true;
+            ProfileLoaded = false;
+        }
+        void EmptySummaryIndividual(TextBox Custom)
+        {
+            Custom.ReadOnly = true;
+            Custom.BackColor = Color.Gray;
+            Custom.Text = "";
+        }
         void EmptySummary()
         {
-            txtCustom01.ReadOnly = true;
-            txtCustom02.ReadOnly = true;
-            txtCustom03.ReadOnly = true;
-            txtCustom04.ReadOnly = true;
-            txtCustom05.ReadOnly = true;
-            txtCustom06.ReadOnly = true;
-            txtCustom07.ReadOnly = true;
-            txtCustom08.ReadOnly = true;
-            txtCustom09.ReadOnly = true;
-            txtCustom01.BackColor = Color.Gray;
-            txtCustom02.BackColor = Color.Gray;
-            txtCustom03.BackColor = Color.Gray;
-            txtCustom04.BackColor = Color.Gray;
-            txtCustom05.BackColor = Color.Gray;
-            txtCustom06.BackColor = Color.Gray;
-            txtCustom07.BackColor = Color.Gray;
-            txtCustom08.BackColor = Color.Gray;
-            txtCustom09.BackColor = Color.Gray;
-            txtCustom01.Text = "";
-            txtCustom02.Text = "";
-            txtCustom03.Text = "";
-            txtCustom04.Text = "";
-            txtCustom05.Text = "";
-            txtCustom06.Text = "";
-            txtCustom07.Text = "";
-            txtCustom08.Text = "";
-            txtCustom09.Text = "";
+            EmptySummaryIndividual(txtCustom01);
+            EmptySummaryIndividual(txtCustom02);
+            EmptySummaryIndividual(txtCustom03);
+            EmptySummaryIndividual(txtCustom04);
+            EmptySummaryIndividual(txtCustom05);
+            EmptySummaryIndividual(txtCustom06);
+            EmptySummaryIndividual(txtCustom07);
+            EmptySummaryIndividual(txtCustom08);
+            EmptySummaryIndividual(txtCustom09);
             TestCoinSummary();
             GETINFOSummary();
+        }
+        void ConfirmSummaryIndividual(TextBox Custom)
+        {
+            Custom.ReadOnly = true;
+            Custom.BackColor = Color.Gray;
+        }
+        void ConfirmSummary()
+        {
+            while (ConfirmAllowed == true)
+            {
+                ConfirmSummaryIndividual(txtCustom01);
+                ConfirmSummaryIndividual(txtCustom02);
+                ConfirmSummaryIndividual(txtCustom03);
+                ConfirmSummaryIndividual(txtCustom04);
+                ConfirmSummaryIndividual(txtCustom05);
+                ConfirmSummaryIndividual(txtCustom06);
+                ConfirmSummaryIndividual(txtCustom07);
+                ConfirmSummaryIndividual(txtCustom08);
+                ConfirmSummaryIndividual(txtCustom09);
+                lblConfirmed.Visible = true;
+                TestCoinSummary();
+                GETINFOSummary();
+                ConfirmAllowed = false;
+            }
         }
         void HideConfirmationLabelsSave()
         {
@@ -1429,112 +1204,6 @@ namespace APIAccessTEST01
             lblSaveFound.Visible = false;
             lblNewPage.Visible = true;
         }
-
-        private void btnClearSummary_Click(object sender, EventArgs e)
-        {
-            txtCustom01.Text = "";
-            txtCustom02.Text = "";
-            txtCustom03.Text = "";
-            txtCustom04.Text = "";
-            txtCustom05.Text = "";
-            txtCustom06.Text = "";
-            txtCustom07.Text = "";
-            txtCustom08.Text = "";
-            txtCustom09.Text = "";
-        }
-
-        private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SyncingTest();
-            HeaderCurrencyv.SelectedIndex = Currencyv.SelectedIndex;
-            lblDefaultSet.Visible = false;
-        }
-        private void event_SummaryHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void timerUpdating_Tick(object sender, EventArgs e)
-        {
-
-        }
-
-        private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Currencyv.SelectedIndex = HeaderCurrencyv.SelectedIndex;
-        }
-
-        private void btnCurrencyDefault_Click(object sender, EventArgs e)
-        {
-            StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
-            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
-            lblDefaultSet.Visible = true;
-        }
-
-        private void btnRefresh_Click(object sender, EventArgs e)
-        {
-            SyncingTest();
-        }
-
-        private void timerRefreshing_Tick(object sender, EventArgs e)
-        {
-            if (SYNCED == false)
-            {
-
-            }
-            else if (SYNCED == true)
-            {
-                timerRefreshing.Enabled = false;
-                lblSync.Text = "SYNCED";
-            }
-            
-        }
-
-        private void btnTimeDefault_Click(object sender, EventArgs e)
-        {
-            StartingTimeZone = Convert.ToString(Timezonev.SelectedIndex);
-            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", StartingTimeZone);
-            lblTimeSet.Visible = true;
-        }
-
-        private void Timezonev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            SyncingTest();
-            HeaderTimeZonev.SelectedIndex = Timezonev.SelectedIndex;
-            lblTimeSet.Visible = false;
-        }
-
-        private void HeaderTimeZonev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Timezonev.SelectedIndex = HeaderTimeZonev.SelectedIndex;
-        }
-
-        private void btnMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-            FormBorderStyle = FormBorderStyle.None;
-        }
-        void SyncingTest()
-        {
-            SYNCED = false;
-            lblSync.Text = "SYNCING...";
-            lblSync.Visible = true;
-            GETINFOSummary();
-            timerRefreshing.Enabled = true;
-        }
-        public void TaskAwait()
-        {
-            new System.Threading.ManualResetEvent(false).WaitOne(50);
-        }
-
-
-
-
-
-
-
-
-
 
         //MINING
 

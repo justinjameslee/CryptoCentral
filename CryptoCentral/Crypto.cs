@@ -91,6 +91,7 @@ namespace APIAccessTEST01
         bool ProfileLoaded = false;
         bool NewSave;
         bool SYNCED;
+        bool ChangingPage = false;
 
         //Profile Number
         double Profile;
@@ -396,7 +397,6 @@ namespace APIAccessTEST01
             txtCustom08.Text = coin8;
             txtCustom09.Text = coin9;
             TestCoinSummary();
-            GETINFOSummary();
             HideConfirmationLabelsSave();
         }
         void SelectedIndexChanged(int Index)
@@ -404,7 +404,6 @@ namespace APIAccessTEST01
             lblMaxPages.Visible = false;
             if (Pagev.SelectedIndex == Index)
             {
-                UpdatingCurrentPage();
                 try
                 {
                     IndexChanged(Pagev.SelectedIndex);
@@ -420,6 +419,7 @@ namespace APIAccessTEST01
         }
         private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ChangingPage = true;
             SyncingTest();
             if (NewSave == true)
             {
@@ -430,12 +430,9 @@ namespace APIAccessTEST01
             }
             else
             {
-                SelectedIndexChanged(0);
-                SelectedIndexChanged(1);
-                SelectedIndexChanged(2);
-                SelectedIndexChanged(3);
-                SelectedIndexChanged(4);
-                SelectedIndexChanged(5);
+                SelectedIndexChanged(Pagev.SelectedIndex);
+                UpdatingCurrentPage();
+                ChangingPage = false;
             }
         }
         private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
@@ -1016,11 +1013,6 @@ namespace APIAccessTEST01
         void SyncingTest()
         {
             SYNCED = false;
-            lblSync.Text = "SYNCING...";
-            lblSync.Visible = true;
-            gifRefreshing.Visible = true;
-            GETINFOSummary();
-            timerRefreshing.Enabled = true;
         }
         public void TaskAwait()
         {
@@ -1028,13 +1020,21 @@ namespace APIAccessTEST01
         }
         private void timerRefreshing_Tick(object sender, EventArgs e)
         {
+            lblSync.Text = "SYNCING...";
+            gifRefreshing.Visible = true;
             if (SYNCED == false)
             {
+                if (ChangingPage = true)
+                {
 
+                }
+                else
+                {
+                    GETINFOSummary();
+                }
             }
             else if (SYNCED == true)
-            {
-                timerRefreshing.Enabled = false;
+            { 
                 lblSync.Text = "SYNCED";
                 gifRefreshing.Visible = false;
             }

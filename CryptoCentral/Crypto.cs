@@ -91,6 +91,7 @@ namespace APIAccessTEST01
         bool ProfileLoaded = false;
         bool NewSave;
         bool SYNCED;
+        bool SYNCING;
         bool ChangingPage = false;
 
         //Profile Number
@@ -131,6 +132,8 @@ namespace APIAccessTEST01
             lblHeaderTime.Location = new Point(436, 49);
             HeaderTimeZonev.Location = new Point(557, 47);
             lblSync.Location = new Point(684, 49);
+            gifRefreshing.Location = new Point(802, 47);
+            btnRefresh.Location = new Point(802, 47);
         }
         
         //Checking and Creating Requiered Files.
@@ -264,10 +267,7 @@ namespace APIAccessTEST01
         }
         private void btnPageLeft_Click(object sender, EventArgs e)
         {
-            if(Pagev.SelectedIndex == 0)
-            {
-            }
-            else
+            if (Pagev.SelectedIndex != 0)
             {
                 btnPageLeft.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
@@ -278,11 +278,7 @@ namespace APIAccessTEST01
         {
             MaxPages = Convert.ToInt32(Pages);
             MaxPages = MaxPages - 1;
-            if(Pagev.SelectedIndex == MaxPages)
-            {
-
-            }
-            else
+            if(Pagev.SelectedIndex != MaxPages)
             {
                 btnPageRight.Enabled = true;
                 Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
@@ -364,7 +360,6 @@ namespace APIAccessTEST01
                     lblSync.Text = "Saving Error";
                     lblSync.Visible = true;
                 }
-                
             }
         }
         //Updating Header Page Number
@@ -419,7 +414,6 @@ namespace APIAccessTEST01
         }
         private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ChangingPage = true;
             SyncingTest();
             if (NewSave == true)
             {
@@ -432,7 +426,6 @@ namespace APIAccessTEST01
             {
                 SelectedIndexChanged(Pagev.SelectedIndex);
                 UpdatingCurrentPage();
-                ChangingPage = false;
             }
         }
         private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
@@ -904,10 +897,13 @@ namespace APIAccessTEST01
             }
         }
 
+        //AUTO FETCH DATA | 30seconds
         private void timerAutoRefresh_Tick(object sender, EventArgs e)
         {
             GETINFOSummary();
         }
+
+        //UPDATES ALL INFORMATION AFFECTING EVERY LABEL AND GROUPBOX | VERY IMPORTANT
         void GETINFOSummary()
         {
             try
@@ -932,19 +928,23 @@ namespace APIAccessTEST01
         }
 
         //SETTINGS
+
         //SETTINGS BUTTONS
+        //ALLOWS CUSTOM COIN ENTRIES TO BE EDITTED
         private void btnEditSummary_Click(object sender, EventArgs e)
         {
             EditSummary();
             btnEditSummary.Visible = false;
             btnClearSummary.Visible = true;
         }
+        //CONFIRMS INPUTTED COINS AND SWITCHES TEXTBOX TO READ ONLY
         private void btnConfirmSummary_Click(object sender, EventArgs e)
         {
             ConfirmSummary();
             btnEditSummary.Visible = true;
             btnClearSummary.Visible = false;
         }
+        //CLEARS ALL ENTRIES
         private void btnClearSummary_Click(object sender, EventArgs e)
         {
             txtCustom01.Text = "";
@@ -957,6 +957,8 @@ namespace APIAccessTEST01
             txtCustom08.Text = "";
             txtCustom09.Text = "";
         }
+
+        //SAVES CURRENT PAGE SELECTION TO MEMORY
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
             SaveProfile();
@@ -965,12 +967,14 @@ namespace APIAccessTEST01
             int CurrentIndex = Pagev.SelectedIndex;
             lblSaved.Text = "Saved to Page " + Convert.ToString(CurrentPage);
         }
+
+        //CREATES A NEW PAGE
         private void btnNewPage_Click(object sender, EventArgs e)
         {
             HideConfirmationLabelsNewSave();
             NewSave = true;
             pages = pages + 1;
-            if (pages == 7)
+            if (pages == 7)     //MAKES SURE THE MAX PAGE IS 7 | //FOR NOW
             {
                 pages = pages - 1;
                 lblMaxPages.Visible = true;
@@ -986,52 +990,55 @@ namespace APIAccessTEST01
                 Pagev.SelectedIndex = pages - 1;
                 CurrentPage = Pagev.SelectedIndex + 1;
                 lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
-                EmptySummary();
+                EmptySummary();     //EMPTYS THE SUMMARY COINS FOR NEW PAGE INPUTS
             }
         }
+
+        //SET DEFAULT TIMEZONE SELECTION
         private void btnTimeDefault_Click(object sender, EventArgs e)
         {
             StartingTimeZone = Convert.ToString(Timezonev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", StartingTimeZone);
             lblTimeSet.Visible = true;
         }
+
+        //SET DEFAULT CURRENCY SELECTION
         private void btnCurrencyDefault_Click(object sender, EventArgs e)
         {
             StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
             lblDefaultSet.Visible = true;
         }
+
+        //MINIMISE THE FORM
         private void btnMinimize_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
             FormBorderStyle = FormBorderStyle.None;
         }
+
+        //SYNCING
         private void btnRefresh_Click(object sender, EventArgs e)
         {
             SyncingTest();
         }
+
+        //INITIATE THE SYNC
         void SyncingTest()
         {
+            timerUpdating.Enabled = true;
             SYNCED = false;
+            SYNCING = true;
+            
         }
-        public void TaskAwait()
-        {
-            new System.Threading.ManualResetEvent(false).WaitOne(50);
-        }
+
+        //CONSTANTLY CHECKS IF LBLS ARE CORRECT | 50ms
         private void timerRefreshing_Tick(object sender, EventArgs e)
         {
-            lblSync.Text = "SYNCING...";
-            gifRefreshing.Visible = true;
             if (SYNCED == false)
             {
-                if (ChangingPage = true)
-                {
-
-                }
-                else
-                {
-                    GETINFOSummary();
-                }
+                lblSync.Text = "SYNCING...";
+                gifRefreshing.Visible = true;
             }
             else if (SYNCED == true)
             { 
@@ -1040,15 +1047,33 @@ namespace APIAccessTEST01
             }
 
         }
+
+        //UPDATES THE DATA ON REFRESH | 2000ms
+        private void timerUpdating_Tick(object sender, EventArgs e)
+        {
+            if (SYNCED == false)
+            {
+                lblSync.Text = "SYNCING...";        //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITHCING
+                gifRefreshing.Visible = true;       //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITCHING
+                GETINFOSummary();
+            }
+            else if (SYNCED == true)
+            {
+                timerUpdating.Enabled = false;
+            }
+        }
+
+        public void TaskAwait()
+        {
+            new System.Threading.ManualResetEvent(false).WaitOne(50);
+        }
+
         private void event_SummaryHover(object sender, EventArgs e)
         {
 
         }
 
-        private void timerUpdating_Tick(object sender, EventArgs e)
-        {
-
-        }
+        //TESTING NEW COIN INPUTS 
         void TestCoinSummary()
         {
             ConfirmOptionCoins();
@@ -1062,6 +1087,7 @@ namespace APIAccessTEST01
             TestOptionCoins(ref coin8, ref coin8FN);
             TestOptionCoins(ref coin9, ref coin9FN);
         }
+        //LOGIC BEHIND ALLOCATING NEW STRING FOR INPUTTED CUSTOM COIN
         public void TestOptionCoins(ref string RealCoin, ref string RealCoinFN)
         {
             try
@@ -1071,7 +1097,7 @@ namespace APIAccessTEST01
                 double counting = 0;
 
                 Coins = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
-                if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")
+                if (RealCoin.ToUpper() == "BTC" || RealCoin.ToUpper() == "BITCOIN")    
                 {
                     RealCoin = "BTC";
                     RealCoinFN = "bitcoin";
@@ -1098,7 +1124,7 @@ namespace APIAccessTEST01
                             RealCoinFN = coin.id;
                             break;
                         }
-                        else if (counting == 1545)
+                        else if (counting == 1545)      //MAX COINS IN API READER
                         {
                             RealCoin = "";
                             RealCoinFN = "";
@@ -1114,11 +1140,15 @@ namespace APIAccessTEST01
             }
 
         }
+
+        //SETTINGS BUTTON FUNCTIONS
+        //CUT DOWN ON LINES OF CODE
         void EditSummaryIndividual(TextBox Custom)
         {
             Custom.ReadOnly = false;
             Custom.BackColor = Color.DarkGray;
         }
+        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void EditSummary()
         {
             EditSummaryIndividual(txtCustom01);
@@ -1133,12 +1163,15 @@ namespace APIAccessTEST01
             ConfirmAllowed = true;
             ProfileLoaded = false;
         }
+
+        //CUT DOWN ON LINES OF CODE
         void EmptySummaryIndividual(TextBox Custom)
         {
             Custom.ReadOnly = true;
             Custom.BackColor = Color.Gray;
             Custom.Text = "";
         }
+        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void EmptySummary()
         {
             EmptySummaryIndividual(txtCustom01);
@@ -1153,11 +1186,14 @@ namespace APIAccessTEST01
             TestCoinSummary();
             GETINFOSummary();
         }
+
+        //CUT DOWN ON LINES OF CODE
         void ConfirmSummaryIndividual(TextBox Custom)
         {
             Custom.ReadOnly = true;
             Custom.BackColor = Color.Gray;
         }
+        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void ConfirmSummary()
         {
             while (ConfirmAllowed == true)
@@ -1177,6 +1213,9 @@ namespace APIAccessTEST01
                 ConfirmAllowed = false;
             }
         }
+
+        //EASE OF ACCESS
+        //HIDE ALL LBL EXCEPT SAVE FOUND
         void HideConfirmationLabelsSave()
         {
             lblMaxPages.Visible = false;
@@ -1186,6 +1225,7 @@ namespace APIAccessTEST01
             lblNoSave.Visible = false;
             lblSaveFound.Visible = true;
         }
+        //HIDE ALL LBL EXCEPT NO SAVE FOUND
         void HideConfirmationLabelsNoSave()
         {
             lblConfirmed.Visible = false;
@@ -1195,6 +1235,7 @@ namespace APIAccessTEST01
             lblMaxPages.Visible = false;
             lblNoSave.Visible = true;
         }
+        //HIDE ALL LBL EXCEPT NEW PAGE CREATED
         void HideConfirmationLabelsNewSave()
         {
             lblMaxPages.Visible = false;

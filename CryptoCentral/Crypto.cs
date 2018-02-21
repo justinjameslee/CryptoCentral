@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using System.Net;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 
 namespace APIAccessTEST01
@@ -105,6 +105,27 @@ namespace APIAccessTEST01
         int CurrencyNumber;
         int TimeZoneNumber;
 
+
+
+
+
+        //MINING
+        List<string> NHWallets;
+        string NewNHWallet;
+        string[] NHWalletsA;
+        string CurrentNHWallet;
+
+        BindingSource BindWallet = new BindingSource();
+
+        string line;
+        string NHRelWorkers;
+        string[] NHRelWorkersA;
+        string WorkerID;
+
+
+        List<string> RealWorkers = new List<string>();
+
+
         //Resetting Positions of Panels and Header.
         void Summary01RESET()
         {
@@ -129,8 +150,8 @@ namespace APIAccessTEST01
             btnPageRight.Location = new Point(115, 47);
             lblHeaderCurrency.Location = new Point(169, 49);
             HeaderCurrencyv.Location = new Point(290, 47);
-            lblHeaderTime.Location = new Point(436, 49);
-            HeaderTimeZonev.Location = new Point(557, 47);
+            lblHeaderTime.Location = new Point(400, 49);
+            HeaderTimeZonev.Location = new Point(521, 47);
             lblSync.Location = new Point(684, 49);
             gifRefreshing.Location = new Point(802, 47);
             btnRefresh.Location = new Point(802, 47);
@@ -166,6 +187,11 @@ namespace APIAccessTEST01
             Summary01RESET();
             HeaderDefaultRESET();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
+
+            Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");        //PLACEHOLDER
+            GETWallets();                                           //MINING | Gets All Wallet Info
+            GETPools();                                             //MINING | Gets All Available Pools
+
             Options.Visible = false;
             Mining01.Visible = false;
             Summary01.Visible = true;
@@ -407,8 +433,8 @@ namespace APIAccessTEST01
                 SelectedIndexChanged(Pagev.SelectedIndex);
                 UpdatingCurrentPage();
             }
-            btnPageLeft.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
-            btnPageRight.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
+            btnPageLeft.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
+            btnPageRight.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
         }
         private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1234,11 +1260,11 @@ namespace APIAccessTEST01
 
             if (btnPageControl.Name == "btnPageLeft")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-hover-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-hover-24px.png");
             }
             else if (btnPageControl.Name == "btnPageRight")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-hover-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-hover-24px.png");
             }
         }
 
@@ -1248,11 +1274,11 @@ namespace APIAccessTEST01
 
             if (btnPageControl.Name == "btnPageLeft")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
             }
             else if (btnPageControl.Name == "btnPageRight")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
             }
         }
 
@@ -1262,7 +1288,7 @@ namespace APIAccessTEST01
 
             if (btnPageControl.Name == "btnPageLeft")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-clicked-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-clicked-24px.png");
                 if (Pagev.SelectedIndex != 0)
                 {
                     btnPageLeft.Enabled = true;
@@ -1272,7 +1298,7 @@ namespace APIAccessTEST01
             }
             else if (btnPageControl.Name == "btnPageRight")
             {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-clicked-24px.png");
+                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-clicked-24px.png");
                 MaxPages = Convert.ToInt32(Pages);
                 MaxPages = MaxPages - 1;
                 if (Pagev.SelectedIndex != MaxPages)
@@ -1284,7 +1310,153 @@ namespace APIAccessTEST01
             }
         }
 
+
+
+
         //MINING
 
+        void GETWallets()
+        {
+            
+            OptionsNicehashWalletsv.Items.Clear();
+            NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
+            NHWalletsA = NHWallets.ToArray();
+            BindWallet.DataSource = NHWalletsA;
+            OptionsNicehashWalletsv.DataSource = BindWallet.DataSource;
+            CurrentNHWallet = OptionsNicehashWalletsv.Text;
+
+
+            
+        }
+        void GETPools()
+        {
+            if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt"))
+            {
+                HeaderPoolv.Items.Add("NICEHASH");
+            }
+        }
+        void GETWorkers()
+        {
+            if (HeaderPoolv.Text == "NICEHASH")
+            {
+                string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    line = reader.ReadToEnd();
+                    NHRelWorkers = getBetween(line, ":[", "\"algo");
+                    NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
+                    List<string> SepWorkers = NHRelWorkersA.OfType<string>().ToList();
+                    List<string> RealWorkers = new List<string>();
+                    for (int x = 0; x < SepWorkers.Count; x++)
+                    {
+                        WorkerID = SepWorkers[x];
+                        WorkerID = RemoveforMining(WorkerID);
+                        int RemoveA = WorkerID.LastIndexOf("a");
+                        if (RemoveA > 0)
+                        {
+                            WorkerID = WorkerID.Substring(0, RemoveA);
+                        }
+                        HeaderWorkerv.Items.Add(WorkerID);
+                        RealWorkers.Add(WorkerID);
+                    }
+                }
+            }
+        }
+        void GETWorkerInfo()
+        {
+            string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Contains("workers"))
+                    {
+                        lblWorkerIDv.Text = WorkerID;
+
+                        string DATA = getBetween(line, WorkerID + "\",", "algo");
+                        DATA = RemoveExtraText(DATA);
+                        string[] SepDATA = DATA.Split(',');
+                        lblWorkerHashv.Text = SepDATA[0];
+                        lblWorkerUpTimev.Text = SepDATA[1];
+                        string Verified = SepDATA[2];
+                        lblWorkerDifficultyv.Text = SepDATA[3];
+                        lblWorkerAlgov.Text = SepDATA[5];
+
+                        if (Verified == "1")
+                        {
+                            lblWorkerVerifiedv.Text = "YES";
+                            lblWorkerVerifiedv.ForeColor = Color.LightGreen;
+                        }
+                        else if (Verified == "0")
+                        {
+                            lblWorkerVerifiedv.Text = "NO";
+                            lblWorkerVerifiedv.ForeColor = Color.Red;
+                        }
+                    }
+                }
+            }
+        }
+        private string RemoveforMining(string value)
+        {
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+
+        }
+        private void btnOptionsNicehashSave_Click(object sender, EventArgs e)
+        {
+            NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
+            NewNHWallet = txtOptionsNicehashAddv.Text;
+            bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
+            if (WalletDuplicate != true)
+            {
+                if (NewNHWallet != "")
+                {
+                    NHWallets.Add(NewNHWallet);
+                    File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                    lblNicehashWalletSaved.Text = "WALLET SAVED";
+                    lblNicehashWalletSaved.Visible = true;
+                }
+                else
+                {
+                    lblNicehashWalletSaved.Text = "INPUT IS EMPTY";
+                    lblNicehashWalletSaved.Visible = true;
+                }
+            }
+            else
+            {
+                lblNicehashWalletSaved.Text = "WALLET ALREADY EXISTS";
+                lblNicehashWalletSaved.Visible = true;
+            }
+            
+        }
+
+        private void HeaderPoolv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GETWorkers();
+        }
+
+        private void HeaderWorkerv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GETWorkerInfo();
+        }
     }
 }

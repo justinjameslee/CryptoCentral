@@ -265,26 +265,6 @@ namespace APIAccessTEST01
             Summary01RESET();
             HeaderDefault();
         }
-        private void btnPageLeft_Click(object sender, EventArgs e)
-        {
-            if (Pagev.SelectedIndex != 0)
-            {
-                btnPageLeft.Enabled = true;
-                Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
-                UpdatingCurrentPage();
-            }
-        }
-        private void btnPageRight_Click(object sender, EventArgs e)
-        {
-            MaxPages = Convert.ToInt32(Pages);
-            MaxPages = MaxPages - 1;
-            if(Pagev.SelectedIndex != MaxPages)
-            {
-                btnPageRight.Enabled = true;
-                Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
-                UpdatingCurrentPage();
-            }
-        }
         
         //Function for Loading the Selected Profile.
         //ProfileNumber is sourced from LoginScreen.
@@ -427,6 +407,8 @@ namespace APIAccessTEST01
                 SelectedIndexChanged(Pagev.SelectedIndex);
                 UpdatingCurrentPage();
             }
+            btnPageLeft.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
+            btnPageRight.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
         }
         private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -900,7 +882,7 @@ namespace APIAccessTEST01
         //AUTO FETCH DATA | 30seconds
         private void timerAutoRefresh_Tick(object sender, EventArgs e)
         {
-            GETINFOSummary();
+            SyncingTest();
         }
 
         //UPDATES ALL INFORMATION AFFECTING EVERY LABEL AND GROUPBOX | VERY IMPORTANT
@@ -1244,6 +1226,62 @@ namespace APIAccessTEST01
             lblNoSave.Visible = false;
             lblSaveFound.Visible = false;
             lblNewPage.Visible = true;
+        }
+
+        private void btnPageHoverEnter(object sender, EventArgs e)
+        {
+            PictureBox btnPageControl = (PictureBox)sender;
+
+            if (btnPageControl.Name == "btnPageLeft")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-hover-24px.png");
+            }
+            else if (btnPageControl.Name == "btnPageRight")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-hover-24px.png");
+            }
+        }
+
+        private void btnPageHoverLeave(object sender, EventArgs e)
+        {
+            PictureBox btnPageControl = (PictureBox)sender;
+
+            if (btnPageControl.Name == "btnPageLeft")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
+            }
+            else if (btnPageControl.Name == "btnPageRight")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
+            }
+        }
+
+        private void btnPageControlClick(object sender, EventArgs e)
+        {
+            PictureBox btnPageControl = (PictureBox)sender;
+
+            if (btnPageControl.Name == "btnPageLeft")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\left-arrow-clicked-24px.png");
+                if (Pagev.SelectedIndex != 0)
+                {
+                    btnPageLeft.Enabled = true;
+                    Pagev.SelectedIndex = Pagev.SelectedIndex - 1;
+                    UpdatingCurrentPage();
+                }
+            }
+            else if (btnPageControl.Name == "btnPageRight")
+            {
+                btnPageControl.Image = Image.FromFile(@"C:\Users\Justin\Documents\GitHub\CryptoCentral\Images\right-arrow-clicked-24px.png");
+                MaxPages = Convert.ToInt32(Pages);
+                MaxPages = MaxPages - 1;
+                if (Pagev.SelectedIndex != MaxPages)
+                {
+                    btnPageRight.Enabled = true;
+                    Pagev.SelectedIndex = Pagev.SelectedIndex + 1;
+                    UpdatingCurrentPage();
+                }
+            }
         }
 
         //MINING

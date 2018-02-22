@@ -121,9 +121,21 @@ namespace APIAccessTEST01
         string NHRelWorkers;
         string[] NHRelWorkersA;
         string WorkerID;
+        string DATA;
 
+        int NoWorkers;
 
+        List<string> SepWorkers = new List<string>();
         List<string> RealWorkers = new List<string>();
+
+
+
+
+
+
+
+
+
 
 
         //Resetting Positions of Panels and Header.
@@ -1317,8 +1329,14 @@ namespace APIAccessTEST01
 
         void GETWallets()
         {
-            
-            OptionsNicehashWalletsv.Items.Clear();
+            try
+            {
+                OptionsNicehashWalletsv.Items.Clear();
+            }
+            catch (Exception)
+            {
+
+            }
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
             NHWalletsA = NHWallets.ToArray();
             BindWallet.DataSource = NHWalletsA;
@@ -1337,6 +1355,7 @@ namespace APIAccessTEST01
         }
         void GETWorkers()
         {
+            HeaderWorkerv.Items.Clear();
             if (HeaderPoolv.Text == "NICEHASH")
             {
                 string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
@@ -1351,25 +1370,33 @@ namespace APIAccessTEST01
                     line = reader.ReadToEnd();
                     NHRelWorkers = getBetween(line, ":[", "\"algo");
                     NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
-                    List<string> SepWorkers = NHRelWorkersA.OfType<string>().ToList();
-                    List<string> RealWorkers = new List<string>();
+                    SepWorkers = NHRelWorkersA.OfType<string>().ToList();
                     for (int x = 0; x < SepWorkers.Count; x++)
                     {
-                        WorkerID = SepWorkers[x];
-                        WorkerID = RemoveforMining(WorkerID);
-                        int RemoveA = WorkerID.LastIndexOf("a");
-                        if (RemoveA > 0)
+                        if (SepWorkers[x] != "")
                         {
-                            WorkerID = WorkerID.Substring(0, RemoveA);
+                            WorkerID = SepWorkers[x];
+                            WorkerID = RemoveforMining(WorkerID);
+                            int RemoveA = WorkerID.LastIndexOf("a");
+                            if (RemoveA > 0)
+                            {
+                                WorkerID = WorkerID.Substring(0, RemoveA);
+                            }
+                            HeaderWorkerv.Items.Add(WorkerID);
+                            RealWorkers.Add(WorkerID);
                         }
-                        HeaderWorkerv.Items.Add(WorkerID);
-                        RealWorkers.Add(WorkerID);
+                        else if (SepWorkers[x] == "")
+                        {
+                            break;
+                        }
                     }
                 }
             }
         }
         void GETWorkerInfo()
         {
+            WorkerID = HeaderWorkerv.Text;
+
             string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -1379,33 +1406,59 @@ namespace APIAccessTEST01
             using (Stream stream = response.GetResponseStream())
             using (StreamReader reader = new StreamReader(stream))
             {
-                while ((line = reader.ReadLine()) != null)
+                line = reader.ReadToEnd();
+                NHRelWorkers = getBetween(line, ":[", "\"algo");
+                NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
+                SepWorkers = NHRelWorkersA.OfType<string>().ToList();
+                for (int x = 0; x < SepWorkers.Count; x++)
                 {
-                    if (line.Contains("workers"))
+                    WorkerID = SepWorkers[x];
+                    WorkerID = RemoveforMining(WorkerID);
+                    int RemoveA = WorkerID.LastIndexOf("a");
+                    if (RemoveA > 0)
                     {
-                        lblWorkerIDv.Text = WorkerID;
+                        WorkerID = WorkerID.Substring(0, RemoveA);
+                    }
 
-                        string DATA = getBetween(line, WorkerID + "\",", "algo");
-                        DATA = RemoveExtraText(DATA);
-                        string[] SepDATA = DATA.Split(',');
-                        lblWorkerHashv.Text = SepDATA[0];
-                        lblWorkerUpTimev.Text = SepDATA[1];
-                        string Verified = SepDATA[2];
-                        lblWorkerDifficultyv.Text = SepDATA[3];
-                        lblWorkerAlgov.Text = SepDATA[5];
-
-                        if (Verified == "1")
-                        {
-                            lblWorkerVerifiedv.Text = "YES";
-                            lblWorkerVerifiedv.ForeColor = Color.LightGreen;
-                        }
-                        else if (Verified == "0")
-                        {
-                            lblWorkerVerifiedv.Text = "NO";
-                            lblWorkerVerifiedv.ForeColor = Color.Red;
-                        }
+                    if (WorkerID == HeaderWorkerv.Text)
+                    {
+                        DATA = SepWorkers[x];
+                        break;
                     }
                 }
+
+                lblWorkerIDv.Text = WorkerID;
+
+                DATA = getBetween(DATA, ",{\"", "]");
+                DATA = RemoveExtraText(DATA);
+                string[] SepDATA = DATA.Split(',');
+                double CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                if (CurrentHashRate < 1000)
+                {
+                    lblWorkerHashv.Text = Convert.ToString(CurrentHashRate) + "H/s";
+                }
+                
+                lblWorkerUpTimev.Text = SepDATA[1];
+                string Verified = SepDATA[2];
+                lblWorkerDifficultyv.Text = SepDATA[3];
+                lblWorkerAlgov.Text = SepDATA[5];
+
+                if (Verified == "1")
+                {
+                    lblWorkerVerifiedv.Text = "YES";
+                    lblWorkerVerifiedv.ForeColor = Color.LightGreen;
+                }
+                else if (Verified == "0")
+                {
+                    lblWorkerVerifiedv.Text = "NO";
+                    lblWorkerVerifiedv.ForeColor = Color.Red;
+                }
+
+
+
+
+
+
             }
         }
         private string RemoveforMining(string value)
@@ -1434,6 +1487,7 @@ namespace APIAccessTEST01
                     File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
                     lblNicehashWalletSaved.Text = "WALLET SAVED";
                     lblNicehashWalletSaved.Visible = true;
+                    GETWallets();
                 }
                 else
                 {

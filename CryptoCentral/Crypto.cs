@@ -120,7 +120,9 @@ namespace APIAccessTEST01
 
         BindingSource BindWallet = new BindingSource();
 
-        string line;
+        string lineWorker;
+        string lineNHAlgo;
+        string lineHashRate;
         string NHRelWorkers;
         string[] NHRelWorkersA;
         string WorkerID;
@@ -137,6 +139,7 @@ namespace APIAccessTEST01
         string STimeHours = null;
         string STimeMins = null;
         string STimeSeconds = null;
+        string ReJectedSpeed;
 
         int NoWorkers;
         int TimeIndexRemove;
@@ -1386,8 +1389,8 @@ namespace APIAccessTEST01
                 using (Stream stream = response.GetResponseStream())
                 using (StreamReader reader = new StreamReader(stream))
                 {
-                    line = reader.ReadToEnd();
-                    NHRelWorkers = getBetween(line, ":[", "\"algo");
+                    lineWorker = reader.ReadToEnd();
+                    NHRelWorkers = getBetween(lineWorker, ":[", "\"algo");
                     NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
                     SepWorkers = NHRelWorkersA.OfType<string>().ToList();
                     for (int x = 0; x < SepWorkers.Count; x++)
@@ -1412,51 +1415,51 @@ namespace APIAccessTEST01
                 }
             }
         }
+        public string RemoveAfterLetter(string Remove, string Letter)
+        {
+            TimeIndexRemove = Remove.LastIndexOf(Letter);
+            if (TimeIndexRemove > 0) { Remove = Remove.Substring(0, TimeIndexRemove); }
+            return Remove;
+        }
         void GETWorkerInfo()
         {
             WorkerID = HeaderWorkerv.Text;
 
             if (HeaderPoolv.Text == "NICEHASH")
             {
-                string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
-
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.AutomaticDecompression = DecompressionMethods.GZip;
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
+                for (int x = 0; x < SepWorkers.Count; x++)
                 {
-                    line = reader.ReadToEnd();
-                    NHRelWorkers = getBetween(line, ":[", "\"algo");
-                    NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
-                    SepWorkers = NHRelWorkersA.OfType<string>().ToList();
-                    for (int x = 0; x < SepWorkers.Count; x++)
+                    WorkerID = SepWorkers[x];
+                    WorkerID = RemoveforMining(WorkerID);
+                    int RemoveA = WorkerID.LastIndexOf("a");
+                    if (RemoveA > 0)
                     {
-                        WorkerID = SepWorkers[x];
-                        WorkerID = RemoveforMining(WorkerID);
-                        int RemoveA = WorkerID.LastIndexOf("a");
-                        if (RemoveA > 0)
-                        {
-                            WorkerID = WorkerID.Substring(0, RemoveA);
-                        }
-
-                        if (WorkerID == HeaderWorkerv.Text)
-                        {
-                            DATA = SepWorkers[x];
-                            break;
-                        }
+                        WorkerID = WorkerID.Substring(0, RemoveA);
                     }
 
-                    lblWorkerIDv.Text = WorkerID;
+                    if (WorkerID == HeaderWorkerv.Text)
+                    {
+                        DATA = SepWorkers[x];
+                        char last = DATA[DATA.Length - 1];
+                        if (last != ']')
+                        {
+                            DATA = DATA + "]";
+                        }
+                        break;
+                    }
+                }
 
-                    DATA = getBetween(DATA, ",{\"", "]");
-                    DATA = RemoveExtraText(DATA);
-                    SepDATA = DATA.Split(',');
-                    
+                lblWorkerIDv.Text = WorkerID;
+                DATA = getBetween(DATA, ",{\"", "]");
+                DATA = RemoveExtraText(DATA);
+                Console.WriteLine(DATA);
+                SepDATA = DATA.Split(',');
+
+                if (SepDATA.Length == 6)
+                {
+                    //Calculate Total Up Time
                     SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[1]);
                     SUpTimeBeforeCalc = SUpTimeBeforeCalc * 60;
-
                     while (TimeCalc == false)
                     {
                         if ((SUpTimeBeforeCalc / 86400) < 1 && STimeDays == null)
@@ -1466,8 +1469,7 @@ namespace APIAccessTEST01
                         else if ((SUpTimeBeforeCalc / 86400) >= 1 && STimeDays == null)
                         {
                             STimeDays = Convert.ToString(SUpTimeBeforeCalc / 86400);
-                            TimeIndexRemove = STimeDays.LastIndexOf(".");
-                            if (TimeIndexRemove > 0) { STimeDays = STimeDays.Substring(0, TimeIndexRemove); }
+                            STimeDays = RemoveAfterLetter(STimeDays, ".");
                             STimeDays = " " + STimeDays + "D";
                         }
                         else if ((SUpTimeBeforeCalc / 3600) < 1 && STimeHours == null)
@@ -1477,8 +1479,7 @@ namespace APIAccessTEST01
                         else if ((SUpTimeBeforeCalc / 3600) >= 1 && STimeHours == null)
                         {
                             STimeHours = Convert.ToString(SUpTimeBeforeCalc / 3600);
-                            TimeIndexRemove = STimeHours.LastIndexOf(".");
-                            if (TimeIndexRemove > 0) { STimeHours = STimeHours.Substring(0, TimeIndexRemove); }
+                            STimeHours = RemoveAfterLetter(STimeHours, ".");
                             STimeHours = " " + STimeHours + "H";
                         }
                         else if (((SUpTimeBeforeCalc / 60) % 60) < 1 && STimeMins == null)
@@ -1488,8 +1489,7 @@ namespace APIAccessTEST01
                         else if (((SUpTimeBeforeCalc / 60) % 60) >= 1 && STimeMins == null)
                         {
                             STimeMins = Convert.ToString((SUpTimeBeforeCalc / 60) % 60);
-                            TimeIndexRemove = STimeMins.LastIndexOf(".");
-                            if (TimeIndexRemove > 0) { STimeMins = STimeMins.Substring(0, TimeIndexRemove); }
+                            STimeMins = RemoveAfterLetter(STimeMins, ".");
                             STimeMins = " " + STimeMins + "M";
                         }
                         else if ((SUpTimeBeforeCalc % 60) < 1 && STimeSeconds == null)
@@ -1499,8 +1499,7 @@ namespace APIAccessTEST01
                         else if ((SUpTimeBeforeCalc % 60) >= 1 && STimeSeconds == null)
                         {
                             STimeSeconds = Convert.ToString(SUpTimeBeforeCalc % 60);
-                            TimeIndexRemove = STimeSeconds.LastIndexOf(".");
-                            if (TimeIndexRemove > 0) { STimeSeconds = STimeSeconds.Substring(0, TimeIndexRemove); }
+                            STimeSeconds = RemoveAfterLetter(STimeSeconds, ".");
                             STimeSeconds = " " + STimeSeconds + "S";
                         }
                         else
@@ -1508,9 +1507,7 @@ namespace APIAccessTEST01
                             TimeCalc = true;
                         }
                     }
-
                     lblWorkerUpTimev.Text = STimeDays + STimeHours + STimeMins + STimeSeconds;
-
 
                     lblWorkerDifficultyv.Text = SepDATA[3];
 
@@ -1530,38 +1527,42 @@ namespace APIAccessTEST01
                     SCurrentAlgo = SepDATA[5];
 
                     CurrentHashRate = Convert.ToDouble(SepDATA[0]);
-                }
 
-                StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
-                {
-                    while ((line = NHAlgoReader.ReadLine()) != null)
+                    StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
                     {
-                        if (line.Contains(KeyCurrentAlgo))
+                        while ((lineNHAlgo = NHAlgoReader.ReadLine()) != null)
                         {
-                            SCurrentAlgo = line;
-                            SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
-                            break;
+                            if (lineNHAlgo.Contains(KeyCurrentAlgo))
+                            {
+                                SCurrentAlgo = lineNHAlgo;
+                                SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
+                                break;
+                            }
                         }
                     }
-                }
 
-                StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
-                {
-                    while ((line = HashRateReader.ReadLine()) != null)
+                    StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
                     {
-                        if (line.Contains(SCurrentAlgo))
+                        while ((lineHashRate = HashRateReader.ReadLine()) != null)
                         {
-                            SHashEnd = line;
-                            SHashEnd = getBetween(SHashEnd, ": \"", "\"");
-                            break;
+                            if (lineHashRate.Contains(SCurrentAlgo))
+                            {
+                                SHashEnd = lineHashRate;
+                                SHashEnd = getBetween(SHashEnd, ": \"", "\"");
+                                break;
+                            }
                         }
                     }
-                }
 
-                SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
-                lblWorkerHashv.Text = SCurrentHashRate;
-                lblWorkerAlgov.Text = SCurrentAlgo;
-                lblWorkerAddress.Text = CurrentNHWallet;
+                    SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
+                    lblWorkerHashv.Text = SCurrentHashRate;
+                    lblWorkerAlgov.Text = SCurrentAlgo;
+                    lblWorkerAddress.Text = CurrentNHWallet;
+                }
+                else
+                {
+                    MessageBox.Show("Currently Not Supported");
+                }
             }
         }
         private string RemoveforMining(string value)

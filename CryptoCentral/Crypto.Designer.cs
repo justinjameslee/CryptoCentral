@@ -486,7 +486,7 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(1071, 78);
+            this.Header.Size = new System.Drawing.Size(1554, 78);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
@@ -495,7 +495,7 @@
             this.lblHeaderWorker.AutoSize = true;
             this.lblHeaderWorker.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.lblHeaderWorker.ForeColor = System.Drawing.Color.White;
-            this.lblHeaderWorker.Location = new System.Drawing.Point(251, 16);
+            this.lblHeaderWorker.Location = new System.Drawing.Point(255, 49);
             this.lblHeaderWorker.Name = "lblHeaderWorker";
             this.lblHeaderWorker.Size = new System.Drawing.Size(94, 20);
             this.lblHeaderWorker.TabIndex = 54;
@@ -511,7 +511,7 @@
             this.HeaderWorkerv.FormattingEnabled = true;
             this.HeaderWorkerv.Items.AddRange(new object[] {
             "Select a Pool"});
-            this.HeaderWorkerv.Location = new System.Drawing.Point(351, 12);
+            this.HeaderWorkerv.Location = new System.Drawing.Point(355, 47);
             this.HeaderWorkerv.Name = "HeaderWorkerv";
             this.HeaderWorkerv.Size = new System.Drawing.Size(140, 24);
             this.HeaderWorkerv.TabIndex = 53;
@@ -523,7 +523,7 @@
             this.lblHeaderPool.AutoSize = true;
             this.lblHeaderPool.Font = new System.Drawing.Font("Walkway Bold", 14F);
             this.lblHeaderPool.ForeColor = System.Drawing.Color.White;
-            this.lblHeaderPool.Location = new System.Drawing.Point(11, 16);
+            this.lblHeaderPool.Location = new System.Drawing.Point(15, 49);
             this.lblHeaderPool.Name = "lblHeaderPool";
             this.lblHeaderPool.Size = new System.Drawing.Size(64, 20);
             this.lblHeaderPool.TabIndex = 52;
@@ -537,7 +537,7 @@
             this.HeaderPoolv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.HeaderPoolv.Font = new System.Drawing.Font("Walkway Bold", 11F);
             this.HeaderPoolv.FormattingEnabled = true;
-            this.HeaderPoolv.Location = new System.Drawing.Point(81, 12);
+            this.HeaderPoolv.Location = new System.Drawing.Point(85, 47);
             this.HeaderPoolv.Name = "HeaderPoolv";
             this.HeaderPoolv.Size = new System.Drawing.Size(140, 24);
             this.HeaderPoolv.TabIndex = 51;
@@ -2290,7 +2290,7 @@
             this.tabPageSummary.ForeColor = System.Drawing.Color.White;
             this.tabPageSummary.Location = new System.Drawing.Point(4, 25);
             this.tabPageSummary.Name = "tabPageSummary";
-            this.tabPageSummary.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageSummary.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageSummary.Size = new System.Drawing.Size(834, 378);
             this.tabPageSummary.TabIndex = 0;
             this.tabPageSummary.Text = "Summary";
@@ -2869,7 +2869,7 @@
             this.tabPageMining.Controls.Add(this.groupOptionsNicehash);
             this.tabPageMining.Location = new System.Drawing.Point(4, 25);
             this.tabPageMining.Name = "tabPageMining";
-            this.tabPageMining.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPageMining.Padding = new System.Windows.Forms.Padding(3);
             this.tabPageMining.Size = new System.Drawing.Size(834, 378);
             this.tabPageMining.TabIndex = 1;
             this.tabPageMining.Text = "Mining";
@@ -3355,7 +3355,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1293, 715);
+            this.ClientSize = new System.Drawing.Size(1776, 715);
             this.Controls.Add(this.Mining01);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.Summary01);

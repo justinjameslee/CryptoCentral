@@ -27,6 +27,8 @@ namespace APIAccessTEST01
                 return Name;
             }
         }
+
+
         public Crypto()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace APIAccessTEST01
         //Creating Lists for JSON.
         List<MarketCap> Coins;
         List<MarketCap> CoinsDetailed;
+        List<CryptoCentral.NHAlgos> NHAlgo;
 
         //Creating public varaibles.
         string CURRENCY;
@@ -122,11 +125,26 @@ namespace APIAccessTEST01
         string[] NHRelWorkersA;
         string WorkerID;
         string DATA;
+        string SCurrentAlgo;
+        string KeyCurrentAlgo;
+        string Verified;
+        string[] SepDATA;
+        double CurrentHashRate;
+        string SHashEnd;
+        string SCurrentHashRate;
+        double SUpTimeBeforeCalc;
+        string STimeDays = null;
+        string STimeHours = null;
+        string STimeMins = null;
+        string STimeSeconds = null;
 
         int NoWorkers;
+        int TimeIndexRemove;
 
         List<string> SepWorkers = new List<string>();
         List<string> RealWorkers = new List<string>();
+
+        bool TimeCalc = false;
 
 
 
@@ -1356,6 +1374,7 @@ namespace APIAccessTEST01
         void GETWorkers()
         {
             HeaderWorkerv.Items.Clear();
+            
             if (HeaderPoolv.Text == "NICEHASH")
             {
                 string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
@@ -1397,68 +1416,152 @@ namespace APIAccessTEST01
         {
             WorkerID = HeaderWorkerv.Text;
 
-            string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.AutomaticDecompression = DecompressionMethods.GZip;
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-            using (Stream stream = response.GetResponseStream())
-            using (StreamReader reader = new StreamReader(stream))
+            if (HeaderPoolv.Text == "NICEHASH")
             {
-                line = reader.ReadToEnd();
-                NHRelWorkers = getBetween(line, ":[", "\"algo");
-                NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
-                SepWorkers = NHRelWorkersA.OfType<string>().ToList();
-                for (int x = 0; x < SepWorkers.Count; x++)
+                string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+                request.AutomaticDecompression = DecompressionMethods.GZip;
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream stream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(stream))
                 {
-                    WorkerID = SepWorkers[x];
-                    WorkerID = RemoveforMining(WorkerID);
-                    int RemoveA = WorkerID.LastIndexOf("a");
-                    if (RemoveA > 0)
+                    line = reader.ReadToEnd();
+                    NHRelWorkers = getBetween(line, ":[", "\"algo");
+                    NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
+                    SepWorkers = NHRelWorkersA.OfType<string>().ToList();
+                    for (int x = 0; x < SepWorkers.Count; x++)
                     {
-                        WorkerID = WorkerID.Substring(0, RemoveA);
+                        WorkerID = SepWorkers[x];
+                        WorkerID = RemoveforMining(WorkerID);
+                        int RemoveA = WorkerID.LastIndexOf("a");
+                        if (RemoveA > 0)
+                        {
+                            WorkerID = WorkerID.Substring(0, RemoveA);
+                        }
+
+                        if (WorkerID == HeaderWorkerv.Text)
+                        {
+                            DATA = SepWorkers[x];
+                            break;
+                        }
                     }
 
-                    if (WorkerID == HeaderWorkerv.Text)
+                    lblWorkerIDv.Text = WorkerID;
+
+                    DATA = getBetween(DATA, ",{\"", "]");
+                    DATA = RemoveExtraText(DATA);
+                    SepDATA = DATA.Split(',');
+                    
+                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[1]);
+                    SUpTimeBeforeCalc = SUpTimeBeforeCalc * 60;
+
+                    while (TimeCalc == false)
                     {
-                        DATA = SepWorkers[x];
-                        break;
+                        if ((SUpTimeBeforeCalc / 86400) < 1 && STimeDays == null)
+                        {
+                            STimeDays = "";
+                        }
+                        else if ((SUpTimeBeforeCalc / 86400) >= 1 && STimeDays == null)
+                        {
+                            STimeDays = Convert.ToString(SUpTimeBeforeCalc / 86400);
+                            TimeIndexRemove = STimeDays.LastIndexOf(".");
+                            if (TimeIndexRemove > 0) { STimeDays = STimeDays.Substring(0, TimeIndexRemove); }
+                            STimeDays = " " + STimeDays + "D";
+                        }
+                        else if ((SUpTimeBeforeCalc / 3600) < 1 && STimeHours == null)
+                        {
+                            STimeHours = "";
+                        }
+                        else if ((SUpTimeBeforeCalc / 3600) >= 1 && STimeHours == null)
+                        {
+                            STimeHours = Convert.ToString(SUpTimeBeforeCalc / 3600);
+                            TimeIndexRemove = STimeHours.LastIndexOf(".");
+                            if (TimeIndexRemove > 0) { STimeHours = STimeHours.Substring(0, TimeIndexRemove); }
+                            STimeHours = " " + STimeHours + "H";
+                        }
+                        else if (((SUpTimeBeforeCalc / 60) % 60) < 1 && STimeMins == null)
+                        {
+                            STimeMins = "";
+                        }
+                        else if (((SUpTimeBeforeCalc / 60) % 60) >= 1 && STimeMins == null)
+                        {
+                            STimeMins = Convert.ToString((SUpTimeBeforeCalc / 60) % 60);
+                            TimeIndexRemove = STimeMins.LastIndexOf(".");
+                            if (TimeIndexRemove > 0) { STimeMins = STimeMins.Substring(0, TimeIndexRemove); }
+                            STimeMins = " " + STimeMins + "M";
+                        }
+                        else if ((SUpTimeBeforeCalc % 60) < 1 && STimeSeconds == null)
+                        {
+                            STimeSeconds = "";
+                        }
+                        else if ((SUpTimeBeforeCalc % 60) >= 1 && STimeSeconds == null)
+                        {
+                            STimeSeconds = Convert.ToString(SUpTimeBeforeCalc % 60);
+                            TimeIndexRemove = STimeSeconds.LastIndexOf(".");
+                            if (TimeIndexRemove > 0) { STimeSeconds = STimeSeconds.Substring(0, TimeIndexRemove); }
+                            STimeSeconds = " " + STimeSeconds + "S";
+                        }
+                        else
+                        {
+                            TimeCalc = true;
+                        }
+                    }
+
+                    lblWorkerUpTimev.Text = STimeDays + STimeHours + STimeMins + STimeSeconds;
+
+
+                    lblWorkerDifficultyv.Text = SepDATA[3];
+
+                    Verified = SepDATA[2];          //MINING VERIFIED DATA
+                    if (Verified == "1")
+                    {
+                        lblWorkerVerifiedv.Text = "YES";
+                        lblWorkerVerifiedv.ForeColor = Color.LightGreen;
+                    }
+                    else if (Verified == "0")
+                    {
+                        lblWorkerVerifiedv.Text = "NO";
+                        lblWorkerVerifiedv.ForeColor = Color.Red;
+                    }
+
+                    KeyCurrentAlgo = "\"" + SepDATA[5] + "\"";
+                    SCurrentAlgo = SepDATA[5];
+
+                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                }
+
+                StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
+                {
+                    while ((line = NHAlgoReader.ReadLine()) != null)
+                    {
+                        if (line.Contains(KeyCurrentAlgo))
+                        {
+                            SCurrentAlgo = line;
+                            SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
+                            break;
+                        }
                     }
                 }
 
-                lblWorkerIDv.Text = WorkerID;
-
-                DATA = getBetween(DATA, ",{\"", "]");
-                DATA = RemoveExtraText(DATA);
-                string[] SepDATA = DATA.Split(',');
-                double CurrentHashRate = Convert.ToDouble(SepDATA[0]);
-                if (CurrentHashRate < 1000)
+                StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
                 {
-                    lblWorkerHashv.Text = Convert.ToString(CurrentHashRate) + "H/s";
-                }
-                
-                lblWorkerUpTimev.Text = SepDATA[1];
-                string Verified = SepDATA[2];
-                lblWorkerDifficultyv.Text = SepDATA[3];
-                lblWorkerAlgov.Text = SepDATA[5];
-
-                if (Verified == "1")
-                {
-                    lblWorkerVerifiedv.Text = "YES";
-                    lblWorkerVerifiedv.ForeColor = Color.LightGreen;
-                }
-                else if (Verified == "0")
-                {
-                    lblWorkerVerifiedv.Text = "NO";
-                    lblWorkerVerifiedv.ForeColor = Color.Red;
+                    while ((line = HashRateReader.ReadLine()) != null)
+                    {
+                        if (line.Contains(SCurrentAlgo))
+                        {
+                            SHashEnd = line;
+                            SHashEnd = getBetween(SHashEnd, ": \"", "\"");
+                            break;
+                        }
+                    }
                 }
 
-
-
-
-
-
+                SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
+                lblWorkerHashv.Text = SCurrentHashRate;
+                lblWorkerAlgov.Text = SCurrentAlgo;
+                lblWorkerAddress.Text = CurrentNHWallet;
             }
         }
         private string RemoveforMining(string value)
@@ -1511,6 +1614,11 @@ namespace APIAccessTEST01
         private void HeaderWorkerv_SelectedIndexChanged(object sender, EventArgs e)
         {
             GETWorkerInfo();
+        }
+
+        private void OptionsNicehashWalletsv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CurrentNHWallet = OptionsNicehashWalletsv.Text;
         }
     }
 }

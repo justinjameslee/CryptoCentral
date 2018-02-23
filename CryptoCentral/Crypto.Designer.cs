@@ -3207,6 +3207,7 @@
             this.OptionsNicehashWalletsv.Size = new System.Drawing.Size(1178, 39);
             this.OptionsNicehashWalletsv.TabIndex = 49;
             this.OptionsNicehashWalletsv.TabStop = false;
+            this.OptionsNicehashWalletsv.SelectedIndexChanged += new System.EventHandler(this.OptionsNicehashWalletsv_SelectedIndexChanged);
             // 
             // btnOptionsNicehashSave
             // 

@@ -117,6 +117,7 @@ namespace APIAccessTEST01
         string NewNHWallet;
         string[] NHWalletsA;
         string CurrentNHWallet;
+        int WalletIndexChecker;
 
         BindingSource BindWallet = new BindingSource();
 
@@ -156,7 +157,8 @@ namespace APIAccessTEST01
 
 
 
-
+        int intSyncTimer;
+        string stringSyncTimer;
 
 
 
@@ -233,7 +235,8 @@ namespace APIAccessTEST01
             HeaderMiningRESET();
             HeaderDefault();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
-
+            intSyncTimer = 31;
+            lblSyncTimer.Location = new Point(560, 14);
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");        //PLACEHOLDER
             GETWallets();                                           //MINING | Gets All Wallet Info
             GETPools();                                             //MINING | Gets All Available Pools
@@ -966,9 +969,30 @@ namespace APIAccessTEST01
         }
 
         //AUTO FETCH DATA | 30seconds
-        private void timerAutoRefresh_Tick(object sender, EventArgs e)
+        private void timerSyncTimer_Tick(object sender, EventArgs e)
         {
-            SyncingTest();
+            if (intSyncTimer == 0)
+            {
+                SyncingTest();
+                intSyncTimer = 31;
+            }
+            else if (SYNCED == true)
+            {
+                intSyncTimer = intSyncTimer - 1;
+                if (intSyncTimer > 30)
+                {
+
+                }
+                else
+                {
+                    stringSyncTimer = Convert.ToString(intSyncTimer);
+                    lblSyncTimer.Text = "AUTOSYNC IN: " + stringSyncTimer;
+                }
+            }
+            else
+            {
+                lblSyncTimer.Text = "AUTOSYNC IN: 0";
+            }
         }
 
         //UPDATES ALL INFORMATION AFFECTING EVERY LABEL AND GROUPBOX | VERY IMPORTANT
@@ -1123,7 +1147,14 @@ namespace APIAccessTEST01
             {
                 lblSync.Text = "SYNCING...";        //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITHCING
                 gifRefreshing.Visible = true;       //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITCHING
-                GETINFOSummary();
+                if (bSummary == true)
+                {
+                    GETINFOSummary();
+                }
+                else
+                {
+                    SYNCED = true;
+                }
             }
             else if (SYNCED == true)
             {
@@ -1379,7 +1410,7 @@ namespace APIAccessTEST01
         {
             try
             {
-                OptionsNicehashWalletsv.Items.Clear();
+                OptionsNHWalletsv.Items.Clear();
             }
             catch (Exception)
             {
@@ -1388,8 +1419,8 @@ namespace APIAccessTEST01
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
             NHWalletsA = NHWallets.ToArray();
             BindWallet.DataSource = NHWalletsA;
-            OptionsNicehashWalletsv.DataSource = BindWallet.DataSource;
-            CurrentNHWallet = OptionsNicehashWalletsv.Text;
+            OptionsNHWalletsv.DataSource = BindWallet.DataSource;
+            CurrentNHWallet = OptionsNHWalletsv.Text;
 
 
             
@@ -1473,9 +1504,18 @@ namespace APIAccessTEST01
                     }
                     else if ((SUpTimeBeforeCalc / 3600) >= 1 && STimeHours == null)
                     {
-                        STimeHours = Convert.ToString(SUpTimeBeforeCalc / 3600);
-                        STimeHours = RemoveAfterLetter(STimeHours, ".");
-                        STimeHours = " " + STimeHours + "H";
+                        if (SUpTimeBeforeCalc / 3600 > 24)
+                        {
+                            STimeHours = Convert.ToString((SUpTimeBeforeCalc / 3600) - 24);
+                            STimeHours = RemoveAfterLetter(STimeHours, ".");
+                            STimeHours = " " + STimeHours + "H";
+                        }
+                        else
+                        {
+                            STimeHours = Convert.ToString(SUpTimeBeforeCalc / 3600);
+                            STimeHours = RemoveAfterLetter(STimeHours, ".");
+                            STimeHours = " " + STimeHours + "H";
+                        }
                     }
                     else if (((SUpTimeBeforeCalc / 60) % 60) < 1 && STimeMins == null)
                     {
@@ -1722,31 +1762,39 @@ namespace APIAccessTEST01
         }
         private void btnOptionsNicehashSave_Click(object sender, EventArgs e)
         {
+            lblNHDefaultSet.Visible = false;
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
-            NewNHWallet = txtOptionsNicehashAddv.Text;
-            bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
-            if (WalletDuplicate != true)
+            NewNHWallet = txtOptionsNHAddv.Text;
+            if (NewNHWallet.Length < 25 || NewNHWallet.Length > 34)
             {
-                if (NewNHWallet != "")
-                {
-                    NHWallets.Add(NewNHWallet);
-                    File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
-                    lblNicehashWalletSaved.Text = "WALLET SAVED";
-                    lblNicehashWalletSaved.Visible = true;
-                    GETWallets();
-                }
-                else
-                {
-                    lblNicehashWalletSaved.Text = "INPUT IS EMPTY";
-                    lblNicehashWalletSaved.Visible = true;
-                }
+                lblNHWalletSaved.Text = "INVALID BITCOIN ADDRESS";
+                lblNHWalletSaved.Visible = true;
             }
             else
             {
-                lblNicehashWalletSaved.Text = "WALLET ALREADY EXISTS";
-                lblNicehashWalletSaved.Visible = true;
+                bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
+                if (WalletDuplicate != true)
+                {
+                    if (NewNHWallet != "")
+                    {
+                        NHWallets.Add(NewNHWallet);
+                        File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                        lblNHWalletSaved.Text = "WALLET SAVED";
+                        lblNHWalletSaved.Visible = true;
+                        GETWallets();
+                    }
+                    else
+                    {
+                        lblNHWalletSaved.Text = "INPUT IS EMPTY";
+                        lblNHWalletSaved.Visible = true;
+                    }
+                }
+                else
+                {
+                    lblNHWalletSaved.Text = "WALLET ALREADY EXISTS";
+                    lblNHWalletSaved.Visible = true;
+                }
             }
-            
         }
 
         private void HeaderPoolv_SelectedIndexChanged(object sender, EventArgs e)
@@ -1758,11 +1806,74 @@ namespace APIAccessTEST01
         {
             GETWorkerInfo();
         }
-
-        private void OptionsNicehashWalletsv_SelectedIndexChanged(object sender, EventArgs e)
+        
+        private void OptionsNHWalletsv_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CurrentNHWallet = OptionsNicehashWalletsv.Text;
+            CurrentNHWallet = OptionsNHWalletsv.Text;
             GETWorkers();
         }
+
+        private void btnOptionsNHDefault_Click(object sender, EventArgs e)
+        {
+            lblNHWalletSaved.Visible = false;
+            NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
+            NewNHWallet = txtOptionsNHAddv.Text;
+            if (NewNHWallet.Length < 25 || NewNHWallet.Length > 34)
+            {
+                lblNHDefaultSet.Text = "INVALID BITCOIN ADDRESS";
+                lblNHDefaultSet.Visible = true;
+            }
+            else
+            {
+                WalletIndexChecker = NHWallets.FindIndex(x => x.StartsWith(NewNHWallet));
+                bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
+                if (WalletDuplicate != true)
+                {
+                    if (NewNHWallet != "")
+                    {
+                        NHWallets.Insert(0, NewNHWallet);
+                        File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                        lblNHDefaultSet.Text = "DEFAULT SET";
+                        lblNHDefaultSet.Visible = true;
+                        GETWallets();
+                    }
+                    else
+                    {
+                        lblNHDefaultSet.Text = "INPUT IS EMPTY";
+                        lblNHDefaultSet.Visible = true;
+                    }
+                }
+                else if (WalletIndexChecker == 0)
+                {
+                    lblNHDefaultSet.Text = "ALREADY SET TO DEFAULT";
+                    lblNHDefaultSet.Visible = true;
+                }
+                else
+                {
+
+                    if (NewNHWallet != "")
+                    {
+                        NHWallets.Remove(NewNHWallet);
+                        NHWallets.Insert(0, NewNHWallet);
+                        File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                        lblNHDefaultSet.Text = "DEFAULT SET";
+                        lblNHDefaultSet.Visible = true;
+                        GETWallets();
+                    }
+                    else
+                    {
+                        lblNHDefaultSet.Text = "INPUT IS EMPTY";
+                        lblNHDefaultSet.Visible = true;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
     }
 }

@@ -42,6 +42,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
+            this.lblSyncTimer = new System.Windows.Forms.Label();
             this.lblHeaderWorker = new System.Windows.Forms.Label();
             this.HeaderWorkerv = new System.Windows.Forms.ComboBox();
             this.lblHeaderPool = new System.Windows.Forms.Label();
@@ -203,7 +204,6 @@
             this.lblCustom24Hp01 = new System.Windows.Forms.Label();
             this.lblCustom7Dp01 = new System.Windows.Forms.Label();
             this.lbl1Hr01 = new System.Windows.Forms.Label();
-            this.timerAutoRefresh = new System.Windows.Forms.Timer(this.components);
             this.Options = new System.Windows.Forms.Panel();
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPageSummary = new System.Windows.Forms.TabPage();
@@ -254,15 +254,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupOptionsNicehash = new System.Windows.Forms.GroupBox();
-            this.lblNicehashWalletSaved = new System.Windows.Forms.Label();
-            this.txtOptionsNicehashAddv = new System.Windows.Forms.TextBox();
-            this.lblOptionsNicehashAddress = new System.Windows.Forms.Label();
-            this.OptionsNicehashWalletsv = new System.Windows.Forms.ComboBox();
-            this.btnOptionsNicehashSave = new System.Windows.Forms.Button();
-            this.lblOptionsNicehashAdd = new System.Windows.Forms.Label();
+            this.groupOptionsNH = new System.Windows.Forms.GroupBox();
+            this.lblNHWalletSaved = new System.Windows.Forms.Label();
+            this.txtOptionsNHAddv = new System.Windows.Forms.TextBox();
+            this.lblOptionsNHAddress = new System.Windows.Forms.Label();
+            this.OptionsNHWalletsv = new System.Windows.Forms.ComboBox();
+            this.btnOptionsNHSave = new System.Windows.Forms.Button();
+            this.lblOptionsNHAdd = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.timerUpdating = new System.Windows.Forms.Timer(this.components);
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
             this.groupWorkerAddress = new System.Windows.Forms.GroupBox();
@@ -293,6 +292,10 @@
             this.lblProfitBTCv = new System.Windows.Forms.Label();
             this.lblWorkerPool = new System.Windows.Forms.Label();
             this.timerRefreshing = new System.Windows.Forms.Timer(this.components);
+            this.timerSyncTimer = new System.Windows.Forms.Timer(this.components);
+            this.timerUpdating = new System.Windows.Forms.Timer(this.components);
+            this.btnOptionsNHDefault = new System.Windows.Forms.Button();
+            this.lblNHDefaultSet = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
@@ -327,7 +330,7 @@
             this.optionsSummary.SuspendLayout();
             this.tabPageMining.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupOptionsNicehash.SuspendLayout();
+            this.groupOptionsNH.SuspendLayout();
             this.Mining01.SuspendLayout();
             this.groupMiningWorker.SuspendLayout();
             this.groupWorkerAddress.SuspendLayout();
@@ -350,7 +353,7 @@
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(222, 715);
+            this.Sidebar.Size = new System.Drawing.Size(222, 1096);
             this.Sidebar.TabIndex = 0;
             // 
             // iconMining
@@ -467,6 +470,7 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.DimGray;
+            this.Header.Controls.Add(this.lblSyncTimer);
             this.Header.Controls.Add(this.lblHeaderWorker);
             this.Header.Controls.Add(this.HeaderWorkerv);
             this.Header.Controls.Add(this.lblHeaderPool);
@@ -489,6 +493,17 @@
             this.Header.Size = new System.Drawing.Size(1554, 78);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
+            // 
+            // lblSyncTimer
+            // 
+            this.lblSyncTimer.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblSyncTimer.ForeColor = System.Drawing.Color.White;
+            this.lblSyncTimer.Location = new System.Drawing.Point(560, 14);
+            this.lblSyncTimer.Name = "lblSyncTimer";
+            this.lblSyncTimer.Size = new System.Drawing.Size(173, 20);
+            this.lblSyncTimer.TabIndex = 55;
+            this.lblSyncTimer.Text = "AUTO SYNC IN: 30";
+            this.lblSyncTimer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHeaderWorker
             // 
@@ -2251,12 +2266,6 @@
             this.lbl1Hr01.Text = "1HR";
             this.lbl1Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // timerAutoRefresh
-            // 
-            this.timerAutoRefresh.Enabled = true;
-            this.timerAutoRefresh.Interval = 30000;
-            this.timerAutoRefresh.Tick += new System.EventHandler(this.timerAutoRefresh_Tick);
-            // 
             // Options
             // 
             this.Options.Controls.Add(this.tabOptions);
@@ -2866,7 +2875,7 @@
             this.tabPageMining.AutoScrollMargin = new System.Drawing.Size(0, 10);
             this.tabPageMining.BackColor = System.Drawing.Color.DarkGray;
             this.tabPageMining.Controls.Add(this.groupBox3);
-            this.tabPageMining.Controls.Add(this.groupOptionsNicehash);
+            this.tabPageMining.Controls.Add(this.groupOptionsNH);
             this.tabPageMining.Location = new System.Drawing.Point(4, 25);
             this.tabPageMining.Name = "tabPageMining";
             this.tabPageMining.Padding = new System.Windows.Forms.Padding(3);
@@ -2907,91 +2916,93 @@
             this.label5.Text = "WALLET ADDRESS";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // groupOptionsNicehash
+            // groupOptionsNH
             // 
-            this.groupOptionsNicehash.Controls.Add(this.lblNicehashWalletSaved);
-            this.groupOptionsNicehash.Controls.Add(this.txtOptionsNicehashAddv);
-            this.groupOptionsNicehash.Controls.Add(this.lblOptionsNicehashAddress);
-            this.groupOptionsNicehash.Controls.Add(this.OptionsNicehashWalletsv);
-            this.groupOptionsNicehash.Controls.Add(this.btnOptionsNicehashSave);
-            this.groupOptionsNicehash.Controls.Add(this.lblOptionsNicehashAdd);
-            this.groupOptionsNicehash.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.groupOptionsNicehash.ForeColor = System.Drawing.Color.White;
-            this.groupOptionsNicehash.Location = new System.Drawing.Point(6, 6);
-            this.groupOptionsNicehash.Name = "groupOptionsNicehash";
-            this.groupOptionsNicehash.Size = new System.Drawing.Size(805, 247);
-            this.groupOptionsNicehash.TabIndex = 54;
-            this.groupOptionsNicehash.TabStop = false;
-            this.groupOptionsNicehash.Text = "NICEHASH";
+            this.groupOptionsNH.Controls.Add(this.lblNHDefaultSet);
+            this.groupOptionsNH.Controls.Add(this.btnOptionsNHDefault);
+            this.groupOptionsNH.Controls.Add(this.lblNHWalletSaved);
+            this.groupOptionsNH.Controls.Add(this.txtOptionsNHAddv);
+            this.groupOptionsNH.Controls.Add(this.lblOptionsNHAddress);
+            this.groupOptionsNH.Controls.Add(this.OptionsNHWalletsv);
+            this.groupOptionsNH.Controls.Add(this.btnOptionsNHSave);
+            this.groupOptionsNH.Controls.Add(this.lblOptionsNHAdd);
+            this.groupOptionsNH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupOptionsNH.ForeColor = System.Drawing.Color.White;
+            this.groupOptionsNH.Location = new System.Drawing.Point(6, 6);
+            this.groupOptionsNH.Name = "groupOptionsNH";
+            this.groupOptionsNH.Size = new System.Drawing.Size(805, 247);
+            this.groupOptionsNH.TabIndex = 54;
+            this.groupOptionsNH.TabStop = false;
+            this.groupOptionsNH.Text = "NICEHASH";
             // 
-            // lblNicehashWalletSaved
+            // lblNHWalletSaved
             // 
-            this.lblNicehashWalletSaved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNicehashWalletSaved.Location = new System.Drawing.Point(8, 214);
-            this.lblNicehashWalletSaved.Name = "lblNicehashWalletSaved";
-            this.lblNicehashWalletSaved.Size = new System.Drawing.Size(215, 23);
-            this.lblNicehashWalletSaved.TabIndex = 52;
-            this.lblNicehashWalletSaved.Text = "WALLET SAVED";
-            this.lblNicehashWalletSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNicehashWalletSaved.Visible = false;
+            this.lblNHWalletSaved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNHWalletSaved.Location = new System.Drawing.Point(8, 214);
+            this.lblNHWalletSaved.Name = "lblNHWalletSaved";
+            this.lblNHWalletSaved.Size = new System.Drawing.Size(215, 23);
+            this.lblNHWalletSaved.TabIndex = 52;
+            this.lblNHWalletSaved.Text = "WALLET SAVED";
+            this.lblNHWalletSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNHWalletSaved.Visible = false;
             // 
-            // txtOptionsNicehashAddv
+            // txtOptionsNHAddv
             // 
-            this.txtOptionsNicehashAddv.BackColor = System.Drawing.Color.DarkGray;
-            this.txtOptionsNicehashAddv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtOptionsNicehashAddv.ForeColor = System.Drawing.Color.White;
-            this.txtOptionsNicehashAddv.Location = new System.Drawing.Point(11, 148);
-            this.txtOptionsNicehashAddv.Name = "txtOptionsNicehashAddv";
-            this.txtOptionsNicehashAddv.Size = new System.Drawing.Size(788, 27);
-            this.txtOptionsNicehashAddv.TabIndex = 51;
+            this.txtOptionsNHAddv.BackColor = System.Drawing.Color.DarkGray;
+            this.txtOptionsNHAddv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.txtOptionsNHAddv.ForeColor = System.Drawing.Color.White;
+            this.txtOptionsNHAddv.Location = new System.Drawing.Point(11, 148);
+            this.txtOptionsNHAddv.Name = "txtOptionsNHAddv";
+            this.txtOptionsNHAddv.Size = new System.Drawing.Size(788, 27);
+            this.txtOptionsNHAddv.TabIndex = 51;
             // 
-            // lblOptionsNicehashAddress
+            // lblOptionsNHAddress
             // 
-            this.lblOptionsNicehashAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblOptionsNicehashAddress.Location = new System.Drawing.Point(13, 37);
-            this.lblOptionsNicehashAddress.Name = "lblOptionsNicehashAddress";
-            this.lblOptionsNicehashAddress.Size = new System.Drawing.Size(157, 23);
-            this.lblOptionsNicehashAddress.TabIndex = 50;
-            this.lblOptionsNicehashAddress.Text = "WALLET ADDRESS";
-            this.lblOptionsNicehashAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOptionsNHAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblOptionsNHAddress.Location = new System.Drawing.Point(13, 37);
+            this.lblOptionsNHAddress.Name = "lblOptionsNHAddress";
+            this.lblOptionsNHAddress.Size = new System.Drawing.Size(157, 23);
+            this.lblOptionsNHAddress.TabIndex = 50;
+            this.lblOptionsNHAddress.Text = "WALLET ADDRESS";
+            this.lblOptionsNHAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // OptionsNicehashWalletsv
+            // OptionsNHWalletsv
             // 
-            this.OptionsNicehashWalletsv.BackColor = System.Drawing.Color.DarkGray;
-            this.OptionsNicehashWalletsv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.OptionsNicehashWalletsv.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.OptionsNicehashWalletsv.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.OptionsNicehashWalletsv.FormattingEnabled = true;
-            this.OptionsNicehashWalletsv.Location = new System.Drawing.Point(12, 63);
-            this.OptionsNicehashWalletsv.Name = "OptionsNicehashWalletsv";
-            this.OptionsNicehashWalletsv.Size = new System.Drawing.Size(787, 29);
-            this.OptionsNicehashWalletsv.TabIndex = 49;
-            this.OptionsNicehashWalletsv.TabStop = false;
-            this.OptionsNicehashWalletsv.SelectedIndexChanged += new System.EventHandler(this.OptionsNicehashWalletsv_SelectedIndexChanged);
+            this.OptionsNHWalletsv.BackColor = System.Drawing.Color.DarkGray;
+            this.OptionsNHWalletsv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OptionsNHWalletsv.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.OptionsNHWalletsv.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.OptionsNHWalletsv.FormattingEnabled = true;
+            this.OptionsNHWalletsv.Location = new System.Drawing.Point(12, 63);
+            this.OptionsNHWalletsv.Name = "OptionsNHWalletsv";
+            this.OptionsNHWalletsv.Size = new System.Drawing.Size(787, 29);
+            this.OptionsNHWalletsv.TabIndex = 49;
+            this.OptionsNHWalletsv.TabStop = false;
+            this.OptionsNHWalletsv.SelectedIndexChanged += new System.EventHandler(this.OptionsNHWalletsv_SelectedIndexChanged);
             // 
-            // btnOptionsNicehashSave
+            // btnOptionsNHSave
             // 
-            this.btnOptionsNicehashSave.BackColor = System.Drawing.Color.DimGray;
-            this.btnOptionsNicehashSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnOptionsNicehashSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptionsNicehashSave.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnOptionsNicehashSave.Location = new System.Drawing.Point(11, 181);
-            this.btnOptionsNicehashSave.Name = "btnOptionsNicehashSave";
-            this.btnOptionsNicehashSave.Size = new System.Drawing.Size(212, 30);
-            this.btnOptionsNicehashSave.TabIndex = 48;
-            this.btnOptionsNicehashSave.Text = "SAVE WALLET";
-            this.btnOptionsNicehashSave.UseVisualStyleBackColor = false;
-            this.btnOptionsNicehashSave.Click += new System.EventHandler(this.btnOptionsNicehashSave_Click);
+            this.btnOptionsNHSave.BackColor = System.Drawing.Color.DimGray;
+            this.btnOptionsNHSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsNHSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsNHSave.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsNHSave.Location = new System.Drawing.Point(11, 181);
+            this.btnOptionsNHSave.Name = "btnOptionsNHSave";
+            this.btnOptionsNHSave.Size = new System.Drawing.Size(212, 30);
+            this.btnOptionsNHSave.TabIndex = 48;
+            this.btnOptionsNHSave.Text = "SAVE WALLET";
+            this.btnOptionsNHSave.UseVisualStyleBackColor = false;
+            this.btnOptionsNHSave.Click += new System.EventHandler(this.btnOptionsNicehashSave_Click);
             // 
-            // lblOptionsNicehashAdd
+            // lblOptionsNHAdd
             // 
-            this.lblOptionsNicehashAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblOptionsNicehashAdd.Location = new System.Drawing.Point(12, 122);
-            this.lblOptionsNicehashAdd.Name = "lblOptionsNicehashAdd";
-            this.lblOptionsNicehashAdd.Size = new System.Drawing.Size(166, 23);
-            this.lblOptionsNicehashAdd.TabIndex = 46;
-            this.lblOptionsNicehashAdd.Text = "ADD WALLET";
-            this.lblOptionsNicehashAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOptionsNHAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblOptionsNHAdd.Location = new System.Drawing.Point(12, 122);
+            this.lblOptionsNHAdd.Name = "lblOptionsNHAdd";
+            this.lblOptionsNHAdd.Size = new System.Drawing.Size(166, 23);
+            this.lblOptionsNHAdd.TabIndex = 46;
+            this.lblOptionsNHAdd.Text = "WALLET OPTIONS";
+            this.lblOptionsNHAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -3005,11 +3016,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "OPTIONS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // timerUpdating
-            // 
-            this.timerUpdating.Interval = 2000;
-            this.timerUpdating.Tick += new System.EventHandler(this.timerUpdating_Tick);
             // 
             // Mining01
             // 
@@ -3349,22 +3355,62 @@
             this.timerRefreshing.Interval = 50;
             this.timerRefreshing.Tick += new System.EventHandler(this.timerRefreshing_Tick);
             // 
+            // timerSyncTimer
+            // 
+            this.timerSyncTimer.Enabled = true;
+            this.timerSyncTimer.Interval = 1000;
+            this.timerSyncTimer.Tick += new System.EventHandler(this.timerSyncTimer_Tick);
+            // 
+            // timerUpdating
+            // 
+            this.timerUpdating.Interval = 2000;
+            this.timerUpdating.Tick += new System.EventHandler(this.timerUpdating_Tick);
+            // 
+            // btnOptionsNHDefault
+            // 
+            this.btnOptionsNHDefault.BackColor = System.Drawing.Color.DimGray;
+            this.btnOptionsNHDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsNHDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsNHDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsNHDefault.Location = new System.Drawing.Point(229, 181);
+            this.btnOptionsNHDefault.Name = "btnOptionsNHDefault";
+            this.btnOptionsNHDefault.Size = new System.Drawing.Size(212, 30);
+            this.btnOptionsNHDefault.TabIndex = 53;
+            this.btnOptionsNHDefault.Text = "SET DEFAULT";
+            this.btnOptionsNHDefault.UseVisualStyleBackColor = false;
+            this.btnOptionsNHDefault.Click += new System.EventHandler(this.btnOptionsNHDefault_Click);
+            // 
+            // lblNHDefaultSet
+            // 
+            this.lblNHDefaultSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNHDefaultSet.Location = new System.Drawing.Point(226, 214);
+            this.lblNHDefaultSet.Name = "lblNHDefaultSet";
+            this.lblNHDefaultSet.Size = new System.Drawing.Size(215, 23);
+            this.lblNHDefaultSet.TabIndex = 54;
+            this.lblNHDefaultSet.Text = "DEFAULT SAVED";
+            this.lblNHDefaultSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNHDefaultSet.Visible = false;
+            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGray;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(1776, 715);
+            this.ClientSize = new System.Drawing.Size(1776, 1096);
             this.Controls.Add(this.Mining01);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.Summary01);
             this.Controls.Add(this.Header);
             this.Controls.Add(this.Sidebar);
+            this.DoubleBuffered = true;
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1064, 518);
             this.Name = "Crypto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crypto";
             this.Load += new System.EventHandler(this.Crypto_Load);
             this.Sidebar.ResumeLayout(false);
@@ -3415,8 +3461,8 @@
             this.tabPageMining.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupOptionsNicehash.ResumeLayout(false);
-            this.groupOptionsNicehash.PerformLayout();
+            this.groupOptionsNH.ResumeLayout(false);
+            this.groupOptionsNH.PerformLayout();
             this.Mining01.ResumeLayout(false);
             this.groupMiningWorker.ResumeLayout(false);
             this.groupMiningWorker.PerformLayout();
@@ -3570,7 +3616,6 @@
         private System.Windows.Forms.Label lblCustom7Dp01;
         private System.Windows.Forms.Label lbl1Hr01;
         private System.Windows.Forms.PictureBox iconSettings;
-        private System.Windows.Forms.Timer timerAutoRefresh;
         private System.Windows.Forms.Panel Options;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabOptions;
@@ -3624,7 +3669,6 @@
         private System.Windows.Forms.ComboBox Currencyv;
         private System.Windows.Forms.ComboBox Pagev;
         private System.Windows.Forms.Button btnNewPage;
-        private System.Windows.Forms.Timer timerUpdating;
         private System.Windows.Forms.Label lblNoSave;
         private System.Windows.Forms.Label lblNewPage;
         private System.Windows.Forms.Label lblSaveFound;
@@ -3643,8 +3687,8 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupOptionsNicehash;
-        private System.Windows.Forms.Label lblOptionsNicehashAdd;
+        private System.Windows.Forms.GroupBox groupOptionsNH;
+        private System.Windows.Forms.Label lblOptionsNHAdd;
         private System.Windows.Forms.Label lblDefaultSet;
         private System.Windows.Forms.Button btnCurrencyDefault;
         private System.Windows.Forms.Label lblSync;
@@ -3690,10 +3734,15 @@
         private System.Windows.Forms.Label lblWorkerHashv;
         private System.Windows.Forms.Label lblWorkerEfficiencyv;
         private System.Windows.Forms.Label lblWorkerRejectv;
-        private System.Windows.Forms.Button btnOptionsNicehashSave;
-        private System.Windows.Forms.TextBox txtOptionsNicehashAddv;
-        private System.Windows.Forms.Label lblOptionsNicehashAddress;
-        private System.Windows.Forms.ComboBox OptionsNicehashWalletsv;
-        private System.Windows.Forms.Label lblNicehashWalletSaved;
+        private System.Windows.Forms.Button btnOptionsNHSave;
+        private System.Windows.Forms.TextBox txtOptionsNHAddv;
+        private System.Windows.Forms.Label lblOptionsNHAddress;
+        private System.Windows.Forms.ComboBox OptionsNHWalletsv;
+        private System.Windows.Forms.Label lblNHWalletSaved;
+        private System.Windows.Forms.Label lblSyncTimer;
+        private System.Windows.Forms.Timer timerSyncTimer;
+        private System.Windows.Forms.Timer timerUpdating;
+        private System.Windows.Forms.Label lblNHDefaultSet;
+        private System.Windows.Forms.Button btnOptionsNHDefault;
     }
 }

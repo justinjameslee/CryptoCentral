@@ -1,0 +1,3 @@
+Reward = ((hashrate * block_reward) / current_difficulty * 2^13) * (1 - pool_fee) * 3600
+
+BTC/DAY = (Hash of Miner * 86400 * Nicehash Global Speed of Algo) / (2^32 * Difficulty of Miner)

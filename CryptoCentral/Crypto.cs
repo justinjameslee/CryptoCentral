@@ -113,6 +113,9 @@ namespace APIAccessTEST01
 
 
         //MINING
+        double UniversalBTCPrice;
+
+
         List<string> NHWallets;
         string NewNHWallet;
         string[] NHWalletsA;
@@ -124,14 +127,18 @@ namespace APIAccessTEST01
         string lineWorker;
         string lineNHAlgo;
         string lineHashRate;
+
+
         string NHRelWorkers;
         string[] NHRelWorkersA;
+        string[] SepDATA;
         string WorkerID;
         string DATA;
+
         string SCurrentAlgo;
         string KeyCurrentAlgo;
         string Verified;
-        string[] SepDATA;
+        
         double CurrentHashRate;
         double CurrentRejectRate;
         string SHashEnd;
@@ -144,12 +151,28 @@ namespace APIAccessTEST01
         string STimeHours = null;
         string STimeMins = null;
         string STimeSeconds = null;
+
         string WorkerIDCheck;
 
+
+        string NHProfitability;
+        string NHRelProfit;
+        string[] NHRelProfitA;
+        string NHActualAlgoS;
+        int NHActualAlgoI;
+
+        string NHCalcProfitRate;
+        double NHCalcProfitBTCD;
+        string NHCalcProfitBTC;
+        string NHCalcProfitBTCM;
+        string NHCalcProfitBTCY;
 
         int NoWorkers;
         int TimeIndexRemove;
 
+        Dictionary<int, string> RealProfit = new Dictionary<int, string>();
+
+        List<string> SepProfit = new List<string>();
         List<string> SepWorkers = new List<string>();
         List<string> RealWorkers = new List<string>();
 
@@ -169,46 +192,45 @@ namespace APIAccessTEST01
         //Resetting Positions of Panels and Header.
         void Summary01RESET()
         {
-            Summary01.Location = new Point(222, 78);
+            Summary01.Location = new Point(222, 71);
             Summary01.Size = new Size(842, 468);
         }
 
         void OptionsRESET()
         {
-            Options.Location = new Point(222, 78);
+            Options.Location = new Point(222, 71);
             Options.Size = new Size(842, 468);
         }
         void MiningRESET()
         {
-            Mining01.Location = new Point(222, 78);
+            Mining01.Location = new Point(222, 71);
             Mining01.Size = new Size(842, 468);
         }
         void HeaderDefaultRESET()
         {
-            btnPageLeft.Location = new Point(6, 47);
-            lblCurrentPage.Location = new Point(36, 49);
-            btnPageRight.Location = new Point(115, 47);
-            lblHeaderCurrency.Location = new Point(169, 49);
-            HeaderCurrencyv.Location = new Point(290, 47);
-            lblHeaderTime.Location = new Point(400, 49);
-            HeaderTimeZonev.Location = new Point(521, 47);
-            lblSync.Location = new Point(684, 49);
-            gifRefreshing.Location = new Point(802, 47);
-            btnRefresh.Location = new Point(802, 47);
+            btnPageLeft.Location = new Point(6, 7);
+            lblCurrentPage.Location = new Point(36, 9);
+            btnPageRight.Location = new Point(115, 7);
+            lblSync.Location = new Point(685, 9);
+            gifRefreshing.Location = new Point(803, 7);
+            btnRefresh.Location = new Point(803, 7);
         }
         void HeaderMiningRESET()
         {
-            lblHeaderPool.Location = new Point(15, 49);
-            HeaderPoolv.Location = new Point(85, 47);
-            lblHeaderWorker.Location = new Point(255, 49);
-            HeaderWorkerv.Location = new Point(355, 47);
+            lblHeaderPool.Location = new Point(165, 9);
+            HeaderPoolv.Location = new Point(235, 7);
+            lblHeaderWorker.Location = new Point(6, 49);
+            HeaderWorkerv.Location = new Point(106, 47);
+            lblHeaderMiningCurrency.Location = new Point(250, 49);
+            HeaderMiningCurrencyv.Location = new Point(370, 47);
         }
         //Checking and Creating Requiered Files.
         void CreateMustFiles()
         {
-            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt"))
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt"))
             {
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
+                Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");
                 Pages = Convert.ToString(pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", Pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", Convert.ToString(0));
@@ -216,17 +238,13 @@ namespace APIAccessTEST01
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", Convert.ToString(0));
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", Convert.ToString(0));
             }
-            else
-            {
-
-            }
         }
         
 
         private void Crypto_Load(object sender, EventArgs e)
         {
             ProfileLoaded = false;      //PLACEHOLDER
-            Profile = 1;                //PLACEHOLDER
+            Profile = 0;                //PLACEHOLDER
             CreateMustFiles();
             LoadProfile(Profile);
             TestCoinSummary();
@@ -236,7 +254,7 @@ namespace APIAccessTEST01
             HeaderDefault();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
             intSyncTimer = 31;
-            lblSyncTimer.Location = new Point(560, 14);
+            lblSyncTimer.Location = new Point(506, 9);
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");        //PLACEHOLDER
             GETWallets();                                           //MINING | Gets All Wallet Info
             GETPools();                                             //MINING | Gets All Available Pools
@@ -244,7 +262,7 @@ namespace APIAccessTEST01
             Options.Visible = false;
             Mining01.Visible = false;
             Summary01.Visible = true;
-            this.Size = new Size(1064, 546);
+            this.Size = new Size(1064, 577);
             this.CenterToScreen();
             GETINFOSummary();                                 //Getting ALL API Information.
             lblSaveFound.Visible = false;                    //Not Required on first startup.
@@ -287,38 +305,36 @@ namespace APIAccessTEST01
             lblConfirmed.Visible = false;
             lblMaxPages.Visible = false;
             lblDefaultSet.Visible = false;
-            lblHeaderTime.Visible = false;
-            HeaderTimeZonev.Visible = false;
             lblHeaderPool.Visible = false;
             lblHeaderWorker.Visible = false;
             HeaderPoolv.Visible = false;
             HeaderWorkerv.Visible = false;
+            lblHeaderMiningCurrency.Visible = false;
+            HeaderMiningCurrencyv.Visible = false;
         }
         void HeaderDefault()
         {
             btnPageLeft.Visible = true;
             btnPageRight.Visible = true;
             lblCurrentPage.Visible = true;
-            lblHeaderCurrency.Visible = true;
-            HeaderCurrencyv.Visible = true;
-            lblHeaderTime.Visible = true;
-            HeaderTimeZonev.Visible = true;
             lblHeaderPool.Visible = false;
             lblHeaderWorker.Visible = false;
             HeaderPoolv.Visible = false;
             HeaderWorkerv.Visible = false;
+            lblHeaderMiningCurrency.Visible = false;
+            HeaderMiningCurrencyv.Visible = false;
         }
         void HeaderMining()
         {
             btnPageLeft.Visible = false;
             btnPageRight.Visible = false;
             lblCurrentPage.Visible = false;
-            lblHeaderCurrency.Visible = false;
-            HeaderCurrencyv.Visible = false;
             lblHeaderPool.Visible = true;
             lblHeaderWorker.Visible = true;
             HeaderPoolv.Visible = true;
             HeaderWorkerv.Visible = true;
+            lblHeaderMiningCurrency.Visible = true;
+            HeaderMiningCurrencyv.Visible = true;
         }
         //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
@@ -359,76 +375,73 @@ namespace APIAccessTEST01
         //ProfileNumber is sourced from LoginScreen.
         void LoadProfile(double ProfileNumber)
         {
-            if (ProfileNumber == 1)
+            try
             {
-                try
+                StartingTimeZone = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt");
+                StartingCurrency = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt");
+                PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
+                Pages = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
+                CurrencyNumber = Convert.ToInt32(StartingCurrency);
+                TimeZoneNumber = Convert.ToInt32(StartingTimeZone);
+                PageCalculation = Convert.ToInt32(Pages);
+                for (int i = 0; i < PageCalculation; i++)
                 {
-                    StartingTimeZone = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt");
-                    StartingCurrency = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt");
-                    PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
-                    Pages = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt");
-                    CurrencyNumber = Convert.ToInt32(StartingCurrency);
-                    TimeZoneNumber = Convert.ToInt32(StartingTimeZone);
-                    PageCalculation = Convert.ToInt32(Pages);
-                    for (int i = 0; i < PageCalculation; i++)
+                    Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
+                    pages = pages + 1;
+                    if (pages > PageCalculation)
                     {
-                        Pagev.Items.Add(new Item(Convert.ToString(pages), pages));
-                        pages = pages + 1;
-                        if (pages > PageCalculation)
-                        {
-                            pages = pages - 1;
-                        }
-                        
+                        pages = pages - 1;
                     }
 
-                    if (CurrencyNumber == 0)
-                    {
-                        Currencyv.SelectedIndex = 0;
-                    }
-                    else if (CurrencyNumber == 1)
-                    {
-                        Currencyv.SelectedIndex = 1;
-                    }
-
-                    if (TimeZoneNumber == 0)
-                    {
-                        Timezonev.SelectedIndex = 0;
-                    }
-                    else if (TimeZoneNumber == 1)
-                    {
-                        Timezonev.SelectedIndex = 1;
-                    }
-
-                    //Set all lines from txt file into Array
-                    //Set Custonm Coins to data taken from the Array
-                    Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt");
-                    coin1 = Profile1Loaded[0];
-                    coin2 = Profile1Loaded[1];
-                    coin3 = Profile1Loaded[2];
-                    coin4 = Profile1Loaded[3];
-                    coin5 = Profile1Loaded[4];
-                    coin6 = Profile1Loaded[5];
-                    coin7 = Profile1Loaded[6];
-                    coin8 = Profile1Loaded[7];
-                    coin9 = Profile1Loaded[8];
-                    txtCustom01.Text = coin1;
-                    txtCustom02.Text = coin2;
-                    txtCustom03.Text = coin3;
-                    txtCustom04.Text = coin4;
-                    txtCustom05.Text = coin5;
-                    txtCustom06.Text = coin6;
-                    txtCustom07.Text = coin7;
-                    txtCustom08.Text = coin8;
-                    txtCustom09.Text = coin9;
-                    TestCoinSummary();
-                    GETINFOSummary();
-                    ProfileLoaded = true;       //Make sure program understands profile loaded successfully. 
                 }
-                catch (Exception)
+
+                if (CurrencyNumber == 0)
                 {
-                    lblSync.Text = "Saving Error";
-                    lblSync.Visible = true;
+                    Currencyv.SelectedIndex = 0;
                 }
+                else if (CurrencyNumber == 1)
+                {
+                    Currencyv.SelectedIndex = 1;
+                }
+
+                if (TimeZoneNumber == 0)
+                {
+                    Timezonev.SelectedIndex = 0;
+                }
+                else if (TimeZoneNumber == 1)
+                {
+                    Timezonev.SelectedIndex = 1;
+                }
+
+                //Set all lines from txt file into Array
+                //Set Custonm Coins to data taken from the Array
+                Profile1Loaded = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt");
+                coin1 = Profile1Loaded[0];
+                coin2 = Profile1Loaded[1];
+                coin3 = Profile1Loaded[2];
+                coin4 = Profile1Loaded[3];
+                coin5 = Profile1Loaded[4];
+                coin6 = Profile1Loaded[5];
+                coin7 = Profile1Loaded[6];
+                coin8 = Profile1Loaded[7];
+                coin9 = Profile1Loaded[8];
+                txtCustom01.Text = coin1;
+                txtCustom02.Text = coin2;
+                txtCustom03.Text = coin3;
+                txtCustom04.Text = coin4;
+                txtCustom05.Text = coin5;
+                txtCustom06.Text = coin6;
+                txtCustom07.Text = coin7;
+                txtCustom08.Text = coin8;
+                txtCustom09.Text = coin9;
+                TestCoinSummary();
+                GETINFOSummary();
+                ProfileLoaded = true;       //Make sure program understands profile loaded successfully. 
+            }
+            catch (Exception)
+            {
+                lblSync.Text = "Saving Error";
+                lblSync.Visible = true;
             }
         }
         //Updating Header Page Number
@@ -499,24 +512,14 @@ namespace APIAccessTEST01
             btnPageLeft.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
             btnPageRight.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
         }
-        private void HeaderCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Currencyv.SelectedIndex = HeaderCurrencyv.SelectedIndex;
-        }
         private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
             SyncingTest();
-            HeaderCurrencyv.SelectedIndex = Currencyv.SelectedIndex;
             lblDefaultSet.Visible = false;
-        }
-        private void HeaderTimeZonev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Timezonev.SelectedIndex = HeaderTimeZonev.SelectedIndex;
         }
         private void Timezonev_SelectedIndexChanged(object sender, EventArgs e)
         {
             SyncingTest();
-            HeaderTimeZonev.SelectedIndex = Timezonev.SelectedIndex;
             lblTimeSet.Visible = false;
         }
 
@@ -547,22 +550,19 @@ namespace APIAccessTEST01
         }
         void SaveProfile()
         {
-            if (Profile == 1)
-            {
-                Profile1[0] = coin1;
-                Profile1[1] = coin2;
-                Profile1[2] = coin3;
-                Profile1[3] = coin4;
-                Profile1[4] = coin5;
-                Profile1[5] = coin6;
-                Profile1[6] = coin7;
-                Profile1[7] = coin8;
-                Profile1[8] = coin9;
-                PageNumber = Convert.ToString(Pagev.SelectedIndex);
-                Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
-                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", Profile1);
-                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
-            }
+            Profile1[0] = coin1;
+            Profile1[1] = coin2;
+            Profile1[2] = coin3;
+            Profile1[3] = coin4;
+            Profile1[4] = coin5;
+            Profile1[5] = coin6;
+            Profile1[6] = coin7;
+            Profile1[7] = coin8;
+            Profile1[8] = coin9;
+            PageNumber = Convert.ToString(Pagev.SelectedIndex);
+            Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
+            File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", Profile1);
+            File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
         }
         void GETINFO(string CRYPTO, string customCoin, Label xCv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xC, Label xBTC, Label xTimev, GroupBox Number)
         {
@@ -597,11 +597,11 @@ namespace APIAccessTEST01
                 Number.Text = "XXX";
                 xTimev.Text = "No Data";
 
-                xCv.ForeColor = Color.White;
-                xBTCv.ForeColor = Color.White;
-                xUSDp.ForeColor = Color.White;
-                xUSD24p.ForeColor = Color.White;
-                xUSD7p.ForeColor = Color.White;
+                xCv.ForeColor = Color.Black;
+                xBTCv.ForeColor = Color.Black;
+                xUSDp.ForeColor = Color.Black;
+                xUSD24p.ForeColor = Color.Black;
+                xUSD7p.ForeColor = Color.Black;
             }
             else
             {
@@ -624,6 +624,10 @@ namespace APIAccessTEST01
                         price_usd = data.price_usd;
                         price_usd = RemoveExtraText(price_usd);
                         newprice = Convert.ToDouble(price_usd);
+                        if (CRYPTO == "bitcoin")
+                        {
+                            UniversalBTCPrice = newprice;
+                        }
                         price_usd = string.Format("{0:#,0.00##}", newprice);
                         price_usd = "$" + price_usd;
                         percent = data.percent_change_1h;
@@ -641,7 +645,7 @@ namespace APIAccessTEST01
                         }
                         else if (Dpercent == 0)
                         {
-                            xCv.ForeColor = Color.White;
+                            xCv.ForeColor = Color.Black;
                         }
                         xCv.Text = price_usd;
                         break;
@@ -676,7 +680,7 @@ namespace APIAccessTEST01
                         }
                         else if (Dpercent == 0)
                         {
-                            xCv.ForeColor = Color.White;
+                            xCv.ForeColor = Color.Black;
                         }
                         xCv.Text = price_aud;
                         break;
@@ -716,18 +720,18 @@ namespace APIAccessTEST01
                     percent_change_1h = percent_change_1h + "%";
                     if (Dchange > 0)
                     {
-                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.Black; }
                         else { xBTCv.ForeColor = Color.Green; }
                     }
                     else if (Dchange < 0)
                     {
-                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.Black; }
                         else { xBTCv.ForeColor = Color.Red; }
                     }
                     else if (Dchange == 0)
                     {
-                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.White; }
-                        else { xBTCv.ForeColor = Color.White; }
+                        if (data.symbol == "BTC") { xBTCv.ForeColor = Color.Black; }
+                        else { xBTCv.ForeColor = Color.Black; }
                     }
                     string price_btc;
                     double dprice_btc;
@@ -812,7 +816,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            ValueText.ForeColor = Color.White;
+                            ValueText.ForeColor = Color.Black;
                         }
                         else
                         {
@@ -826,7 +830,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            ValueText.ForeColor = Color.White;
+                            ValueText.ForeColor = Color.Black;
                         }
                         else
                         {
@@ -863,7 +867,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            ValueText.ForeColor = Color.White;
+                            ValueText.ForeColor = Color.Black;
                         }
                         else
                         {
@@ -877,7 +881,7 @@ namespace APIAccessTEST01
                         value_changed = Convert.ToString(DChange);
                         if (DChange == 0)
                         {
-                            ValueText.ForeColor = Color.White;
+                            ValueText.ForeColor = Color.Black;
                         }
                         else
                         {
@@ -896,7 +900,7 @@ namespace APIAccessTEST01
             if (StartingPercentP == null)
             {
                 PercentText.Text = "No Data";
-                PercentText.ForeColor = Color.White;
+                PercentText.ForeColor = Color.Black;
             }
             else
             {
@@ -913,7 +917,7 @@ namespace APIAccessTEST01
                 }
                 else if (Dchange == 0)
                 {
-                    PercentText.ForeColor = Color.White;
+                    PercentText.ForeColor = Color.Black;
                 }
                 PercentText.Text = Data;
             }
@@ -991,7 +995,9 @@ namespace APIAccessTEST01
             }
             else
             {
-                lblSyncTimer.Text = "AUTOSYNC IN: 0";
+                intSyncTimer = intSyncTimer - 1;
+                stringSyncTimer = Convert.ToString(intSyncTimer);
+                lblSyncTimer.Text = "AUTOSYNC IN: " + stringSyncTimer;
             }
         }
 
@@ -1244,8 +1250,8 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void EditSummaryIndividual(TextBox Custom)
         {
-            Custom.ReadOnly = false;
-            Custom.BackColor = Color.DarkGray;
+            Custom.Enabled = true;
+            Custom.BackColor = Color.White;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void EditSummary()
@@ -1266,8 +1272,8 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void EmptySummaryIndividual(TextBox Custom)
         {
-            Custom.ReadOnly = true;
-            Custom.BackColor = Color.Gray;
+            Custom.Enabled = false;
+            Custom.BackColor = Color.White;
             Custom.Text = "";
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
@@ -1289,8 +1295,8 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void ConfirmSummaryIndividual(TextBox Custom)
         {
-            Custom.ReadOnly = true;
-            Custom.BackColor = Color.Gray;
+            Custom.Enabled = false;
+            Custom.BackColor = Color.White;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void ConfirmSummary()
@@ -1408,28 +1414,22 @@ namespace APIAccessTEST01
 
         void GETWallets()
         {
-            try
-            {
-                OptionsNHWalletsv.Items.Clear();
-            }
-            catch (Exception)
-            {
-
-            }
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
             NHWalletsA = NHWallets.ToArray();
             BindWallet.DataSource = NHWalletsA;
             OptionsNHWalletsv.DataSource = BindWallet.DataSource;
             CurrentNHWallet = OptionsNHWalletsv.Text;
 
-
-            
         }
         void GETPools()
         {
             if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt"))
             {
-                HeaderPoolv.Items.Add("NICEHASH");
+                if (HeaderPoolv.Items.Contains("NICEHASH")) { }
+                else
+                {
+                    HeaderPoolv.Items.Add("NICEHASH");
+                }
             }
         }
         void GETWorkers()
@@ -1551,6 +1551,137 @@ namespace APIAccessTEST01
             if (TimeIndexRemove > 0) { Remove = Remove.Substring(0, TimeIndexRemove); }
             return Remove;
         }
+        void GETWorkerInfoNH()
+        {
+            lblWorkerIDv.Text = WorkerID;
+
+            SUpTimeBeforeCalc = SUpTimeBeforeCalc * 60;
+            WorkerTimeCalculation();
+
+            if (Verified == "1")
+            {
+                lblWorkerVerifiedv.Text = "YES";
+                lblWorkerVerifiedv.ForeColor = Color.LightGreen;
+            }
+            else if (Verified == "0")
+            {
+                lblWorkerVerifiedv.Text = "NO";
+                lblWorkerVerifiedv.ForeColor = Color.Red;
+            }
+
+            StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
+            {
+                while ((lineNHAlgo = NHAlgoReader.ReadLine()) != null)
+                {
+                    if (lineNHAlgo.Contains(KeyCurrentAlgo))
+                    {
+                        SCurrentAlgo = lineNHAlgo;
+                        SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
+                        break;
+                    }
+                }
+            }
+
+            StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
+            {
+                while ((lineHashRate = HashRateReader.ReadLine()) != null)
+                {
+                    if (lineHashRate.Contains(SCurrentAlgo))
+                    {
+                        SHashEnd = lineHashRate;
+                        SHashEnd = getBetween(SHashEnd, ": \"", "\"");
+                        break;
+                    }
+                }
+            }
+
+            SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
+            lblWorkerHashv.Text = SCurrentHashRate;
+            lblWorkerAlgov.Text = SCurrentAlgo;
+            lblWorkerAddress.Text = CurrentNHWallet;
+        }
+        void GETWorkerNHReject()
+        {
+            DEfficiency = CurrentRejectRate / CurrentHashRate;
+            DEfficiency = DEfficiency * 100;
+            DEfficiency = Math.Round(DEfficiency, 0);
+            DEfficiency = 100 - DEfficiency;
+
+
+            GETWorkerInfoNH();
+
+            SCurrentRejectRate = Convert.ToString(CurrentRejectRate) + " " + SHashEnd;
+            lblWorkerRejectv.Text = SCurrentRejectRate;
+
+            SEfficiency = Convert.ToString(DEfficiency) + "%";
+            lblWorkerEfficiencyv.Text = SEfficiency;
+            lblWorkerEfficiencyv.ForeColor = Color.Red;
+        }
+        void GETWorkerNHProfit()
+        {
+            RealProfit.Clear();
+
+            string url = @"https://api.nicehash.com/api?method=stats.provider.ex&addr=" + CurrentNHWallet;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                lineWorker = reader.ReadToEnd();
+                NHRelProfit = getBetween(lineWorker, ":[", "],\"nh_wallet");
+                NHRelProfitA = Regex.Split(NHRelProfit, "},{");
+                SepProfit = NHRelProfitA.OfType<string>().ToList();
+                for (int x = 0; x < SepProfit.Count; x++)
+                {
+                    if (SepProfit[x] != "")
+                    {
+                        NHProfitability = SepProfit[x];
+                        NHActualAlgoS = SepProfit[x];
+                        NHProfitability = getBetween(NHProfitability, "profitability", ",\"data");
+                        NHProfitability = RemoveExtraText(NHProfitability);
+
+                        NHActualAlgoS = RemoveonlyCurly(NHActualAlgoS);
+                        NHActualAlgoS = NHActualAlgoS + "}";
+                        NHActualAlgoS = getBetween(NHActualAlgoS, "algo", "}");
+                        NHActualAlgoS = RemoveExtraText(NHActualAlgoS);
+                        NHActualAlgoI = Convert.ToInt32(NHActualAlgoS);
+
+                        RealProfit.Add(NHActualAlgoI, NHProfitability);
+                    }
+                    else if (SepProfit[x] == "")
+                    {
+                        break;
+                    }
+
+                }
+            }
+        }
+        void GETWorkerCalcProfit()
+        {
+            NHCalcProfitRate = RealProfit[Convert.ToInt32(SepDATA[5])];
+            NHCalcProfitBTCD = Math.Round(Convert.ToDouble(NHCalcProfitRate) * CurrentHashRate, 8);
+            if (HeaderMiningCurrencyv.SelectedIndex == 0)
+            {
+                lblProfitv.Text = Convert.ToString(NHCalcProfitBTCD);
+                lblProfitMv.Text = Convert.ToString(Math.Round(NHCalcProfitBTCD * 30.4167, 8));
+                lblProfitYv.Text = Convert.ToString(Math.Round(NHCalcProfitBTCD * 365, 8));
+                lblProfit.Text = "BTC/DAY";
+                lblProfitM.Text = "BTC/MONTH";
+                lblProfitY.Text = "BTC/YEAR";
+            }
+            else if (HeaderMiningCurrencyv.SelectedIndex == 1)
+            {
+                lblProfitv.Text = "$" + string.Format("{0:#,0.00}", NHCalcProfitBTCD * UniversalBTCPrice);
+                lblProfitMv.Text = "$" + string.Format("{0:#,0.00}", (NHCalcProfitBTCD * 30.4167) * UniversalBTCPrice);
+                lblProfitYv.Text = "$" + string.Format("{0:#,0.00}", (NHCalcProfitBTCD * 365) * UniversalBTCPrice);
+                lblProfit.Text = "USD/DAY";
+                lblProfitM.Text = "USD/MONTH";
+                lblProfitY.Text = "USD/YEAR";
+            }
+        }
         void GETWorkerInfo()
         {
             STimeDays = null;
@@ -1588,7 +1719,6 @@ namespace APIAccessTEST01
                     }
                 }
 
-                lblWorkerIDv.Text = WorkerID;
                 DATA = getBetween(DATA, ",{\"", "]");
                 DATA = RemoveExtraText(DATA);
                 WorkerIDCheck = RemoveCommas(DATA);
@@ -1596,131 +1726,117 @@ namespace APIAccessTEST01
                 Console.WriteLine(WorkerIDCheck);
                 SepDATA = DATA.Split(',');
 
+                GETWorkerNHProfit();
+
                 if (SepDATA.Length == 6)
                 {
-                    //Calculate Total Up Time
+                    //Setting Array Values to Variables
+                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
                     SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[1]);
-                    SUpTimeBeforeCalc = SUpTimeBeforeCalc * 60;
-                    WorkerTimeCalculation();
-
+                    Verified = SepDATA[2];
                     lblWorkerDifficultyv.Text = SepDATA[3];
-
-                    Verified = SepDATA[2];          //MINING VERIFIED DATA
-                    if (Verified == "1")
-                    {
-                        lblWorkerVerifiedv.Text = "YES";
-                        lblWorkerVerifiedv.ForeColor = Color.LightGreen;
-                    }
-                    else if (Verified == "0")
-                    {
-                        lblWorkerVerifiedv.Text = "NO";
-                        lblWorkerVerifiedv.ForeColor = Color.Red;
-                    }
-
                     KeyCurrentAlgo = "\"" + SepDATA[5] + "\"";
 
-                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                    //Use New Variables to Calculate Displayable Data
+                    GETWorkerInfoNH();
 
-                    StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
-                    {
-                        while ((lineNHAlgo = NHAlgoReader.ReadLine()) != null)
-                        {
-                            if (lineNHAlgo.Contains(KeyCurrentAlgo))
-                            {
-                                SCurrentAlgo = lineNHAlgo;
-                                SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
-                                break;
-                            }
-                        }
-                    }
-
-                    StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
-                    {
-                        while ((lineHashRate = HashRateReader.ReadLine()) != null)
-                        {
-                            if (lineHashRate.Contains(SCurrentAlgo))
-                            {
-                                SHashEnd = lineHashRate;
-                                SHashEnd = getBetween(SHashEnd, ": \"", "\"");
-                                break;
-                            }
-                        }
-                    }
-
-                    SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
+                    //Set Leftover Labels
+                    lblWorkerRejectv.Text = "0 " + SHashEnd;
                     lblWorkerEfficiencyv.Text = "100%";
                     lblWorkerEfficiencyv.ForeColor = Color.LightGreen;
-                    lblWorkerRejectv.Text = "0 " + SHashEnd;
-                    lblWorkerHashv.Text = SCurrentHashRate;
-                    lblWorkerAlgov.Text = SCurrentAlgo;
-                    lblWorkerAddress.Text = CurrentNHWallet;
+
+                    //Calculate Profitability
+                    GETWorkerCalcProfit();
                 }
-                else if (SepDATA.Length > 6)
+                else if (SepDATA.Length == 7)
                 {
-                    //Calculate Total Up Time
-                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[2]);
-                    SUpTimeBeforeCalc = SUpTimeBeforeCalc * 60;
-                    WorkerTimeCalculation();
-
-                    lblWorkerDifficultyv.Text = SepDATA[4];
-
-                    Verified = SepDATA[3];          //MINING VERIFIED DATA
-                    if (Verified == "1")
-                    {
-                        lblWorkerVerifiedv.Text = "YES";
-                        lblWorkerVerifiedv.ForeColor = Color.LightGreen;
-                    }
-                    else if (Verified == "0")
-                    {
-                        lblWorkerVerifiedv.Text = "NO";
-                        lblWorkerVerifiedv.ForeColor = Color.Red;
-                    }
-
-                    KeyCurrentAlgo = "\"" + SepDATA[6] + "\"";
-                    SCurrentAlgo = SepDATA[5];
-
+                    //Setting Array Values to Variables
                     CurrentHashRate = Convert.ToDouble(SepDATA[0]);
                     CurrentRejectRate = Convert.ToDouble(SepDATA[1]);
-                    DEfficiency = CurrentRejectRate / CurrentHashRate;
-                    DEfficiency = DEfficiency * 100;
-                    DEfficiency = Math.Round(DEfficiency, 0);
-                    DEfficiency = 100 - DEfficiency;
-                    StreamReader NHAlgoReader = new StreamReader(@"Resources\NHAlgo.txt");
-                    {
-                        while ((lineNHAlgo = NHAlgoReader.ReadLine()) != null)
-                        {
-                            if (lineNHAlgo.Contains(KeyCurrentAlgo))
-                            {
-                                SCurrentAlgo = lineNHAlgo;
-                                SCurrentAlgo = getBetween(SCurrentAlgo, ": \"", "\"");
-                                break;
-                            }
-                        }
-                    }
+                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[2]);
+                    Verified = SepDATA[3];
+                    lblWorkerDifficultyv.Text = SepDATA[4];
+                    KeyCurrentAlgo = "\"" + SepDATA[6] + "\"";
 
-                    StreamReader HashRateReader = new StreamReader(@"Resources\HashRates.txt");
-                    {
-                        while ((lineHashRate = HashRateReader.ReadLine()) != null)
-                        {
-                            if (lineHashRate.Contains(SCurrentAlgo))
-                            {
-                                SHashEnd = lineHashRate;
-                                SHashEnd = getBetween(SHashEnd, ": \"", "\"");
-                                break;
-                            }
-                        }
-                    }
-
-                    SCurrentHashRate = Convert.ToString(CurrentHashRate) + " " + SHashEnd;
-                    SCurrentRejectRate = Convert.ToString(CurrentRejectRate) + " " + SHashEnd;
-                    SEfficiency = Convert.ToString(DEfficiency) + "%";
-                    lblWorkerEfficiencyv.Text = SEfficiency;
-                    lblWorkerEfficiencyv.ForeColor = Color.Red;
-                    lblWorkerHashv.Text = SCurrentHashRate;
-                    lblWorkerRejectv.Text = SCurrentRejectRate;
-                    lblWorkerAlgov.Text = SCurrentAlgo;
-                    lblWorkerAddress.Text = CurrentNHWallet;
+                    //Use New Variables Including Rejected Speed | Set Labels 
+                    GETWorkerNHReject();
                 }
+                else if (SepDATA.Length == 8)
+                {
+                    //Setting Array Values to Variables
+                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                    CurrentRejectRate = Convert.ToDouble(SepDATA[1]) + Convert.ToDouble(SepDATA[2]);
+                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[3]);
+                    Verified = SepDATA[4];
+                    lblWorkerDifficultyv.Text = SepDATA[5];
+                    KeyCurrentAlgo = "\"" + SepDATA[7] + "\"";
+
+                    //Use New Variables Including Rejected Speed | Set Labels 
+                    GETWorkerNHReject();
+
+                    //Calculate Profitability
+                    GETWorkerCalcProfit();
+                }
+                else if (SepDATA.Length == 9)
+                {
+                    //Setting Array Values to Variables
+                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                    CurrentRejectRate = Convert.ToDouble(SepDATA[1]) + Convert.ToDouble(SepDATA[2]) + Convert.ToDouble(SepDATA[3]);
+                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[3]);
+                    Verified = SepDATA[5];
+                    lblWorkerDifficultyv.Text = SepDATA[6];
+                    KeyCurrentAlgo = "\"" + SepDATA[8] + "\"";
+
+                    //Use New Variables Including Rejected Speed | Set Labels 
+                    GETWorkerNHReject();
+
+                    //Calculate Profitability
+                    GETWorkerCalcProfit();
+                }
+                else if (SepDATA.Length == 10)
+                {
+                    //Setting Array Values to Variables
+                    CurrentHashRate = Convert.ToDouble(SepDATA[0]);
+                    CurrentRejectRate = Convert.ToDouble(SepDATA[1]) + Convert.ToDouble(SepDATA[2]) + Convert.ToDouble(SepDATA[3]) + Convert.ToDouble(SepDATA[4]);
+                    SUpTimeBeforeCalc = Convert.ToDouble(SepDATA[4]);
+                    Verified = SepDATA[6];
+                    lblWorkerDifficultyv.Text = SepDATA[7];
+                    KeyCurrentAlgo = "\"" + SepDATA[9] + "\"";
+
+                    //Use New Variables Including Rejected Speed | Set Labels 
+                    GETWorkerNHReject();
+
+                    //Calculate Profitability
+                    GETWorkerCalcProfit();
+                }
+                else
+                {
+                    //If Nicehash API is Updated this Formula could potentially break
+                    MessageBox.Show("NICEHASH API IS DELAYED - PLEASE TRY AGAIN LATER");
+                    lblWorkerIDv.Text = "No Data";
+                    lblWorkerAlgov.Text = "No Data";
+                    lblWorkerDifficultyv.Text = "No Data";
+                    lblWorkerUpTimev.Text = "No Data";
+                    lblWorkerVerifiedv.Text = "No Data";
+                    lblWorkerVerifiedv.ForeColor = Color.Black;
+                    lblWorkerEfficiencyv.Text = "No Data";
+                    lblWorkerEfficiencyv.ForeColor = Color.Black;
+                    lblWorkerHashv.Text = "No Data";
+                    lblWorkerRejectv.Text = "No Data";
+                    lblProfitv.Text = "No Data";
+                }
+            }
+        }
+        private string RemoveonlyCurly(string value)
+        {
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890,:[].\"";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
             }
         }
         private string RemoveforMining(string value)
@@ -1734,11 +1850,10 @@ namespace APIAccessTEST01
             {
                 return value;
             }
-
         }
         private string RemoveforMiningKeepingCurly(string value)
         {
-            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890{";
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890{}";
             try
             {
                 return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
@@ -1760,42 +1875,7 @@ namespace APIAccessTEST01
                 return value;
             }
         }
-        private void btnOptionsNicehashSave_Click(object sender, EventArgs e)
-        {
-            lblNHDefaultSet.Visible = false;
-            NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
-            NewNHWallet = txtOptionsNHAddv.Text;
-            if (NewNHWallet.Length < 25 || NewNHWallet.Length > 34)
-            {
-                lblNHWalletSaved.Text = "INVALID BITCOIN ADDRESS";
-                lblNHWalletSaved.Visible = true;
-            }
-            else
-            {
-                bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
-                if (WalletDuplicate != true)
-                {
-                    if (NewNHWallet != "")
-                    {
-                        NHWallets.Add(NewNHWallet);
-                        File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
-                        lblNHWalletSaved.Text = "WALLET SAVED";
-                        lblNHWalletSaved.Visible = true;
-                        GETWallets();
-                    }
-                    else
-                    {
-                        lblNHWalletSaved.Text = "INPUT IS EMPTY";
-                        lblNHWalletSaved.Visible = true;
-                    }
-                }
-                else
-                {
-                    lblNHWalletSaved.Text = "WALLET ALREADY EXISTS";
-                    lblNHWalletSaved.Visible = true;
-                }
-            }
-        }
+        
 
         private void HeaderPoolv_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1812,62 +1892,144 @@ namespace APIAccessTEST01
             CurrentNHWallet = OptionsNHWalletsv.Text;
             GETWorkers();
         }
+        private void HeaderMiningCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (HeaderWorkerv.Text != "")
+            {
+                GETWorkerInfo();
+            }
+        }
+
+
+
+
 
         private void btnOptionsNHDefault_Click(object sender, EventArgs e)
         {
+            OptionsNHClick(lblNHDefaultSet);
+            GETPools();
+        }
+        private void btnOptionsNicehashSave_Click(object sender, EventArgs e)
+        {
+            OptionsNHClick(lblNHWalletSaved);
+            GETPools();
+        }
+        private void btnOptionsNHRemove_Click(object sender, EventArgs e)
+        {
+            OptionsNHClick(lblNHRemove);
+        }
+
+        private void btnOptionsNHClear_Click(object sender, EventArgs e)
+        {
+            OptionsNHClick(lblNHClear);
+        }
+        void OptionsNHClick(Label lblNH)
+        {
             lblNHWalletSaved.Visible = false;
+            lblNHDefaultSet.Visible = false;
+            lblNHRemove.Visible = false;
+            lblNHClear.Visible = false;
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
-            NewNHWallet = txtOptionsNHAddv.Text;
-            if (NewNHWallet.Length < 25 || NewNHWallet.Length > 34)
+            NewNHWallet = txtOptionsNHv.Text;
+            if (lblNH.Name == "lblNHClear")
             {
-                lblNHDefaultSet.Text = "INVALID BITCOIN ADDRESS";
-                lblNHDefaultSet.Visible = true;
+                DialogResult Result = MessageBox.Show("ARE YOU SURE?", "Confirmation", MessageBoxButtons.YesNo);
+                if (Result == DialogResult.Yes)
+                {
+                    NHWallets.Clear();
+                    File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                    lblNH.Text = "WALLETS CLEARED";
+                    lblNH.Visible = true;
+                    GETWallets();
+                }
             }
             else
             {
-                WalletIndexChecker = NHWallets.FindIndex(x => x.StartsWith(NewNHWallet));
-                bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
-                if (WalletDuplicate != true)
+                if (NewNHWallet.Length < 25 || NewNHWallet.Length > 34)
                 {
-                    if (NewNHWallet != "")
-                    {
-                        NHWallets.Insert(0, NewNHWallet);
-                        File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
-                        lblNHDefaultSet.Text = "DEFAULT SET";
-                        lblNHDefaultSet.Visible = true;
-                        GETWallets();
-                    }
-                    else
-                    {
-                        lblNHDefaultSet.Text = "INPUT IS EMPTY";
-                        lblNHDefaultSet.Visible = true;
-                    }
-                }
-                else if (WalletIndexChecker == 0)
-                {
-                    lblNHDefaultSet.Text = "ALREADY SET TO DEFAULT";
-                    lblNHDefaultSet.Visible = true;
+                    lblNH.Text = "INVALID BITCOIN ADDRESS";
+                    lblNH.Visible = true;
                 }
                 else
                 {
-
-                    if (NewNHWallet != "")
+                    WalletIndexChecker = NHWallets.FindIndex(x => x.StartsWith(NewNHWallet));
+                    bool WalletDuplicate = NHWallets.Contains(NewNHWallet);
+                    if (WalletDuplicate != true)
+                    {
+                        if (NewNHWallet != "")
+                        {
+                            if (lblNH.Name == "lblNHDefaultSet")
+                            {
+                                NHWallets.Insert(0, NewNHWallet);
+                                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                                lblNH.Text = "DEFAULT SET";
+                                lblNH.Visible = true;
+                                GETWallets();
+                            }
+                            else if (lblNH.Name == "lblNHWalletSaved")
+                            {
+                                NHWallets.Add(NewNHWallet);
+                                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                                lblNH.Text = "WALLET SAVED";
+                                lblNH.Visible = true;
+                                GETWallets();
+                            }
+                            else if (lblNH.Name == "lblNHRemove")
+                            {
+                                lblNH.Text = "CANNOT REMOVE NEW WALLET";
+                                lblNH.Visible = true;
+                            }
+                        }
+                        else
+                        {
+                            lblNH.Text = "INPUT IS EMPTY";
+                            lblNH.Visible = true;
+                        }
+                    }
+                    else if (lblNH.Name == "lblNHDefaultSet" && WalletIndexChecker == 0)
+                    {
+                        lblNH.Text = "ALREADY SET TO DEFAULT";
+                        lblNH.Visible = true;
+                    }
+                    else if (lblNH.Name == "lblNHDefaultSet")
+                    {
+                        if (NewNHWallet != "")
+                        {
+                            if (lblNH.Name == "lblNHDefaultSet")
+                            {
+                                NHWallets.Remove(NewNHWallet);
+                                NHWallets.Insert(0, NewNHWallet);
+                                File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
+                                lblNH.Text = "DEFAULT SET";
+                                lblNH.Visible = true;
+                                GETWallets();
+                            }
+                            else
+                            {
+                                lblNH.Text = "INPUT IS EMPTY";
+                                lblNH.Visible = true;
+                            }
+                        }
+                    }
+                    else if (lblNH.Name == "lblNHWalletSaved")
+                    {
+                        lblNH.Text = "WALLET ALREADY SAVED";
+                        lblNH.Visible = true;
+                    }
+                    else if (lblNH.Name == "lblNHRemove")
                     {
                         NHWallets.Remove(NewNHWallet);
-                        NHWallets.Insert(0, NewNHWallet);
                         File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", NHWallets);
-                        lblNHDefaultSet.Text = "DEFAULT SET";
-                        lblNHDefaultSet.Visible = true;
+                        lblNH.Text = "WALLET REMOVED";
+                        lblNH.Visible = true;
                         GETWallets();
-                    }
-                    else
-                    {
-                        lblNHDefaultSet.Text = "INPUT IS EMPTY";
-                        lblNHDefaultSet.Visible = true;
                     }
                 }
             }
         }
+
+
+
 
 
 

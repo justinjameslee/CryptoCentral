@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
             this.Sidebar = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconMining = new System.Windows.Forms.PictureBox();
             this.btnMining = new System.Windows.Forms.Label();
             this.iconSettings = new System.Windows.Forms.PictureBox();
@@ -39,9 +40,11 @@
             this.iconHome = new System.Windows.Forms.PictureBox();
             this.iconBack = new System.Windows.Forms.PictureBox();
             this.btnBack = new System.Windows.Forms.Label();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.Summary01 = new System.Windows.Forms.Panel();
             this.customGroup09 = new System.Windows.Forms.GroupBox();
             this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
@@ -234,11 +237,17 @@
             this.lblCustom01 = new System.Windows.Forms.Label();
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPageMining = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupOptionsNH = new System.Windows.Forms.GroupBox();
+            this.lblNHClear = new System.Windows.Forms.Label();
+            this.lblNHRemove = new System.Windows.Forms.Label();
+            this.btnOptionsNHClear = new System.Windows.Forms.Button();
             this.lblNHDefaultSet = new System.Windows.Forms.Label();
+            this.btnOptionsNHRemove = new System.Windows.Forms.Button();
             this.btnOptionsNHDefault = new System.Windows.Forms.Button();
             this.lblNHWalletSaved = new System.Windows.Forms.Label();
             this.txtOptionsNHv = new System.Windows.Forms.TextBox();
@@ -249,6 +258,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupWorkerAddress = new System.Windows.Forms.GroupBox();
             this.lblWorkerAddress = new System.Windows.Forms.Label();
             this.groupWorkerDetails = new System.Windows.Forms.GroupBox();
@@ -269,24 +279,16 @@
             this.lblWorkerIDv = new System.Windows.Forms.Label();
             this.lblWorkerID = new System.Windows.Forms.Label();
             this.groupWorkerProfitability = new System.Windows.Forms.GroupBox();
+            this.lblProfitY = new System.Windows.Forms.Label();
+            this.lblProfitM = new System.Windows.Forms.Label();
+            this.lblProfitYv = new System.Windows.Forms.Label();
+            this.lblProfitMv = new System.Windows.Forms.Label();
             this.lblProfit = new System.Windows.Forms.Label();
             this.lblProfitv = new System.Windows.Forms.Label();
             this.timerRefreshing = new System.Windows.Forms.Timer(this.components);
             this.timerSyncTimer = new System.Windows.Forms.Timer(this.components);
             this.timerUpdating = new System.Windows.Forms.Timer(this.components);
-            this.lblProfitMv = new System.Windows.Forms.Label();
-            this.lblProfitYv = new System.Windows.Forms.Label();
-            this.lblProfitM = new System.Windows.Forms.Label();
-            this.lblProfitY = new System.Windows.Forms.Label();
-            this.lblNHRemove = new System.Windows.Forms.Label();
-            this.btnOptionsNHRemove = new System.Windows.Forms.Button();
-            this.lblNHClear = new System.Windows.Forms.Label();
-            this.btnOptionsNHClear = new System.Windows.Forms.Button();
-            this.Logo = new System.Windows.Forms.PictureBox();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Footer = new System.Windows.Forms.Panel();
             this.lblHeaderMiningCurrency = new System.Windows.Forms.Label();
             this.HeaderMiningCurrencyv = new System.Windows.Forms.ComboBox();
             this.lblSyncTimer = new System.Windows.Forms.Label();
@@ -300,17 +302,27 @@
             this.btnPageRight = new System.Windows.Forms.PictureBox();
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
             this.lblCurrentPage = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.customRefresh01 = new System.Windows.Forms.PictureBox();
+            this.customRefresh02 = new System.Windows.Forms.PictureBox();
+            this.customRefresh03 = new System.Windows.Forms.PictureBox();
+            this.customRefresh04 = new System.Windows.Forms.PictureBox();
+            this.customRefresh05 = new System.Windows.Forms.PictureBox();
+            this.customRefresh06 = new System.Windows.Forms.PictureBox();
+            this.customRefresh07 = new System.Windows.Forms.PictureBox();
+            this.customRefresh08 = new System.Windows.Forms.PictureBox();
+            this.customRefresh09 = new System.Windows.Forms.PictureBox();
             this.Sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBack)).BeginInit();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             this.Summary01.SuspendLayout();
             this.customGroup09.SuspendLayout();
             this.customGroup06.SuspendLayout();
@@ -330,24 +342,30 @@
             this.groupBoxCurrency.SuspendLayout();
             this.optionsSummary.SuspendLayout();
             this.tabPageMining.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupOptionsNH.SuspendLayout();
             this.Mining01.SuspendLayout();
             this.groupMiningWorker.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupWorkerAddress.SuspendLayout();
             this.groupWorkerDetails.SuspendLayout();
             this.groupWorkerProfitability.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
-            this.panelLogo.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.Footer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gifRefreshing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).BeginInit();
             this.SuspendLayout();
             // 
             // Sidebar
@@ -367,8 +385,17 @@
             this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.Sidebar.Location = new System.Drawing.Point(0, 0);
             this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(222, 577);
+            this.Sidebar.Size = new System.Drawing.Size(222, 1071);
             this.Sidebar.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 55);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 16);
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
             // 
             // iconMining
             // 
@@ -467,6 +494,27 @@
             this.btnBack.Text = "LOG OUT";
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.DimGray;
+            this.panelLogo.Controls.Add(this.Logo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(222, 55);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.White;
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Location = new System.Drawing.Point(0, 0);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(222, 55);
+            this.Logo.TabIndex = 0;
+            this.Logo.TabStop = false;
+            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
+            // 
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.White;
@@ -475,19 +523,9 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(3638, 55);
+            this.Header.Size = new System.Drawing.Size(1718, 55);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(751, 16);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimize.TabIndex = 49;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // btnClose
             // 
@@ -498,6 +536,16 @@
             this.btnClose.TabIndex = 3;
             this.btnClose.TabStop = false;
             this.btnClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClose_MouseClick);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(751, 16);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimize.TabIndex = 49;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
             // Summary01
             // 
@@ -510,13 +558,14 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
-            this.Summary01.Location = new System.Drawing.Point(1070, 71);
+            this.Summary01.Location = new System.Drawing.Point(228, 77);
             this.Summary01.Name = "Summary01";
             this.Summary01.Size = new System.Drawing.Size(843, 468);
             this.Summary01.TabIndex = 3;
             // 
             // customGroup09
             // 
+            this.customGroup09.Controls.Add(this.customRefresh09);
             this.customGroup09.Controls.Add(this.lblCustomUpdatedv09);
             this.customGroup09.Controls.Add(this.lblCustomUpdated09);
             this.customGroup09.Controls.Add(this.lblCustomBTC09);
@@ -539,7 +588,7 @@
             this.customGroup09.Size = new System.Drawing.Size(272, 148);
             this.customGroup09.TabIndex = 43;
             this.customGroup09.TabStop = false;
-            this.customGroup09.Text = "LTC";
+            this.customGroup09.Text = "      LTC";
             this.customGroup09.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv09
@@ -688,6 +737,7 @@
             // 
             // customGroup06
             // 
+            this.customGroup06.Controls.Add(this.customRefresh06);
             this.customGroup06.Controls.Add(this.lblCustomUpdatedv06);
             this.customGroup06.Controls.Add(this.lblCustomUpdated06);
             this.customGroup06.Controls.Add(this.lblCustomBTC06);
@@ -710,7 +760,7 @@
             this.customGroup06.Size = new System.Drawing.Size(272, 148);
             this.customGroup06.TabIndex = 40;
             this.customGroup06.TabStop = false;
-            this.customGroup06.Text = "LTC";
+            this.customGroup06.Text = "      LTC";
             this.customGroup06.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv06
@@ -859,6 +909,7 @@
             // 
             // customGroup08
             // 
+            this.customGroup08.Controls.Add(this.customRefresh08);
             this.customGroup08.Controls.Add(this.lblCustomUpdatedv08);
             this.customGroup08.Controls.Add(this.lblCustomUpdated08);
             this.customGroup08.Controls.Add(this.lblCustomBTC08);
@@ -881,7 +932,7 @@
             this.customGroup08.Size = new System.Drawing.Size(272, 148);
             this.customGroup08.TabIndex = 45;
             this.customGroup08.TabStop = false;
-            this.customGroup08.Text = "ETH";
+            this.customGroup08.Text = "      ETH";
             this.customGroup08.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv08
@@ -1030,6 +1081,7 @@
             // 
             // customGroup05
             // 
+            this.customGroup05.Controls.Add(this.customRefresh05);
             this.customGroup05.Controls.Add(this.lblCustomUpdatedv05);
             this.customGroup05.Controls.Add(this.lblCustomUpdated05);
             this.customGroup05.Controls.Add(this.lblCustomBTC05);
@@ -1052,7 +1104,7 @@
             this.customGroup05.Size = new System.Drawing.Size(272, 148);
             this.customGroup05.TabIndex = 42;
             this.customGroup05.TabStop = false;
-            this.customGroup05.Text = "ETH";
+            this.customGroup05.Text = "      ETH";
             this.customGroup05.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv05
@@ -1201,6 +1253,7 @@
             // 
             // customGroup07
             // 
+            this.customGroup07.Controls.Add(this.customRefresh07);
             this.customGroup07.Controls.Add(this.lblCustomUpdatedv07);
             this.customGroup07.Controls.Add(this.lblCustomUpdated07);
             this.customGroup07.Controls.Add(this.lblCustomBTC07);
@@ -1223,7 +1276,7 @@
             this.customGroup07.Size = new System.Drawing.Size(272, 148);
             this.customGroup07.TabIndex = 44;
             this.customGroup07.TabStop = false;
-            this.customGroup07.Text = "BTC";
+            this.customGroup07.Text = "      BTC";
             this.customGroup07.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv07
@@ -1372,6 +1425,7 @@
             // 
             // customGroup04
             // 
+            this.customGroup04.Controls.Add(this.customRefresh04);
             this.customGroup04.Controls.Add(this.lblCustomUpdatedv04);
             this.customGroup04.Controls.Add(this.lblCustomUpdated04);
             this.customGroup04.Controls.Add(this.lblCustomBTC04);
@@ -1394,7 +1448,7 @@
             this.customGroup04.Size = new System.Drawing.Size(272, 148);
             this.customGroup04.TabIndex = 41;
             this.customGroup04.TabStop = false;
-            this.customGroup04.Text = "BTC";
+            this.customGroup04.Text = "      BTC";
             this.customGroup04.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv04
@@ -1543,6 +1597,7 @@
             // 
             // customGroup03
             // 
+            this.customGroup03.Controls.Add(this.customRefresh03);
             this.customGroup03.Controls.Add(this.lblCustomUpdatedv03);
             this.customGroup03.Controls.Add(this.lblCustomUpdated03);
             this.customGroup03.Controls.Add(this.lblCustomBTC03);
@@ -1565,7 +1620,7 @@
             this.customGroup03.Size = new System.Drawing.Size(272, 148);
             this.customGroup03.TabIndex = 39;
             this.customGroup03.TabStop = false;
-            this.customGroup03.Text = "LTC";
+            this.customGroup03.Text = "      LTC";
             this.customGroup03.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv03
@@ -1714,6 +1769,7 @@
             // 
             // customGroup02
             // 
+            this.customGroup02.Controls.Add(this.customRefresh02);
             this.customGroup02.Controls.Add(this.lblCustomUpdatedv02);
             this.customGroup02.Controls.Add(this.lblCustomUpdated02);
             this.customGroup02.Controls.Add(this.lblCustomBTC02);
@@ -1731,12 +1787,12 @@
             this.customGroup02.Controls.Add(this.lbl1Hr02);
             this.customGroup02.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup02.ForeColor = System.Drawing.Color.Black;
-            this.customGroup02.Location = new System.Drawing.Point(284, 8);
+            this.customGroup02.Location = new System.Drawing.Point(284, 6);
             this.customGroup02.Name = "customGroup02";
             this.customGroup02.Size = new System.Drawing.Size(272, 148);
             this.customGroup02.TabIndex = 38;
             this.customGroup02.TabStop = false;
-            this.customGroup02.Text = "ETH";
+            this.customGroup02.Text = "      ETH";
             this.customGroup02.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv02
@@ -1885,6 +1941,7 @@
             // 
             // customGroup01
             // 
+            this.customGroup01.Controls.Add(this.customRefresh01);
             this.customGroup01.Controls.Add(this.lblCustomUpdatedv01);
             this.customGroup01.Controls.Add(this.lblCustomUpdated01);
             this.customGroup01.Controls.Add(this.lblCustomBTC01);
@@ -1907,7 +1964,7 @@
             this.customGroup01.Size = new System.Drawing.Size(272, 148);
             this.customGroup01.TabIndex = 37;
             this.customGroup01.TabStop = false;
-            this.customGroup01.Text = "BTC";
+            this.customGroup01.Text = "      BTC   ";
             this.customGroup01.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
             // lblCustomUpdatedv01
@@ -2674,6 +2731,28 @@
             this.tabPageMining.TabIndex = 1;
             this.tabPageMining.Text = "Mining";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(804, 76);
+            this.groupBox1.TabIndex = 56;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "SETTINGS";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label3.Location = new System.Drawing.Point(12, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 23);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "POOL:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.textBox3);
@@ -2730,6 +2809,42 @@
             this.groupOptionsNH.TabStop = false;
             this.groupOptionsNH.Text = "NICEHASH";
             // 
+            // lblNHClear
+            // 
+            this.lblNHClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNHClear.Location = new System.Drawing.Point(606, 214);
+            this.lblNHClear.Name = "lblNHClear";
+            this.lblNHClear.Size = new System.Drawing.Size(193, 23);
+            this.lblNHClear.TabIndex = 59;
+            this.lblNHClear.Text = "ALL WALLETS CLEARED";
+            this.lblNHClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNHClear.Visible = false;
+            // 
+            // lblNHRemove
+            // 
+            this.lblNHRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblNHRemove.Location = new System.Drawing.Point(409, 214);
+            this.lblNHRemove.Name = "lblNHRemove";
+            this.lblNHRemove.Size = new System.Drawing.Size(193, 23);
+            this.lblNHRemove.TabIndex = 57;
+            this.lblNHRemove.Text = "WALLET REMOVED";
+            this.lblNHRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblNHRemove.Visible = false;
+            // 
+            // btnOptionsNHClear
+            // 
+            this.btnOptionsNHClear.BackColor = System.Drawing.Color.DimGray;
+            this.btnOptionsNHClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsNHClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsNHClear.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsNHClear.Location = new System.Drawing.Point(606, 181);
+            this.btnOptionsNHClear.Name = "btnOptionsNHClear";
+            this.btnOptionsNHClear.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsNHClear.TabIndex = 58;
+            this.btnOptionsNHClear.Text = "CLEAR ALL";
+            this.btnOptionsNHClear.UseVisualStyleBackColor = false;
+            this.btnOptionsNHClear.Click += new System.EventHandler(this.btnOptionsNHClear_Click);
+            // 
             // lblNHDefaultSet
             // 
             this.lblNHDefaultSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -2740,6 +2855,20 @@
             this.lblNHDefaultSet.Text = "DEFAULT SAVED";
             this.lblNHDefaultSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.lblNHDefaultSet.Visible = false;
+            // 
+            // btnOptionsNHRemove
+            // 
+            this.btnOptionsNHRemove.BackColor = System.Drawing.Color.DimGray;
+            this.btnOptionsNHRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsNHRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsNHRemove.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsNHRemove.Location = new System.Drawing.Point(409, 181);
+            this.btnOptionsNHRemove.Name = "btnOptionsNHRemove";
+            this.btnOptionsNHRemove.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsNHRemove.TabIndex = 56;
+            this.btnOptionsNHRemove.Text = "REMOVE WALLET";
+            this.btnOptionsNHRemove.UseVisualStyleBackColor = false;
+            this.btnOptionsNHRemove.Click += new System.EventHandler(this.btnOptionsNHRemove_Click);
             // 
             // btnOptionsNHDefault
             // 
@@ -2842,7 +2971,7 @@
             // 
             this.Mining01.BackColor = System.Drawing.Color.White;
             this.Mining01.Controls.Add(this.groupMiningWorker);
-            this.Mining01.Location = new System.Drawing.Point(222, 71);
+            this.Mining01.Location = new System.Drawing.Point(228, 545);
             this.Mining01.Name = "Mining01";
             this.Mining01.Size = new System.Drawing.Size(842, 468);
             this.Mining01.TabIndex = 5;
@@ -2861,6 +2990,16 @@
             this.groupMiningWorker.TabIndex = 50;
             this.groupMiningWorker.TabStop = false;
             this.groupMiningWorker.Text = "WORKER";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(26, 30);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(220, 58);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 49;
+            this.pictureBox2.TabStop = false;
             // 
             // groupWorkerAddress
             // 
@@ -3098,6 +3237,50 @@
             this.groupWorkerProfitability.TabStop = false;
             this.groupWorkerProfitability.Text = "PROFITABILITY";
             // 
+            // lblProfitY
+            // 
+            this.lblProfitY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblProfitY.ForeColor = System.Drawing.Color.Black;
+            this.lblProfitY.Location = new System.Drawing.Point(535, 75);
+            this.lblProfitY.Name = "lblProfitY";
+            this.lblProfitY.Size = new System.Drawing.Size(267, 29);
+            this.lblProfitY.TabIndex = 34;
+            this.lblProfitY.Text = "BTC/YEAR";
+            this.lblProfitY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProfitM
+            // 
+            this.lblProfitM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblProfitM.ForeColor = System.Drawing.Color.Black;
+            this.lblProfitM.Location = new System.Drawing.Point(268, 78);
+            this.lblProfitM.Name = "lblProfitM";
+            this.lblProfitM.Size = new System.Drawing.Size(267, 29);
+            this.lblProfitM.TabIndex = 33;
+            this.lblProfitM.Text = "BTC/MONTH";
+            this.lblProfitM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProfitYv
+            // 
+            this.lblProfitYv.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblProfitYv.ForeColor = System.Drawing.Color.Black;
+            this.lblProfitYv.Location = new System.Drawing.Point(535, 43);
+            this.lblProfitYv.Name = "lblProfitYv";
+            this.lblProfitYv.Size = new System.Drawing.Size(267, 29);
+            this.lblProfitYv.TabIndex = 31;
+            this.lblProfitYv.Text = "No Data";
+            this.lblProfitYv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblProfitMv
+            // 
+            this.lblProfitMv.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.lblProfitMv.ForeColor = System.Drawing.Color.Black;
+            this.lblProfitMv.Location = new System.Drawing.Point(268, 43);
+            this.lblProfitMv.Name = "lblProfitMv";
+            this.lblProfitMv.Size = new System.Drawing.Size(267, 29);
+            this.lblProfitMv.TabIndex = 29;
+            this.lblProfitMv.Text = "No Data";
+            this.lblProfitMv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblProfit
             // 
             this.lblProfit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -3137,164 +3320,27 @@
             this.timerUpdating.Interval = 2000;
             this.timerUpdating.Tick += new System.EventHandler(this.timerUpdating_Tick);
             // 
-            // lblProfitMv
+            // Footer
             // 
-            this.lblProfitMv.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblProfitMv.ForeColor = System.Drawing.Color.Black;
-            this.lblProfitMv.Location = new System.Drawing.Point(268, 43);
-            this.lblProfitMv.Name = "lblProfitMv";
-            this.lblProfitMv.Size = new System.Drawing.Size(267, 29);
-            this.lblProfitMv.TabIndex = 29;
-            this.lblProfitMv.Text = "No Data";
-            this.lblProfitMv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblProfitYv
-            // 
-            this.lblProfitYv.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.lblProfitYv.ForeColor = System.Drawing.Color.Black;
-            this.lblProfitYv.Location = new System.Drawing.Point(535, 43);
-            this.lblProfitYv.Name = "lblProfitYv";
-            this.lblProfitYv.Size = new System.Drawing.Size(267, 29);
-            this.lblProfitYv.TabIndex = 31;
-            this.lblProfitYv.Text = "No Data";
-            this.lblProfitYv.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblProfitM
-            // 
-            this.lblProfitM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblProfitM.ForeColor = System.Drawing.Color.Black;
-            this.lblProfitM.Location = new System.Drawing.Point(268, 78);
-            this.lblProfitM.Name = "lblProfitM";
-            this.lblProfitM.Size = new System.Drawing.Size(267, 29);
-            this.lblProfitM.TabIndex = 33;
-            this.lblProfitM.Text = "BTC/MONTH";
-            this.lblProfitM.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblProfitY
-            // 
-            this.lblProfitY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblProfitY.ForeColor = System.Drawing.Color.Black;
-            this.lblProfitY.Location = new System.Drawing.Point(535, 75);
-            this.lblProfitY.Name = "lblProfitY";
-            this.lblProfitY.Size = new System.Drawing.Size(267, 29);
-            this.lblProfitY.TabIndex = 34;
-            this.lblProfitY.Text = "BTC/YEAR";
-            this.lblProfitY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblNHRemove
-            // 
-            this.lblNHRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNHRemove.Location = new System.Drawing.Point(409, 214);
-            this.lblNHRemove.Name = "lblNHRemove";
-            this.lblNHRemove.Size = new System.Drawing.Size(193, 23);
-            this.lblNHRemove.TabIndex = 57;
-            this.lblNHRemove.Text = "WALLET REMOVED";
-            this.lblNHRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNHRemove.Visible = false;
-            // 
-            // btnOptionsNHRemove
-            // 
-            this.btnOptionsNHRemove.BackColor = System.Drawing.Color.DimGray;
-            this.btnOptionsNHRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnOptionsNHRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptionsNHRemove.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnOptionsNHRemove.Location = new System.Drawing.Point(409, 181);
-            this.btnOptionsNHRemove.Name = "btnOptionsNHRemove";
-            this.btnOptionsNHRemove.Size = new System.Drawing.Size(193, 30);
-            this.btnOptionsNHRemove.TabIndex = 56;
-            this.btnOptionsNHRemove.Text = "REMOVE WALLET";
-            this.btnOptionsNHRemove.UseVisualStyleBackColor = false;
-            this.btnOptionsNHRemove.Click += new System.EventHandler(this.btnOptionsNHRemove_Click);
-            // 
-            // lblNHClear
-            // 
-            this.lblNHClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.lblNHClear.Location = new System.Drawing.Point(606, 214);
-            this.lblNHClear.Name = "lblNHClear";
-            this.lblNHClear.Size = new System.Drawing.Size(193, 23);
-            this.lblNHClear.TabIndex = 59;
-            this.lblNHClear.Text = "ALL WALLETS CLEARED";
-            this.lblNHClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblNHClear.Visible = false;
-            // 
-            // btnOptionsNHClear
-            // 
-            this.btnOptionsNHClear.BackColor = System.Drawing.Color.DimGray;
-            this.btnOptionsNHClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnOptionsNHClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOptionsNHClear.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnOptionsNHClear.Location = new System.Drawing.Point(606, 181);
-            this.btnOptionsNHClear.Name = "btnOptionsNHClear";
-            this.btnOptionsNHClear.Size = new System.Drawing.Size(193, 30);
-            this.btnOptionsNHClear.TabIndex = 58;
-            this.btnOptionsNHClear.Text = "CLEAR ALL";
-            this.btnOptionsNHClear.UseVisualStyleBackColor = false;
-            this.btnOptionsNHClear.Click += new System.EventHandler(this.btnOptionsNHClear_Click);
-            // 
-            // Logo
-            // 
-            this.Logo.BackColor = System.Drawing.Color.White;
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(0, 0);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(222, 55);
-            this.Logo.TabIndex = 0;
-            this.Logo.TabStop = false;
-            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.DimGray;
-            this.panelLogo.Controls.Add(this.Logo);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(222, 55);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(804, 76);
-            this.groupBox1.TabIndex = 56;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "SETTINGS";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label3.Location = new System.Drawing.Point(12, 40);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 23);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "POOL:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Moccasin;
-            this.panel1.Controls.Add(this.lblHeaderMiningCurrency);
-            this.panel1.Controls.Add(this.HeaderMiningCurrencyv);
-            this.panel1.Controls.Add(this.lblSyncTimer);
-            this.panel1.Controls.Add(this.lblHeaderWorker);
-            this.panel1.Controls.Add(this.HeaderWorkerv);
-            this.panel1.Controls.Add(this.lblHeaderPool);
-            this.panel1.Controls.Add(this.HeaderPoolv);
-            this.panel1.Controls.Add(this.gifRefreshing);
-            this.panel1.Controls.Add(this.btnRefresh);
-            this.panel1.Controls.Add(this.lblSync);
-            this.panel1.Controls.Add(this.btnPageRight);
-            this.panel1.Controls.Add(this.btnPageLeft);
-            this.panel1.Controls.Add(this.lblCurrentPage);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(222, 539);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(3638, 38);
-            this.panel1.TabIndex = 6;
+            this.Footer.BackColor = System.Drawing.Color.Moccasin;
+            this.Footer.Controls.Add(this.lblHeaderMiningCurrency);
+            this.Footer.Controls.Add(this.HeaderMiningCurrencyv);
+            this.Footer.Controls.Add(this.lblSyncTimer);
+            this.Footer.Controls.Add(this.lblHeaderWorker);
+            this.Footer.Controls.Add(this.HeaderWorkerv);
+            this.Footer.Controls.Add(this.lblHeaderPool);
+            this.Footer.Controls.Add(this.HeaderPoolv);
+            this.Footer.Controls.Add(this.gifRefreshing);
+            this.Footer.Controls.Add(this.btnRefresh);
+            this.Footer.Controls.Add(this.lblSync);
+            this.Footer.Controls.Add(this.btnPageRight);
+            this.Footer.Controls.Add(this.btnPageLeft);
+            this.Footer.Controls.Add(this.lblCurrentPage);
+            this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.Footer.Location = new System.Drawing.Point(222, 1033);
+            this.Footer.Name = "Footer";
+            this.Footer.Size = new System.Drawing.Size(1718, 38);
+            this.Footer.TabIndex = 6;
             // 
             // lblHeaderMiningCurrency
             // 
@@ -3453,25 +3499,6 @@
             this.lblCurrentPage.Text = "PAGE 1";
             this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(222, 16);
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(26, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 58);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 49;
-            this.pictureBox2.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
@@ -3481,15 +3508,105 @@
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
             // 
+            // customRefresh01
+            // 
+            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
+            this.customRefresh01.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh01.Name = "customRefresh01";
+            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh01.TabIndex = 64;
+            this.customRefresh01.TabStop = false;
+            this.customRefresh01.Visible = false;
+            // 
+            // customRefresh02
+            // 
+            this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
+            this.customRefresh02.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh02.Name = "customRefresh02";
+            this.customRefresh02.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh02.TabIndex = 65;
+            this.customRefresh02.TabStop = false;
+            this.customRefresh02.Visible = false;
+            // 
+            // customRefresh03
+            // 
+            this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
+            this.customRefresh03.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh03.Name = "customRefresh03";
+            this.customRefresh03.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh03.TabIndex = 65;
+            this.customRefresh03.TabStop = false;
+            this.customRefresh03.Visible = false;
+            // 
+            // customRefresh04
+            // 
+            this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
+            this.customRefresh04.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh04.Name = "customRefresh04";
+            this.customRefresh04.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh04.TabIndex = 66;
+            this.customRefresh04.TabStop = false;
+            this.customRefresh04.Visible = false;
+            // 
+            // customRefresh05
+            // 
+            this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
+            this.customRefresh05.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh05.Name = "customRefresh05";
+            this.customRefresh05.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh05.TabIndex = 67;
+            this.customRefresh05.TabStop = false;
+            this.customRefresh05.Visible = false;
+            // 
+            // customRefresh06
+            // 
+            this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
+            this.customRefresh06.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh06.Name = "customRefresh06";
+            this.customRefresh06.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh06.TabIndex = 68;
+            this.customRefresh06.TabStop = false;
+            this.customRefresh06.Visible = false;
+            // 
+            // customRefresh07
+            // 
+            this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
+            this.customRefresh07.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh07.Name = "customRefresh07";
+            this.customRefresh07.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh07.TabIndex = 69;
+            this.customRefresh07.TabStop = false;
+            this.customRefresh07.Visible = false;
+            // 
+            // customRefresh08
+            // 
+            this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
+            this.customRefresh08.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh08.Name = "customRefresh08";
+            this.customRefresh08.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh08.TabIndex = 70;
+            this.customRefresh08.TabStop = false;
+            this.customRefresh08.Visible = false;
+            // 
+            // customRefresh09
+            // 
+            this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
+            this.customRefresh09.Location = new System.Drawing.Point(10, 2);
+            this.customRefresh09.Name = "customRefresh09";
+            this.customRefresh09.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh09.TabIndex = 71;
+            this.customRefresh09.TabStop = false;
+            this.customRefresh09.Visible = false;
+            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(3860, 577);
+            this.ClientSize = new System.Drawing.Size(1940, 1071);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Footer);
             this.Controls.Add(this.Mining01);
             this.Controls.Add(this.Options);
             this.Controls.Add(this.Summary01);
@@ -3507,13 +3624,16 @@
             this.Load += new System.EventHandler(this.Crypto_Load);
             this.Sidebar.ResumeLayout(false);
             this.Sidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconHome)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconBack)).EndInit();
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.Header.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             this.Summary01.ResumeLayout(false);
             this.customGroup09.ResumeLayout(false);
             this.customGroup09.PerformLayout();
@@ -3544,29 +3664,35 @@
             this.optionsSummary.ResumeLayout(false);
             this.optionsSummary.PerformLayout();
             this.tabPageMining.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupOptionsNH.ResumeLayout(false);
             this.groupOptionsNH.PerformLayout();
             this.Mining01.ResumeLayout(false);
             this.groupMiningWorker.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupWorkerAddress.ResumeLayout(false);
             this.groupWorkerAddress.PerformLayout();
             this.groupWorkerDetails.ResumeLayout(false);
             this.groupWorkerDetails.PerformLayout();
             this.groupWorkerProfitability.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
-            this.panelLogo.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Footer.ResumeLayout(false);
+            this.Footer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gifRefreshing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3829,7 +3955,7 @@
         private System.Windows.Forms.PictureBox Logo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Footer;
         private System.Windows.Forms.Label lblHeaderMiningCurrency;
         private System.Windows.Forms.ComboBox HeaderMiningCurrencyv;
         private System.Windows.Forms.Label lblSyncTimer;
@@ -3846,5 +3972,14 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox customRefresh01;
+        private System.Windows.Forms.PictureBox customRefresh09;
+        private System.Windows.Forms.PictureBox customRefresh06;
+        private System.Windows.Forms.PictureBox customRefresh08;
+        private System.Windows.Forms.PictureBox customRefresh05;
+        private System.Windows.Forms.PictureBox customRefresh07;
+        private System.Windows.Forms.PictureBox customRefresh04;
+        private System.Windows.Forms.PictureBox customRefresh03;
+        private System.Windows.Forms.PictureBox customRefresh02;
     }
 }

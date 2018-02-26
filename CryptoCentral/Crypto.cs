@@ -237,6 +237,7 @@ namespace APIAccessTEST01
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", Profile1);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", Convert.ToString(0));
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", Convert.ToString(0));
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", "");
             }
         }
         
@@ -262,6 +263,7 @@ namespace APIAccessTEST01
             Options.Visible = false;
             Mining01.Visible = false;
             Summary01.Visible = true;
+            Footer.Location = new Point(222, 539);
             this.Size = new Size(1064, 577);
             this.CenterToScreen();
             GETINFOSummary();                                 //Getting ALL API Information.
@@ -610,7 +612,8 @@ namespace APIAccessTEST01
                 CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(jsonString);
 
                 xBTC.Text = customCoin + "/BTC";
-                Number.Text = customCoin;
+                Number.Text = "";
+                Number.Text = "      " + customCoin;
 
                 if (Currencyv.SelectedIndex == 0)
                 {
@@ -1124,10 +1127,10 @@ namespace APIAccessTEST01
         //INITIATE THE SYNC
         void SyncingTest()
         {
+            ShowcustomRefresh();
             timerUpdating.Enabled = true;
             SYNCED = false;
             SYNCING = true;
-            
         }
 
         //CONSTANTLY CHECKS IF LBLS ARE CORRECT | 50ms
@@ -1139,7 +1142,7 @@ namespace APIAccessTEST01
                 gifRefreshing.Visible = true;
             }
             else if (SYNCED == true)
-            { 
+            {
                 lblSync.Text = "SYNCED";
                 gifRefreshing.Visible = false;
             }
@@ -1151,6 +1154,7 @@ namespace APIAccessTEST01
         {
             if (SYNCED == false)
             {
+                ShowcustomRefresh();
                 lblSync.Text = "SYNCING...";        //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITHCING
                 gifRefreshing.Visible = true;       //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITCHING
                 if (bSummary == true)
@@ -1164,13 +1168,9 @@ namespace APIAccessTEST01
             }
             else if (SYNCED == true)
             {
+                HidecustomRefresh();
                 timerUpdating.Enabled = false;
             }
-        }
-
-        public void TaskAwait()
-        {
-            new System.Threading.ManualResetEvent(false).WaitOne(50);
         }
 
         private void event_SummaryHover(object sender, EventArgs e)
@@ -1350,7 +1350,43 @@ namespace APIAccessTEST01
             lblSaveFound.Visible = false;
             lblNewPage.Visible = true;
         }
-
+        void HidecustomRefresh()
+        {
+            HideorShowRefresh(customRefresh01, false);
+            HideorShowRefresh(customRefresh02, false);
+            HideorShowRefresh(customRefresh03, false);
+            HideorShowRefresh(customRefresh04, false);
+            HideorShowRefresh(customRefresh05, false);
+            HideorShowRefresh(customRefresh06, false);
+            HideorShowRefresh(customRefresh07, false);
+            HideorShowRefresh(customRefresh08, false);
+            HideorShowRefresh(customRefresh09, false);
+            customGroup01.Text.Remove(0, 6);
+            customGroup02.Text.Remove(0, 6);
+            customGroup03.Text.Remove(0, 6);
+            customGroup04.Text.Remove(0, 6);
+            customGroup05.Text.Remove(0, 6);
+            customGroup06.Text.Remove(0, 6);
+            customGroup07.Text.Remove(0, 6);
+            customGroup08.Text.Remove(0, 6);
+            customGroup09.Text.Remove(0, 6);
+        }
+        void ShowcustomRefresh()
+        {
+            HideorShowRefresh(customRefresh01, true);
+            HideorShowRefresh(customRefresh02, true);
+            HideorShowRefresh(customRefresh03, true);
+            HideorShowRefresh(customRefresh04, true);
+            HideorShowRefresh(customRefresh05, true);
+            HideorShowRefresh(customRefresh06, true);
+            HideorShowRefresh(customRefresh07, true);
+            HideorShowRefresh(customRefresh08, true);
+            HideorShowRefresh(customRefresh09, true);
+        }
+        void HideorShowRefresh(PictureBox Refresh, bool Status)
+        {
+            Refresh.Visible = Status;
+        }
         private void btnPageHoverEnter(object sender, EventArgs e)
         {
             PictureBox btnPageControl = (PictureBox)sender;

@@ -175,6 +175,7 @@ namespace APIAccessTEST01
         List<string> SepProfit = new List<string>();
         List<string> SepWorkers = new List<string>();
         List<string> RealWorkers = new List<string>();
+        List<string> StartingMiningSettings = new List<string>();
 
         bool TimeCalc = false;
 
@@ -211,18 +212,18 @@ namespace APIAccessTEST01
             btnPageLeft.Location = new Point(6, 7);
             lblCurrentPage.Location = new Point(36, 9);
             btnPageRight.Location = new Point(115, 7);
-            lblSync.Location = new Point(685, 9);
-            gifRefreshing.Location = new Point(803, 7);
-            btnRefresh.Location = new Point(803, 7);
+            lblSync.Location = new Point(638, 9);
+            gifRefreshing.Location = new Point(758, 7);
+            btnRefresh.Location = new Point(758, 7);
         }
         void HeaderMiningRESET()
         {
-            lblHeaderPool.Location = new Point(165, 9);
-            HeaderPoolv.Location = new Point(235, 7);
-            lblHeaderWorker.Location = new Point(6, 49);
-            HeaderWorkerv.Location = new Point(106, 47);
-            lblHeaderMiningCurrency.Location = new Point(250, 49);
-            HeaderMiningCurrencyv.Location = new Point(370, 47);
+            lblHeaderPool.Location = new Point(13, 40);
+            HeaderPoolv.Location = new Point(83, 38);
+            lblHeaderWorker.Location = new Point(234, 40);
+            HeaderWorkerv.Location = new Point(334, 38);
+            lblHeaderMiningCurrency.Location = new Point(530, 40);
+            HeaderMiningCurrencyv.Location = new Point(651, 38);
         }
         //Checking and Creating Requiered Files.
         void CreateMustFiles()
@@ -255,10 +256,11 @@ namespace APIAccessTEST01
             HeaderDefault();
             Pagev.SelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
             intSyncTimer = 31;
-            lblSyncTimer.Location = new Point(506, 9);
+            lblSyncTimer.Location = new Point(789, 7);
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");        //PLACEHOLDER
             GETWallets();                                           //MINING | Gets All Wallet Info
             GETPools();                                             //MINING | Gets All Available Pools
+            SetDefault();
 
             Options.Visible = false;
             Mining01.Visible = false;
@@ -307,36 +309,19 @@ namespace APIAccessTEST01
             lblConfirmed.Visible = false;
             lblMaxPages.Visible = false;
             lblDefaultSet.Visible = false;
-            lblHeaderPool.Visible = false;
-            lblHeaderWorker.Visible = false;
-            HeaderPoolv.Visible = false;
-            HeaderWorkerv.Visible = false;
-            lblHeaderMiningCurrency.Visible = false;
-            HeaderMiningCurrencyv.Visible = false;
         }
         void HeaderDefault()
         {
             btnPageLeft.Visible = true;
             btnPageRight.Visible = true;
             lblCurrentPage.Visible = true;
-            lblHeaderPool.Visible = false;
-            lblHeaderWorker.Visible = false;
-            HeaderPoolv.Visible = false;
-            HeaderWorkerv.Visible = false;
-            lblHeaderMiningCurrency.Visible = false;
-            HeaderMiningCurrencyv.Visible = false;
+            
         }
         void HeaderMining()
         {
             btnPageLeft.Visible = false;
             btnPageRight.Visible = false;
             lblCurrentPage.Visible = false;
-            lblHeaderPool.Visible = true;
-            lblHeaderWorker.Visible = true;
-            HeaderPoolv.Visible = true;
-            HeaderWorkerv.Visible = true;
-            lblHeaderMiningCurrency.Visible = true;
-            HeaderMiningCurrencyv.Visible = true;
         }
         //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
@@ -596,7 +581,7 @@ namespace APIAccessTEST01
                 xUSDc.Text = "";
                 xUSD24c.Text = "";
                 xUSD7c.Text = "";
-                Number.Text = "XXX";
+                Number.Text = "      " + "XXX";
                 xTimev.Text = "No Data";
 
                 xCv.ForeColor = Color.Black;
@@ -993,14 +978,14 @@ namespace APIAccessTEST01
                 else
                 {
                     stringSyncTimer = Convert.ToString(intSyncTimer);
-                    lblSyncTimer.Text = "AUTOSYNC IN: " + stringSyncTimer;
+                    lblSyncTimer.Text = "(" + stringSyncTimer + ")";
                 }
             }
             else
             {
                 intSyncTimer = intSyncTimer - 1;
                 stringSyncTimer = Convert.ToString(intSyncTimer);
-                lblSyncTimer.Text = "AUTOSYNC IN: " + stringSyncTimer;
+                lblSyncTimer.Text = "(" + stringSyncTimer + ")";
             }
         }
 
@@ -1130,7 +1115,6 @@ namespace APIAccessTEST01
             ShowcustomRefresh();
             timerUpdating.Enabled = true;
             SYNCED = false;
-            SYNCING = true;
         }
 
         //CONSTANTLY CHECKS IF LBLS ARE CORRECT | 50ms
@@ -1143,6 +1127,7 @@ namespace APIAccessTEST01
             }
             else if (SYNCED == true)
             {
+                HidecustomRefresh();
                 lblSync.Text = "SYNCED";
                 gifRefreshing.Visible = false;
             }
@@ -1161,9 +1146,17 @@ namespace APIAccessTEST01
                 {
                     GETINFOSummary();
                 }
-                else
+                else if (bMining == true)
                 {
-                    SYNCED = true;
+                    if (HeaderPoolv.Text == "NICEHASH")
+                    {
+                        GETNHWorkerRefresh();
+                    }
+                    GETWorkerInfo();
+                }
+                else if (bOptions == true)
+                {
+                    GETINFOSummary();
                 }
             }
             else if (SYNCED == true)
@@ -1250,7 +1243,7 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void EditSummaryIndividual(TextBox Custom)
         {
-            Custom.Enabled = true;
+            Custom.ReadOnly = false;
             Custom.BackColor = Color.White;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
@@ -1272,7 +1265,7 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void EmptySummaryIndividual(TextBox Custom)
         {
-            Custom.Enabled = false;
+            Custom.ReadOnly = false;
             Custom.BackColor = Color.White;
             Custom.Text = "";
         }
@@ -1295,8 +1288,8 @@ namespace APIAccessTEST01
         //CUT DOWN ON LINES OF CODE
         void ConfirmSummaryIndividual(TextBox Custom)
         {
-            Custom.Enabled = false;
-            Custom.BackColor = Color.White;
+            Custom.BackColor = Color.WhiteSmoke;
+            Custom.ReadOnly = true;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         void ConfirmSummary()
@@ -1361,15 +1354,6 @@ namespace APIAccessTEST01
             HideorShowRefresh(customRefresh07, false);
             HideorShowRefresh(customRefresh08, false);
             HideorShowRefresh(customRefresh09, false);
-            customGroup01.Text.Remove(0, 6);
-            customGroup02.Text.Remove(0, 6);
-            customGroup03.Text.Remove(0, 6);
-            customGroup04.Text.Remove(0, 6);
-            customGroup05.Text.Remove(0, 6);
-            customGroup06.Text.Remove(0, 6);
-            customGroup07.Text.Remove(0, 6);
-            customGroup08.Text.Remove(0, 6);
-            customGroup09.Text.Remove(0, 6);
         }
         void ShowcustomRefresh()
         {
@@ -1385,20 +1369,18 @@ namespace APIAccessTEST01
         }
         void HideorShowRefresh(PictureBox Refresh, bool Status)
         {
-            Refresh.Visible = Status;
+            if (Status == true)
+            {
+                Refresh.Image = Image.FromFile(@"Resources\RefreshAnimation-24px.gif");
+            }
+            else if (Status == false)
+            {
+                Refresh.Image = Image.FromFile(@"Resources\reload.png");
+            }
         }
         private void btnPageHoverEnter(object sender, EventArgs e)
         {
-            PictureBox btnPageControl = (PictureBox)sender;
 
-            if (btnPageControl.Name == "btnPageLeft")
-            {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-hover-24px.png");
-            }
-            else if (btnPageControl.Name == "btnPageRight")
-            {
-                btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-hover-24px.png");
-            }
         }
 
         private void btnPageHoverLeave(object sender, EventArgs e)
@@ -1447,7 +1429,14 @@ namespace APIAccessTEST01
 
 
         //MINING
-
+        void SetDefault()
+        {
+            StartingMiningSettings.Clear();
+            StartingMiningSettings = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt").ToList();
+            HeaderPoolv.Text = StartingMiningSettings[0];
+            HeaderWorkerv.Text = StartingMiningSettings[1];
+            HeaderMiningCurrencyv.SelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
+        }
         void GETWallets()
         {
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
@@ -1468,50 +1457,57 @@ namespace APIAccessTEST01
                 }
             }
         }
+        void GETNHWorkerRefresh()
+        {
+            string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                lineWorker = reader.ReadToEnd();
+                NHRelWorkers = getBetween(lineWorker, ":[", "\"algo");
+                NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
+                SepWorkers = NHRelWorkersA.OfType<string>().ToList();
+                for (int x = 0; x < SepWorkers.Count; x++)
+                {
+                    if (SepWorkers[x] != "")
+                    {
+                        WorkerID = SepWorkers[x];
+                        WorkerID = RemoveforMiningKeepingCurly(WorkerID);
+                        int RemoveA = WorkerID.LastIndexOf("{");
+                        if (RemoveA > 0)
+                        {
+                            WorkerID = WorkerID.Substring(0, RemoveA);
+                        }
+                        else if (RemoveA == 0)
+                        {
+                            WorkerID = "EMPTY";
+                        }
+                        if (bMining == false)
+                        {
+                            HeaderWorkerv.Items.Add(WorkerID);
+                            RealWorkers.Add(WorkerID);
+                        }
+                    }
+                    else if (SepWorkers[x] == "")
+                    {
+                        break;
+                    }
+
+                }
+            }
+        }
         void GETWorkers()
         {
             HeaderWorkerv.Items.Clear();
             
             if (HeaderPoolv.Text == "NICEHASH")
             {
-                string url = @"https://api.nicehash.com/api?method=stats.provider.workers&addr=" + CurrentNHWallet;
-
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.AutomaticDecompression = DecompressionMethods.GZip;
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-                using (Stream stream = response.GetResponseStream())
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    lineWorker = reader.ReadToEnd();
-                    NHRelWorkers = getBetween(lineWorker, ":[", "\"algo");
-                    NHRelWorkersA = Regex.Split(NHRelWorkers, "],");
-                    SepWorkers = NHRelWorkersA.OfType<string>().ToList();
-                    for (int x = 0; x < SepWorkers.Count; x++)
-                    {
-                        if (SepWorkers[x] != "")
-                        {
-                            WorkerID = SepWorkers[x];
-                            WorkerID = RemoveforMiningKeepingCurly(WorkerID);
-                            int RemoveA = WorkerID.LastIndexOf("{");
-                            if (RemoveA > 0)
-                            {
-                                WorkerID = WorkerID.Substring(0, RemoveA);
-                            }
-                            else if (RemoveA == 0)
-                            {
-                                WorkerID = "EMPTY";
-                            }
-                            HeaderWorkerv.Items.Add(WorkerID);
-                            RealWorkers.Add(WorkerID);
-                        }
-                        else if (SepWorkers[x] == "")
-                        {
-                            break;
-                        }
-                        
-                    }
-                }
+                GETNHWorkerRefresh();
             }
         }
         void WorkerTimeCalculation()
@@ -1862,6 +1858,7 @@ namespace APIAccessTEST01
                     lblProfitv.Text = "No Data";
                 }
             }
+            SYNCED = true;
         }
         private string RemoveonlyCurly(string value)
         {
@@ -2064,14 +2061,39 @@ namespace APIAccessTEST01
             }
         }
 
+        private void txtCustomMouse(object sender, EventArgs e)
+        {
+            txtCustom01.SelectionLength = 0;
+            txtCustom02.SelectionLength = 0;
+            txtCustom03.SelectionLength = 0;
+            txtCustom04.SelectionLength = 0;
+            txtCustom05.SelectionLength = 0;
+            txtCustom06.SelectionLength = 0;
+            txtCustom07.SelectionLength = 0;
+            txtCustom08.SelectionLength = 0;
+            txtCustom09.SelectionLength = 0;
+        }
 
+        private void txtCustomMouse(object sender, MouseEventArgs e)
+        {
+            txtCustom01.SelectionLength = 0;
+            txtCustom02.SelectionLength = 0;
+            txtCustom03.SelectionLength = 0;
+            txtCustom04.SelectionLength = 0;
+            txtCustom05.SelectionLength = 0;
+            txtCustom06.SelectionLength = 0;
+            txtCustom07.SelectionLength = 0;
+            txtCustom08.SelectionLength = 0;
+            txtCustom09.SelectionLength = 0;
+        }
 
-
-
-
-
-
-
-
+        private void btnMiningSettings_Click(object sender, EventArgs e)
+        {
+            StartingMiningSettings.Clear();
+            StartingMiningSettings.Add(HeaderPoolv.Text);
+            StartingMiningSettings.Add(HeaderWorkerv.Text);
+            StartingMiningSettings.Add(Convert.ToString(HeaderMiningCurrencyv.SelectedIndex));
+            File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt", StartingMiningSettings);
+        }
     }
 }

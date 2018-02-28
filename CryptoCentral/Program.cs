@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace APIAccessTEST01
+namespace CryptoCentral
 {
     static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace APIAccessTEST01
+﻿namespace CryptoCentral
 {
     partial class Crypto
     {
@@ -247,6 +247,19 @@
             this.lblCustom01 = new System.Windows.Forms.Label();
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPageMining = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblZPClear = new System.Windows.Forms.Label();
+            this.lblZPRemove = new System.Windows.Forms.Label();
+            this.btnOptionsZPClear = new System.Windows.Forms.Button();
+            this.lblZPDefaultSet = new System.Windows.Forms.Label();
+            this.btnOptionsZPRemove = new System.Windows.Forms.Button();
+            this.btnOptionsZPDefault = new System.Windows.Forms.Button();
+            this.lblZPWalletSaved = new System.Windows.Forms.Label();
+            this.txtOptionsZPv = new System.Windows.Forms.TextBox();
+            this.lblOptionsZPAddress = new System.Windows.Forms.Label();
+            this.OptionsZPWalletsv = new System.Windows.Forms.ComboBox();
+            this.btnOptionsZPSave = new System.Windows.Forms.Button();
+            this.lblOptionsZPOp = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnMiningSettings = new System.Windows.Forms.Button();
             this.HeaderPoolv = new System.Windows.Forms.ComboBox();
@@ -267,7 +280,7 @@
             this.lblOptionsNHAddress = new System.Windows.Forms.Label();
             this.OptionsNHWalletsv = new System.Windows.Forms.ComboBox();
             this.btnOptionsNHSave = new System.Windows.Forms.Button();
-            this.lblOptionsNHAdd = new System.Windows.Forms.Label();
+            this.lblOptionsNHOp = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
@@ -349,6 +362,7 @@
             this.groupBoxCurrency.SuspendLayout();
             this.optionsSummary.SuspendLayout();
             this.tabPageMining.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupOptionsNH.SuspendLayout();
             this.Mining01.SuspendLayout();
@@ -2867,6 +2881,7 @@
             this.tabPageMining.AutoScroll = true;
             this.tabPageMining.AutoScrollMargin = new System.Drawing.Size(0, 10);
             this.tabPageMining.BackColor = System.Drawing.Color.White;
+            this.tabPageMining.Controls.Add(this.groupBox3);
             this.tabPageMining.Controls.Add(this.groupBox1);
             this.tabPageMining.Controls.Add(this.groupOptionsNH);
             this.tabPageMining.Location = new System.Drawing.Point(4, 25);
@@ -2875,6 +2890,172 @@
             this.tabPageMining.Size = new System.Drawing.Size(834, 378);
             this.tabPageMining.TabIndex = 1;
             this.tabPageMining.Text = "Mining";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblZPClear);
+            this.groupBox3.Controls.Add(this.lblZPRemove);
+            this.groupBox3.Controls.Add(this.btnOptionsZPClear);
+            this.groupBox3.Controls.Add(this.lblZPDefaultSet);
+            this.groupBox3.Controls.Add(this.btnOptionsZPRemove);
+            this.groupBox3.Controls.Add(this.btnOptionsZPDefault);
+            this.groupBox3.Controls.Add(this.lblZPWalletSaved);
+            this.groupBox3.Controls.Add(this.txtOptionsZPv);
+            this.groupBox3.Controls.Add(this.lblOptionsZPAddress);
+            this.groupBox3.Controls.Add(this.OptionsZPWalletsv);
+            this.groupBox3.Controls.Add(this.btnOptionsZPSave);
+            this.groupBox3.Controls.Add(this.lblOptionsZPOp);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBox3.ForeColor = System.Drawing.Color.Black;
+            this.groupBox3.Location = new System.Drawing.Point(6, 387);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(805, 247);
+            this.groupBox3.TabIndex = 57;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ZPOOL";
+            // 
+            // lblZPClear
+            // 
+            this.lblZPClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblZPClear.Location = new System.Drawing.Point(606, 214);
+            this.lblZPClear.Name = "lblZPClear";
+            this.lblZPClear.Size = new System.Drawing.Size(193, 23);
+            this.lblZPClear.TabIndex = 59;
+            this.lblZPClear.Text = "ALL WALLETS CLEARED";
+            this.lblZPClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblZPClear.Visible = false;
+            // 
+            // lblZPRemove
+            // 
+            this.lblZPRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblZPRemove.Location = new System.Drawing.Point(409, 214);
+            this.lblZPRemove.Name = "lblZPRemove";
+            this.lblZPRemove.Size = new System.Drawing.Size(193, 23);
+            this.lblZPRemove.TabIndex = 57;
+            this.lblZPRemove.Text = "WALLET REMOVED";
+            this.lblZPRemove.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblZPRemove.Visible = false;
+            // 
+            // btnOptionsZPClear
+            // 
+            this.btnOptionsZPClear.BackColor = System.Drawing.Color.Transparent;
+            this.btnOptionsZPClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsZPClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsZPClear.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsZPClear.Location = new System.Drawing.Point(606, 181);
+            this.btnOptionsZPClear.Name = "btnOptionsZPClear";
+            this.btnOptionsZPClear.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsZPClear.TabIndex = 58;
+            this.btnOptionsZPClear.Text = "CLEAR ALL";
+            this.btnOptionsZPClear.UseVisualStyleBackColor = false;
+            this.btnOptionsZPClear.Click += new System.EventHandler(this.btnOptionsZPClear_Click);
+            // 
+            // lblZPDefaultSet
+            // 
+            this.lblZPDefaultSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblZPDefaultSet.Location = new System.Drawing.Point(210, 214);
+            this.lblZPDefaultSet.Name = "lblZPDefaultSet";
+            this.lblZPDefaultSet.Size = new System.Drawing.Size(193, 23);
+            this.lblZPDefaultSet.TabIndex = 54;
+            this.lblZPDefaultSet.Text = "DEFAULT SAVED";
+            this.lblZPDefaultSet.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblZPDefaultSet.Visible = false;
+            // 
+            // btnOptionsZPRemove
+            // 
+            this.btnOptionsZPRemove.BackColor = System.Drawing.Color.Transparent;
+            this.btnOptionsZPRemove.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsZPRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsZPRemove.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsZPRemove.Location = new System.Drawing.Point(409, 181);
+            this.btnOptionsZPRemove.Name = "btnOptionsZPRemove";
+            this.btnOptionsZPRemove.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsZPRemove.TabIndex = 56;
+            this.btnOptionsZPRemove.Text = "REMOVE WALLET";
+            this.btnOptionsZPRemove.UseVisualStyleBackColor = false;
+            this.btnOptionsZPRemove.Click += new System.EventHandler(this.btnOptionsZPRemove_Click);
+            // 
+            // btnOptionsZPDefault
+            // 
+            this.btnOptionsZPDefault.BackColor = System.Drawing.Color.Transparent;
+            this.btnOptionsZPDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsZPDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsZPDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsZPDefault.Location = new System.Drawing.Point(210, 181);
+            this.btnOptionsZPDefault.Name = "btnOptionsZPDefault";
+            this.btnOptionsZPDefault.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsZPDefault.TabIndex = 53;
+            this.btnOptionsZPDefault.Text = "SET DEFAULT";
+            this.btnOptionsZPDefault.UseVisualStyleBackColor = false;
+            this.btnOptionsZPDefault.Click += new System.EventHandler(this.btnOptionsZPDefault_Click);
+            // 
+            // lblZPWalletSaved
+            // 
+            this.lblZPWalletSaved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.lblZPWalletSaved.Location = new System.Drawing.Point(8, 214);
+            this.lblZPWalletSaved.Name = "lblZPWalletSaved";
+            this.lblZPWalletSaved.Size = new System.Drawing.Size(196, 23);
+            this.lblZPWalletSaved.TabIndex = 52;
+            this.lblZPWalletSaved.Text = "WALLET SAVED";
+            this.lblZPWalletSaved.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblZPWalletSaved.Visible = false;
+            // 
+            // txtOptionsZPv
+            // 
+            this.txtOptionsZPv.BackColor = System.Drawing.Color.White;
+            this.txtOptionsZPv.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.txtOptionsZPv.ForeColor = System.Drawing.Color.Black;
+            this.txtOptionsZPv.Location = new System.Drawing.Point(11, 148);
+            this.txtOptionsZPv.Name = "txtOptionsZPv";
+            this.txtOptionsZPv.Size = new System.Drawing.Size(788, 27);
+            this.txtOptionsZPv.TabIndex = 51;
+            // 
+            // lblOptionsZPAddress
+            // 
+            this.lblOptionsZPAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblOptionsZPAddress.Location = new System.Drawing.Point(13, 37);
+            this.lblOptionsZPAddress.Name = "lblOptionsZPAddress";
+            this.lblOptionsZPAddress.Size = new System.Drawing.Size(157, 23);
+            this.lblOptionsZPAddress.TabIndex = 50;
+            this.lblOptionsZPAddress.Text = "WALLET ADDRESS";
+            this.lblOptionsZPAddress.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // OptionsZPWalletsv
+            // 
+            this.OptionsZPWalletsv.BackColor = System.Drawing.Color.White;
+            this.OptionsZPWalletsv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.OptionsZPWalletsv.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.OptionsZPWalletsv.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.OptionsZPWalletsv.FormattingEnabled = true;
+            this.OptionsZPWalletsv.Location = new System.Drawing.Point(12, 63);
+            this.OptionsZPWalletsv.Name = "OptionsZPWalletsv";
+            this.OptionsZPWalletsv.Size = new System.Drawing.Size(787, 29);
+            this.OptionsZPWalletsv.TabIndex = 49;
+            this.OptionsZPWalletsv.TabStop = false;
+            // 
+            // btnOptionsZPSave
+            // 
+            this.btnOptionsZPSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnOptionsZPSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnOptionsZPSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOptionsZPSave.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnOptionsZPSave.Location = new System.Drawing.Point(11, 181);
+            this.btnOptionsZPSave.Name = "btnOptionsZPSave";
+            this.btnOptionsZPSave.Size = new System.Drawing.Size(193, 30);
+            this.btnOptionsZPSave.TabIndex = 48;
+            this.btnOptionsZPSave.Text = "SAVE WALLET";
+            this.btnOptionsZPSave.UseVisualStyleBackColor = false;
+            this.btnOptionsZPSave.Click += new System.EventHandler(this.btnOptionsZPSave_Click);
+            // 
+            // lblOptionsZPOp
+            // 
+            this.lblOptionsZPOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblOptionsZPOp.Location = new System.Drawing.Point(12, 122);
+            this.lblOptionsZPOp.Name = "lblOptionsZPOp";
+            this.lblOptionsZPOp.Size = new System.Drawing.Size(166, 23);
+            this.lblOptionsZPOp.TabIndex = 46;
+            this.lblOptionsZPOp.Text = "WALLET OPTIONS";
+            this.lblOptionsZPOp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // groupBox1
             // 
@@ -2896,14 +3077,14 @@
             // 
             // btnMiningSettings
             // 
-            this.btnMiningSettings.BackColor = System.Drawing.Color.White;
+            this.btnMiningSettings.BackColor = System.Drawing.Color.Transparent;
             this.btnMiningSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMiningSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnMiningSettings.Location = new System.Drawing.Point(176, 78);
-            this.btnMiningSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMiningSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMiningSettings.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.btnMiningSettings.Location = new System.Drawing.Point(11, 77);
             this.btnMiningSettings.Name = "btnMiningSettings";
-            this.btnMiningSettings.Size = new System.Drawing.Size(148, 29);
-            this.btnMiningSettings.TabIndex = 71;
+            this.btnMiningSettings.Size = new System.Drawing.Size(206, 30);
+            this.btnMiningSettings.TabIndex = 72;
             this.btnMiningSettings.Text = "SET DEFAULT";
             this.btnMiningSettings.UseVisualStyleBackColor = false;
             this.btnMiningSettings.Click += new System.EventHandler(this.btnMiningSettings_Click);
@@ -3006,7 +3187,7 @@
             this.groupOptionsNH.Controls.Add(this.lblOptionsNHAddress);
             this.groupOptionsNH.Controls.Add(this.OptionsNHWalletsv);
             this.groupOptionsNH.Controls.Add(this.btnOptionsNHSave);
-            this.groupOptionsNH.Controls.Add(this.lblOptionsNHAdd);
+            this.groupOptionsNH.Controls.Add(this.lblOptionsNHOp);
             this.groupOptionsNH.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.groupOptionsNH.ForeColor = System.Drawing.Color.Black;
             this.groupOptionsNH.Location = new System.Drawing.Point(6, 134);
@@ -3111,7 +3292,6 @@
             this.txtOptionsNHv.Name = "txtOptionsNHv";
             this.txtOptionsNHv.Size = new System.Drawing.Size(788, 27);
             this.txtOptionsNHv.TabIndex = 51;
-            this.txtOptionsNHv.Text = "3QWANJeWRsDJ6e2mwPKMxNpmXzofscMfBo";
             // 
             // lblOptionsNHAddress
             // 
@@ -3151,15 +3331,15 @@
             this.btnOptionsNHSave.UseVisualStyleBackColor = false;
             this.btnOptionsNHSave.Click += new System.EventHandler(this.btnOptionsNicehashSave_Click);
             // 
-            // lblOptionsNHAdd
+            // lblOptionsNHOp
             // 
-            this.lblOptionsNHAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblOptionsNHAdd.Location = new System.Drawing.Point(12, 122);
-            this.lblOptionsNHAdd.Name = "lblOptionsNHAdd";
-            this.lblOptionsNHAdd.Size = new System.Drawing.Size(166, 23);
-            this.lblOptionsNHAdd.TabIndex = 46;
-            this.lblOptionsNHAdd.Text = "WALLET OPTIONS";
-            this.lblOptionsNHAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblOptionsNHOp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblOptionsNHOp.Location = new System.Drawing.Point(12, 122);
+            this.lblOptionsNHOp.Name = "lblOptionsNHOp";
+            this.lblOptionsNHOp.Size = new System.Drawing.Size(166, 23);
+            this.lblOptionsNHOp.TabIndex = 46;
+            this.lblOptionsNHOp.Text = "WALLET OPTIONS";
+            this.lblOptionsNHOp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -3710,6 +3890,8 @@
             this.optionsSummary.ResumeLayout(false);
             this.optionsSummary.PerformLayout();
             this.tabPageMining.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupOptionsNH.ResumeLayout(false);
@@ -3935,7 +4117,7 @@
         private System.Windows.Forms.GroupBox groupBoxPages;
         private System.Windows.Forms.GroupBox groupBoxCurrency;
         private System.Windows.Forms.GroupBox groupOptionsNH;
-        private System.Windows.Forms.Label lblOptionsNHAdd;
+        private System.Windows.Forms.Label lblOptionsNHOp;
         private System.Windows.Forms.Label lblDefaultSet;
         private System.Windows.Forms.Button btnCurrencyDefault;
         private System.Windows.Forms.Timer timerRefreshing;
@@ -4013,7 +4195,20 @@
         private System.Windows.Forms.PictureBox customRefresh04;
         private System.Windows.Forms.PictureBox customRefresh03;
         private System.Windows.Forms.PictureBox customRefresh02;
-        private System.Windows.Forms.Button btnMiningSettings;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnMiningSettings;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblZPClear;
+        private System.Windows.Forms.Label lblZPRemove;
+        private System.Windows.Forms.Button btnOptionsZPClear;
+        private System.Windows.Forms.Label lblZPDefaultSet;
+        private System.Windows.Forms.Button btnOptionsZPRemove;
+        private System.Windows.Forms.Button btnOptionsZPDefault;
+        private System.Windows.Forms.Label lblZPWalletSaved;
+        private System.Windows.Forms.TextBox txtOptionsZPv;
+        private System.Windows.Forms.Label lblOptionsZPAddress;
+        private System.Windows.Forms.ComboBox OptionsZPWalletsv;
+        private System.Windows.Forms.Button btnOptionsZPSave;
+        private System.Windows.Forms.Label lblOptionsZPOp;
     }
 }

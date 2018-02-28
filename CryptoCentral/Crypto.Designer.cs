@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
             this.Sidebar = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.iconMining = new System.Windows.Forms.PictureBox();
             this.btnMining = new System.Windows.Forms.Label();
@@ -247,6 +248,13 @@
             this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPageMining = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMiningSettings = new System.Windows.Forms.Button();
+            this.HeaderPoolv = new System.Windows.Forms.ComboBox();
+            this.lblHeaderMiningCurrency = new System.Windows.Forms.Label();
+            this.HeaderMiningCurrencyv = new System.Windows.Forms.ComboBox();
+            this.lblHeaderPool = new System.Windows.Forms.Label();
+            this.lblHeaderWorker = new System.Windows.Forms.Label();
+            this.HeaderWorkerv = new System.Windows.Forms.ComboBox();
             this.groupOptionsNH = new System.Windows.Forms.GroupBox();
             this.lblNHClear = new System.Windows.Forms.Label();
             this.lblNHRemove = new System.Windows.Forms.Label();
@@ -296,20 +304,12 @@
             this.Footer = new System.Windows.Forms.Panel();
             this.gifRefreshing = new System.Windows.Forms.PictureBox();
             this.btnRefresh = new System.Windows.Forms.PictureBox();
-            this.lblHeaderMiningCurrency = new System.Windows.Forms.Label();
-            this.HeaderMiningCurrencyv = new System.Windows.Forms.ComboBox();
             this.lblSyncTimer = new System.Windows.Forms.Label();
-            this.lblHeaderWorker = new System.Windows.Forms.Label();
-            this.HeaderWorkerv = new System.Windows.Forms.ComboBox();
-            this.lblHeaderPool = new System.Windows.Forms.Label();
-            this.HeaderPoolv = new System.Windows.Forms.ComboBox();
             this.lblSync = new System.Windows.Forms.Label();
             this.btnPageRight = new System.Windows.Forms.PictureBox();
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
             this.lblCurrentPage = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnMiningSettings = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
@@ -385,6 +385,18 @@
             this.Sidebar.Name = "Sidebar";
             this.Sidebar.Size = new System.Drawing.Size(222, 1071);
             this.Sidebar.TabIndex = 0;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(21, 514);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "ADMIN";
             // 
             // pictureBox1
             // 
@@ -521,7 +533,7 @@
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(222, 0);
             this.Header.Name = "Header";
-            this.Header.Size = new System.Drawing.Size(2892, 55);
+            this.Header.Size = new System.Drawing.Size(1718, 55);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
@@ -2882,6 +2894,105 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SETTINGS";
             // 
+            // btnMiningSettings
+            // 
+            this.btnMiningSettings.BackColor = System.Drawing.Color.White;
+            this.btnMiningSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnMiningSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnMiningSettings.Location = new System.Drawing.Point(176, 78);
+            this.btnMiningSettings.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMiningSettings.Name = "btnMiningSettings";
+            this.btnMiningSettings.Size = new System.Drawing.Size(148, 29);
+            this.btnMiningSettings.TabIndex = 71;
+            this.btnMiningSettings.Text = "SET DEFAULT";
+            this.btnMiningSettings.UseVisualStyleBackColor = false;
+            this.btnMiningSettings.Click += new System.EventHandler(this.btnMiningSettings_Click);
+            // 
+            // HeaderPoolv
+            // 
+            this.HeaderPoolv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.HeaderPoolv.BackColor = System.Drawing.Color.White;
+            this.HeaderPoolv.DisplayMember = "(Collection)";
+            this.HeaderPoolv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HeaderPoolv.Font = new System.Drawing.Font("Walkway Bold", 11F);
+            this.HeaderPoolv.FormattingEnabled = true;
+            this.HeaderPoolv.Location = new System.Drawing.Point(83, 38);
+            this.HeaderPoolv.Name = "HeaderPoolv";
+            this.HeaderPoolv.Size = new System.Drawing.Size(134, 24);
+            this.HeaderPoolv.TabIndex = 64;
+            this.HeaderPoolv.TabStop = false;
+            this.HeaderPoolv.SelectedIndexChanged += new System.EventHandler(this.HeaderPoolv_SelectedIndexChanged);
+            // 
+            // lblHeaderMiningCurrency
+            // 
+            this.lblHeaderMiningCurrency.AutoSize = true;
+            this.lblHeaderMiningCurrency.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblHeaderMiningCurrency.ForeColor = System.Drawing.Color.Black;
+            this.lblHeaderMiningCurrency.Location = new System.Drawing.Point(530, 40);
+            this.lblHeaderMiningCurrency.Name = "lblHeaderMiningCurrency";
+            this.lblHeaderMiningCurrency.Size = new System.Drawing.Size(115, 20);
+            this.lblHeaderMiningCurrency.TabIndex = 70;
+            this.lblHeaderMiningCurrency.Text = "CURRENCY:";
+            this.lblHeaderMiningCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeaderMiningCurrencyv
+            // 
+            this.HeaderMiningCurrencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.HeaderMiningCurrencyv.BackColor = System.Drawing.Color.White;
+            this.HeaderMiningCurrencyv.DisplayMember = "(Collection)";
+            this.HeaderMiningCurrencyv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HeaderMiningCurrencyv.Font = new System.Drawing.Font("Walkway Bold", 11F);
+            this.HeaderMiningCurrencyv.FormattingEnabled = true;
+            this.HeaderMiningCurrencyv.Items.AddRange(new object[] {
+            "BTC (Satoshi)",
+            "USD ($)"});
+            this.HeaderMiningCurrencyv.Location = new System.Drawing.Point(651, 38);
+            this.HeaderMiningCurrencyv.Name = "HeaderMiningCurrencyv";
+            this.HeaderMiningCurrencyv.Size = new System.Drawing.Size(135, 24);
+            this.HeaderMiningCurrencyv.TabIndex = 69;
+            this.HeaderMiningCurrencyv.TabStop = false;
+            this.HeaderMiningCurrencyv.SelectedIndexChanged += new System.EventHandler(this.HeaderMiningCurrencyv_SelectedIndexChanged);
+            // 
+            // lblHeaderPool
+            // 
+            this.lblHeaderPool.AutoSize = true;
+            this.lblHeaderPool.Font = new System.Drawing.Font("Walkway Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeaderPool.ForeColor = System.Drawing.Color.Black;
+            this.lblHeaderPool.Location = new System.Drawing.Point(13, 40);
+            this.lblHeaderPool.Name = "lblHeaderPool";
+            this.lblHeaderPool.Size = new System.Drawing.Size(64, 20);
+            this.lblHeaderPool.TabIndex = 65;
+            this.lblHeaderPool.Text = "POOL:";
+            this.lblHeaderPool.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblHeaderWorker
+            // 
+            this.lblHeaderWorker.AutoSize = true;
+            this.lblHeaderWorker.Font = new System.Drawing.Font("Walkway Bold", 14F);
+            this.lblHeaderWorker.ForeColor = System.Drawing.Color.Black;
+            this.lblHeaderWorker.Location = new System.Drawing.Point(249, 40);
+            this.lblHeaderWorker.Name = "lblHeaderWorker";
+            this.lblHeaderWorker.Size = new System.Drawing.Size(94, 20);
+            this.lblHeaderWorker.TabIndex = 67;
+            this.lblHeaderWorker.Text = "WORKER:";
+            this.lblHeaderWorker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // HeaderWorkerv
+            // 
+            this.HeaderWorkerv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.HeaderWorkerv.BackColor = System.Drawing.Color.White;
+            this.HeaderWorkerv.DisplayMember = "(Collection)";
+            this.HeaderWorkerv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HeaderWorkerv.Font = new System.Drawing.Font("Walkway Bold", 11F);
+            this.HeaderWorkerv.FormattingEnabled = true;
+            this.HeaderWorkerv.Location = new System.Drawing.Point(349, 38);
+            this.HeaderWorkerv.MaxDropDownItems = 50;
+            this.HeaderWorkerv.Name = "HeaderWorkerv";
+            this.HeaderWorkerv.Size = new System.Drawing.Size(162, 24);
+            this.HeaderWorkerv.TabIndex = 66;
+            this.HeaderWorkerv.TabStop = false;
+            this.HeaderWorkerv.SelectedIndexChanged += new System.EventHandler(this.HeaderWorkerv_SelectedIndexChanged);
+            // 
             // groupOptionsNH
             // 
             this.groupOptionsNH.Controls.Add(this.lblNHClear);
@@ -3429,7 +3540,7 @@
             this.Footer.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Footer.Location = new System.Drawing.Point(222, 1033);
             this.Footer.Name = "Footer";
-            this.Footer.Size = new System.Drawing.Size(2892, 38);
+            this.Footer.Size = new System.Drawing.Size(1718, 38);
             this.Footer.TabIndex = 6;
             // 
             // gifRefreshing
@@ -3453,36 +3564,6 @@
             this.btnRefresh.TabStop = false;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
-            // lblHeaderMiningCurrency
-            // 
-            this.lblHeaderMiningCurrency.AutoSize = true;
-            this.lblHeaderMiningCurrency.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.lblHeaderMiningCurrency.ForeColor = System.Drawing.Color.Black;
-            this.lblHeaderMiningCurrency.Location = new System.Drawing.Point(530, 40);
-            this.lblHeaderMiningCurrency.Name = "lblHeaderMiningCurrency";
-            this.lblHeaderMiningCurrency.Size = new System.Drawing.Size(115, 20);
-            this.lblHeaderMiningCurrency.TabIndex = 70;
-            this.lblHeaderMiningCurrency.Text = "CURRENCY:";
-            this.lblHeaderMiningCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HeaderMiningCurrencyv
-            // 
-            this.HeaderMiningCurrencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.HeaderMiningCurrencyv.BackColor = System.Drawing.Color.White;
-            this.HeaderMiningCurrencyv.DisplayMember = "(Collection)";
-            this.HeaderMiningCurrencyv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HeaderMiningCurrencyv.Font = new System.Drawing.Font("Walkway Bold", 11F);
-            this.HeaderMiningCurrencyv.FormattingEnabled = true;
-            this.HeaderMiningCurrencyv.Items.AddRange(new object[] {
-            "BTC (Satoshi)",
-            "USD ($)"});
-            this.HeaderMiningCurrencyv.Location = new System.Drawing.Point(651, 38);
-            this.HeaderMiningCurrencyv.Name = "HeaderMiningCurrencyv";
-            this.HeaderMiningCurrencyv.Size = new System.Drawing.Size(135, 24);
-            this.HeaderMiningCurrencyv.TabIndex = 69;
-            this.HeaderMiningCurrencyv.TabStop = false;
-            this.HeaderMiningCurrencyv.SelectedIndexChanged += new System.EventHandler(this.HeaderMiningCurrencyv_SelectedIndexChanged);
-            // 
             // lblSyncTimer
             // 
             this.lblSyncTimer.BackColor = System.Drawing.Color.Transparent;
@@ -3494,61 +3575,6 @@
             this.lblSyncTimer.TabIndex = 68;
             this.lblSyncTimer.Text = "(30)";
             this.lblSyncTimer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblHeaderWorker
-            // 
-            this.lblHeaderWorker.AutoSize = true;
-            this.lblHeaderWorker.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.lblHeaderWorker.ForeColor = System.Drawing.Color.Black;
-            this.lblHeaderWorker.Location = new System.Drawing.Point(249, 40);
-            this.lblHeaderWorker.Name = "lblHeaderWorker";
-            this.lblHeaderWorker.Size = new System.Drawing.Size(94, 20);
-            this.lblHeaderWorker.TabIndex = 67;
-            this.lblHeaderWorker.Text = "WORKER:";
-            this.lblHeaderWorker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HeaderWorkerv
-            // 
-            this.HeaderWorkerv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.HeaderWorkerv.BackColor = System.Drawing.Color.White;
-            this.HeaderWorkerv.DisplayMember = "(Collection)";
-            this.HeaderWorkerv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HeaderWorkerv.Font = new System.Drawing.Font("Walkway Bold", 11F);
-            this.HeaderWorkerv.FormattingEnabled = true;
-            this.HeaderWorkerv.Location = new System.Drawing.Point(349, 38);
-            this.HeaderWorkerv.MaxDropDownItems = 50;
-            this.HeaderWorkerv.Name = "HeaderWorkerv";
-            this.HeaderWorkerv.Size = new System.Drawing.Size(162, 24);
-            this.HeaderWorkerv.TabIndex = 66;
-            this.HeaderWorkerv.TabStop = false;
-            this.HeaderWorkerv.SelectedIndexChanged += new System.EventHandler(this.HeaderWorkerv_SelectedIndexChanged);
-            // 
-            // lblHeaderPool
-            // 
-            this.lblHeaderPool.AutoSize = true;
-            this.lblHeaderPool.Font = new System.Drawing.Font("Walkway Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderPool.ForeColor = System.Drawing.Color.Black;
-            this.lblHeaderPool.Location = new System.Drawing.Point(13, 40);
-            this.lblHeaderPool.Name = "lblHeaderPool";
-            this.lblHeaderPool.Size = new System.Drawing.Size(64, 20);
-            this.lblHeaderPool.TabIndex = 65;
-            this.lblHeaderPool.Text = "POOL:";
-            this.lblHeaderPool.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // HeaderPoolv
-            // 
-            this.HeaderPoolv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.HeaderPoolv.BackColor = System.Drawing.Color.White;
-            this.HeaderPoolv.DisplayMember = "(Collection)";
-            this.HeaderPoolv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HeaderPoolv.Font = new System.Drawing.Font("Walkway Bold", 11F);
-            this.HeaderPoolv.FormattingEnabled = true;
-            this.HeaderPoolv.Location = new System.Drawing.Point(83, 38);
-            this.HeaderPoolv.Name = "HeaderPoolv";
-            this.HeaderPoolv.Size = new System.Drawing.Size(134, 24);
-            this.HeaderPoolv.TabIndex = 64;
-            this.HeaderPoolv.TabStop = false;
-            this.HeaderPoolv.SelectedIndexChanged += new System.EventHandler(this.HeaderPoolv_SelectedIndexChanged);
             // 
             // lblSync
             // 
@@ -3609,39 +3635,13 @@
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
             // 
-            // btnMiningSettings
-            // 
-            this.btnMiningSettings.BackColor = System.Drawing.Color.White;
-            this.btnMiningSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnMiningSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnMiningSettings.Location = new System.Drawing.Point(176, 78);
-            this.btnMiningSettings.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMiningSettings.Name = "btnMiningSettings";
-            this.btnMiningSettings.Size = new System.Drawing.Size(148, 29);
-            this.btnMiningSettings.TabIndex = 71;
-            this.btnMiningSettings.Text = "SET DEFAULT";
-            this.btnMiningSettings.UseVisualStyleBackColor = false;
-            this.btnMiningSettings.Click += new System.EventHandler(this.btnMiningSettings_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(21, 514);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 25);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "ADMIN";
-            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClientSize = new System.Drawing.Size(3114, 1071);
+            this.ClientSize = new System.Drawing.Size(1940, 1071);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.Footer);
             this.Controls.Add(this.Mining01);

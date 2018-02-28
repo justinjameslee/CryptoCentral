@@ -8,11 +8,15 @@ using System.Windows.Forms;
 using System.Net;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices;
 
 namespace APIAccessTEST01
 {
     public partial class Crypto : Form
     {
+
+        DropShadow ds = new DropShadow();
+
         private class Item
         {
             public string Name;
@@ -28,19 +32,52 @@ namespace APIAccessTEST01
             }
         }
 
+        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        private static extern IntPtr CreateRoundRectRgn
+        (
+            int nLeftRect,     // x-coordinate of upper-left corner
+            int nTopRect,      // y-coordinate of upper-left corner
+            int nRightRect,    // x-coordinate of lower-right corner
+            int nBottomRect,   // y-coordinate of lower-right corner
+            int nWidthEllipse, // height of ellipse
+            int nHeightEllipse // width of ellipse
+        );
+
 
         public Crypto()
         {
             InitializeComponent();
+            this.Shown += new EventHandler(Crypto_Shown);
+            this.LocationChanged += new EventHandler(Crypto_Resize);
+        }
+
+        void Crypto_Shown(object sender, EventArgs e)
+        {
+            Rectangle rc = this.Bounds;
+            rc.Inflate(5, 5);
+            ds.Bounds = rc;
+            ds.Show();
+            this.BringToFront();
+        }
+        void Crypto_Resize(object sender, EventArgs e)
+        {
+            ds.Visible = (this.WindowState == FormWindowState.Normal);
+            if (ds.Visible)
+            {
+                Rectangle rc = this.Bounds;
+                rc.Inflate(5, 5);
+                ds.Bounds = rc;
+            }
+            this.BringToFront();
         }
 
         //Creating Varaibles For Moving Form.
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
-        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        [DllImportAttribute("user32.dll")]
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        [System.Runtime.InteropServices.DllImportAttribute("user32.dll")]
+        [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
 
         //Creating Lists for JSON.
@@ -268,6 +305,7 @@ namespace APIAccessTEST01
             Footer.Location = new Point(222, 539);
             this.Size = new Size(1064, 577);
             this.CenterToScreen();
+            Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 25, 25));
             GETINFOSummary();                                 //Getting ALL API Information.
             lblSaveFound.Visible = false;                    //Not Required on first startup.
         }
@@ -1432,10 +1470,30 @@ namespace APIAccessTEST01
         void SetDefault()
         {
             StartingMiningSettings.Clear();
-            StartingMiningSettings = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt").ToList();
-            HeaderPoolv.Text = StartingMiningSettings[0];
-            HeaderWorkerv.Text = StartingMiningSettings[1];
-            HeaderMiningCurrencyv.SelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt"))
+            {
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt", "EMPTY");
+                HeaderPoolv.Text = "";
+                HeaderWorkerv.Text = "SELECT A POOL";
+                HeaderMiningCurrencyv.Text = "";
+            }
+            else
+            {
+                StartingMiningSettings = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt").ToList();
+                string test = StartingMiningSettings[0];
+                if (test == "EMPTY")
+                {
+                    HeaderPoolv.Text = "";
+                    HeaderWorkerv.Text = "SELECT A POOL";
+                    HeaderMiningCurrencyv.Text = "";
+                }
+                else
+                {
+                    HeaderPoolv.Text = StartingMiningSettings[0];
+                    HeaderWorkerv.Text = StartingMiningSettings[1];
+                    HeaderMiningCurrencyv.SelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
+                }
+            }
         }
         void GETWallets()
         {
@@ -2094,6 +2152,32 @@ namespace APIAccessTEST01
             StartingMiningSettings.Add(HeaderWorkerv.Text);
             StartingMiningSettings.Add(Convert.ToString(HeaderMiningCurrencyv.SelectedIndex));
             File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt", StartingMiningSettings);
+        }
+
+
+
+        public class DropShadow : Form
+        {
+            public DropShadow()
+            {
+                this.Opacity = 0.5;
+                this.BackColor = Color.Gray;
+                this.ShowInTaskbar = false;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.StartPosition = FormStartPosition.Manual;
+                Region = Region.FromHrgn(CreateRoundRectRgn(0, 0, 1079, 592, 25, 25));
+            }
+            private const int WS_EX_TRANSPARENT = 0x20;
+            private const int WS_EX_NOACTIVATE = 0x8000000;
+            protected override CreateParams CreateParams
+            {
+                get
+                {
+                    CreateParams cp = base.CreateParams;
+                    cp.ExStyle = cp.ExStyle | WS_EX_TRANSPARENT | WS_EX_NOACTIVATE;
+                    return cp;
+                }
+            }
         }
     }
 }

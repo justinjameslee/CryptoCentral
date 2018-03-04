@@ -284,7 +284,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.MiningNH = new System.Windows.Forms.PictureBox();
             this.groupWorkerAddress = new System.Windows.Forms.GroupBox();
             this.lblWorkerAddress = new System.Windows.Forms.Label();
             this.groupWorkerDetails = new System.Windows.Forms.GroupBox();
@@ -323,6 +323,8 @@
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
             this.lblCurrentPage = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblMiningWorkerSeperator = new System.Windows.Forms.Label();
+            this.MiningZPOOL = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
@@ -367,7 +369,7 @@
             this.groupOptionsNH.SuspendLayout();
             this.Mining01.SuspendLayout();
             this.groupMiningWorker.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).BeginInit();
             this.groupWorkerAddress.SuspendLayout();
             this.groupWorkerDetails.SuspendLayout();
             this.groupWorkerProfitability.SuspendLayout();
@@ -3365,7 +3367,8 @@
             // 
             // groupMiningWorker
             // 
-            this.groupMiningWorker.Controls.Add(this.pictureBox2);
+            this.groupMiningWorker.Controls.Add(this.MiningZPOOL);
+            this.groupMiningWorker.Controls.Add(this.MiningNH);
             this.groupMiningWorker.Controls.Add(this.groupWorkerAddress);
             this.groupMiningWorker.Controls.Add(this.groupWorkerDetails);
             this.groupMiningWorker.Controls.Add(this.groupWorkerProfitability);
@@ -3378,15 +3381,15 @@
             this.groupMiningWorker.TabStop = false;
             this.groupMiningWorker.Text = "WORKER";
             // 
-            // pictureBox2
+            // MiningNH
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(26, 30);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(220, 58);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 49;
-            this.pictureBox2.TabStop = false;
+            this.MiningNH.Image = ((System.Drawing.Image)(resources.GetObject("MiningNH.Image")));
+            this.MiningNH.Location = new System.Drawing.Point(596, 65);
+            this.MiningNH.Name = "MiningNH";
+            this.MiningNH.Size = new System.Drawing.Size(220, 58);
+            this.MiningNH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MiningNH.TabIndex = 49;
+            this.MiningNH.TabStop = false;
             // 
             // groupWorkerAddress
             // 
@@ -3413,6 +3416,7 @@
             // 
             // groupWorkerDetails
             // 
+            this.groupWorkerDetails.Controls.Add(this.lblMiningWorkerSeperator);
             this.groupWorkerDetails.Controls.Add(this.lblWorkerRejectv);
             this.groupWorkerDetails.Controls.Add(this.lblWorkerEfficiencyv);
             this.groupWorkerDetails.Controls.Add(this.lblWorkerHashv);
@@ -3815,6 +3819,25 @@
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
             // 
+            // lblMiningWorkerSeperator
+            // 
+            this.lblMiningWorkerSeperator.BackColor = System.Drawing.Color.Black;
+            this.lblMiningWorkerSeperator.Location = new System.Drawing.Point(442, 15);
+            this.lblMiningWorkerSeperator.Name = "lblMiningWorkerSeperator";
+            this.lblMiningWorkerSeperator.Size = new System.Drawing.Size(2, 196);
+            this.lblMiningWorkerSeperator.TabIndex = 43;
+            this.lblMiningWorkerSeperator.Text = "label4";
+            // 
+            // MiningZPOOL
+            // 
+            this.MiningZPOOL.AutoSize = true;
+            this.MiningZPOOL.Font = new System.Drawing.Font("AR BLANCA", 42F);
+            this.MiningZPOOL.Location = new System.Drawing.Point(26, 30);
+            this.MiningZPOOL.Name = "MiningZPOOL";
+            this.MiningZPOOL.Size = new System.Drawing.Size(177, 67);
+            this.MiningZPOOL.TabIndex = 50;
+            this.MiningZPOOL.Text = "ZPOOL";
+            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3898,7 +3921,8 @@
             this.groupOptionsNH.PerformLayout();
             this.Mining01.ResumeLayout(false);
             this.groupMiningWorker.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.groupMiningWorker.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).EndInit();
             this.groupWorkerAddress.ResumeLayout(false);
             this.groupWorkerAddress.PerformLayout();
             this.groupWorkerDetails.ResumeLayout(false);
@@ -4184,7 +4208,7 @@
         private System.Windows.Forms.PictureBox btnPageLeft;
         private System.Windows.Forms.Label lblCurrentPage;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox MiningNH;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox customRefresh01;
         private System.Windows.Forms.PictureBox customRefresh09;
@@ -4210,5 +4234,7 @@
         private System.Windows.Forms.ComboBox OptionsZPWalletsv;
         private System.Windows.Forms.Button btnOptionsZPSave;
         private System.Windows.Forms.Label lblOptionsZPOp;
+        private System.Windows.Forms.Label lblMiningWorkerSeperator;
+        private System.Windows.Forms.Label MiningZPOOL;
     }
 }

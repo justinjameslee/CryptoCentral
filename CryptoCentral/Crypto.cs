@@ -759,10 +759,7 @@ namespace CryptoCentral
             }
             
         }
-        void CalculateCoinAgainstFiat()
-        {
-
-        }
+        //Calculating ANY COIN Against FIAT Currency.
         void CalculateCoinAgainstFiatPercentage(string price_currency, string percent, decimal Dpercent, Label xCv)
         {
             percent = RemoveExtraText(percent);
@@ -783,6 +780,7 @@ namespace CryptoCentral
             }
             xCv.Text = price_currency;
         }
+        //Calculating Percentage VALUE Change (1Hour 24Hour 7Days).
         void CalculatePercentageValue(string value_changed, string convertedPercent, string StartingPercent, string price_usd, decimal Dprice_usd, string price_aud, decimal Dprice_aud, decimal DChange, Label ValueText)
         {
             if (StartingPercent == null)
@@ -791,111 +789,61 @@ namespace CryptoCentral
             }
             else
             {
-                convertedPercent = RemoveExtraText(StartingPercent);
+                convertedPercent = RemoveExtraText(StartingPercent);        //Remove (" ").
                 if (CURRENCY == "USD")
                 {
-                    
-                    price_usd = RemoveExtraText(price_usd);
-                    decimal totalPercent;
-                    totalPercent = Convert.ToDecimal(convertedPercent);
-                    totalPercent = totalPercent / 100;
-                    if (totalPercent >= 0)
-                    {
-                        totalPercent = totalPercent + 1;
-                    }
-                    else if (totalPercent < 0)
-                    {
-                        totalPercent = totalPercent - 1;
-                    }
-                    Dprice_usd = Convert.ToDecimal(price_usd);
-                    DChange = Dprice_usd / totalPercent;
-                    value_changed = Convert.ToString(DChange);
-                    if (DChange < 0)
-                    {
-                        DChange = DChange * -1;
-                        DChange = Dprice_usd - DChange;
-                        value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
-                        {
-                            ValueText.ForeColor = Color.Black;
-                        }
-                        else
-                        {
-                            ValueText.ForeColor = Color.Red;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
-                    }
-                    else if (DChange > 0)
-                    {
-                        DChange = Dprice_usd - DChange;
-                        value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
-                        {
-                            ValueText.ForeColor = Color.Black;
-                        }
-                        else
-                        {
-                            ValueText.ForeColor = Color.Green;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
-
-                    }
-                    value_changed = "$" + value_changed;
-                    ValueText.Text = value_changed;
+                    CalculatePercentageValueDetailed(value_changed, price_usd, convertedPercent, Dprice_usd, DChange, ValueText);
                 }
                 else if (CURRENCY == "AUD")
                 {
-                    
-                    price_aud = RemoveExtraText(price_aud);
-                    decimal totalPercent;
-                    totalPercent = Convert.ToDecimal(convertedPercent);
-                    totalPercent = totalPercent / 100;
-                    if (totalPercent >= 0)
-                    {
-                        totalPercent = totalPercent + 1;
-                    }
-                    else if (totalPercent < 0)
-                    {
-                        totalPercent = totalPercent - 1;
-                    }
-                    Dprice_aud = Convert.ToDecimal(price_aud);
-                    DChange = Dprice_aud / totalPercent;
-                    value_changed = Convert.ToString(DChange);
-                    if (DChange < 0)
-                    {
-                        DChange = DChange * -1;
-                        DChange = Dprice_aud - DChange;
-                        value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
-                        {
-                            ValueText.ForeColor = Color.Black;
-                        }
-                        else
-                        {
-                            ValueText.ForeColor = Color.Red;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
-                    }
-                    else if (DChange > 0)
-                    {
-                        DChange = Dprice_aud - DChange;
-                        value_changed = Convert.ToString(DChange);
-                        if (DChange == 0)
-                        {
-                            ValueText.ForeColor = Color.Black;
-                        }
-                        else
-                        {
-                            ValueText.ForeColor = Color.Green;
-                            value_changed = value_changed.Substring(0, 8);
-                        }
-
-                    }
-                    value_changed = "$" + value_changed;
-                    ValueText.Text = value_changed;
+                    CalculatePercentageValueDetailed(value_changed, price_aud, convertedPercent, Dprice_aud, DChange, ValueText);
                 }
             }
         }
+        void CalculatePercentageValueDetailed(string value_changed, string price, string convertedPercent, decimal Dprice, decimal DChange, Label ValueText)
+        {
+            //Percentage Value Calculation Logic.
+            price = RemoveExtraText(price);
+            decimal totalPercent;
+            totalPercent = Convert.ToDecimal(convertedPercent);     //Convert Percentage to a Decimal.
+            totalPercent = totalPercent / 100;                      //Divide percentage by 100 to get actual percentage change. Eg: 5% = 0.05%
+            Dprice = Convert.ToDecimal(price);                      //Decimal Value of the price taken from CoinsDetailed.
+            DChange = Dprice * totalPercent;                        //Represents the Change in Value.
+
+            //Confirms Correct Color Label is Displayed.
+            if (DChange < 0)
+            {
+                DChange = DChange * -1;
+                if (DChange == 0)
+                {
+                    ValueText.ForeColor = Color.Black;
+                }
+                else
+                {
+                    ValueText.ForeColor = Color.Red;
+                    value_changed = string.Format("{0:#,0.00000000}", DChange);    //Format the price to include commas and up to 4 decimal points.
+                    value_changed = value_changed.Substring(0, 8);
+                }
+            }
+            else if (DChange > 0)
+            {
+                if (DChange == 0)
+                {
+                    ValueText.ForeColor = Color.Black;
+                }
+                else
+                {
+                    ValueText.ForeColor = Color.Green;
+                    value_changed = string.Format("{0:#,0.00000000}", DChange);    //Format the price to include commas and up to 4 decimal points.
+                    value_changed = value_changed.Substring(0, 8);
+                }
+
+            }
+            //Sets Label to the Calculated Figures.
+            value_changed = "$" + value_changed;
+            ValueText.Text = value_changed;
+        }
+        //Calculating Readable Percentage Values.
         void CalculatePercentage(double Dchange, string Data, string StartingPercentP, Label PercentText)
         {
             if (StartingPercentP == null)
@@ -908,6 +856,7 @@ namespace CryptoCentral
                 Data = RemoveExtraText(StartingPercentP);
                 Dchange = Convert.ToDouble(Data);
                 Data = Data + "%";
+                //Making Sure the Labels are Colored Correctly.
                 if (Dchange > 0)
                 {
                     PercentText.ForeColor = Color.Green;
@@ -936,7 +885,54 @@ namespace CryptoCentral
             }
             
         }
-
+        private string RemoveonlyCurly(string value)
+        {
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890,:[].\"";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+        }
+        private string RemoveforMining(string value)
+        {
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+        }
+        private string RemoveforMiningKeepingCurly(string value)
+        {
+            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890{}";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+        }
+        private string RemoveCommas(string value)
+        {
+            var allowedChars = "1234567890.";
+            try
+            {
+                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
+            }
+            catch (Exception)
+            {
+                return value;
+            }
+        }
         public static string getBetween(string strSource, string strStart, string strEnd)
         {
             int Start, End;
@@ -951,7 +947,6 @@ namespace CryptoCentral
                 return "";
             }
         }
-
         public void API(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -1767,6 +1762,7 @@ namespace CryptoCentral
         void HideMiningLogos()
         {
             MiningNH.Visible = false;
+            MiningZPOOL.Visible = false;
         }
         void GETWorkerInfo()
         {
@@ -1923,55 +1919,6 @@ namespace CryptoCentral
             }
             SYNCED = true;
         }
-        private string RemoveonlyCurly(string value)
-        {
-            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890,:[].\"";
-            try
-            {
-                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
-            }
-            catch (Exception)
-            {
-                return value;
-            }
-        }
-        private string RemoveforMining(string value)
-        {
-            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890";
-            try
-            {
-                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
-            }
-            catch (Exception)
-            {
-                return value;
-            }
-        }
-        private string RemoveforMiningKeepingCurly(string value)
-        {
-            var allowedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890{}";
-            try
-            {
-                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
-            }
-            catch (Exception)
-            {
-                return value;
-            }
-        }
-        private string RemoveCommas(string value)
-        {
-            var allowedChars = "1234567890.";
-            try
-            {
-                return new string(value.Where(c => allowedChars.Contains(c)).ToArray());
-            }
-            catch (Exception)
-            {
-                return value;
-            }
-        }
-        
 
         private void HeaderPoolv_SelectedIndexChanged(object sender, EventArgs e)
         {

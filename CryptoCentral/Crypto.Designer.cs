@@ -284,10 +284,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
+            this.MiningZPOOL = new System.Windows.Forms.Label();
             this.MiningNH = new System.Windows.Forms.PictureBox();
             this.groupWorkerAddress = new System.Windows.Forms.GroupBox();
             this.lblWorkerAddress = new System.Windows.Forms.Label();
             this.groupWorkerDetails = new System.Windows.Forms.GroupBox();
+            this.lblMiningWorkerSeperator = new System.Windows.Forms.Label();
             this.lblWorkerRejectv = new System.Windows.Forms.Label();
             this.lblWorkerEfficiencyv = new System.Windows.Forms.Label();
             this.lblWorkerHashv = new System.Windows.Forms.Label();
@@ -323,8 +325,6 @@
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
             this.lblCurrentPage = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.lblMiningWorkerSeperator = new System.Windows.Forms.Label();
-            this.MiningZPOOL = new System.Windows.Forms.Label();
             this.Sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
@@ -3381,6 +3381,16 @@
             this.groupMiningWorker.TabStop = false;
             this.groupMiningWorker.Text = "WORKER";
             // 
+            // MiningZPOOL
+            // 
+            this.MiningZPOOL.AutoSize = true;
+            this.MiningZPOOL.Font = new System.Drawing.Font("Microsoft Sans Serif", 42F);
+            this.MiningZPOOL.Location = new System.Drawing.Point(26, 30);
+            this.MiningZPOOL.Name = "MiningZPOOL";
+            this.MiningZPOOL.Size = new System.Drawing.Size(218, 64);
+            this.MiningZPOOL.TabIndex = 50;
+            this.MiningZPOOL.Text = "ZPOOL";
+            // 
             // MiningNH
             // 
             this.MiningNH.Image = ((System.Drawing.Image)(resources.GetObject("MiningNH.Image")));
@@ -3441,6 +3451,15 @@
             this.groupWorkerDetails.TabIndex = 47;
             this.groupWorkerDetails.TabStop = false;
             this.groupWorkerDetails.Text = "WORKER DETAILS";
+            // 
+            // lblMiningWorkerSeperator
+            // 
+            this.lblMiningWorkerSeperator.BackColor = System.Drawing.Color.Black;
+            this.lblMiningWorkerSeperator.Location = new System.Drawing.Point(442, 46);
+            this.lblMiningWorkerSeperator.Name = "lblMiningWorkerSeperator";
+            this.lblMiningWorkerSeperator.Size = new System.Drawing.Size(2, 152);
+            this.lblMiningWorkerSeperator.TabIndex = 43;
+            this.lblMiningWorkerSeperator.Text = "label4";
             // 
             // lblWorkerRejectv
             // 
@@ -3818,25 +3837,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(842, 16);
             this.pictureBox3.TabIndex = 51;
             this.pictureBox3.TabStop = false;
-            // 
-            // lblMiningWorkerSeperator
-            // 
-            this.lblMiningWorkerSeperator.BackColor = System.Drawing.Color.Black;
-            this.lblMiningWorkerSeperator.Location = new System.Drawing.Point(442, 15);
-            this.lblMiningWorkerSeperator.Name = "lblMiningWorkerSeperator";
-            this.lblMiningWorkerSeperator.Size = new System.Drawing.Size(2, 196);
-            this.lblMiningWorkerSeperator.TabIndex = 43;
-            this.lblMiningWorkerSeperator.Text = "label4";
-            // 
-            // MiningZPOOL
-            // 
-            this.MiningZPOOL.AutoSize = true;
-            this.MiningZPOOL.Font = new System.Drawing.Font("AR BLANCA", 42F);
-            this.MiningZPOOL.Location = new System.Drawing.Point(26, 30);
-            this.MiningZPOOL.Name = "MiningZPOOL";
-            this.MiningZPOOL.Size = new System.Drawing.Size(177, 67);
-            this.MiningZPOOL.TabIndex = 50;
-            this.MiningZPOOL.Text = "ZPOOL";
             // 
             // Crypto
             // 

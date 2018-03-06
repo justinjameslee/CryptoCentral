@@ -204,10 +204,10 @@
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPageSummary = new System.Windows.Forms.TabPage();
             this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxTimeZone = new System.Windows.Forms.GroupBox();
             this.lblTimeSet = new System.Windows.Forms.Label();
             this.btnTimeDefault = new System.Windows.Forms.Button();
-            this.Timezonev = new System.Windows.Forms.ComboBox();
+            this.TimeZonev = new System.Windows.Forms.ComboBox();
             this.groupBoxPages = new System.Windows.Forms.GroupBox();
             this.Pagev = new System.Windows.Forms.ComboBox();
             this.btnNewPage = new System.Windows.Forms.Button();
@@ -216,6 +216,9 @@
             this.lblSaveFound = new System.Windows.Forms.Label();
             this.lblNewPage = new System.Windows.Forms.Label();
             this.groupBoxCurrency = new System.Windows.Forms.GroupBox();
+            this.lblPeriodCurrency = new System.Windows.Forms.Label();
+            this.TimePeriodv = new System.Windows.Forms.ComboBox();
+            this.lblCurrencyPreview = new System.Windows.Forms.Label();
             this.lblDefaultSet = new System.Windows.Forms.Label();
             this.btnCurrencyDefault = new System.Windows.Forms.Button();
             this.Currencyv = new System.Windows.Forms.ComboBox();
@@ -359,7 +362,7 @@
             this.tabOptions.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBoxTimeZone.SuspendLayout();
             this.groupBoxPages.SuspendLayout();
             this.groupBoxCurrency.SuspendLayout();
             this.optionsSummary.SuspendLayout();
@@ -2244,6 +2247,8 @@
             // 
             // tabPageSummary
             // 
+            this.tabPageSummary.AutoScroll = true;
+            this.tabPageSummary.AutoScrollMargin = new System.Drawing.Size(0, 20);
             this.tabPageSummary.BackColor = System.Drawing.Color.White;
             this.tabPageSummary.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.tabPageSummary.Controls.Add(this.optionsSummaryAdvaned);
@@ -2259,30 +2264,30 @@
             // optionsSummaryAdvaned
             // 
             this.optionsSummaryAdvaned.BackColor = System.Drawing.Color.White;
-            this.optionsSummaryAdvaned.Controls.Add(this.groupBox2);
+            this.optionsSummaryAdvaned.Controls.Add(this.groupBoxTimeZone);
             this.optionsSummaryAdvaned.Controls.Add(this.groupBoxPages);
             this.optionsSummaryAdvaned.Controls.Add(this.groupBoxCurrency);
             this.optionsSummaryAdvaned.Controls.Add(this.label2);
             this.optionsSummaryAdvaned.ForeColor = System.Drawing.Color.Black;
-            this.optionsSummaryAdvaned.Location = new System.Drawing.Point(455, 3);
+            this.optionsSummaryAdvaned.Location = new System.Drawing.Point(437, 3);
             this.optionsSummaryAdvaned.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummaryAdvaned.Name = "optionsSummaryAdvaned";
-            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(379, 377);
+            this.optionsSummaryAdvaned.Size = new System.Drawing.Size(380, 608);
             this.optionsSummaryAdvaned.TabIndex = 22;
             // 
-            // groupBox2
+            // groupBoxTimeZone
             // 
-            this.groupBox2.Controls.Add(this.lblTimeSet);
-            this.groupBox2.Controls.Add(this.btnTimeDefault);
-            this.groupBox2.Controls.Add(this.Timezonev);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(32, 214);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(151, 131);
-            this.groupBox2.TabIndex = 51;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "TIME ZONE";
+            this.groupBoxTimeZone.Controls.Add(this.lblTimeSet);
+            this.groupBoxTimeZone.Controls.Add(this.btnTimeDefault);
+            this.groupBoxTimeZone.Controls.Add(this.TimeZonev);
+            this.groupBoxTimeZone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.groupBoxTimeZone.ForeColor = System.Drawing.Color.Black;
+            this.groupBoxTimeZone.Location = new System.Drawing.Point(32, 214);
+            this.groupBoxTimeZone.Name = "groupBoxTimeZone";
+            this.groupBoxTimeZone.Size = new System.Drawing.Size(151, 131);
+            this.groupBoxTimeZone.TabIndex = 51;
+            this.groupBoxTimeZone.TabStop = false;
+            this.groupBoxTimeZone.Text = "TIME ZONE";
             // 
             // lblTimeSet
             // 
@@ -2309,23 +2314,23 @@
             this.btnTimeDefault.UseVisualStyleBackColor = false;
             this.btnTimeDefault.Click += new System.EventHandler(this.btnTimeDefault_Click);
             // 
-            // Timezonev
+            // TimeZonev
             // 
-            this.Timezonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Timezonev.BackColor = System.Drawing.Color.White;
-            this.Timezonev.DisplayMember = "(Collection)";
-            this.Timezonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Timezonev.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.Timezonev.FormattingEnabled = true;
-            this.Timezonev.Items.AddRange(new object[] {
+            this.TimeZonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TimeZonev.BackColor = System.Drawing.Color.White;
+            this.TimeZonev.DisplayMember = "(Collection)";
+            this.TimeZonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TimeZonev.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.TimeZonev.FormattingEnabled = true;
+            this.TimeZonev.Items.AddRange(new object[] {
             "UTC",
             "LOCAL"});
-            this.Timezonev.Location = new System.Drawing.Point(14, 33);
-            this.Timezonev.Name = "Timezonev";
-            this.Timezonev.Size = new System.Drawing.Size(121, 29);
-            this.Timezonev.TabIndex = 42;
-            this.Timezonev.TabStop = false;
-            this.Timezonev.SelectedIndexChanged += new System.EventHandler(this.Timezonev_SelectedIndexChanged);
+            this.TimeZonev.Location = new System.Drawing.Point(14, 33);
+            this.TimeZonev.Name = "TimeZonev";
+            this.TimeZonev.Size = new System.Drawing.Size(121, 29);
+            this.TimeZonev.TabIndex = 42;
+            this.TimeZonev.TabStop = false;
+            this.TimeZonev.SelectedIndexChanged += new System.EventHandler(this.Timezonev_SelectedIndexChanged);
             // 
             // groupBoxPages
             // 
@@ -2417,6 +2422,9 @@
             // 
             // groupBoxCurrency
             // 
+            this.groupBoxCurrency.Controls.Add(this.lblPeriodCurrency);
+            this.groupBoxCurrency.Controls.Add(this.TimePeriodv);
+            this.groupBoxCurrency.Controls.Add(this.lblCurrencyPreview);
             this.groupBoxCurrency.Controls.Add(this.lblDefaultSet);
             this.groupBoxCurrency.Controls.Add(this.btnCurrencyDefault);
             this.groupBoxCurrency.Controls.Add(this.Currencyv);
@@ -2424,15 +2432,53 @@
             this.groupBoxCurrency.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCurrency.Location = new System.Drawing.Point(206, 58);
             this.groupBoxCurrency.Name = "groupBoxCurrency";
-            this.groupBoxCurrency.Size = new System.Drawing.Size(151, 131);
+            this.groupBoxCurrency.Size = new System.Drawing.Size(151, 229);
             this.groupBoxCurrency.TabIndex = 49;
             this.groupBoxCurrency.TabStop = false;
             this.groupBoxCurrency.Text = "CURRENCY";
             // 
+            // lblPeriodCurrency
+            // 
+            this.lblPeriodCurrency.Font = new System.Drawing.Font("Walkway Bold", 10F);
+            this.lblPeriodCurrency.Location = new System.Drawing.Point(24, 103);
+            this.lblPeriodCurrency.Name = "lblPeriodCurrency";
+            this.lblPeriodCurrency.Size = new System.Drawing.Size(104, 17);
+            this.lblPeriodCurrency.TabIndex = 54;
+            this.lblPeriodCurrency.Text = "1HR 24HR 7D";
+            this.lblPeriodCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // TimePeriodv
+            // 
+            this.TimePeriodv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.TimePeriodv.BackColor = System.Drawing.Color.White;
+            this.TimePeriodv.DisplayMember = "(Collection)";
+            this.TimePeriodv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TimePeriodv.Font = new System.Drawing.Font("Walkway Bold", 15F);
+            this.TimePeriodv.FormattingEnabled = true;
+            this.TimePeriodv.Items.AddRange(new object[] {
+            "USD ($)",
+            "AUD ($)"});
+            this.TimePeriodv.Location = new System.Drawing.Point(15, 123);
+            this.TimePeriodv.Name = "TimePeriodv";
+            this.TimePeriodv.Size = new System.Drawing.Size(121, 29);
+            this.TimePeriodv.TabIndex = 51;
+            this.TimePeriodv.TabStop = false;
+            this.TimePeriodv.SelectedIndexChanged += new System.EventHandler(this.TimePeriodCurrencyv_SelectedIndexChanged);
+            // 
+            // lblCurrencyPreview
+            // 
+            this.lblCurrencyPreview.Font = new System.Drawing.Font("Walkway Bold", 12F);
+            this.lblCurrencyPreview.Location = new System.Drawing.Point(24, 41);
+            this.lblCurrencyPreview.Name = "lblCurrencyPreview";
+            this.lblCurrencyPreview.Size = new System.Drawing.Size(104, 17);
+            this.lblCurrencyPreview.TabIndex = 50;
+            this.lblCurrencyPreview.Text = "XXX/USD";
+            this.lblCurrencyPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // lblDefaultSet
             // 
             this.lblDefaultSet.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblDefaultSet.Location = new System.Drawing.Point(23, 103);
+            this.lblDefaultSet.Location = new System.Drawing.Point(24, 196);
             this.lblDefaultSet.Name = "lblDefaultSet";
             this.lblDefaultSet.Size = new System.Drawing.Size(104, 17);
             this.lblDefaultSet.TabIndex = 49;
@@ -2446,7 +2492,7 @@
             this.btnCurrencyDefault.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnCurrencyDefault.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCurrencyDefault.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnCurrencyDefault.Location = new System.Drawing.Point(14, 68);
+            this.btnCurrencyDefault.Location = new System.Drawing.Point(15, 161);
             this.btnCurrencyDefault.Name = "btnCurrencyDefault";
             this.btnCurrencyDefault.Size = new System.Drawing.Size(121, 30);
             this.btnCurrencyDefault.TabIndex = 49;
@@ -2465,7 +2511,7 @@
             this.Currencyv.Items.AddRange(new object[] {
             "USD ($)",
             "AUD ($)"});
-            this.Currencyv.Location = new System.Drawing.Point(14, 33);
+            this.Currencyv.Location = new System.Drawing.Point(15, 61);
             this.Currencyv.Name = "Currencyv";
             this.Currencyv.Size = new System.Drawing.Size(121, 29);
             this.Currencyv.TabIndex = 42;
@@ -2478,7 +2524,7 @@
             this.label2.Font = new System.Drawing.Font("Walkway Bold", 22F);
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(379, 40);
+            this.label2.Size = new System.Drawing.Size(380, 40);
             this.label2.TabIndex = 40;
             this.label2.Text = "Advanced Options";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -2514,7 +2560,7 @@
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
             this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummary.Name = "optionsSummary";
-            this.optionsSummary.Size = new System.Drawing.Size(449, 372);
+            this.optionsSummary.Size = new System.Drawing.Size(434, 625);
             this.optionsSummary.TabIndex = 21;
             // 
             // btnClearSummary
@@ -2602,7 +2648,7 @@
             this.lblSummaryCoins.Font = new System.Drawing.Font("Walkway Bold", 22F);
             this.lblSummaryCoins.Location = new System.Drawing.Point(0, 0);
             this.lblSummaryCoins.Name = "lblSummaryCoins";
-            this.lblSummaryCoins.Size = new System.Drawing.Size(449, 40);
+            this.lblSummaryCoins.Size = new System.Drawing.Size(434, 40);
             this.lblSummaryCoins.TabIndex = 39;
             this.lblSummaryCoins.Text = "Summary Coins";
             this.lblSummaryCoins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -3907,7 +3953,7 @@
             this.tabOptions.ResumeLayout(false);
             this.tabPageSummary.ResumeLayout(false);
             this.optionsSummaryAdvaned.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.groupBoxTimeZone.ResumeLayout(false);
             this.groupBoxPages.ResumeLayout(false);
             this.groupBoxCurrency.ResumeLayout(false);
             this.optionsSummary.ResumeLayout(false);
@@ -4145,10 +4191,10 @@
         private System.Windows.Forms.Label lblDefaultSet;
         private System.Windows.Forms.Button btnCurrencyDefault;
         private System.Windows.Forms.Timer timerRefreshing;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxTimeZone;
         private System.Windows.Forms.Label lblTimeSet;
         private System.Windows.Forms.Button btnTimeDefault;
-        private System.Windows.Forms.ComboBox Timezonev;
+        private System.Windows.Forms.ComboBox TimeZonev;
         private System.Windows.Forms.PictureBox btnMinimize;
         private System.Windows.Forms.GroupBox groupMiningWorker;
         private System.Windows.Forms.GroupBox groupWorkerAddress;
@@ -4236,5 +4282,8 @@
         private System.Windows.Forms.Label lblOptionsZPOp;
         private System.Windows.Forms.Label lblMiningWorkerSeperator;
         private System.Windows.Forms.Label MiningZPOOL;
+        private System.Windows.Forms.Label lblCurrencyPreview;
+        private System.Windows.Forms.Label lblPeriodCurrency;
+        private System.Windows.Forms.ComboBox TimePeriodv;
     }
 }

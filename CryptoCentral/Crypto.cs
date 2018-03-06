@@ -53,7 +53,7 @@ namespace CryptoCentral
         string CURRENCY;
 
         //Storing Json output as a string.
-        string jsonString; 
+        string jsonString;
 
         //Custom Coin inputs as Symbols eg "BTC".
         string coin1 = "";
@@ -82,6 +82,12 @@ namespace CryptoCentral
         string Pages;
         string StartingCurrency;
         string StartingTimeZone;
+        string StartingPeriod;
+        int CurrencyNumber;
+        int TimeZoneNumber;
+        int TimePeriodNumber;
+        int pages = 1;
+        int PageCalculation;
 
         //Storing Inputed Coins in an array | New profile ready.
         string[] ProfileLoad = { "BTC", "", "", "", "", "", "", "", "", "" };
@@ -102,12 +108,8 @@ namespace CryptoCentral
         double Profile;
 
         //Variables that are not indexed. Eg Index: 0 is Page 1.
-        int pages = 1;
-        int PageCalculation;
         int CurrentPage;
         int MaxPages;
-        int CurrencyNumber;
-        int TimeZoneNumber;
 
         //Variables to control Universal Syncing.
         int intSyncTimer;
@@ -182,7 +184,7 @@ namespace CryptoCentral
         string STimeHours = null;
         string STimeMins = null;
         string STimeSeconds = null;
-        
+
         //Recording Actual Profit.
         Dictionary<int, string> RealProfit = new Dictionary<int, string>();
 
@@ -191,7 +193,7 @@ namespace CryptoCentral
         List<string> SepWorkers = new List<string>();
         List<string> RealWorkers = new List<string>();
         List<string> StartingMiningSettings = new List<string>();
-        
+
 
 
         //ZPOOL Variables
@@ -239,7 +241,7 @@ namespace CryptoCentral
         //Checking and Creating Required Files
         void CreateMustFiles()
         {
-            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\ZPool.txt"))
+            if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimePeriod.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt") || !File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\ZPool.txt"))
             {
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
                 Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining");
@@ -249,11 +251,12 @@ namespace CryptoCentral
                 File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page0.txt", ProfileLoad);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", Convert.ToString(0));
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", Convert.ToString(0));
+                File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimePeriod.txt", "USD ($)");
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt", "");
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\ZPool.txt", "");
             }
         }
-        
+
 
         private void Crypto_Load(object sender, EventArgs e)
         {
@@ -275,14 +278,14 @@ namespace CryptoCentral
             Options.Visible = false;                                //Hide Options Panel.
             Mining01.Visible = false;                               //Hide Mining Panel.
             Summary01.Visible = true;                               //Show Summary Panel.
-            Footer.Location = new Point(222, 539);                  
-            this.Size = new Size(1064, 577);                        
+            Footer.Location = new Point(222, 539);
+            this.Size = new Size(1064, 577);
             this.CenterToScreen();
             GETINFOSummary();                                 //Getting ALL API Information.
             GETWorkerInfo();                                  //Get ALL Relevant Mining Info
             lblSaveFound.Visible = false;                    //Not Required on first startup.
         }
-        
+
         //Events for moving the actual form.
         private void Header_MouseDown(object sender, MouseEventArgs e)
         {
@@ -326,7 +329,7 @@ namespace CryptoCentral
             btnPageLeft.Visible = true;
             btnPageRight.Visible = true;
             lblCurrentPage.Visible = true;
-            
+
         }
         void HeaderMining()
         {
@@ -350,7 +353,7 @@ namespace CryptoCentral
             Mining01.Visible = true;
             MiningRESET();
             HeaderMining();
-            
+
         }
         private void lblSettings_Click(object sender, EventArgs e)
         {
@@ -368,13 +371,14 @@ namespace CryptoCentral
             Summary01RESET();
             HeaderDefault();
         }
-        
+
         //Function for Loading the Selected Profile.
         //ProfileNumber is sourced from LoginScreen.
         void LoadProfile(double ProfileNumber)
         {
             try
             {
+                StartingPeriod = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimePeriod.txt");
                 StartingTimeZone = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt");
                 StartingCurrency = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt");
                 PageNumber = File.ReadAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt");
@@ -397,19 +401,41 @@ namespace CryptoCentral
                 if (CurrencyNumber == 0)
                 {
                     Currencyv.SelectedIndex = 0;
+                    TimePeriodv.Items.Clear();
+                    TimePeriodv.Items.Add("USD ($)");
+                    TimePeriodv.Items.Add("BTC (Satoshi)");
+                    lblCurrencyPreview.Text = "XXX/USD";
                 }
                 else if (CurrencyNumber == 1)
                 {
                     Currencyv.SelectedIndex = 1;
+                    TimePeriodv.Items.Clear();
+                    TimePeriodv.Items.Add("AUD ($)");
+                    TimePeriodv.Items.Add("BTC (Satoshi)");
+                    lblCurrencyPreview.Text = "XXX/AUD";
                 }
+
 
                 if (TimeZoneNumber == 0)
                 {
-                    Timezonev.SelectedIndex = 0;
+                    TimeZonev.SelectedIndex = 0;
                 }
                 else if (TimeZoneNumber == 1)
                 {
-                    Timezonev.SelectedIndex = 1;
+                    TimeZonev.SelectedIndex = 1;
+                }
+
+                if (StartingPeriod == "USD ($)")
+                {
+                    TimePeriodNumber = 0;
+                }
+                else if (StartingPeriod == "AUD ($)")
+                {
+                    TimePeriodNumber = 1;
+                }
+                else if (StartingPeriod == "BTC (Satoshi)")
+                {
+                    TimePeriodNumber = 2;
                 }
 
                 //Set all lines from txt file into Array
@@ -514,6 +540,20 @@ namespace CryptoCentral
         }
         private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (Currencyv.SelectedIndex == 0)
+            {
+                TimePeriodv.Items.Clear();
+                TimePeriodv.Items.Add("USD ($)");
+                TimePeriodv.Items.Add("BTC (Satoshi)");
+                lblCurrencyPreview.Text = "XXX/USD";
+            }
+            else if (Currencyv.SelectedIndex == 1)
+            {
+                TimePeriodv.Items.Clear();
+                TimePeriodv.Items.Add("AUD ($)");
+                TimePeriodv.Items.Add("BTC (Satoshi)");
+                lblCurrencyPreview.Text = "XXX/AUD";
+            }
             SyncingTest();      //Refreshs Data.
             lblDefaultSet.Visible = false;
         }
@@ -522,6 +562,23 @@ namespace CryptoCentral
             SyncingTest();      //Refreshes Data.
             lblTimeSet.Visible = false;
         }
+        private void TimePeriodCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TimePeriodv.Text == "USD ($)")
+            {
+                TimePeriodNumber = 0;
+            }
+            else if (TimePeriodv.Text == "AUD ($)")
+            {
+                TimePeriodNumber = 1;
+            }
+            else if (TimePeriodv.Text == "BTC (Satoshi)")
+            {
+                TimePeriodNumber = 2;
+            }
+
+            SyncingTest();
+        }
 
         //Confirming New Coin Inputs.
         void ConfirmOptionCoins()
@@ -529,11 +586,6 @@ namespace CryptoCentral
             if (ProfileLoaded != true)
             {
                 SetConfirmationSummary();
-            }
-            else
-            {
-
-
             }
         }
         //Set Coin Variables to Inputted Coins.
@@ -580,7 +632,7 @@ namespace CryptoCentral
 
             if (CRYPTO == "" || customCoin == "")       //If the coin is empty set labels to NO DATA.
             {
-                if(Currencyv.SelectedIndex == 0)
+                if (Currencyv.SelectedIndex == 0)
                 {
                     xC.Text = "XXX/USD";
                 }
@@ -673,13 +725,13 @@ namespace CryptoCentral
                     DTime = Convert.ToDouble(Time);
                     DateTime UniversalTime = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(DTime);        //Converting UNIX time to DateTime.
                     DateTime LocalTime = UniversalTime.ToLocalTime();                                       //Converting DateTime to LocatTime.
-                    if (Timezonev.SelectedIndex == 0)
+                    if (TimeZonev.SelectedIndex == 0)
                     {
                         FinalTime = UniversalTime.ToString("r");            //'r' is a format of DateTime display.
                         FinalTime = FinalTime.Substring(0, FinalTime.Length - 4);   //Remove Extra Text Caused by 'r'.
                         xTimev.Text = FinalTime + " UTC";
                     }
-                    else if (Timezonev.SelectedIndex == 1)
+                    else if (TimeZonev.SelectedIndex == 1)
                     {
                         FinalTime = LocalTime.ToString("r");                //'r' is a format of DateTime display.
                         FinalTime = FinalTime.Substring(0, FinalTime.Length - 4); //Remove Extra Text Caused by 'r'.
@@ -733,6 +785,8 @@ namespace CryptoCentral
                     string price_aud;
                     decimal Dprice_aud = 0;
                     decimal DChange = 0;
+                    string price_btc;
+                    decimal Dprice_btc = 0;
 
                     double Dchange = 0;
                     string Data = null;
@@ -740,13 +794,14 @@ namespace CryptoCentral
 
                     price_usd = data.price_usd;
                     price_aud = data.price_aud;
+                    price_btc = data.price_btc;
 
                     StartingPercent = data.percent_change_1h;
-                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSDc);
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, price_btc, Dprice_btc, DChange, xUSDc);
                     StartingPercent = data.percent_change_24h;
-                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSD24c);
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, price_btc, Dprice_btc, DChange, xUSD24c);
                     StartingPercent = data.percent_change_7d;
-                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, DChange, xUSD7c);
+                    CalculatePercentageValue(value_changed, convertedPercent, StartingPercent, price_usd, Dprice_usd, price_aud, Dprice_aud, price_btc, Dprice_btc, DChange, xUSD7c);
 
                     StartingPercentP = data.percent_change_1h;
                     CalculatePercentage(Dchange, Data, StartingPercentP, xUSDp);
@@ -757,7 +812,7 @@ namespace CryptoCentral
                     break;
                 }
             }
-            
+
         }
         //Calculating ANY COIN Against FIAT Currency.
         void CalculateCoinAgainstFiatPercentage(string price_currency, string percent, decimal Dpercent, Label xCv)
@@ -781,7 +836,7 @@ namespace CryptoCentral
             xCv.Text = price_currency;
         }
         //Calculating Percentage VALUE Change (1Hour 24Hour 7Days).
-        void CalculatePercentageValue(string value_changed, string convertedPercent, string StartingPercent, string price_usd, decimal Dprice_usd, string price_aud, decimal Dprice_aud, decimal DChange, Label ValueText)
+        void CalculatePercentageValue(string value_changed, string convertedPercent, string StartingPercent, string price_usd, decimal Dprice_usd, string price_aud, decimal Dprice_aud, string price_btc, decimal Dprice_btc, decimal DChange, Label ValueText)
         {
             if (StartingPercent == null)
             {
@@ -790,13 +845,21 @@ namespace CryptoCentral
             else
             {
                 convertedPercent = RemoveExtraText(StartingPercent);        //Remove (" ").
-                if (CURRENCY == "USD")
+                if (CURRENCY == "USD" && TimePeriodNumber == 0)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_usd, convertedPercent, Dprice_usd, DChange, ValueText);
                 }
-                else if (CURRENCY == "AUD")
+                else if (CURRENCY == "USD" && TimePeriodNumber == 2)
+                {
+                    CalculatePercentageValueDetailed(value_changed, price_btc, convertedPercent, Dprice_btc, DChange, ValueText);
+                }
+                else if (CURRENCY == "AUD" && TimePeriodNumber == 1)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_aud, convertedPercent, Dprice_aud, DChange, ValueText);
+                }
+                else if (CURRENCY == "AUD" && TimePeriodNumber == 2)
+                {
+                    CalculatePercentageValueDetailed(value_changed, price_btc, convertedPercent, Dprice_btc, DChange, ValueText);
                 }
             }
         }
@@ -1091,7 +1154,7 @@ namespace CryptoCentral
         //SET DEFAULT TIMEZONE SELECTION
         private void btnTimeDefault_Click(object sender, EventArgs e)
         {
-            StartingTimeZone = Convert.ToString(Timezonev.SelectedIndex);
+            StartingTimeZone = Convert.ToString(TimeZonev.SelectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", StartingTimeZone);
             lblTimeSet.Visible = true;
         }
@@ -1100,6 +1163,8 @@ namespace CryptoCentral
         private void btnCurrencyDefault_Click(object sender, EventArgs e)
         {
             StartingCurrency = Convert.ToString(Currencyv.SelectedIndex);
+            StartingPeriod = Convert.ToString(TimePeriodv.Text);
+            StartingCurrency = StartingCurrency + "AND" + StartingPeriod;
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
             lblDefaultSet.Visible = true;
         }

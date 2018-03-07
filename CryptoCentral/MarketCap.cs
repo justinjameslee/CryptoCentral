@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 
 namespace CryptoCentral
 {
-    class MarketCap
+    public class MarketCap
     {
         
         public string id { get; set; }

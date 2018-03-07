@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Summary));
             this.NoBorder = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.Summary01 = new System.Windows.Forms.Panel();
@@ -169,22 +170,39 @@
             this.lblCustom7Dp02 = new System.Windows.Forms.Label();
             this.lbl1Hr02 = new System.Windows.Forms.Label();
             this.customGroup01 = new System.Windows.Forms.GroupBox();
-            this.customRefresh01 = new System.Windows.Forms.PictureBox();
-            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
-            this.lblCustomBTC01 = new System.Windows.Forms.Label();
-            this.lblCustomC01 = new System.Windows.Forms.Label();
-            this.lblCustom1Hp01 = new System.Windows.Forms.Label();
-            this.lblCustom7Dc01 = new System.Windows.Forms.Label();
-            this.lblCustomCv01 = new System.Windows.Forms.Label();
-            this.lbl7D01 = new System.Windows.Forms.Label();
-            this.lblCustom1Hc01 = new System.Windows.Forms.Label();
-            this.lblCustomBTCv01 = new System.Windows.Forms.Label();
-            this.lbl24Hr01 = new System.Windows.Forms.Label();
-            this.lblCustom24Hc01 = new System.Windows.Forms.Label();
-            this.lblCustom24Hp01 = new System.Windows.Forms.Label();
-            this.lblCustom7Dp01 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.SidebarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.lbl1Hr01 = new System.Windows.Forms.Label();
+            this.lblCustom7Dp01 = new System.Windows.Forms.Label();
+            this.lblCustom24Hp01 = new System.Windows.Forms.Label();
+            this.lblCustom24Hc01 = new System.Windows.Forms.Label();
+            this.lbl24Hr01 = new System.Windows.Forms.Label();
+            this.lblCustomBTCv01 = new System.Windows.Forms.Label();
+            this.lblCustom1Hc01 = new System.Windows.Forms.Label();
+            this.lbl7D01 = new System.Windows.Forms.Label();
+            this.lblCustomCv01 = new System.Windows.Forms.Label();
+            this.lblCustom7Dc01 = new System.Windows.Forms.Label();
+            this.lblCustom1Hp01 = new System.Windows.Forms.Label();
+            this.lblCustomC01 = new System.Windows.Forms.Label();
+            this.lblCustomBTC01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
+            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.Summary01.SuspendLayout();
             this.customGroup09.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).BeginInit();
@@ -203,6 +221,7 @@
             this.customGroup02.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).BeginInit();
             this.customGroup01.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             this.SuspendLayout();
             // 
@@ -222,9 +241,10 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
+            this.SidebarTransition.SetDecoration(this.Summary01, BunifuAnimatorNS.DecorationType.None);
             this.Summary01.Location = new System.Drawing.Point(0, 0);
             this.Summary01.Name = "Summary01";
-            this.Summary01.Size = new System.Drawing.Size(854, 489);
+            this.Summary01.Size = new System.Drawing.Size(843, 468);
             this.Summary01.TabIndex = 4;
             // 
             // customGroup09
@@ -245,6 +265,7 @@
             this.customGroup09.Controls.Add(this.lblCustom24Hp09);
             this.customGroup09.Controls.Add(this.lblCustom7Dp09);
             this.customGroup09.Controls.Add(this.lbl1Hr09);
+            this.SidebarTransition.SetDecoration(this.customGroup09, BunifuAnimatorNS.DecorationType.None);
             this.customGroup09.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup09.ForeColor = System.Drawing.Color.Black;
             this.customGroup09.Location = new System.Drawing.Point(562, 314);
@@ -256,6 +277,7 @@
             // 
             // customRefresh09
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh09, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
             this.customRefresh09.Location = new System.Drawing.Point(10, 0);
             this.customRefresh09.Name = "customRefresh09";
@@ -265,6 +287,7 @@
             // 
             // lblCustomUpdatedv09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv09.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv09.Name = "lblCustomUpdatedv09";
@@ -275,6 +298,7 @@
             // lblCustomUpdated09
             // 
             this.lblCustomUpdated09.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated09.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated09.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated09.Name = "lblCustomUpdated09";
@@ -284,6 +308,7 @@
             // 
             // lblCustomBTC09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC09.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC09.Name = "lblCustomBTC09";
@@ -294,6 +319,7 @@
             // 
             // lblCustomC09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC09.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC09.Name = "lblCustomC09";
@@ -304,6 +330,7 @@
             // 
             // lblCustom1Hp09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp09.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp09.Name = "lblCustom1Hp09";
@@ -313,6 +340,7 @@
             // 
             // lblCustom7Dc09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc09.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc09.Name = "lblCustom7Dc09";
@@ -322,6 +350,7 @@
             // 
             // lblCustomCv09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv09.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv09.Name = "lblCustomCv09";
@@ -332,6 +361,7 @@
             // lbl7D09
             // 
             this.lbl7D09.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D09, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D09.Location = new System.Drawing.Point(6, 106);
             this.lbl7D09.Name = "lbl7D09";
@@ -342,6 +372,7 @@
             // 
             // lblCustom1Hc09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc09.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc09.Name = "lblCustom1Hc09";
@@ -351,6 +382,7 @@
             // 
             // lblCustomBTCv09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv09.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv09.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv09.Name = "lblCustomBTCv09";
@@ -361,6 +393,7 @@
             // lbl24Hr09
             // 
             this.lbl24Hr09.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr09, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr09.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr09.Name = "lbl24Hr09";
@@ -371,6 +404,7 @@
             // 
             // lblCustom24Hc09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc09.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc09.Name = "lblCustom24Hc09";
@@ -380,6 +414,7 @@
             // 
             // lblCustom24Hp09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp09.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp09.Name = "lblCustom24Hp09";
@@ -389,6 +424,7 @@
             // 
             // lblCustom7Dp09
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp09, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp09.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp09.Name = "lblCustom7Dp09";
@@ -399,6 +435,7 @@
             // lbl1Hr09
             // 
             this.lbl1Hr09.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr09, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr09.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr09.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr09.Name = "lbl1Hr09";
@@ -425,6 +462,7 @@
             this.customGroup06.Controls.Add(this.lblCustom24Hp06);
             this.customGroup06.Controls.Add(this.lblCustom7Dp06);
             this.customGroup06.Controls.Add(this.lbl1Hr06);
+            this.SidebarTransition.SetDecoration(this.customGroup06, BunifuAnimatorNS.DecorationType.None);
             this.customGroup06.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup06.ForeColor = System.Drawing.Color.Black;
             this.customGroup06.Location = new System.Drawing.Point(562, 160);
@@ -436,6 +474,7 @@
             // 
             // customRefresh06
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh06, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
             this.customRefresh06.Location = new System.Drawing.Point(10, 0);
             this.customRefresh06.Name = "customRefresh06";
@@ -445,6 +484,7 @@
             // 
             // lblCustomUpdatedv06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv06.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv06.Name = "lblCustomUpdatedv06";
@@ -455,6 +495,7 @@
             // lblCustomUpdated06
             // 
             this.lblCustomUpdated06.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated06.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated06.Name = "lblCustomUpdated06";
@@ -464,6 +505,7 @@
             // 
             // lblCustomBTC06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC06.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC06.Name = "lblCustomBTC06";
@@ -474,6 +516,7 @@
             // 
             // lblCustomC06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC06.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC06.Name = "lblCustomC06";
@@ -484,6 +527,7 @@
             // 
             // lblCustom1Hp06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp06.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp06.Name = "lblCustom1Hp06";
@@ -493,6 +537,7 @@
             // 
             // lblCustom7Dc06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc06.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc06.Name = "lblCustom7Dc06";
@@ -502,6 +547,7 @@
             // 
             // lblCustomCv06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv06.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv06.Name = "lblCustomCv06";
@@ -512,6 +558,7 @@
             // lbl7D06
             // 
             this.lbl7D06.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D06, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D06.Location = new System.Drawing.Point(6, 106);
             this.lbl7D06.Name = "lbl7D06";
@@ -522,6 +569,7 @@
             // 
             // lblCustom1Hc06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc06.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc06.Name = "lblCustom1Hc06";
@@ -531,6 +579,7 @@
             // 
             // lblCustomBTCv06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv06.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv06.Name = "lblCustomBTCv06";
@@ -541,6 +590,7 @@
             // lbl24Hr06
             // 
             this.lbl24Hr06.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr06, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr06.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr06.Name = "lbl24Hr06";
@@ -551,6 +601,7 @@
             // 
             // lblCustom24Hc06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc06.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc06.Name = "lblCustom24Hc06";
@@ -560,6 +611,7 @@
             // 
             // lblCustom24Hp06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp06.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp06.Name = "lblCustom24Hp06";
@@ -569,6 +621,7 @@
             // 
             // lblCustom7Dp06
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp06, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp06.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp06.Name = "lblCustom7Dp06";
@@ -579,6 +632,7 @@
             // lbl1Hr06
             // 
             this.lbl1Hr06.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr06, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr06.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr06.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr06.Name = "lbl1Hr06";
@@ -605,6 +659,7 @@
             this.customGroup08.Controls.Add(this.lblCustom24Hp08);
             this.customGroup08.Controls.Add(this.lblCustom7Dp08);
             this.customGroup08.Controls.Add(this.lbl1Hr08);
+            this.SidebarTransition.SetDecoration(this.customGroup08, BunifuAnimatorNS.DecorationType.None);
             this.customGroup08.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup08.ForeColor = System.Drawing.Color.Black;
             this.customGroup08.Location = new System.Drawing.Point(284, 314);
@@ -616,6 +671,7 @@
             // 
             // customRefresh08
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh08, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
             this.customRefresh08.Location = new System.Drawing.Point(10, 0);
             this.customRefresh08.Name = "customRefresh08";
@@ -625,6 +681,7 @@
             // 
             // lblCustomUpdatedv08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv08.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv08.Name = "lblCustomUpdatedv08";
@@ -635,6 +692,7 @@
             // lblCustomUpdated08
             // 
             this.lblCustomUpdated08.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated08.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated08.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated08.Name = "lblCustomUpdated08";
@@ -644,6 +702,7 @@
             // 
             // lblCustomBTC08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC08.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC08.Name = "lblCustomBTC08";
@@ -654,6 +713,7 @@
             // 
             // lblCustomC08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC08.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC08.Name = "lblCustomC08";
@@ -664,6 +724,7 @@
             // 
             // lblCustom1Hp08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp08.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp08.Name = "lblCustom1Hp08";
@@ -673,6 +734,7 @@
             // 
             // lblCustom7Dc08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc08.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc08.Name = "lblCustom7Dc08";
@@ -682,6 +744,7 @@
             // 
             // lblCustomCv08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv08.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv08.Name = "lblCustomCv08";
@@ -692,6 +755,7 @@
             // lbl7D08
             // 
             this.lbl7D08.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D08, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D08.Location = new System.Drawing.Point(6, 106);
             this.lbl7D08.Name = "lbl7D08";
@@ -702,6 +766,7 @@
             // 
             // lblCustom1Hc08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc08.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc08.Name = "lblCustom1Hc08";
@@ -711,6 +776,7 @@
             // 
             // lblCustomBTCv08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv08.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv08.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv08.Name = "lblCustomBTCv08";
@@ -721,6 +787,7 @@
             // lbl24Hr08
             // 
             this.lbl24Hr08.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr08, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr08.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr08.Name = "lbl24Hr08";
@@ -731,6 +798,7 @@
             // 
             // lblCustom24Hc08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc08.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc08.Name = "lblCustom24Hc08";
@@ -740,6 +808,7 @@
             // 
             // lblCustom24Hp08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp08.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp08.Name = "lblCustom24Hp08";
@@ -749,6 +818,7 @@
             // 
             // lblCustom7Dp08
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp08, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp08.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp08.Name = "lblCustom7Dp08";
@@ -759,6 +829,7 @@
             // lbl1Hr08
             // 
             this.lbl1Hr08.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr08, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr08.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr08.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr08.Name = "lbl1Hr08";
@@ -785,6 +856,7 @@
             this.customGroup05.Controls.Add(this.lblCustom24Hp05);
             this.customGroup05.Controls.Add(this.lblCustom7Dp05);
             this.customGroup05.Controls.Add(this.lbl1Hr05);
+            this.SidebarTransition.SetDecoration(this.customGroup05, BunifuAnimatorNS.DecorationType.None);
             this.customGroup05.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup05.ForeColor = System.Drawing.Color.Black;
             this.customGroup05.Location = new System.Drawing.Point(284, 160);
@@ -796,6 +868,7 @@
             // 
             // customRefresh05
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh05, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
             this.customRefresh05.Location = new System.Drawing.Point(10, 0);
             this.customRefresh05.Name = "customRefresh05";
@@ -805,6 +878,7 @@
             // 
             // lblCustomUpdatedv05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv05.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv05.Name = "lblCustomUpdatedv05";
@@ -815,6 +889,7 @@
             // lblCustomUpdated05
             // 
             this.lblCustomUpdated05.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated05.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated05.Name = "lblCustomUpdated05";
@@ -824,6 +899,7 @@
             // 
             // lblCustomBTC05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC05.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC05.Name = "lblCustomBTC05";
@@ -834,6 +910,7 @@
             // 
             // lblCustomC05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC05.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC05.Name = "lblCustomC05";
@@ -844,6 +921,7 @@
             // 
             // lblCustom1Hp05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp05.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp05.Name = "lblCustom1Hp05";
@@ -853,6 +931,7 @@
             // 
             // lblCustom7Dc05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc05.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc05.Name = "lblCustom7Dc05";
@@ -862,6 +941,7 @@
             // 
             // lblCustomCv05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv05.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv05.Name = "lblCustomCv05";
@@ -872,6 +952,7 @@
             // lbl7D05
             // 
             this.lbl7D05.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D05, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D05.Location = new System.Drawing.Point(6, 106);
             this.lbl7D05.Name = "lbl7D05";
@@ -882,6 +963,7 @@
             // 
             // lblCustom1Hc05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc05.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc05.Name = "lblCustom1Hc05";
@@ -891,6 +973,7 @@
             // 
             // lblCustomBTCv05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv05.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv05.Name = "lblCustomBTCv05";
@@ -901,6 +984,7 @@
             // lbl24Hr05
             // 
             this.lbl24Hr05.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr05, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr05.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr05.Name = "lbl24Hr05";
@@ -911,6 +995,7 @@
             // 
             // lblCustom24Hc05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc05.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc05.Name = "lblCustom24Hc05";
@@ -920,6 +1005,7 @@
             // 
             // lblCustom24Hp05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp05.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp05.Name = "lblCustom24Hp05";
@@ -929,6 +1015,7 @@
             // 
             // lblCustom7Dp05
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp05, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp05.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp05.Name = "lblCustom7Dp05";
@@ -939,6 +1026,7 @@
             // lbl1Hr05
             // 
             this.lbl1Hr05.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr05, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr05.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr05.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr05.Name = "lbl1Hr05";
@@ -965,6 +1053,7 @@
             this.customGroup07.Controls.Add(this.lblCustom24Hp07);
             this.customGroup07.Controls.Add(this.lblCustom7Dp07);
             this.customGroup07.Controls.Add(this.lbl1Hr07);
+            this.SidebarTransition.SetDecoration(this.customGroup07, BunifuAnimatorNS.DecorationType.None);
             this.customGroup07.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup07.ForeColor = System.Drawing.Color.Black;
             this.customGroup07.Location = new System.Drawing.Point(6, 314);
@@ -976,6 +1065,7 @@
             // 
             // customRefresh07
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh07, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
             this.customRefresh07.Location = new System.Drawing.Point(10, 0);
             this.customRefresh07.Name = "customRefresh07";
@@ -985,6 +1075,7 @@
             // 
             // lblCustomUpdatedv07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv07.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv07.Name = "lblCustomUpdatedv07";
@@ -995,6 +1086,7 @@
             // lblCustomUpdated07
             // 
             this.lblCustomUpdated07.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated07.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated07.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated07.Name = "lblCustomUpdated07";
@@ -1004,6 +1096,7 @@
             // 
             // lblCustomBTC07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC07.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC07.Name = "lblCustomBTC07";
@@ -1014,6 +1107,7 @@
             // 
             // lblCustomC07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC07.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC07.Name = "lblCustomC07";
@@ -1024,6 +1118,7 @@
             // 
             // lblCustom1Hp07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp07.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp07.Name = "lblCustom1Hp07";
@@ -1033,6 +1128,7 @@
             // 
             // lblCustom7Dc07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc07.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc07.Name = "lblCustom7Dc07";
@@ -1042,6 +1138,7 @@
             // 
             // lblCustomCv07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv07.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv07.Name = "lblCustomCv07";
@@ -1052,6 +1149,7 @@
             // lbl7D07
             // 
             this.lbl7D07.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D07, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D07.Location = new System.Drawing.Point(6, 106);
             this.lbl7D07.Name = "lbl7D07";
@@ -1062,6 +1160,7 @@
             // 
             // lblCustom1Hc07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc07.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc07.Name = "lblCustom1Hc07";
@@ -1071,6 +1170,7 @@
             // 
             // lblCustomBTCv07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv07.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv07.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv07.Name = "lblCustomBTCv07";
@@ -1081,6 +1181,7 @@
             // lbl24Hr07
             // 
             this.lbl24Hr07.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr07, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr07.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr07.Name = "lbl24Hr07";
@@ -1091,6 +1192,7 @@
             // 
             // lblCustom24Hc07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc07.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc07.Name = "lblCustom24Hc07";
@@ -1100,6 +1202,7 @@
             // 
             // lblCustom24Hp07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp07.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp07.Name = "lblCustom24Hp07";
@@ -1109,6 +1212,7 @@
             // 
             // lblCustom7Dp07
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp07, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp07.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp07.Name = "lblCustom7Dp07";
@@ -1119,6 +1223,7 @@
             // lbl1Hr07
             // 
             this.lbl1Hr07.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr07, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr07.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr07.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr07.Name = "lbl1Hr07";
@@ -1145,6 +1250,7 @@
             this.customGroup04.Controls.Add(this.lblCustom24Hp04);
             this.customGroup04.Controls.Add(this.lblCustom7Dp04);
             this.customGroup04.Controls.Add(this.lbl1Hr04);
+            this.SidebarTransition.SetDecoration(this.customGroup04, BunifuAnimatorNS.DecorationType.None);
             this.customGroup04.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup04.ForeColor = System.Drawing.Color.Black;
             this.customGroup04.Location = new System.Drawing.Point(6, 160);
@@ -1156,6 +1262,7 @@
             // 
             // customRefresh04
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh04, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
             this.customRefresh04.Location = new System.Drawing.Point(10, 0);
             this.customRefresh04.Name = "customRefresh04";
@@ -1165,6 +1272,7 @@
             // 
             // lblCustomUpdatedv04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv04.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv04.Name = "lblCustomUpdatedv04";
@@ -1175,6 +1283,7 @@
             // lblCustomUpdated04
             // 
             this.lblCustomUpdated04.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated04.Location = new System.Drawing.Point(6, 126);
             this.lblCustomUpdated04.Name = "lblCustomUpdated04";
@@ -1184,6 +1293,7 @@
             // 
             // lblCustomBTC04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC04.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC04.Name = "lblCustomBTC04";
@@ -1194,6 +1304,7 @@
             // 
             // lblCustomC04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC04.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC04.Name = "lblCustomC04";
@@ -1204,6 +1315,7 @@
             // 
             // lblCustom1Hp04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp04.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp04.Name = "lblCustom1Hp04";
@@ -1213,6 +1325,7 @@
             // 
             // lblCustom7Dc04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc04.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc04.Name = "lblCustom7Dc04";
@@ -1222,6 +1335,7 @@
             // 
             // lblCustomCv04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv04.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv04.Name = "lblCustomCv04";
@@ -1232,6 +1346,7 @@
             // lbl7D04
             // 
             this.lbl7D04.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D04, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D04.Location = new System.Drawing.Point(6, 106);
             this.lbl7D04.Name = "lbl7D04";
@@ -1242,6 +1357,7 @@
             // 
             // lblCustom1Hc04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc04.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc04.Name = "lblCustom1Hc04";
@@ -1251,6 +1367,7 @@
             // 
             // lblCustomBTCv04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv04.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv04.Name = "lblCustomBTCv04";
@@ -1261,6 +1378,7 @@
             // lbl24Hr04
             // 
             this.lbl24Hr04.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr04, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr04.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr04.Name = "lbl24Hr04";
@@ -1271,6 +1389,7 @@
             // 
             // lblCustom24Hc04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc04.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc04.Name = "lblCustom24Hc04";
@@ -1280,6 +1399,7 @@
             // 
             // lblCustom24Hp04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp04.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp04.Name = "lblCustom24Hp04";
@@ -1289,6 +1409,7 @@
             // 
             // lblCustom7Dp04
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp04, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp04.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp04.Name = "lblCustom7Dp04";
@@ -1299,6 +1420,7 @@
             // lbl1Hr04
             // 
             this.lbl1Hr04.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr04, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr04.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr04.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr04.Name = "lbl1Hr04";
@@ -1325,9 +1447,10 @@
             this.customGroup03.Controls.Add(this.lblCustom24Hp03);
             this.customGroup03.Controls.Add(this.lblCustom7Dp03);
             this.customGroup03.Controls.Add(this.lbl1Hr03);
+            this.SidebarTransition.SetDecoration(this.customGroup03, BunifuAnimatorNS.DecorationType.None);
             this.customGroup03.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup03.ForeColor = System.Drawing.Color.Black;
-            this.customGroup03.Location = new System.Drawing.Point(562, 8);
+            this.customGroup03.Location = new System.Drawing.Point(562, 6);
             this.customGroup03.Name = "customGroup03";
             this.customGroup03.Size = new System.Drawing.Size(272, 148);
             this.customGroup03.TabIndex = 39;
@@ -1336,6 +1459,7 @@
             // 
             // customRefresh03
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh03, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
             this.customRefresh03.Location = new System.Drawing.Point(10, 0);
             this.customRefresh03.Name = "customRefresh03";
@@ -1345,6 +1469,7 @@
             // 
             // lblCustomUpdatedv03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv03.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv03.Name = "lblCustomUpdatedv03";
@@ -1355,6 +1480,7 @@
             // lblCustomUpdated03
             // 
             this.lblCustomUpdated03.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated03.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated03.Location = new System.Drawing.Point(7, 126);
             this.lblCustomUpdated03.Name = "lblCustomUpdated03";
@@ -1364,6 +1490,7 @@
             // 
             // lblCustomBTC03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC03.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC03.Name = "lblCustomBTC03";
@@ -1374,6 +1501,7 @@
             // 
             // lblCustomC03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC03.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC03.Name = "lblCustomC03";
@@ -1384,6 +1512,7 @@
             // 
             // lblCustom1Hp03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp03.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp03.Name = "lblCustom1Hp03";
@@ -1393,6 +1522,7 @@
             // 
             // lblCustom7Dc03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc03.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc03.Name = "lblCustom7Dc03";
@@ -1402,6 +1532,7 @@
             // 
             // lblCustomCv03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv03.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv03.Name = "lblCustomCv03";
@@ -1412,6 +1543,7 @@
             // lbl7D03
             // 
             this.lbl7D03.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D03, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D03.Location = new System.Drawing.Point(6, 106);
             this.lbl7D03.Name = "lbl7D03";
@@ -1422,6 +1554,7 @@
             // 
             // lblCustom1Hc03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc03.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc03.Name = "lblCustom1Hc03";
@@ -1431,6 +1564,7 @@
             // 
             // lblCustomBTCv03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv03.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv03.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv03.Name = "lblCustomBTCv03";
@@ -1441,6 +1575,7 @@
             // lbl24Hr03
             // 
             this.lbl24Hr03.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr03, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr03.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr03.Name = "lbl24Hr03";
@@ -1451,6 +1586,7 @@
             // 
             // lblCustom24Hc03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc03.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc03.Name = "lblCustom24Hc03";
@@ -1460,6 +1596,7 @@
             // 
             // lblCustom24Hp03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp03.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp03.Name = "lblCustom24Hp03";
@@ -1469,6 +1606,7 @@
             // 
             // lblCustom7Dp03
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp03, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp03.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp03.Name = "lblCustom7Dp03";
@@ -1479,6 +1617,7 @@
             // lbl1Hr03
             // 
             this.lbl1Hr03.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr03, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr03.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr03.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr03.Name = "lbl1Hr03";
@@ -1505,6 +1644,7 @@
             this.customGroup02.Controls.Add(this.lblCustom24Hp02);
             this.customGroup02.Controls.Add(this.lblCustom7Dp02);
             this.customGroup02.Controls.Add(this.lbl1Hr02);
+            this.SidebarTransition.SetDecoration(this.customGroup02, BunifuAnimatorNS.DecorationType.None);
             this.customGroup02.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup02.ForeColor = System.Drawing.Color.Black;
             this.customGroup02.Location = new System.Drawing.Point(284, 6);
@@ -1516,6 +1656,7 @@
             // 
             // customRefresh02
             // 
+            this.SidebarTransition.SetDecoration(this.customRefresh02, BunifuAnimatorNS.DecorationType.None);
             this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
             this.customRefresh02.Location = new System.Drawing.Point(10, 0);
             this.customRefresh02.Name = "customRefresh02";
@@ -1525,6 +1666,7 @@
             // 
             // lblCustomUpdatedv02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdatedv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdatedv02.Location = new System.Drawing.Point(86, 128);
             this.lblCustomUpdatedv02.Name = "lblCustomUpdatedv02";
@@ -1535,6 +1677,7 @@
             // lblCustomUpdated02
             // 
             this.lblCustomUpdated02.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomUpdated02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             this.lblCustomUpdated02.Location = new System.Drawing.Point(7, 126);
             this.lblCustomUpdated02.Name = "lblCustomUpdated02";
@@ -1544,6 +1687,7 @@
             // 
             // lblCustomBTC02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTC02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTC02.Location = new System.Drawing.Point(6, 49);
             this.lblCustomBTC02.Name = "lblCustomBTC02";
@@ -1554,6 +1698,7 @@
             // 
             // lblCustomC02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomC02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomC02.Location = new System.Drawing.Point(6, 26);
             this.lblCustomC02.Name = "lblCustomC02";
@@ -1564,6 +1709,7 @@
             // 
             // lblCustom1Hp02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hp02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hp02.Location = new System.Drawing.Point(201, 73);
             this.lblCustom1Hp02.Name = "lblCustom1Hp02";
@@ -1573,6 +1719,7 @@
             // 
             // lblCustom7Dc02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dc02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dc02.Location = new System.Drawing.Point(97, 107);
             this.lblCustom7Dc02.Name = "lblCustom7Dc02";
@@ -1582,6 +1729,7 @@
             // 
             // lblCustomCv02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomCv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomCv02.Location = new System.Drawing.Point(99, 26);
             this.lblCustomCv02.Name = "lblCustomCv02";
@@ -1592,6 +1740,7 @@
             // lbl7D02
             // 
             this.lbl7D02.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D02, BunifuAnimatorNS.DecorationType.None);
             this.lbl7D02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl7D02.Location = new System.Drawing.Point(6, 106);
             this.lbl7D02.Name = "lbl7D02";
@@ -1602,6 +1751,7 @@
             // 
             // lblCustom1Hc02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom1Hc02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom1Hc02.Location = new System.Drawing.Point(97, 72);
             this.lblCustom1Hc02.Name = "lblCustom1Hc02";
@@ -1611,6 +1761,7 @@
             // 
             // lblCustomBTCv02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustomBTCv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.lblCustomBTCv02.Location = new System.Drawing.Point(99, 49);
             this.lblCustomBTCv02.Name = "lblCustomBTCv02";
@@ -1621,6 +1772,7 @@
             // lbl24Hr02
             // 
             this.lbl24Hr02.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr02, BunifuAnimatorNS.DecorationType.None);
             this.lbl24Hr02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl24Hr02.Location = new System.Drawing.Point(6, 89);
             this.lbl24Hr02.Name = "lbl24Hr02";
@@ -1631,6 +1783,7 @@
             // 
             // lblCustom24Hc02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hc02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hc02.Location = new System.Drawing.Point(97, 90);
             this.lblCustom24Hc02.Name = "lblCustom24Hc02";
@@ -1640,6 +1793,7 @@
             // 
             // lblCustom24Hp02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom24Hp02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom24Hp02.Location = new System.Drawing.Point(201, 90);
             this.lblCustom24Hp02.Name = "lblCustom24Hp02";
@@ -1649,6 +1803,7 @@
             // 
             // lblCustom7Dp02
             // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp02, BunifuAnimatorNS.DecorationType.None);
             this.lblCustom7Dp02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lblCustom7Dp02.Location = new System.Drawing.Point(201, 107);
             this.lblCustom7Dp02.Name = "lblCustom7Dp02";
@@ -1659,6 +1814,7 @@
             // lbl1Hr02
             // 
             this.lbl1Hr02.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr02, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr02.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr02.Location = new System.Drawing.Point(6, 72);
             this.lbl1Hr02.Name = "lbl1Hr02";
@@ -1685,6 +1841,7 @@
             this.customGroup01.Controls.Add(this.lblCustom24Hp01);
             this.customGroup01.Controls.Add(this.lblCustom7Dp01);
             this.customGroup01.Controls.Add(this.lbl1Hr01);
+            this.SidebarTransition.SetDecoration(this.customGroup01, BunifuAnimatorNS.DecorationType.None);
             this.customGroup01.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup01.ForeColor = System.Drawing.Color.Black;
             this.customGroup01.Location = new System.Drawing.Point(6, 6);
@@ -1694,151 +1851,200 @@
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "      BTC   ";
             // 
-            // customRefresh01
+            // pictureBox2
             // 
-            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
-            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh01.Name = "customRefresh01";
-            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh01.TabIndex = 64;
-            this.customRefresh01.TabStop = false;
+            this.SidebarTransition.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(10, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox2.TabIndex = 64;
+            this.pictureBox2.TabStop = false;
             // 
-            // lblCustomUpdatedv01
+            // label1
             // 
-            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(86, 128);
-            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
-            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(177, 13);
-            this.lblCustomUpdatedv01.TabIndex = 28;
-            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label1, BunifuAnimatorNS.DecorationType.None);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label1.Location = new System.Drawing.Point(86, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(177, 13);
+            this.label1.TabIndex = 28;
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblCustomUpdated01
+            // label2
             // 
-            this.lblCustomUpdated01.AutoSize = true;
-            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
-            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
-            this.lblCustomUpdated01.Size = new System.Drawing.Size(56, 13);
-            this.lblCustomUpdated01.TabIndex = 27;
-            this.lblCustomUpdated01.Text = "UPDATED";
+            this.label2.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.label2, BunifuAnimatorNS.DecorationType.None);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.label2.Location = new System.Drawing.Point(6, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "UPDATED";
             // 
-            // lblCustomBTC01
+            // label4
             // 
-            this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomBTC01.Location = new System.Drawing.Point(6, 49);
-            this.lblCustomBTC01.Name = "lblCustomBTC01";
-            this.lblCustomBTC01.Size = new System.Drawing.Size(120, 23);
-            this.lblCustomBTC01.TabIndex = 26;
-            this.lblCustomBTC01.Text = "BTC/BTC";
-            this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SidebarTransition.SetDecoration(this.label4, BunifuAnimatorNS.DecorationType.None);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(120, 23);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "BTC/BTC";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustomC01
+            // label5
             // 
-            this.lblCustomC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomC01.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomC01.Name = "lblCustomC01";
-            this.lblCustomC01.Size = new System.Drawing.Size(120, 23);
-            this.lblCustomC01.TabIndex = 3;
-            this.lblCustomC01.Text = "BTC/USD";
-            this.lblCustomC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.SidebarTransition.SetDecoration(this.label5, BunifuAnimatorNS.DecorationType.None);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label5.Location = new System.Drawing.Point(6, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(120, 23);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "BTC/USD";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustom1Hp01
+            // label6
             // 
-            this.lblCustom1Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom1Hp01.Location = new System.Drawing.Point(201, 73);
-            this.lblCustom1Hp01.Name = "lblCustom1Hp01";
-            this.lblCustom1Hp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom1Hp01.TabIndex = 12;
-            this.lblCustom1Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label6, BunifuAnimatorNS.DecorationType.None);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label6.Location = new System.Drawing.Point(201, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 15);
+            this.label6.TabIndex = 12;
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblCustom7Dc01
+            // label7
             // 
-            this.lblCustom7Dc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom7Dc01.Location = new System.Drawing.Point(97, 107);
-            this.lblCustom7Dc01.Name = "lblCustom7Dc01";
-            this.lblCustom7Dc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom7Dc01.TabIndex = 25;
-            this.lblCustom7Dc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.SidebarTransition.SetDecoration(this.label7, BunifuAnimatorNS.DecorationType.None);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label7.Location = new System.Drawing.Point(97, 107);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(98, 15);
+            this.label7.TabIndex = 25;
+            this.label7.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomCv01
+            // label8
             // 
-            this.lblCustomCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomCv01.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomCv01.Name = "lblCustomCv01";
-            this.lblCustomCv01.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomCv01.TabIndex = 8;
-            this.lblCustomCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label8, BunifuAnimatorNS.DecorationType.None);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label8.Location = new System.Drawing.Point(99, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(164, 23);
+            this.label8.TabIndex = 8;
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lbl7D01
+            // label9
             // 
-            this.lbl7D01.AutoSize = true;
-            this.lbl7D01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl7D01.Location = new System.Drawing.Point(6, 106);
-            this.lbl7D01.Name = "lbl7D01";
-            this.lbl7D01.Size = new System.Drawing.Size(26, 17);
-            this.lbl7D01.TabIndex = 24;
-            this.lbl7D01.Text = "7D";
-            this.lbl7D01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label9.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.label9, BunifuAnimatorNS.DecorationType.None);
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label9.Location = new System.Drawing.Point(6, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(26, 17);
+            this.label9.TabIndex = 24;
+            this.label9.Text = "7D";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustom1Hc01
+            // label10
             // 
-            this.lblCustom1Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom1Hc01.Location = new System.Drawing.Point(97, 72);
-            this.lblCustom1Hc01.Name = "lblCustom1Hc01";
-            this.lblCustom1Hc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom1Hc01.TabIndex = 7;
-            this.lblCustom1Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.SidebarTransition.SetDecoration(this.label10, BunifuAnimatorNS.DecorationType.None);
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label10.Location = new System.Drawing.Point(97, 72);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(98, 15);
+            this.label10.TabIndex = 7;
+            this.label10.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustomBTCv01
+            // label11
             // 
-            this.lblCustomBTCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomBTCv01.Location = new System.Drawing.Point(99, 49);
-            this.lblCustomBTCv01.Name = "lblCustomBTCv01";
-            this.lblCustomBTCv01.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomBTCv01.TabIndex = 10;
-            this.lblCustomBTCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label11, BunifuAnimatorNS.DecorationType.None);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label11.Location = new System.Drawing.Point(99, 49);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(164, 23);
+            this.label11.TabIndex = 10;
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lbl24Hr01
+            // label12
             // 
-            this.lbl24Hr01.AutoSize = true;
-            this.lbl24Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl24Hr01.Location = new System.Drawing.Point(6, 89);
-            this.lbl24Hr01.Name = "lbl24Hr01";
-            this.lbl24Hr01.Size = new System.Drawing.Size(44, 17);
-            this.lbl24Hr01.TabIndex = 23;
-            this.lbl24Hr01.Text = "24HR";
-            this.lbl24Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label12.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.label12, BunifuAnimatorNS.DecorationType.None);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label12.Location = new System.Drawing.Point(6, 89);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 17);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "24HR";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblCustom24Hc01
+            // label13
             // 
-            this.lblCustom24Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom24Hc01.Location = new System.Drawing.Point(97, 90);
-            this.lblCustom24Hc01.Name = "lblCustom24Hc01";
-            this.lblCustom24Hc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom24Hc01.TabIndex = 14;
-            this.lblCustom24Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.SidebarTransition.SetDecoration(this.label13, BunifuAnimatorNS.DecorationType.None);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label13.Location = new System.Drawing.Point(97, 90);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(98, 15);
+            this.label13.TabIndex = 14;
+            this.label13.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // lblCustom24Hp01
+            // label14
             // 
-            this.lblCustom24Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom24Hp01.Location = new System.Drawing.Point(201, 90);
-            this.lblCustom24Hp01.Name = "lblCustom24Hp01";
-            this.lblCustom24Hp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom24Hp01.TabIndex = 22;
-            this.lblCustom24Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label14, BunifuAnimatorNS.DecorationType.None);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label14.Location = new System.Drawing.Point(201, 90);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(61, 15);
+            this.label14.TabIndex = 22;
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblCustom7Dp01
+            // label15
             // 
-            this.lblCustom7Dp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom7Dp01.Location = new System.Drawing.Point(201, 107);
-            this.lblCustom7Dp01.Name = "lblCustom7Dp01";
-            this.lblCustom7Dp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom7Dp01.TabIndex = 16;
-            this.lblCustom7Dp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.SidebarTransition.SetDecoration(this.label15, BunifuAnimatorNS.DecorationType.None);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label15.Location = new System.Drawing.Point(201, 107);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(61, 15);
+            this.label15.TabIndex = 16;
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.label16, BunifuAnimatorNS.DecorationType.None);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.label16.Location = new System.Drawing.Point(7, 72);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 17);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "1HR";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // SidebarTransition
+            // 
+            this.SidebarTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
+            this.SidebarTransition.Cursor = null;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.SidebarTransition.DefaultAnimation = animation1;
             // 
             // lbl1Hr01
             // 
             this.lbl1Hr01.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl1Hr01, BunifuAnimatorNS.DecorationType.None);
             this.lbl1Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lbl1Hr01.Location = new System.Drawing.Point(7, 72);
             this.lbl1Hr01.Name = "lbl1Hr01";
@@ -1847,12 +2053,171 @@
             this.lbl1Hr01.Text = "1HR";
             this.lbl1Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // lblCustom7Dp01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dp01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom7Dp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom7Dp01.Location = new System.Drawing.Point(201, 107);
+            this.lblCustom7Dp01.Name = "lblCustom7Dp01";
+            this.lblCustom7Dp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom7Dp01.TabIndex = 16;
+            this.lblCustom7Dp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom24Hp01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hp01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom24Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom24Hp01.Location = new System.Drawing.Point(201, 90);
+            this.lblCustom24Hp01.Name = "lblCustom24Hp01";
+            this.lblCustom24Hp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom24Hp01.TabIndex = 22;
+            this.lblCustom24Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom24Hc01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom24Hc01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom24Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom24Hc01.Location = new System.Drawing.Point(97, 90);
+            this.lblCustom24Hc01.Name = "lblCustom24Hc01";
+            this.lblCustom24Hc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom24Hc01.TabIndex = 14;
+            this.lblCustom24Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl24Hr01
+            // 
+            this.lbl24Hr01.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl24Hr01, BunifuAnimatorNS.DecorationType.None);
+            this.lbl24Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl24Hr01.Location = new System.Drawing.Point(6, 89);
+            this.lbl24Hr01.Name = "lbl24Hr01";
+            this.lbl24Hr01.Size = new System.Drawing.Size(44, 17);
+            this.lbl24Hr01.TabIndex = 23;
+            this.lbl24Hr01.Text = "24HR";
+            this.lbl24Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustomBTCv01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTCv01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomBTCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomBTCv01.Location = new System.Drawing.Point(99, 49);
+            this.lblCustomBTCv01.Name = "lblCustomBTCv01";
+            this.lblCustomBTCv01.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomBTCv01.TabIndex = 10;
+            this.lblCustomBTCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom1Hc01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hc01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom1Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom1Hc01.Location = new System.Drawing.Point(97, 72);
+            this.lblCustom1Hc01.Name = "lblCustom1Hc01";
+            this.lblCustom1Hc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom1Hc01.TabIndex = 7;
+            this.lblCustom1Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lbl7D01
+            // 
+            this.lbl7D01.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lbl7D01, BunifuAnimatorNS.DecorationType.None);
+            this.lbl7D01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl7D01.Location = new System.Drawing.Point(6, 106);
+            this.lbl7D01.Name = "lbl7D01";
+            this.lbl7D01.Size = new System.Drawing.Size(26, 17);
+            this.lbl7D01.TabIndex = 24;
+            this.lbl7D01.Text = "7D";
+            this.lbl7D01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustomCv01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustomCv01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv01.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv01.Name = "lblCustomCv01";
+            this.lblCustomCv01.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv01.TabIndex = 8;
+            this.lblCustomCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom7Dc01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom7Dc01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom7Dc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom7Dc01.Location = new System.Drawing.Point(97, 107);
+            this.lblCustom7Dc01.Name = "lblCustom7Dc01";
+            this.lblCustom7Dc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom7Dc01.TabIndex = 25;
+            this.lblCustom7Dc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblCustom1Hp01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustom1Hp01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustom1Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom1Hp01.Location = new System.Drawing.Point(201, 73);
+            this.lblCustom1Hp01.Name = "lblCustom1Hp01";
+            this.lblCustom1Hp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom1Hp01.TabIndex = 12;
+            this.lblCustom1Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomC01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustomC01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC01.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC01.Name = "lblCustomC01";
+            this.lblCustomC01.Size = new System.Drawing.Size(120, 23);
+            this.lblCustomC01.TabIndex = 3;
+            this.lblCustomC01.Text = "BTC/USD";
+            this.lblCustomC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustomBTC01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustomBTC01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomBTC01.Location = new System.Drawing.Point(6, 49);
+            this.lblCustomBTC01.Name = "lblCustomBTC01";
+            this.lblCustomBTC01.Size = new System.Drawing.Size(120, 23);
+            this.lblCustomBTC01.TabIndex = 26;
+            this.lblCustomBTC01.Text = "BTC/BTC";
+            this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustomUpdated01
+            // 
+            this.lblCustomUpdated01.AutoSize = true;
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdated01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
+            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
+            this.lblCustomUpdated01.Size = new System.Drawing.Size(56, 13);
+            this.lblCustomUpdated01.TabIndex = 27;
+            this.lblCustomUpdated01.Text = "UPDATED";
+            // 
+            // lblCustomUpdatedv01
+            // 
+            this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv01, BunifuAnimatorNS.DecorationType.None);
+            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(86, 128);
+            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
+            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(177, 13);
+            this.lblCustomUpdatedv01.TabIndex = 28;
+            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // customRefresh01
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh01, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
+            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh01.Name = "customRefresh01";
+            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh01.TabIndex = 64;
+            this.customRefresh01.TabStop = false;
+            // 
             // Summary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(843, 468);
             this.Controls.Add(this.Summary01);
+            this.SidebarTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Summary";
             this.Text = "Summary";
@@ -1883,6 +2248,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
             this.customGroup01.ResumeLayout(false);
             this.customGroup01.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             this.ResumeLayout(false);
 
@@ -2028,6 +2394,7 @@
         private System.Windows.Forms.Label lblCustom24Hp02;
         private System.Windows.Forms.Label lblCustom7Dp02;
         private System.Windows.Forms.Label lbl1Hr02;
+        private BunifuAnimatorNS.BunifuTransition SidebarTransition;
         private System.Windows.Forms.GroupBox customGroup01;
         private System.Windows.Forms.PictureBox customRefresh01;
         private System.Windows.Forms.Label lblCustomUpdatedv01;
@@ -2045,5 +2412,21 @@
         private System.Windows.Forms.Label lblCustom24Hp01;
         private System.Windows.Forms.Label lblCustom7Dp01;
         private System.Windows.Forms.Label lbl1Hr01;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }

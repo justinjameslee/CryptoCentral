@@ -206,8 +206,13 @@ namespace CryptoCentral
         //Resetting Positions of Panels and Header.
         void Summary01RESET()
         {
-            Summary01.Location = new Point(222, 71);
-            Summary01.Size = new Size(842, 468);
+            
+            Summary SummaryForm = new Summary();
+            SummaryForm.Show();
+            SummaryForm.MdiParent = this;
+            SummaryForm.Location = new Point(222, 71);
+            SummaryForm.Size = new Size(842, 468);
+
         }
 
         void OptionsRESET()

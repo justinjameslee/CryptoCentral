@@ -30,25 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
-            this.Sidebar = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.iconMining = new System.Windows.Forms.PictureBox();
-            this.btnMining = new System.Windows.Forms.Label();
-            this.iconSettings = new System.Windows.Forms.PictureBox();
-            this.btnSettings = new System.Windows.Forms.Label();
-            this.btnHome = new System.Windows.Forms.Label();
-            this.iconHome = new System.Windows.Forms.PictureBox();
-            this.iconBack = new System.Windows.Forms.PictureBox();
-            this.btnBack = new System.Windows.Forms.Label();
-            this.panelLogo = new System.Windows.Forms.Panel();
-            this.Logo = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
-            this.btnClose = new System.Windows.Forms.PictureBox();
-            this.btnMinimize = new System.Windows.Forms.PictureBox();
             this.Summary01 = new System.Windows.Forms.Panel();
             this.customGroup09 = new System.Windows.Forms.GroupBox();
-            this.customRefresh09 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
             this.lblCustomUpdated09 = new System.Windows.Forms.Label();
             this.lblCustomBTC09 = new System.Windows.Forms.Label();
@@ -65,7 +49,6 @@
             this.lblCustom7Dp09 = new System.Windows.Forms.Label();
             this.lbl1Hr09 = new System.Windows.Forms.Label();
             this.customGroup06 = new System.Windows.Forms.GroupBox();
-            this.customRefresh06 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
             this.lblCustomUpdated06 = new System.Windows.Forms.Label();
             this.lblCustomBTC06 = new System.Windows.Forms.Label();
@@ -82,7 +65,6 @@
             this.lblCustom7Dp06 = new System.Windows.Forms.Label();
             this.lbl1Hr06 = new System.Windows.Forms.Label();
             this.customGroup08 = new System.Windows.Forms.GroupBox();
-            this.customRefresh08 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
             this.lblCustomUpdated08 = new System.Windows.Forms.Label();
             this.lblCustomBTC08 = new System.Windows.Forms.Label();
@@ -99,7 +81,6 @@
             this.lblCustom7Dp08 = new System.Windows.Forms.Label();
             this.lbl1Hr08 = new System.Windows.Forms.Label();
             this.customGroup05 = new System.Windows.Forms.GroupBox();
-            this.customRefresh05 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
             this.lblCustomUpdated05 = new System.Windows.Forms.Label();
             this.lblCustomBTC05 = new System.Windows.Forms.Label();
@@ -116,7 +97,6 @@
             this.lblCustom7Dp05 = new System.Windows.Forms.Label();
             this.lbl1Hr05 = new System.Windows.Forms.Label();
             this.customGroup07 = new System.Windows.Forms.GroupBox();
-            this.customRefresh07 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
             this.lblCustomUpdated07 = new System.Windows.Forms.Label();
             this.lblCustomBTC07 = new System.Windows.Forms.Label();
@@ -133,7 +113,6 @@
             this.lblCustom7Dp07 = new System.Windows.Forms.Label();
             this.lbl1Hr07 = new System.Windows.Forms.Label();
             this.customGroup04 = new System.Windows.Forms.GroupBox();
-            this.customRefresh04 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
             this.lblCustomUpdated04 = new System.Windows.Forms.Label();
             this.lblCustomBTC04 = new System.Windows.Forms.Label();
@@ -150,7 +129,6 @@
             this.lblCustom7Dp04 = new System.Windows.Forms.Label();
             this.lbl1Hr04 = new System.Windows.Forms.Label();
             this.customGroup03 = new System.Windows.Forms.GroupBox();
-            this.customRefresh03 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
             this.lblCustomUpdated03 = new System.Windows.Forms.Label();
             this.lblCustomBTC03 = new System.Windows.Forms.Label();
@@ -167,7 +145,6 @@
             this.lblCustom7Dp03 = new System.Windows.Forms.Label();
             this.lbl1Hr03 = new System.Windows.Forms.Label();
             this.customGroup02 = new System.Windows.Forms.GroupBox();
-            this.customRefresh02 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
             this.lblCustomUpdated02 = new System.Windows.Forms.Label();
             this.lblCustomBTC02 = new System.Windows.Forms.Label();
@@ -184,7 +161,6 @@
             this.lblCustom7Dp02 = new System.Windows.Forms.Label();
             this.lbl1Hr02 = new System.Windows.Forms.Label();
             this.customGroup01 = new System.Windows.Forms.GroupBox();
-            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
             this.lblCustomUpdated01 = new System.Windows.Forms.Label();
             this.lblCustomBTC01 = new System.Windows.Forms.Label();
@@ -288,7 +264,6 @@
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
             this.MiningZPOOL = new System.Windows.Forms.Label();
-            this.MiningNH = new System.Windows.Forms.PictureBox();
             this.groupWorkerAddress = new System.Windows.Forms.GroupBox();
             this.lblWorkerAddress = new System.Windows.Forms.Label();
             this.groupWorkerDetails = new System.Windows.Forms.GroupBox();
@@ -320,46 +295,47 @@
             this.timerSyncTimer = new System.Windows.Forms.Timer(this.components);
             this.timerUpdating = new System.Windows.Forms.Timer(this.components);
             this.Footer = new System.Windows.Forms.Panel();
-            this.gifRefreshing = new System.Windows.Forms.PictureBox();
-            this.btnRefresh = new System.Windows.Forms.PictureBox();
             this.lblSyncTimer = new System.Windows.Forms.Label();
             this.lblSync = new System.Windows.Forms.Label();
+            this.lblCurrentPage = new System.Windows.Forms.Label();
+            this.RoundedCornersMain = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.gifRefreshing = new System.Windows.Forms.PictureBox();
+            this.btnRefresh = new System.Windows.Forms.PictureBox();
             this.btnPageRight = new System.Windows.Forms.PictureBox();
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
-            this.lblCurrentPage = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.bunifuFlatButton1 = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.RoundedCornersMain = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.Sidebar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconMining)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconHome)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBack)).BeginInit();
-            this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.MiningNH = new System.Windows.Forms.PictureBox();
+            this.customRefresh09 = new System.Windows.Forms.PictureBox();
+            this.customRefresh06 = new System.Windows.Forms.PictureBox();
+            this.customRefresh08 = new System.Windows.Forms.PictureBox();
+            this.customRefresh05 = new System.Windows.Forms.PictureBox();
+            this.customRefresh07 = new System.Windows.Forms.PictureBox();
+            this.customRefresh04 = new System.Windows.Forms.PictureBox();
+            this.customRefresh03 = new System.Windows.Forms.PictureBox();
+            this.customRefresh02 = new System.Windows.Forms.PictureBox();
+            this.customRefresh01 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.PictureBox();
+            this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.Sidebar = new System.Windows.Forms.Panel();
+            this.btnBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnSettings = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnMining = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             this.Summary01.SuspendLayout();
             this.customGroup09.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).BeginInit();
             this.customGroup06.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).BeginInit();
             this.customGroup08.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).BeginInit();
             this.customGroup05.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).BeginInit();
             this.customGroup07.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).BeginInit();
             this.customGroup04.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).BeginInit();
             this.customGroup03.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).BeginInit();
             this.customGroup02.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).BeginInit();
             this.customGroup01.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             this.Options.SuspendLayout();
             this.tabOptions.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
@@ -374,178 +350,32 @@
             this.groupOptionsNH.SuspendLayout();
             this.Mining01.SuspendLayout();
             this.groupMiningWorker.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).BeginInit();
             this.groupWorkerAddress.SuspendLayout();
             this.groupWorkerDetails.SuspendLayout();
             this.groupWorkerProfitability.SuspendLayout();
             this.Footer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gifRefreshing)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
+            this.Sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // Sidebar
-            // 
-            this.Sidebar.BackColor = System.Drawing.Color.Transparent;
-            this.Sidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sidebar.BackgroundImage")));
-            this.Sidebar.Controls.Add(this.bunifuFlatButton1);
-            this.Sidebar.Controls.Add(this.label3);
-            this.Sidebar.Controls.Add(this.pictureBox1);
-            this.Sidebar.Controls.Add(this.iconMining);
-            this.Sidebar.Controls.Add(this.btnMining);
-            this.Sidebar.Controls.Add(this.iconSettings);
-            this.Sidebar.Controls.Add(this.btnSettings);
-            this.Sidebar.Controls.Add(this.btnHome);
-            this.Sidebar.Controls.Add(this.iconHome);
-            this.Sidebar.Controls.Add(this.iconBack);
-            this.Sidebar.Controls.Add(this.btnBack);
-            this.Sidebar.Controls.Add(this.panelLogo);
-            this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.Sidebar.Location = new System.Drawing.Point(0, 0);
-            this.Sidebar.Name = "Sidebar";
-            this.Sidebar.Size = new System.Drawing.Size(222, 1071);
-            this.Sidebar.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(21, 514);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 25);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "ADMIN";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(222, 16);
-            this.pictureBox1.TabIndex = 50;
-            this.pictureBox1.TabStop = false;
-            // 
-            // iconMining
-            // 
-            this.iconMining.BackColor = System.Drawing.Color.Transparent;
-            this.iconMining.Image = ((System.Drawing.Image)(resources.GetObject("iconMining.Image")));
-            this.iconMining.Location = new System.Drawing.Point(26, 114);
-            this.iconMining.Name = "iconMining";
-            this.iconMining.Size = new System.Drawing.Size(24, 24);
-            this.iconMining.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconMining.TabIndex = 10;
-            this.iconMining.TabStop = false;
-            // 
-            // btnMining
-            // 
-            this.btnMining.AutoSize = true;
-            this.btnMining.BackColor = System.Drawing.Color.Transparent;
-            this.btnMining.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.btnMining.ForeColor = System.Drawing.Color.White;
-            this.btnMining.Location = new System.Drawing.Point(56, 118);
-            this.btnMining.Name = "btnMining";
-            this.btnMining.Size = new System.Drawing.Size(71, 20);
-            this.btnMining.TabIndex = 9;
-            this.btnMining.Text = "MINING";
-            this.btnMining.Click += new System.EventHandler(this.btnMining_Click);
-            // 
-            // iconSettings
-            // 
-            this.iconSettings.BackColor = System.Drawing.Color.Transparent;
-            this.iconSettings.Image = ((System.Drawing.Image)(resources.GetObject("iconSettings.Image")));
-            this.iconSettings.Location = new System.Drawing.Point(26, 150);
-            this.iconSettings.Name = "iconSettings";
-            this.iconSettings.Size = new System.Drawing.Size(24, 24);
-            this.iconSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconSettings.TabIndex = 8;
-            this.iconSettings.TabStop = false;
-            // 
-            // btnSettings
-            // 
-            this.btnSettings.AutoSize = true;
-            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
-            this.btnSettings.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.btnSettings.ForeColor = System.Drawing.Color.White;
-            this.btnSettings.Location = new System.Drawing.Point(56, 154);
-            this.btnSettings.Name = "btnSettings";
-            this.btnSettings.Size = new System.Drawing.Size(87, 20);
-            this.btnSettings.TabIndex = 7;
-            this.btnSettings.Text = "OPTIONS";
-            this.btnSettings.Click += new System.EventHandler(this.lblSettings_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.AutoSize = true;
-            this.btnHome.BackColor = System.Drawing.Color.Transparent;
-            this.btnHome.Font = new System.Drawing.Font("Walkway Bold", 14F);
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Location = new System.Drawing.Point(56, 83);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(63, 20);
-            this.btnHome.TabIndex = 6;
-            this.btnHome.Text = "HOME";
-            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-            // 
-            // iconHome
-            // 
-            this.iconHome.BackColor = System.Drawing.Color.Transparent;
-            this.iconHome.Image = ((System.Drawing.Image)(resources.GetObject("iconHome.Image")));
-            this.iconHome.Location = new System.Drawing.Point(26, 79);
-            this.iconHome.Name = "iconHome";
-            this.iconHome.Size = new System.Drawing.Size(24, 24);
-            this.iconHome.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconHome.TabIndex = 5;
-            this.iconHome.TabStop = false;
-            // 
-            // iconBack
-            // 
-            this.iconBack.BackColor = System.Drawing.Color.Transparent;
-            this.iconBack.Image = ((System.Drawing.Image)(resources.GetObject("iconBack.Image")));
-            this.iconBack.Location = new System.Drawing.Point(26, 187);
-            this.iconBack.Name = "iconBack";
-            this.iconBack.Size = new System.Drawing.Size(24, 24);
-            this.iconBack.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.iconBack.TabIndex = 4;
-            this.iconBack.TabStop = false;
-            // 
-            // btnBack
-            // 
-            this.btnBack.AutoSize = true;
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(56, 190);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(96, 21);
-            this.btnBack.TabIndex = 3;
-            this.btnBack.Text = "LOG OUT";
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // panelLogo
-            // 
-            this.panelLogo.BackColor = System.Drawing.Color.DimGray;
-            this.panelLogo.Controls.Add(this.Logo);
-            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(222, 55);
-            this.panelLogo.TabIndex = 0;
-            // 
-            // Logo
-            // 
-            this.Logo.BackColor = System.Drawing.Color.White;
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(0, 0);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(222, 55);
-            this.Logo.TabIndex = 0;
-            this.Logo.TabStop = false;
-            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
             // 
             // Header
             // 
@@ -559,26 +389,6 @@
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
-            // btnClose
-            // 
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(803, 16);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(24, 24);
-            this.btnClose.TabIndex = 3;
-            this.btnClose.TabStop = false;
-            this.btnClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClose_MouseClick);
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(751, 16);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
-            this.btnMinimize.TabIndex = 49;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
-            // 
             // Summary01
             // 
             this.Summary01.Controls.Add(this.customGroup09);
@@ -590,7 +400,7 @@
             this.Summary01.Controls.Add(this.customGroup03);
             this.Summary01.Controls.Add(this.customGroup02);
             this.Summary01.Controls.Add(this.customGroup01);
-            this.Summary01.Location = new System.Drawing.Point(228, 77);
+            this.Summary01.Location = new System.Drawing.Point(731, 262);
             this.Summary01.Name = "Summary01";
             this.Summary01.Size = new System.Drawing.Size(843, 468);
             this.Summary01.TabIndex = 3;
@@ -622,15 +432,6 @@
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "      LTC";
             this.customGroup09.MouseHover += new System.EventHandler(this.event_SummaryHover);
-            // 
-            // customRefresh09
-            // 
-            this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
-            this.customRefresh09.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh09.Name = "customRefresh09";
-            this.customRefresh09.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh09.TabIndex = 71;
-            this.customRefresh09.TabStop = false;
             // 
             // lblCustomUpdatedv09
             // 
@@ -804,15 +605,6 @@
             this.customGroup06.Text = "      LTC";
             this.customGroup06.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
-            // customRefresh06
-            // 
-            this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
-            this.customRefresh06.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh06.Name = "customRefresh06";
-            this.customRefresh06.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh06.TabIndex = 68;
-            this.customRefresh06.TabStop = false;
-            // 
             // lblCustomUpdatedv06
             // 
             this.lblCustomUpdatedv06.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
@@ -984,15 +776,6 @@
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "      ETH";
             this.customGroup08.MouseHover += new System.EventHandler(this.event_SummaryHover);
-            // 
-            // customRefresh08
-            // 
-            this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
-            this.customRefresh08.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh08.Name = "customRefresh08";
-            this.customRefresh08.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh08.TabIndex = 70;
-            this.customRefresh08.TabStop = false;
             // 
             // lblCustomUpdatedv08
             // 
@@ -1166,15 +949,6 @@
             this.customGroup05.Text = "      ETH";
             this.customGroup05.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
-            // customRefresh05
-            // 
-            this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
-            this.customRefresh05.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh05.Name = "customRefresh05";
-            this.customRefresh05.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh05.TabIndex = 67;
-            this.customRefresh05.TabStop = false;
-            // 
             // lblCustomUpdatedv05
             // 
             this.lblCustomUpdatedv05.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
@@ -1346,15 +1120,6 @@
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "      BTC";
             this.customGroup07.MouseHover += new System.EventHandler(this.event_SummaryHover);
-            // 
-            // customRefresh07
-            // 
-            this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
-            this.customRefresh07.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh07.Name = "customRefresh07";
-            this.customRefresh07.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh07.TabIndex = 69;
-            this.customRefresh07.TabStop = false;
             // 
             // lblCustomUpdatedv07
             // 
@@ -1528,15 +1293,6 @@
             this.customGroup04.Text = "      BTC";
             this.customGroup04.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
-            // customRefresh04
-            // 
-            this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
-            this.customRefresh04.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh04.Name = "customRefresh04";
-            this.customRefresh04.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh04.TabIndex = 66;
-            this.customRefresh04.TabStop = false;
-            // 
             // lblCustomUpdatedv04
             // 
             this.lblCustomUpdatedv04.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
@@ -1708,15 +1464,6 @@
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "      LTC";
             this.customGroup03.MouseHover += new System.EventHandler(this.event_SummaryHover);
-            // 
-            // customRefresh03
-            // 
-            this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
-            this.customRefresh03.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh03.Name = "customRefresh03";
-            this.customRefresh03.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh03.TabIndex = 65;
-            this.customRefresh03.TabStop = false;
             // 
             // lblCustomUpdatedv03
             // 
@@ -1890,15 +1637,6 @@
             this.customGroup02.Text = "      ETH";
             this.customGroup02.MouseHover += new System.EventHandler(this.event_SummaryHover);
             // 
-            // customRefresh02
-            // 
-            this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
-            this.customRefresh02.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh02.Name = "customRefresh02";
-            this.customRefresh02.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh02.TabIndex = 65;
-            this.customRefresh02.TabStop = false;
-            // 
             // lblCustomUpdatedv02
             // 
             this.lblCustomUpdatedv02.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
@@ -2070,15 +1808,6 @@
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "      BTC   ";
             this.customGroup01.MouseHover += new System.EventHandler(this.event_SummaryHover);
-            // 
-            // customRefresh01
-            // 
-            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
-            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh01.Name = "customRefresh01";
-            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh01.TabIndex = 64;
-            this.customRefresh01.TabStop = false;
             // 
             // lblCustomUpdatedv01
             // 
@@ -2563,7 +2292,7 @@
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
             this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummary.Name = "optionsSummary";
-            this.optionsSummary.Size = new System.Drawing.Size(434, 625);
+            this.optionsSummary.Size = new System.Drawing.Size(434, 628);
             this.optionsSummary.TabIndex = 21;
             // 
             // btnClearSummary
@@ -3440,16 +3169,6 @@
             this.MiningZPOOL.TabIndex = 50;
             this.MiningZPOOL.Text = "ZPOOL";
             // 
-            // MiningNH
-            // 
-            this.MiningNH.Image = ((System.Drawing.Image)(resources.GetObject("MiningNH.Image")));
-            this.MiningNH.Location = new System.Drawing.Point(596, 65);
-            this.MiningNH.Name = "MiningNH";
-            this.MiningNH.Size = new System.Drawing.Size(220, 58);
-            this.MiningNH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.MiningNH.TabIndex = 49;
-            this.MiningNH.TabStop = false;
-            // 
             // groupWorkerAddress
             // 
             this.groupWorkerAddress.Controls.Add(this.lblWorkerAddress);
@@ -3795,27 +3514,6 @@
             this.Footer.Size = new System.Drawing.Size(1718, 38);
             this.Footer.TabIndex = 6;
             // 
-            // gifRefreshing
-            // 
-            this.gifRefreshing.Image = ((System.Drawing.Image)(resources.GetObject("gifRefreshing.Image")));
-            this.gifRefreshing.Location = new System.Drawing.Point(870, 7);
-            this.gifRefreshing.Name = "gifRefreshing";
-            this.gifRefreshing.Size = new System.Drawing.Size(24, 24);
-            this.gifRefreshing.TabIndex = 63;
-            this.gifRefreshing.TabStop = false;
-            this.gifRefreshing.Visible = false;
-            // 
-            // btnRefresh
-            // 
-            this.btnRefresh.BackColor = System.Drawing.Color.Moccasin;
-            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(758, 7);
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(24, 24);
-            this.btnRefresh.TabIndex = 62;
-            this.btnRefresh.TabStop = false;
-            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
-            // 
             // lblSyncTimer
             // 
             this.lblSyncTimer.BackColor = System.Drawing.Color.Transparent;
@@ -3838,6 +3536,53 @@
             this.lblSync.TabIndex = 61;
             this.lblSync.Text = "SYNCED";
             this.lblSync.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCurrentPage
+            // 
+            this.lblCurrentPage.AutoSize = true;
+            this.lblCurrentPage.Font = new System.Drawing.Font("Walkway Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrentPage.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblCurrentPage.Location = new System.Drawing.Point(36, 9);
+            this.lblCurrentPage.Name = "lblCurrentPage";
+            this.lblCurrentPage.Size = new System.Drawing.Size(73, 20);
+            this.lblCurrentPage.TabIndex = 59;
+            this.lblCurrentPage.Text = "PAGE 1";
+            this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // RoundedCornersMain
+            // 
+            this.RoundedCornersMain.ElipseRadius = 15;
+            this.RoundedCornersMain.TargetControl = this;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(222, 55);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(842, 16);
+            this.pictureBox3.TabIndex = 51;
+            this.pictureBox3.TabStop = false;
+            // 
+            // gifRefreshing
+            // 
+            this.gifRefreshing.Image = ((System.Drawing.Image)(resources.GetObject("gifRefreshing.Image")));
+            this.gifRefreshing.Location = new System.Drawing.Point(870, 7);
+            this.gifRefreshing.Name = "gifRefreshing";
+            this.gifRefreshing.Size = new System.Drawing.Size(24, 24);
+            this.gifRefreshing.TabIndex = 63;
+            this.gifRefreshing.TabStop = false;
+            this.gifRefreshing.Visible = false;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.Moccasin;
+            this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
+            this.btnRefresh.Location = new System.Drawing.Point(758, 7);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(24, 24);
+            this.btnRefresh.TabIndex = 62;
+            this.btnRefresh.TabStop = false;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // btnPageRight
             // 
@@ -3866,65 +3611,323 @@
             this.btnPageLeft.MouseEnter += new System.EventHandler(this.btnPageHoverEnter);
             this.btnPageLeft.MouseLeave += new System.EventHandler(this.btnPageHoverLeave);
             // 
-            // lblCurrentPage
+            // MiningNH
             // 
-            this.lblCurrentPage.AutoSize = true;
-            this.lblCurrentPage.Font = new System.Drawing.Font("Walkway Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCurrentPage.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblCurrentPage.Location = new System.Drawing.Point(36, 9);
-            this.lblCurrentPage.Name = "lblCurrentPage";
-            this.lblCurrentPage.Size = new System.Drawing.Size(73, 20);
-            this.lblCurrentPage.TabIndex = 59;
-            this.lblCurrentPage.Text = "PAGE 1";
-            this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.MiningNH.Image = ((System.Drawing.Image)(resources.GetObject("MiningNH.Image")));
+            this.MiningNH.Location = new System.Drawing.Point(596, 65);
+            this.MiningNH.Name = "MiningNH";
+            this.MiningNH.Size = new System.Drawing.Size(220, 58);
+            this.MiningNH.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MiningNH.TabIndex = 49;
+            this.MiningNH.TabStop = false;
             // 
-            // pictureBox3
+            // customRefresh09
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(222, 55);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(842, 16);
-            this.pictureBox3.TabIndex = 51;
-            this.pictureBox3.TabStop = false;
+            this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
+            this.customRefresh09.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh09.Name = "customRefresh09";
+            this.customRefresh09.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh09.TabIndex = 71;
+            this.customRefresh09.TabStop = false;
             // 
-            // bunifuFlatButton1
+            // customRefresh06
             // 
-            this.bunifuFlatButton1.Activecolor = System.Drawing.Color.DarkOrange;
-            this.bunifuFlatButton1.BackColor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuFlatButton1.BorderRadius = 0;
-            this.bunifuFlatButton1.ButtonText = "HOME";
-            this.bunifuFlatButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.bunifuFlatButton1.DisabledColor = System.Drawing.Color.Gray;
-            this.bunifuFlatButton1.Iconcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.Iconimage = ((System.Drawing.Image)(resources.GetObject("bunifuFlatButton1.Iconimage")));
-            this.bunifuFlatButton1.Iconimage_right = null;
-            this.bunifuFlatButton1.Iconimage_right_Selected = null;
-            this.bunifuFlatButton1.Iconimage_Selected = null;
-            this.bunifuFlatButton1.IconMarginLeft = 0;
-            this.bunifuFlatButton1.IconMarginRight = 0;
-            this.bunifuFlatButton1.IconRightVisible = true;
-            this.bunifuFlatButton1.IconRightZoom = 0D;
-            this.bunifuFlatButton1.IconVisible = true;
-            this.bunifuFlatButton1.IconZoom = 90D;
-            this.bunifuFlatButton1.IsTab = true;
-            this.bunifuFlatButton1.Location = new System.Drawing.Point(0, 274);
-            this.bunifuFlatButton1.Name = "bunifuFlatButton1";
-            this.bunifuFlatButton1.Normalcolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.OnHovercolor = System.Drawing.Color.Transparent;
-            this.bunifuFlatButton1.OnHoverTextColor = System.Drawing.Color.DarkOrange;
-            this.bunifuFlatButton1.selected = false;
-            this.bunifuFlatButton1.Size = new System.Drawing.Size(222, 48);
-            this.bunifuFlatButton1.TabIndex = 52;
-            this.bunifuFlatButton1.Text = "HOME";
-            this.bunifuFlatButton1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bunifuFlatButton1.Textcolor = System.Drawing.Color.White;
-            this.bunifuFlatButton1.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
+            this.customRefresh06.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh06.Name = "customRefresh06";
+            this.customRefresh06.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh06.TabIndex = 68;
+            this.customRefresh06.TabStop = false;
             // 
-            // RoundedCornersMain
+            // customRefresh08
             // 
-            this.RoundedCornersMain.ElipseRadius = 15;
-            this.RoundedCornersMain.TargetControl = this;
+            this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
+            this.customRefresh08.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh08.Name = "customRefresh08";
+            this.customRefresh08.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh08.TabIndex = 70;
+            this.customRefresh08.TabStop = false;
+            // 
+            // customRefresh05
+            // 
+            this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
+            this.customRefresh05.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh05.Name = "customRefresh05";
+            this.customRefresh05.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh05.TabIndex = 67;
+            this.customRefresh05.TabStop = false;
+            // 
+            // customRefresh07
+            // 
+            this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
+            this.customRefresh07.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh07.Name = "customRefresh07";
+            this.customRefresh07.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh07.TabIndex = 69;
+            this.customRefresh07.TabStop = false;
+            // 
+            // customRefresh04
+            // 
+            this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
+            this.customRefresh04.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh04.Name = "customRefresh04";
+            this.customRefresh04.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh04.TabIndex = 66;
+            this.customRefresh04.TabStop = false;
+            // 
+            // customRefresh03
+            // 
+            this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
+            this.customRefresh03.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh03.Name = "customRefresh03";
+            this.customRefresh03.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh03.TabIndex = 65;
+            this.customRefresh03.TabStop = false;
+            // 
+            // customRefresh02
+            // 
+            this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
+            this.customRefresh02.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh02.Name = "customRefresh02";
+            this.customRefresh02.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh02.TabIndex = 65;
+            this.customRefresh02.TabStop = false;
+            // 
+            // customRefresh01
+            // 
+            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
+            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh01.Name = "customRefresh01";
+            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh01.TabIndex = 64;
+            this.customRefresh01.TabStop = false;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(803, 16);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(24, 24);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.TabStop = false;
+            this.btnClose.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnClose_MouseClick);
+            // 
+            // btnMinimize
+            // 
+            this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
+            this.btnMinimize.Location = new System.Drawing.Point(751, 16);
+            this.btnMinimize.Name = "btnMinimize";
+            this.btnMinimize.Size = new System.Drawing.Size(24, 24);
+            this.btnMinimize.TabIndex = 49;
+            this.btnMinimize.TabStop = false;
+            this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // Sidebar
+            // 
+            this.Sidebar.BackColor = System.Drawing.Color.Transparent;
+            this.Sidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sidebar.BackgroundImage")));
+            this.Sidebar.Controls.Add(this.btnBack);
+            this.Sidebar.Controls.Add(this.btnSettings);
+            this.Sidebar.Controls.Add(this.btnMining);
+            this.Sidebar.Controls.Add(this.btnHome);
+            this.Sidebar.Controls.Add(this.label3);
+            this.Sidebar.Controls.Add(this.pictureBox1);
+            this.Sidebar.Controls.Add(this.panelLogo);
+            this.Sidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Sidebar.Location = new System.Drawing.Point(0, 0);
+            this.Sidebar.Name = "Sidebar";
+            this.Sidebar.Size = new System.Drawing.Size(222, 1071);
+            this.Sidebar.TabIndex = 0;
+            // 
+            // btnBack
+            // 
+            this.btnBack.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnBack.BackColor = System.Drawing.Color.Transparent;
+            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnBack.BorderRadius = 0;
+            this.btnBack.ButtonText = " LOG OUT";
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBack.DisabledColor = System.Drawing.Color.Gray;
+            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnBack.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnBack.Iconimage = global::CryptoCentral.Properties.Resources.Exit_100px;
+            this.btnBack.Iconimage_right = null;
+            this.btnBack.Iconimage_right_Selected = null;
+            this.btnBack.Iconimage_Selected = null;
+            this.btnBack.IconMarginLeft = 27;
+            this.btnBack.IconMarginRight = 0;
+            this.btnBack.IconRightVisible = true;
+            this.btnBack.IconRightZoom = 0D;
+            this.btnBack.IconVisible = true;
+            this.btnBack.IconZoom = 55D;
+            this.btnBack.IsTab = true;
+            this.btnBack.Location = new System.Drawing.Point(0, 255);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnBack.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnBack.OnHoverTextColor = System.Drawing.Color.DarkOrange;
+            this.btnBack.selected = false;
+            this.btnBack.Size = new System.Drawing.Size(222, 48);
+            this.btnBack.TabIndex = 55;
+            this.btnBack.Text = " LOG OUT";
+            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBack.Textcolor = System.Drawing.Color.White;
+            this.btnBack.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnSettings
+            // 
+            this.btnSettings.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnSettings.BackColor = System.Drawing.Color.Transparent;
+            this.btnSettings.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSettings.BorderRadius = 0;
+            this.btnSettings.ButtonText = " OPTIONS";
+            this.btnSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSettings.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSettings.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnSettings.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSettings.Iconimage = global::CryptoCentral.Properties.Resources.Settings_100px;
+            this.btnSettings.Iconimage_right = null;
+            this.btnSettings.Iconimage_right_Selected = null;
+            this.btnSettings.Iconimage_Selected = null;
+            this.btnSettings.IconMarginLeft = 27;
+            this.btnSettings.IconMarginRight = 0;
+            this.btnSettings.IconRightVisible = true;
+            this.btnSettings.IconRightZoom = 0D;
+            this.btnSettings.IconVisible = true;
+            this.btnSettings.IconZoom = 55D;
+            this.btnSettings.IsTab = true;
+            this.btnSettings.Location = new System.Drawing.Point(0, 194);
+            this.btnSettings.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnSettings.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnSettings.OnHoverTextColor = System.Drawing.Color.DarkOrange;
+            this.btnSettings.selected = false;
+            this.btnSettings.Size = new System.Drawing.Size(222, 48);
+            this.btnSettings.TabIndex = 54;
+            this.btnSettings.Text = " OPTIONS";
+            this.btnSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSettings.Textcolor = System.Drawing.Color.White;
+            this.btnSettings.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnSettings.Click += new System.EventHandler(this.lblSettings_Click);
+            // 
+            // btnMining
+            // 
+            this.btnMining.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnMining.BackColor = System.Drawing.Color.Transparent;
+            this.btnMining.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnMining.BorderRadius = 0;
+            this.btnMining.ButtonText = " MINING";
+            this.btnMining.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMining.DisabledColor = System.Drawing.Color.Gray;
+            this.btnMining.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnMining.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnMining.Iconimage = global::CryptoCentral.Properties.Resources.Golden_Fever_100px;
+            this.btnMining.Iconimage_right = null;
+            this.btnMining.Iconimage_right_Selected = null;
+            this.btnMining.Iconimage_Selected = null;
+            this.btnMining.IconMarginLeft = 27;
+            this.btnMining.IconMarginRight = 0;
+            this.btnMining.IconRightVisible = true;
+            this.btnMining.IconRightZoom = 0D;
+            this.btnMining.IconVisible = true;
+            this.btnMining.IconZoom = 55D;
+            this.btnMining.IsTab = true;
+            this.btnMining.Location = new System.Drawing.Point(0, 134);
+            this.btnMining.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnMining.Name = "btnMining";
+            this.btnMining.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnMining.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnMining.OnHoverTextColor = System.Drawing.Color.DarkOrange;
+            this.btnMining.selected = false;
+            this.btnMining.Size = new System.Drawing.Size(222, 48);
+            this.btnMining.TabIndex = 53;
+            this.btnMining.Text = " MINING";
+            this.btnMining.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMining.Textcolor = System.Drawing.Color.White;
+            this.btnMining.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnMining.Click += new System.EventHandler(this.btnMining_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnHome.BackColor = System.Drawing.Color.Transparent;
+            this.btnHome.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnHome.BorderRadius = 0;
+            this.btnHome.ButtonText = " HOME";
+            this.btnHome.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHome.DisabledColor = System.Drawing.Color.Gray;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnHome.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnHome.Iconimage = global::CryptoCentral.Properties.Resources.Home_100px;
+            this.btnHome.Iconimage_right = null;
+            this.btnHome.Iconimage_right_Selected = null;
+            this.btnHome.Iconimage_Selected = null;
+            this.btnHome.IconMarginLeft = 27;
+            this.btnHome.IconMarginRight = 0;
+            this.btnHome.IconRightVisible = true;
+            this.btnHome.IconRightZoom = 0D;
+            this.btnHome.IconVisible = true;
+            this.btnHome.IconZoom = 55D;
+            this.btnHome.IsTab = true;
+            this.btnHome.Location = new System.Drawing.Point(0, 73);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnHome.OnHovercolor = System.Drawing.Color.Transparent;
+            this.btnHome.OnHoverTextColor = System.Drawing.Color.DarkOrange;
+            this.btnHome.selected = false;
+            this.btnHome.Size = new System.Drawing.Size(222, 48);
+            this.btnHome.TabIndex = 52;
+            this.btnHome.Text = " HOME";
+            this.btnHome.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Textcolor = System.Drawing.Color.White;
+            this.btnHome.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(21, 514);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 25);
+            this.label3.TabIndex = 51;
+            this.label3.Text = "ADMIN";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 55);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 16);
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panelLogo
+            // 
+            this.panelLogo.BackColor = System.Drawing.Color.DimGray;
+            this.panelLogo.Controls.Add(this.Logo);
+            this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Name = "panelLogo";
+            this.panelLogo.Size = new System.Drawing.Size(222, 55);
+            this.panelLogo.TabIndex = 0;
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.White;
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Location = new System.Drawing.Point(0, 0);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(222, 55);
+            this.Logo.TabIndex = 0;
+            this.Logo.TabStop = false;
+            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
             // 
             // Crypto
             // 
@@ -3944,52 +3947,33 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1064, 518);
             this.Name = "Crypto";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crypto";
             this.Load += new System.EventHandler(this.Crypto_Load);
-            this.Sidebar.ResumeLayout(false);
-            this.Sidebar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconMining)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconSettings)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconHome)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBack)).EndInit();
-            this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.Header.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             this.Summary01.ResumeLayout(false);
             this.customGroup09.ResumeLayout(false);
             this.customGroup09.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).EndInit();
             this.customGroup06.ResumeLayout(false);
             this.customGroup06.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).EndInit();
             this.customGroup08.ResumeLayout(false);
             this.customGroup08.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).EndInit();
             this.customGroup05.ResumeLayout(false);
             this.customGroup05.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).EndInit();
             this.customGroup07.ResumeLayout(false);
             this.customGroup07.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).EndInit();
             this.customGroup04.ResumeLayout(false);
             this.customGroup04.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).EndInit();
             this.customGroup03.ResumeLayout(false);
             this.customGroup03.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).EndInit();
             this.customGroup02.ResumeLayout(false);
             this.customGroup02.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
             this.customGroup01.ResumeLayout(false);
             this.customGroup01.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             this.Options.ResumeLayout(false);
             this.Options.PerformLayout();
             this.tabOptions.ResumeLayout(false);
@@ -4010,7 +3994,6 @@
             this.Mining01.ResumeLayout(false);
             this.groupMiningWorker.ResumeLayout(false);
             this.groupMiningWorker.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).EndInit();
             this.groupWorkerAddress.ResumeLayout(false);
             this.groupWorkerAddress.PerformLayout();
             this.groupWorkerDetails.ResumeLayout(false);
@@ -4018,11 +4001,28 @@
             this.groupWorkerProfitability.ResumeLayout(false);
             this.Footer.ResumeLayout(false);
             this.Footer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gifRefreshing)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnRefresh)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MiningNH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
+            this.Sidebar.ResumeLayout(false);
+            this.Sidebar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4030,13 +4030,8 @@
         #endregion
 
         private System.Windows.Forms.Panel Sidebar;
-        private System.Windows.Forms.Label btnBack;
-        private System.Windows.Forms.PictureBox iconBack;
-        private System.Windows.Forms.Label btnHome;
-        private System.Windows.Forms.PictureBox iconHome;
         private System.Windows.Forms.Panel Header;
         private System.Windows.Forms.PictureBox btnClose;
-        private System.Windows.Forms.Label btnSettings;
         private System.Windows.Forms.Panel Summary01;
         private System.Windows.Forms.GroupBox customGroup09;
         private System.Windows.Forms.Label lblCustomBTC09;
@@ -4164,7 +4159,6 @@
         private System.Windows.Forms.Label lblCustom24Hp01;
         private System.Windows.Forms.Label lblCustom7Dp01;
         private System.Windows.Forms.Label lbl1Hr01;
-        private System.Windows.Forms.PictureBox iconSettings;
         private System.Windows.Forms.Panel Options;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TabControl tabOptions;
@@ -4223,8 +4217,6 @@
         private System.Windows.Forms.Label lblSaveFound;
         private System.Windows.Forms.Button btnClearSummary;
         private System.Windows.Forms.Label lblMaxPages;
-        private System.Windows.Forms.PictureBox iconMining;
-        private System.Windows.Forms.Label btnMining;
         private System.Windows.Forms.Panel Mining01;
         private System.Windows.Forms.GroupBox groupBoxPages;
         private System.Windows.Forms.GroupBox groupBoxCurrency;
@@ -4327,7 +4319,10 @@
         private System.Windows.Forms.Label lblCurrencyPreview;
         private System.Windows.Forms.Label lblPeriodCurrency;
         private System.Windows.Forms.ComboBox TimePeriodv;
-        private Bunifu.Framework.UI.BunifuFlatButton bunifuFlatButton1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnHome;
         private Bunifu.Framework.UI.BunifuElipse RoundedCornersMain;
+        private Bunifu.Framework.UI.BunifuFlatButton btnMining;
+        private Bunifu.Framework.UI.BunifuFlatButton btnBack;
+        private Bunifu.Framework.UI.BunifuFlatButton btnSettings;
     }
 }

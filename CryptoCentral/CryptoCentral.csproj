@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu_UI_v1.5.3">
-      <HintPath>..\..\..\Bunifu_UI_v1.5.3.dll</HintPath>
+      <HintPath>.\Bunifu_UI_v1.5.3.dll</HintPath>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -75,6 +75,12 @@
     <Compile Include="NHAlgo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Summary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Summary.Designer.cs">
+      <DependentUpon>Summary.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Crypto.resx">
       <DependentUpon>Crypto.cs</DependentUpon>
     </EmbeddedResource>
@@ -82,6 +88,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Summary.resx">
+      <DependentUpon>Summary.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -119,6 +128,23 @@
     <EmbeddedResource Include="Resources\reload.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bunifu_UI_v1.5.3.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Golden Fever_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Settings_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit_100px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

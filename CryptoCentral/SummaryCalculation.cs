@@ -11,27 +11,27 @@ using Newtonsoft.Json;
 using System.Runtime.InteropServices;
 namespace CryptoCentral
 {
-    public class SummaryCalculation
+    public class SummaryCalculation : Options
     {
         //Main Function for getting data on any coin for the home page.
         public static void GETINFO(string CRYPTO, string customCoin, Label xCv, Label xBTCv, Label xUSDc, Label xUSD24c, Label xUSD7c, Label xUSDp, Label xUSD24p, Label xUSD7p, Label xC, Label xBTC, Label xTimev, GroupBox Number)
         {
-            if (Crypto.PublicCurrencyIndex == 0)       //0 is the index for USD.
+            if (PublicCurrencyIndex == 0)       //0 is the index for USD.
             {
-                Crypto.CURRENCY = "USD";
+                CURRENCY = "USD";
             }
-            else if (Crypto.PublicCurrencyIndex == 1)      //1 is the index for AUD.
+            else if (PublicCurrencyIndex == 1)      //1 is the index for AUD.
             {
-                Crypto.CURRENCY = "AUD";
+                CURRENCY = "AUD";
             }
 
             if (CRYPTO == "" || customCoin == "")       //If the coin is empty set labels to NO DATA.
             {
-                if (Crypto.PublicCurrencyIndex == 0)
+                if (PublicCurrencyIndex == 0)
                 {
                     xC.Text = "XXX/USD";
                 }
-                else if (Crypto.PublicCurrencyIndex == 1)
+                else if (PublicCurrencyIndex == 1)
                 {
                     xC.Text = "XXX/AUD";
                 }
@@ -60,7 +60,7 @@ namespace CryptoCentral
 
 
                 //Set CoinsDetailed to the new jsonString from above API.
-                Crypto.CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(EaseMethods.API(@"https://api.coinmarketcap.com/v1/ticker/" + CRYPTO + @"/?convert=" + Crypto.CURRENCY));
+                CoinsDetailed = JsonConvert.DeserializeObject<List<MarketCap>>(EaseMethods.API(@"https://api.coinmarketcap.com/v1/ticker/" + CRYPTO + @"/?convert=" + CURRENCY));
 
                 //Default Labelling based on first data.
                 xBTC.Text = customCoin + "/BTC";
@@ -68,10 +68,10 @@ namespace CryptoCentral
                 Number.Text = "      " + customCoin;
 
                 //Calculating Coin Price Against USD or AUD.
-                if (Crypto.PublicCurrencyIndex == 0)
+                if (PublicCurrencyIndex == 0)
                 {
                     xC.Text = customCoin + "/USD";
-                    foreach (var data in Crypto.CoinsDetailed)             //Coin Against USD
+                    foreach (var data in CoinsDetailed)             //Coin Against USD
                     {
                         string price_usd;
                         string percent;
@@ -91,10 +91,10 @@ namespace CryptoCentral
                         break;
                     }
                 }
-                else if (Crypto.PublicCurrencyIndex == 1)
+                else if (PublicCurrencyIndex == 1)
                 {
                     xC.Text = customCoin + "/AUD";
-                    foreach (var data in Crypto.CoinsDetailed)             //Coin Against AUD
+                    foreach (var data in CoinsDetailed)             //Coin Against AUD
                     {
                         string price_aud;
                         string percent;
@@ -110,7 +110,7 @@ namespace CryptoCentral
                         break;
                     }
                 }
-                foreach (var data in Crypto.CoinsDetailed)         //Calculate Last Updated Time.
+                foreach (var data in CoinsDetailed)         //Calculate Last Updated Time.
                 {
                     string Time;
                     string FinalTime;
@@ -120,13 +120,13 @@ namespace CryptoCentral
                     DTime = Convert.ToDouble(Time);
                     DateTime UniversalTime = new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(DTime);        //Converting UNIX time to DateTime.
                     DateTime LocalTime = UniversalTime.ToLocalTime();                                       //Converting DateTime to LocatTime.
-                    if (Crypto.TimeZoneNumber == 0)
+                    if (TimeZoneNumber == 0)
                     {
                         FinalTime = UniversalTime.ToString("r");            //'r' is a format of DateTime display.
                         FinalTime = FinalTime.Substring(0, FinalTime.Length - 4);   //Remove Extra Text Caused by 'r'.
                         xTimev.Text = FinalTime + " UTC";
                     }
-                    else if (Crypto.TimeZoneNumber == 1)
+                    else if (TimeZoneNumber == 1)
                     {
                         FinalTime = LocalTime.ToString("r");                //'r' is a format of DateTime display.
                         FinalTime = FinalTime.Substring(0, FinalTime.Length - 4); //Remove Extra Text Caused by 'r'.
@@ -134,7 +134,7 @@ namespace CryptoCentral
                     }
                     break;
                 }
-                foreach (var data in Crypto.CoinsDetailed)         //Coin Against BTC
+                foreach (var data in CoinsDetailed)         //Coin Against BTC
                 {
                     string percent_change_1h;
                     decimal Dchange;
@@ -170,7 +170,7 @@ namespace CryptoCentral
                     xBTCv.Text = price_btc;
                     break;
                 }
-                foreach (var data in Crypto.CoinsDetailed)         //Calculating all things related to percentages for ANY COIN.
+                foreach (var data in CoinsDetailed)         //Calculating all things related to percentages for ANY COIN.
                 {
                     string value_changed = null;
                     string convertedPercent = null;
@@ -240,19 +240,19 @@ namespace CryptoCentral
             else
             {
                 convertedPercent = EaseMethods.RemoveExtraText(StartingPercent);        //Remove (" ").
-                if (Crypto.CURRENCY == "USD" && Crypto.TimePeriodNumber == 0)
+                if (CURRENCY == "USD" && TimePeriodNumber == 0)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_usd, convertedPercent, Dprice_usd, DChange, ValueText);
                 }
-                else if (Crypto.CURRENCY == "USD" && Crypto.TimePeriodNumber == 2)
+                else if (CURRENCY == "USD" && TimePeriodNumber == 2)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_btc, convertedPercent, Dprice_btc, DChange, ValueText);
                 }
-                else if (Crypto.CURRENCY == "AUD" && Crypto.TimePeriodNumber == 1)
+                else if (CURRENCY == "AUD" && TimePeriodNumber == 1)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_aud, convertedPercent, Dprice_aud, DChange, ValueText);
                 }
-                else if (Crypto.CURRENCY == "AUD" && Crypto.TimePeriodNumber == 2)
+                else if (CURRENCY == "AUD" && TimePeriodNumber == 2)
                 {
                     CalculatePercentageValueDetailed(value_changed, price_btc, convertedPercent, Dprice_btc, DChange, ValueText);
                 }

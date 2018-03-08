@@ -45,7 +45,6 @@
             this.SummaryLoadingBar.animated = false;
             this.SummaryLoadingBar.animationIterval = 5;
             this.SummaryLoadingBar.animationSpeed = 300;
-            this.SummaryLoadingBar.AutoSize = true;
             this.SummaryLoadingBar.BackColor = System.Drawing.Color.White;
             this.SummaryLoadingBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SummaryLoadingBar.BackgroundImage")));
             this.SummaryLoadingBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
@@ -53,20 +52,20 @@
             this.SummaryLoadingBar.LabelVisible = true;
             this.SummaryLoadingBar.LineProgressThickness = 8;
             this.SummaryLoadingBar.LineThickness = 5;
-            this.SummaryLoadingBar.Location = new System.Drawing.Point(311, 146);
+            this.SummaryLoadingBar.Location = new System.Drawing.Point(320, 138);
             this.SummaryLoadingBar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
             this.SummaryLoadingBar.MaxValue = 100;
             this.SummaryLoadingBar.Name = "SummaryLoadingBar";
             this.SummaryLoadingBar.ProgressBackColor = System.Drawing.Color.Gainsboro;
             this.SummaryLoadingBar.ProgressColor = System.Drawing.Color.Orange;
-            this.SummaryLoadingBar.Size = new System.Drawing.Size(201, 201);
+            this.SummaryLoadingBar.Size = new System.Drawing.Size(203, 203);
             this.SummaryLoadingBar.TabIndex = 69;
             this.SummaryLoadingBar.Value = 0;
             // 
             // timerLoading
             // 
             this.timerLoading.Enabled = true;
-            this.timerLoading.Interval = 50;
+            this.timerLoading.Interval = 10;
             this.timerLoading.Tick += new System.EventHandler(this.timerLoading_Tick);
             // 
             // Loading
@@ -81,7 +80,6 @@
             this.Text = "Loading";
             this.Load += new System.EventHandler(this.Loading_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 

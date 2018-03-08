@@ -19,27 +19,25 @@ namespace CryptoCentral
 
         private void Loading_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void timerLoading_Tick(object sender, EventArgs e)
         {
-            if (SummaryLoadingBar.Value >= 100)
+            if (SummaryLoadingBar.Value >= 100 && Crypto.Loading == true)
             {
+                Reference.CryptoForm.LoadingPanel.Visible = false;
+                Crypto.Loading = false;
                 SummaryLoadingBar.Value = 0;
-                SummaryLoadingBar.Visible = false;
-                Reference.CryptoForm.LoadingPanelVisible = false;
-
             }
-            else if (SummaryLoadingBar.Value < 100)
+            else if (SummaryLoadingBar.Value < 100 && Crypto.Loading == true)
             {
-                SummaryLoadingBar.Visible = true;
-                Reference.CryptoForm.LoadingPanelVisible = true;
+                Reference.CryptoForm.LoadingPanel.Visible = true;
                 SummaryLoadingBar.Value = SummaryLoadingBar.Value + 1;
             }
             else
             {
-                Console.WriteLine("TEST");
+
             }
         }
     }

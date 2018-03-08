@@ -80,10 +80,11 @@ namespace CryptoCentral
         
         public static string RemoveAfterLetter(string Remove, string Letter)
         {
-            Crypto.TimeIndexRemove = Remove.LastIndexOf(Letter);
-            if (Crypto.TimeIndexRemove > 0) { Remove = Remove.Substring(0, Crypto.TimeIndexRemove); }
+            Worker.TimeIndexRemove = Remove.LastIndexOf(Letter);
+            if (Worker.TimeIndexRemove > 0) { Remove = Remove.Substring(0, Worker.TimeIndexRemove); }
             return Remove;
         }
+
         public static string API(string url)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
@@ -104,7 +105,28 @@ namespace CryptoCentral
                 return "";
             }
         }
-        
+
+        public string getBetween(string strSource, string strStart, string strEnd)
+        {
+            try
+            {
+                int Start, End;
+                if (strSource.Contains(strStart) && strSource.Contains(strEnd))
+                {
+                    Start = strSource.IndexOf(strStart, 0) + strStart.Length;
+                    End = strSource.IndexOf(strEnd, Start);
+                    return strSource.Substring(Start, End - Start);
+                }
+                else
+                {
+                    return "";
+                }
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
     }
 
     public class EaseOptionsMethods : Options
@@ -140,81 +162,6 @@ namespace CryptoCentral
             lblSaveFound.Visible = false;
             lblNewPage.Visible = true;
         }
-
         
-       
-
-        //SETTINGS BUTTON FUNCTIONS
-        //CUT DOWN ON LINES OF CODE
-        public static void EditSummaryIndividual(TextBox Custom)
-        {
-            Custom.ReadOnly = false;
-            Custom.BackColor = Color.White;
-        }
-        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
-        public void EditSummary()
-        {
-            EditSummaryIndividual(txtCustom01);
-            EditSummaryIndividual(txtCustom02);
-            EditSummaryIndividual(txtCustom03);
-            EditSummaryIndividual(txtCustom04);
-            EditSummaryIndividual(txtCustom05);
-            EditSummaryIndividual(txtCustom06);
-            EditSummaryIndividual(txtCustom07);
-            EditSummaryIndividual(txtCustom08);
-            EditSummaryIndividual(txtCustom09);
-            Crypto.ConfirmAllowed = true;
-            Crypto.ProfileLoaded = false;
-        }
-
-        //CUT DOWN ON LINES OF CODE
-        public static void EmptySummaryIndividual(TextBox Custom)
-        {
-            Custom.ReadOnly = false;
-            Custom.BackColor = Color.White;
-            Custom.Text = "";
-        }
-        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
-        public void EmptySummary()
-        {
-            EmptySummaryIndividual(txtCustom01);
-            EmptySummaryIndividual(txtCustom02);
-            EmptySummaryIndividual(txtCustom03);
-            EmptySummaryIndividual(txtCustom04);
-            EmptySummaryIndividual(txtCustom05);
-            EmptySummaryIndividual(txtCustom06);
-            EmptySummaryIndividual(txtCustom07);
-            EmptySummaryIndividual(txtCustom08);
-            EmptySummaryIndividual(txtCustom09);
-            Reference.CryptoForm.TestCoinSummary();
-            Reference.SummaryForm.GETINFOSummary();
-        }
-
-        //CUT DOWN ON LINES OF CODE
-        public static void ConfirmSummaryIndividual(TextBox Custom)
-        {
-            Custom.BackColor = Color.WhiteSmoke;
-            Custom.ReadOnly = true;
-        }
-        //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
-        public void ConfirmSummary()
-        {
-            while (Crypto.ConfirmAllowed == true)
-            {
-                ConfirmSummaryIndividual(txtCustom01);
-                ConfirmSummaryIndividual(txtCustom02);
-                ConfirmSummaryIndividual(txtCustom03);
-                ConfirmSummaryIndividual(txtCustom04);
-                ConfirmSummaryIndividual(txtCustom05);
-                ConfirmSummaryIndividual(txtCustom06);
-                ConfirmSummaryIndividual(txtCustom07);
-                ConfirmSummaryIndividual(txtCustom08);
-                ConfirmSummaryIndividual(txtCustom09);
-                lblConfirmed.Visible = true;
-                Reference.CryptoForm.TestCoinSummary();
-                Reference.SummaryForm.GETINFOSummary();
-                Crypto.ConfirmAllowed = false;
-            }
-        }
     }
 }

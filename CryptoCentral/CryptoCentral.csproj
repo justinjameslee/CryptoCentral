@@ -95,7 +95,15 @@
     <Compile Include="Summary.Designer.cs">
       <DependentUpon>Summary.cs</DependentUpon>
     </Compile>
-    <Compile Include="SummaryCalculation.cs" />
+    <Compile Include="SummaryCalculation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Worker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Worker.Designer.cs">
+      <DependentUpon>Worker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Crypto.resx">
       <DependentUpon>Crypto.cs</DependentUpon>
     </EmbeddedResource>
@@ -112,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Summary.resx">
       <DependentUpon>Summary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Worker.resx">
+      <DependentUpon>Worker.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

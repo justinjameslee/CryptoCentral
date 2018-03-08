@@ -177,8 +177,6 @@ namespace CryptoCentral
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         public void EmptySummary()
         {
-            Crypto CryptoForm = new Crypto();
-            Summary SummaryForm = new Summary();
             EmptySummaryIndividual(txtCustom01);
             EmptySummaryIndividual(txtCustom02);
             EmptySummaryIndividual(txtCustom03);
@@ -188,8 +186,8 @@ namespace CryptoCentral
             EmptySummaryIndividual(txtCustom07);
             EmptySummaryIndividual(txtCustom08);
             EmptySummaryIndividual(txtCustom09);
-            CryptoForm.TestCoinSummary();
-            SummaryForm.GETINFOSummary();
+            Reference.CryptoForm.TestCoinSummary();
+            Reference.SummaryForm.GETINFOSummary();
         }
 
         //CUT DOWN ON LINES OF CODE
@@ -201,8 +199,6 @@ namespace CryptoCentral
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         public void ConfirmSummary()
         {
-            Crypto CryptoForm = new Crypto();
-            Summary SummaryForm = new Summary();
             while (Crypto.ConfirmAllowed == true)
             {
                 ConfirmSummaryIndividual(txtCustom01);
@@ -215,8 +211,8 @@ namespace CryptoCentral
                 ConfirmSummaryIndividual(txtCustom08);
                 ConfirmSummaryIndividual(txtCustom09);
                 lblConfirmed.Visible = true;
-                CryptoForm.TestCoinSummary();
-                SummaryForm.GETINFOSummary();
+                Reference.CryptoForm.TestCoinSummary();
+                Reference.SummaryForm.GETINFOSummary();
                 Crypto.ConfirmAllowed = false;
             }
         }

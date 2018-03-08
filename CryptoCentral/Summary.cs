@@ -75,6 +75,15 @@ namespace CryptoCentral
             }
         }
 
+        public void HideGroupBox()
+        {
+        }
 
+        public void ShowGroupBox()
+        {
+            customGroup01.Visible = true;
+        }
+
+        
     }
 }

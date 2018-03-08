@@ -9,6 +9,7 @@ using System.Net;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace CryptoCentral
 {
@@ -20,6 +21,12 @@ namespace CryptoCentral
         {
             get { return lblCurrentPage.Text; }
             set { lblCurrentPage.Text = value; }
+        }
+
+        public bool LoadingPanelVisible
+        {
+            get { return LoadingPanel.Visible; }
+            set { LoadingPanel.Visible = value; }
         }
 
         //Used for saving and reading files. Refer to Method: Options.cs
@@ -42,6 +49,8 @@ namespace CryptoCentral
         {
             InitializeComponent();
         }
+
+        public static bool SummaryLoading = false;
 
         //Creating Varaibles For Moving Form.
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -214,38 +223,32 @@ namespace CryptoCentral
         public static int PublicCurrencyIndex;
         public static int PublicPeriodIndex;
 
-        Summary SummaryForm = new Summary();
-        Options OptionsForm = new Options();
-        EaseMethods EaseMethods = new EaseMethods();
-        EaseOptionsMethods EaseMethodsO = new EaseOptionsMethods();
-
         //Resetting Positions of Panels and Header.
         void Summary01RESET()
         {
             MainContainer.Controls.Clear();
-            SummaryForm.Show();
-            SummaryForm.TopLevel = false;
-            SummaryForm.Size = new Size(842, 468);
-            SummaryForm.AutoScroll = false;
-            SummaryForm.Dock = DockStyle.Fill;
-            SummaryForm.Show();
-            MainContainer.Controls.Add(SummaryForm);
-            SidebarTransition.Show(MainContainer, false, null);
-            MainContainer.Visible = true;
+            Reference.SummaryForm.TopLevel = false;
+            Reference.SummaryForm.Size = new Size(842, 468);
+            Reference.SummaryForm.AutoScroll = false;
+            Reference.SummaryForm.Dock = DockStyle.Fill;
+            MainContainer.Controls.Add(Reference.SummaryForm);
+            SidebarTransition.Show(MainContainer);
+            Reference.SummaryForm.Show();
+            SummaryLoading = true;
+            
         }
-
         void OptionsRESET()
         {
+            MainContainer.Visible = false;
             MainContainer.Controls.Clear();
-            OptionsForm.Show();
-            OptionsForm.TopLevel = false;
-            OptionsForm.Size = new Size(842, 468);
-            OptionsForm.AutoScroll = false;
-            OptionsForm.Dock = DockStyle.Fill;
-            OptionsForm.Show();
-            MainContainer.Controls.Add(OptionsForm);
-            SidebarTransition.Show(MainContainer, false, null);
-            MainContainer.Visible = true;
+            Reference.OptionsForm.TopLevel = false;
+            Reference.OptionsForm.Size = new Size(842, 468);
+            Reference.OptionsForm.AutoScroll = false;
+            Reference.OptionsForm.Dock = DockStyle.Fill;
+
+            MainContainer.Controls.Add(Reference.OptionsForm);
+            Reference.OptionsForm.Show();
+            SidebarTransition.Show(MainContainer);
         }
         void MiningRESET()
         {
@@ -263,12 +266,12 @@ namespace CryptoCentral
         }
         void HeaderMiningRESET()
         {
-            OptionsForm.lblHeaderPoolLocation = new Point(13, 40);
-            OptionsForm.HeaderPoolvLocation = new Point(83, 38);
-            OptionsForm.lblHeaderWorkerLocation = new Point(234, 40);
-            OptionsForm.HeaderWorkervLocation = new Point(334, 38);
-            OptionsForm.lblHeaderMiningCurrencyLocation = new Point(530, 40);
-            OptionsForm.HeaderMiningCurrencyvLocation = new Point(651, 38);
+            Reference.OptionsForm.lblHeaderPoolLocation = new Point(13, 40);
+            Reference.OptionsForm.HeaderPoolvLocation = new Point(83, 38);
+            Reference.OptionsForm.lblHeaderWorkerLocation = new Point(234, 40);
+            Reference.OptionsForm.HeaderWorkervLocation = new Point(334, 38);
+            Reference.OptionsForm.lblHeaderMiningCurrencyLocation = new Point(530, 40);
+            Reference.OptionsForm.HeaderMiningCurrencyvLocation = new Point(651, 38);
         }
         //Checking and Creating Required Files
         void CreateMustFiles()
@@ -301,7 +304,7 @@ namespace CryptoCentral
             HeaderDefaultRESET();       //MOVE all Header properties to correct location.
             HeaderMiningRESET();        //MOVE all Mining Header propertities to correct location.
             HeaderDefault();            //HIDE all header properties except default ones.
-            OptionsForm.PagevSelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
+            Reference.OptionsForm.PagevSelectedIndex = Convert.ToInt32(PageNumber);  //Setting Page Index to Saved Page Number on txt file.
             intSyncTimer = 31;          //On first countdown users sees it counting down from 30.
             lblSyncTimer.Location = new Point(789, 7);  // ** FIX **
             GETWallets();                                           //MINING | Gets All Wallet Info.
@@ -313,10 +316,15 @@ namespace CryptoCentral
             this.CenterToScreen();
             GETINFOSummary();                                 //Getting ALL API Information.
             GETWorkerInfo();                                  //Get ALL Relevant Mining Info
-            OptionsForm.lblSaveFoundVisible = false;                    //Not Required on first startup.
+            Reference.OptionsForm.lblSaveFoundVisible = false;                    //Not Required on first startup.
             btnHome.selected = true;
-            SidebarTransition.ShowSync(MainContainer, false, null);
-            MainContainer.Visible = true;
+
+            LoadingPanel.Controls.Clear();
+            Reference.LoadingForm.TopLevel = true;
+            Reference.LoadingForm.Size = new Size(842, 468);
+            Reference.LoadingForm.AutoScroll = false;
+            Reference.LoadingForm.Dock = DockStyle.Fill;
+            LoadingPanel.Controls.Add(Reference.LoadingForm);
         }
 
         //Events for moving the actual form.
@@ -340,16 +348,16 @@ namespace CryptoCentral
         private void btnClose_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
-            PageNumber = Convert.ToString(OptionsForm.PagevSelectedIndex);     //Saves the Last Page the user was viewing.
+            PageNumber = Convert.ToString(Reference.OptionsForm.PagevSelectedIndex);     //Saves the Last Page the user was viewing.
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
         }
 
         //Universal Hide All Function.
         void HideAll()
         {
-            OptionsForm.lblConfirmedVisible = false;
-            OptionsForm.lblMaxPagesVisible = false;
-            OptionsForm.lblDefaultSetVisible = false;
+            Reference.OptionsForm.lblConfirmedVisible = false;
+            Reference.OptionsForm.lblMaxPagesVisible = false;
+            Reference.OptionsForm.lblDefaultSetVisible = false;
         }
         void HeaderDefault()
         {
@@ -360,14 +368,13 @@ namespace CryptoCentral
         //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
         {
-            MainContainer.Visible = false;
+            
             HideAll();
             Summary01RESET();
             HeaderDefault();
         }
         private void btnMining_Click(object sender, EventArgs e)
         {
-            btnHome.selected = false;
             HideAll();
             bMining = true;
             Mining01.Visible = true;
@@ -377,7 +384,6 @@ namespace CryptoCentral
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            MainContainer.Visible = false;
             HideAll();
             OptionsRESET();
             HeaderDefault();
@@ -406,7 +412,7 @@ namespace CryptoCentral
                 PageCalculation = Convert.ToInt32(Pages);
                 for (int i = 0; i < PageCalculation; i++)
                 {
-                    OptionsForm.PagevAddItem(new Item(Convert.ToString(pages), pages));      //Add Item to Combo Box based on txt file.
+                    Reference.OptionsForm.PagevAddItem(new Item(Convert.ToString(pages), pages));      //Add Item to Combo Box based on txt file.
                     pages = pages + 1;                                              //Universal Way of Checking Current Page Number.
                     if (pages > PageCalculation)
                     {
@@ -418,31 +424,31 @@ namespace CryptoCentral
                 //Setting Correct Starting Index for Combo Boxes.
                 if (CurrencyNumber == 0)
                 {
-                    OptionsForm.CurrencyvSelectedIndex = 0;
+                    Reference.OptionsForm.CurrencyvSelectedIndex = 0;
                     PublicCurrencyIndex = 0;
-                    OptionsForm.TimePeriodvClear();
-                    OptionsForm.TimePeriodvAddItem("USD ($)");
-                    OptionsForm.TimePeriodvAddItem("BTC (Satoshi)");
-                    OptionsForm.lblCurrencyPreviewSET = "XXX/USD";
+                    Reference.OptionsForm.TimePeriodvClear();
+                    Reference.OptionsForm.TimePeriodvAddItem("USD ($)");
+                    Reference.OptionsForm.TimePeriodvAddItem("BTC (Satoshi)");
+                    Reference.OptionsForm.lblCurrencyPreviewSET = "XXX/USD";
                 }
                 else if (CurrencyNumber == 1)
                 {
-                    OptionsForm.CurrencyvSelectedIndex = 1;
+                    Reference.OptionsForm.CurrencyvSelectedIndex = 1;
                     PublicCurrencyIndex = 1;
-                    OptionsForm.TimePeriodvClear();
-                    OptionsForm.TimePeriodvAddItem("AUD ($)");
-                    OptionsForm.TimePeriodvAddItem("BTC (Satoshi)");
-                    OptionsForm.lblCurrencyPreviewSET = "XXX/AUD";
+                    Reference.OptionsForm.TimePeriodvClear();
+                    Reference.OptionsForm.TimePeriodvAddItem("AUD ($)");
+                    Reference.OptionsForm.TimePeriodvAddItem("BTC (Satoshi)");
+                    Reference.OptionsForm.lblCurrencyPreviewSET = "XXX/AUD";
                 }
 
 
                 if (TimeZoneNumber == 0)
                 {
-                    OptionsForm.TimeZonevSelectedIndex = 0;
+                    Reference.OptionsForm.TimeZonevSelectedIndex = 0;
                 }
                 else if (TimeZoneNumber == 1)
                 {
-                    OptionsForm.TimeZonevSelectedIndex = 1;
+                    Reference.OptionsForm.TimeZonevSelectedIndex = 1;
                 }
 
                 if (StartingPeriod == "USD ($)")
@@ -470,15 +476,15 @@ namespace CryptoCentral
                 coin7 = ProfileCoinsLoaded[6];
                 coin8 = ProfileCoinsLoaded[7];
                 coin9 = ProfileCoinsLoaded[8];
-                OptionsForm.txtCustom01Text = coin1;
-                OptionsForm.txtCustom02Text = coin2;
-                OptionsForm.txtCustom03Text = coin3;
-                OptionsForm.txtCustom04Text = coin4;
-                OptionsForm.txtCustom05Text = coin5;
-                OptionsForm.txtCustom06Text = coin6;
-                OptionsForm.txtCustom07Text = coin7;
-                OptionsForm.txtCustom08Text = coin8;
-                OptionsForm.txtCustom09Text = coin9;
+                Reference.OptionsForm.txtCustom01Text = coin1;
+                Reference.OptionsForm.txtCustom02Text = coin2;
+                Reference.OptionsForm.txtCustom03Text = coin3;
+                Reference.OptionsForm.txtCustom04Text = coin4;
+                Reference.OptionsForm.txtCustom05Text = coin5;
+                Reference.OptionsForm.txtCustom06Text = coin6;
+                Reference.OptionsForm.txtCustom07Text = coin7;
+                Reference.OptionsForm.txtCustom08Text = coin8;
+                Reference.OptionsForm.txtCustom09Text = coin9;
                 TestCoinSummary();
                 GETINFOSummary();
                 ProfileLoaded = true;       //Make sure program understands profile loaded successfully. 
@@ -492,7 +498,7 @@ namespace CryptoCentral
         //Updating Header Page Number
         public void UpdatingCurrentPage()
         {
-            CurrentPage = OptionsForm.PagevSelectedIndex + 1;
+            CurrentPage = Reference.OptionsForm.PagevSelectedIndex + 1;
             lblCurrentPage.Text = "PAGE " + Convert.ToString(CurrentPage);
         }
 
@@ -510,33 +516,33 @@ namespace CryptoCentral
             coin7 = ProfileCoinsLoaded[6];
             coin8 = ProfileCoinsLoaded[7];
             coin9 = ProfileCoinsLoaded[8];
-            OptionsForm.txtCustom01Text = coin1;
-            OptionsForm.txtCustom02Text = coin2;
-            OptionsForm.txtCustom03Text = coin3;
-            OptionsForm.txtCustom04Text = coin4;
-            OptionsForm.txtCustom05Text = coin5;
-            OptionsForm.txtCustom06Text = coin6;
-            OptionsForm.txtCustom07Text = coin7;
-            OptionsForm.txtCustom08Text = coin8;
-            OptionsForm.txtCustom09Text = coin9;
+            Reference.OptionsForm.txtCustom01Text = coin1;
+            Reference.OptionsForm.txtCustom02Text = coin2;
+            Reference.OptionsForm.txtCustom03Text = coin3;
+            Reference.OptionsForm.txtCustom04Text = coin4;
+            Reference.OptionsForm.txtCustom05Text = coin5;
+            Reference.OptionsForm.txtCustom06Text = coin6;
+            Reference.OptionsForm.txtCustom07Text = coin7;
+            Reference.OptionsForm.txtCustom08Text = coin8;
+            Reference.OptionsForm.txtCustom09Text = coin9;
             TestCoinSummary();
-            EaseMethodsO.HideConfirmationLabelsSave();
+            Reference.EaseMethodsO.HideConfirmationLabelsSave();
         }
         public void SelectedIndexChanged(int Index)
         {
-            OptionsForm.lblMaxPagesVisible = false;
-            if (OptionsForm.PagevSelectedIndex == Index)
+            Reference.OptionsForm.lblMaxPagesVisible = false;
+            if (Reference.OptionsForm.PagevSelectedIndex == Index)
             {
                 try
                 {
-                    IndexChanged(OptionsForm.PagevSelectedIndex);      //Method that undergos the process of updating the coins from txt file.
+                    IndexChanged(Reference.OptionsForm.PagevSelectedIndex);      //Method that undergos the process of updating the coins from txt file.
                 }
                 catch (Exception)
                 {
-                    EaseMethodsO.EmptySummary();
+                    Reference.EaseMethodsO.EmptySummary();
                     TestCoinSummary();
                     GETINFOSummary();
-                    EaseMethodsO.HideConfirmationLabelsNoSave();
+                    Reference.EaseMethodsO.HideConfirmationLabelsNoSave();
                 }
             }
         }
@@ -552,15 +558,15 @@ namespace CryptoCentral
         //Set Coin Variables to Inputted Coins.
         public void SetConfirmationSummary()
         {
-            coin1 = OptionsForm.txtCustom01Text;
-            coin2 = OptionsForm.txtCustom02Text;
-            coin3 = OptionsForm.txtCustom03Text;
-            coin4 = OptionsForm.txtCustom04Text;
-            coin5 = OptionsForm.txtCustom05Text;
-            coin6 = OptionsForm.txtCustom06Text;
-            coin7 = OptionsForm.txtCustom07Text;
-            coin8 = OptionsForm.txtCustom08Text;
-            coin9 = OptionsForm.txtCustom09Text;
+            coin1 = Reference.OptionsForm.txtCustom01Text;
+            coin2 = Reference.OptionsForm.txtCustom02Text;
+            coin3 = Reference.OptionsForm.txtCustom03Text;
+            coin4 = Reference.OptionsForm.txtCustom04Text;
+            coin5 = Reference.OptionsForm.txtCustom05Text;
+            coin6 = Reference.OptionsForm.txtCustom06Text;
+            coin7 = Reference.OptionsForm.txtCustom07Text;
+            coin8 = Reference.OptionsForm.txtCustom08Text;
+            coin9 = Reference.OptionsForm.txtCustom09Text;
         }
         //Saved Essential Data to txtfile based on Profile Number;
         public void SaveProfile()
@@ -574,7 +580,7 @@ namespace CryptoCentral
             ProfileLoad[6] = coin7;
             ProfileLoad[7] = coin8;
             ProfileLoad[8] = coin9;
-            PageNumber = Convert.ToString(OptionsForm.PagevSelectedIndex);
+            PageNumber = Convert.ToString(Reference.OptionsForm.PagevSelectedIndex);
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
             File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", ProfileLoad);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
@@ -612,7 +618,7 @@ namespace CryptoCentral
         //UPDATES ALL INFORMATION AFFECTING EVERY LABEL AND GROUPBOX | VERY IMPORTANT
         void GETINFOSummary()
         {
-            SummaryForm.GETINFOSummary();
+            Reference.SummaryForm.GETINFOSummary();
         }
 
         //MINIMISE THE FORM
@@ -631,7 +637,7 @@ namespace CryptoCentral
         //INITIATE THE SYNC
         public void SyncingTest()
         {
-            SummaryForm.ShowcustomRefresh();
+            Reference.SummaryForm.ShowcustomRefresh();
             UseWaitCursor = true;
             timerUpdating.Enabled = true;
             SYNCED = false;
@@ -647,7 +653,7 @@ namespace CryptoCentral
             }
             else if (SYNCED == true)
             {
-                SummaryForm.HidecustomRefresh();
+                Reference.SummaryForm.HidecustomRefresh();
                 lblSync.Text = "SYNCED";
                 gifRefreshing.Visible = false;
                 UseWaitCursor = false;
@@ -660,7 +666,7 @@ namespace CryptoCentral
         {
             if (SYNCED == false)
             {
-                SummaryForm.ShowcustomRefresh();
+                Reference.SummaryForm.ShowcustomRefresh();
                 lblSync.Text = "SYNCING...";        //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITHCING
                 gifRefreshing.Visible = true;       //REQUIRED FOR SYNCING LABELS TO WORK FOR PAGE SWITCHING
                 if (bSummary == true)
@@ -669,7 +675,7 @@ namespace CryptoCentral
                 }
                 else if (bMining == true)
                 {
-                    if (OptionsForm.HeaderPoolvText == "NICEHASH")
+                    if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
                     {
                         GETNHWorkerRefresh();
                     }
@@ -682,7 +688,7 @@ namespace CryptoCentral
             }
             else if (SYNCED == true)
             {
-                SummaryForm.HidecustomRefresh();
+                Reference.SummaryForm.HidecustomRefresh();
                 timerUpdating.Enabled = false;
                 UseWaitCursor = false;
             }
@@ -786,10 +792,10 @@ namespace CryptoCentral
             if (btnPageControl.Name == "btnPageLeft")
             {
                 btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-clicked-24px.png");
-                if (OptionsForm.PagevSelectedIndex != 0)
+                if (Reference.OptionsForm.PagevSelectedIndex != 0)
                 {
                     btnPageLeft.Enabled = true;
-                    OptionsForm.PagevSelectedIndex = OptionsForm.PagevSelectedIndex - 1;
+                    Reference.OptionsForm.PagevSelectedIndex = Reference.OptionsForm.PagevSelectedIndex - 1;
                     UpdatingCurrentPage();
                 }
             }
@@ -798,10 +804,10 @@ namespace CryptoCentral
                 btnPageControl.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-clicked-24px.png");
                 MaxPages = Convert.ToInt32(Pages);
                 MaxPages = MaxPages - 1;
-                if (OptionsForm.PagevSelectedIndex != MaxPages)
+                if (Reference.OptionsForm.PagevSelectedIndex != MaxPages)
                 {
                     btnPageRight.Enabled = true;
-                    OptionsForm.PagevSelectedIndex = OptionsForm.PagevSelectedIndex + 1;
+                    Reference.OptionsForm.PagevSelectedIndex = Reference.OptionsForm.PagevSelectedIndex + 1;
                     UpdatingCurrentPage();
                 }
             }
@@ -817,9 +823,9 @@ namespace CryptoCentral
             if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt"))
             {
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt", "EMPTY");
-                OptionsForm.HeaderPoolvText = "";
-                OptionsForm.HeaderWorkervText = "SELECT A POOL";
-                OptionsForm.HeaderMiningCurrencyvText = "";
+                Reference.OptionsForm.HeaderPoolvText = "";
+                Reference.OptionsForm.HeaderWorkervText = "SELECT A POOL";
+                Reference.OptionsForm.HeaderMiningCurrencyvText = "";
             }
             else
             {
@@ -827,15 +833,15 @@ namespace CryptoCentral
                 string test = StartingMiningSettings[0];
                 if (test == "EMPTY")
                 {
-                    OptionsForm.HeaderPoolvText = "";
-                    OptionsForm.HeaderWorkervText = "SELECT A POOL";
-                    OptionsForm.HeaderMiningCurrencyvText = "";
+                    Reference.OptionsForm.HeaderPoolvText = "";
+                    Reference.OptionsForm.HeaderWorkervText = "SELECT A POOL";
+                    Reference.OptionsForm.HeaderMiningCurrencyvText = "";
                 }
                 else
                 {
-                    OptionsForm.HeaderPoolvText = StartingMiningSettings[0];
-                    OptionsForm.HeaderWorkervText = StartingMiningSettings[1];
-                    OptionsForm.HeaderMiningCurrencyvSelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
+                    Reference.OptionsForm.HeaderPoolvText = StartingMiningSettings[0];
+                    Reference.OptionsForm.HeaderWorkervText = StartingMiningSettings[1];
+                    Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
                 }
             }
         }
@@ -844,32 +850,32 @@ namespace CryptoCentral
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt").ToList();
             NHWalletsA = NHWallets.ToArray();
             BindWallet.DataSource = NHWalletsA;
-            OptionsForm.OptionsNHWalletsvDataSource();
-            CurrentNHWallet = OptionsForm.OptionsNHWalletsvText;
+            Reference.OptionsForm.OptionsNHWalletsvDataSource();
+            CurrentNHWallet = Reference.OptionsForm.OptionsNHWalletsvText;
 
             ZPWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\ZPool.txt").ToList();
             ZPWalletsA = ZPWallets.ToArray();
             BindWallet.DataSource = ZPWalletsA;
-            OptionsForm.OptionsZPWalletsvDataSource();
-            CurrentZPWallet = OptionsForm.OptionsZPWalletsvText;
+            Reference.OptionsForm.OptionsZPWalletsvDataSource();
+            CurrentZPWallet = Reference.OptionsForm.OptionsZPWalletsvText;
 
         }
         public void GETPools()
         {
             if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Nicehash.txt"))
             {
-                if (OptionsForm.HeaderWorkervContainsNH) { }
+                if (Reference.OptionsForm.HeaderWorkervContainsNH) { }
                 else
                 {
-                    OptionsForm.HeaderPoolvAddItem("NICEHASH");
+                    Reference.OptionsForm.HeaderPoolvAddItem("NICEHASH");
                 }
             }
             if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\ZPool.txt"))
             {
-                if (OptionsForm.HeaderWorkervContainsZP) { }
+                if (Reference.OptionsForm.HeaderWorkervContainsZP) { }
                 else
                 {
-                    OptionsForm.HeaderPoolvAddItem("ZPOOL");
+                    Reference.OptionsForm.HeaderPoolvAddItem("ZPOOL");
                 }
             }
         }
@@ -905,7 +911,7 @@ namespace CryptoCentral
                         }
                         if (bMining == false)
                         {
-                            OptionsForm.HeaderWorkervAddItem(WorkerID);
+                            Reference.OptionsForm.HeaderWorkervAddItem(WorkerID);
                             RealWorkers.Add(WorkerID);
                         }
                     }
@@ -919,9 +925,9 @@ namespace CryptoCentral
         }
         public void GETWorkers()
         {
-            OptionsForm.HeaderWorkervClear();
+            Reference.OptionsForm.HeaderWorkervClear();
             
-            if (OptionsForm.HeaderPoolvText == "NICEHASH")
+            if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
             {
                 GETNHWorkerRefresh();
             }
@@ -1106,7 +1112,7 @@ namespace CryptoCentral
         {
             NHCalcProfitRate = RealProfit[Convert.ToInt32(SepDATA[5])];
             NHCalcProfitBTCD = Math.Round(Convert.ToDouble(NHCalcProfitRate) * CurrentHashRate, 8);
-            if (OptionsForm.HeaderMiningCurrencyvSelectedIndex == 0)
+            if (Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex == 0)
             {
                 lblProfitv.Text = Convert.ToString(NHCalcProfitBTCD);
                 lblProfitMv.Text = Convert.ToString(Math.Round(NHCalcProfitBTCD * 30.4167, 8));
@@ -1115,7 +1121,7 @@ namespace CryptoCentral
                 lblProfitM.Text = "BTC/MONTH";
                 lblProfitY.Text = "BTC/YEAR";
             }
-            else if (OptionsForm.HeaderMiningCurrencyvSelectedIndex == 1)
+            else if (Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex == 1)
             {
                 lblProfitv.Text = "$" + string.Format("{0:#,0.00}", NHCalcProfitBTCD * UniversalBTCPrice);
                 lblProfitMv.Text = "$" + string.Format("{0:#,0.00}", (NHCalcProfitBTCD * 30.4167) * UniversalBTCPrice);
@@ -1138,9 +1144,9 @@ namespace CryptoCentral
             STimeMins = null;
             STimeSeconds = null;
             TimeCalc = false;
-            WorkerID = OptionsForm.HeaderWorkervText;
+            WorkerID = Reference.OptionsForm.HeaderWorkervText;
 
-            if (OptionsForm.HeaderPoolvText == "NICEHASH")
+            if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
             {
                 MiningNH.Location = new Point(26, 30);
                 MiningNH.Visible = true;
@@ -1159,7 +1165,7 @@ namespace CryptoCentral
                         WorkerID = "EMPTY";
                     }
 
-                    if (WorkerID == OptionsForm.HeaderWorkervText)
+                    if (WorkerID == Reference.OptionsForm.HeaderWorkervText)
                     {
                         DATA = SepWorkers[x];
                         try
@@ -1313,6 +1319,9 @@ namespace CryptoCentral
 
         }
 
-        
+        private void SidebarTransition_AllAnimationsCompleted(object sender, EventArgs e)
+        {
+            MainContainer.Visible = true;
+        }
     }
 }

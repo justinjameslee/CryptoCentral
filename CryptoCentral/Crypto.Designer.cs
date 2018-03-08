@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
             this.Header = new System.Windows.Forms.Panel();
+            this.Logo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.Mining01 = new System.Windows.Forms.Panel();
             this.groupMiningWorker = new System.Windows.Forms.GroupBox();
             this.MiningZPOOL = new System.Windows.Forms.Label();
@@ -81,14 +83,15 @@
             this.SidebarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.MainContainer = new System.Windows.Forms.Panel();
             this.bunifuGradientPanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
             this.btnBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSettings = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMining = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.Logo = new System.Windows.Forms.PictureBox();
-            this.bunifuSeparator1 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.FadeForm = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
+            this.LoadingPanel = new System.Windows.Forms.Panel();
             this.Header.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).BeginInit();
             this.Mining01.SuspendLayout();
@@ -103,8 +106,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.MainContainer.SuspendLayout();
             this.bunifuGradientPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -121,6 +124,18 @@
             this.Header.Size = new System.Drawing.Size(1940, 55);
             this.Header.TabIndex = 2;
             this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
+            // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.White;
+            this.SidebarTransition.SetDecoration(this.Logo, BunifuAnimatorNS.DecorationType.None);
+            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
+            this.Logo.Location = new System.Drawing.Point(0, 0);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(222, 55);
+            this.Logo.TabIndex = 0;
+            this.Logo.TabStop = false;
+            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
             // 
             // btnClose
             // 
@@ -143,6 +158,19 @@
             this.btnMinimize.TabIndex = 49;
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.SidebarTransition.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
+            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
+            this.label3.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label3.Location = new System.Drawing.Point(242, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 25);
+            this.label3.TabIndex = 56;
+            this.label3.Text = "ADMIN";
             // 
             // Mining01
             // 
@@ -676,25 +704,28 @@
             // 
             this.SidebarTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.SidebarTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.SidebarTransition.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.SidebarTransition.DefaultAnimation = animation1;
+            this.SidebarTransition.MaxAnimationTime = 1000;
+            this.SidebarTransition.AllAnimationsCompleted += new System.EventHandler(this.SidebarTransition_AllAnimationsCompleted);
             // 
             // MainContainer
             // 
+            this.MainContainer.Controls.Add(this.LoadingPanel);
             this.SidebarTransition.SetDecoration(this.MainContainer, BunifuAnimatorNS.DecorationType.None);
             this.MainContainer.Location = new System.Drawing.Point(222, 71);
             this.MainContainer.Name = "MainContainer";
@@ -712,15 +743,28 @@
             this.bunifuGradientPanel1.Controls.Add(this.btnHome);
             this.SidebarTransition.SetDecoration(this.bunifuGradientPanel1, BunifuAnimatorNS.DecorationType.None);
             this.bunifuGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.Black;
-            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.White;
-            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.Black;
-            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.Black;
+            this.bunifuGradientPanel1.GradientBottomLeft = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.bunifuGradientPanel1.GradientBottomRight = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.bunifuGradientPanel1.GradientTopLeft = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
+            this.bunifuGradientPanel1.GradientTopRight = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(32)))), ((int)(((byte)(32)))));
             this.bunifuGradientPanel1.Location = new System.Drawing.Point(0, 55);
             this.bunifuGradientPanel1.Name = "bunifuGradientPanel1";
             this.bunifuGradientPanel1.Quality = 10;
             this.bunifuGradientPanel1.Size = new System.Drawing.Size(222, 1016);
             this.bunifuGradientPanel1.TabIndex = 56;
+            // 
+            // bunifuSeparator1
+            // 
+            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
+            this.SidebarTransition.SetDecoration(this.bunifuSeparator1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuSeparator1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.bunifuSeparator1.LineThickness = 1;
+            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 93);
+            this.bunifuSeparator1.Name = "bunifuSeparator1";
+            this.bunifuSeparator1.Size = new System.Drawing.Size(222, 35);
+            this.bunifuSeparator1.TabIndex = 61;
+            this.bunifuSeparator1.Transparency = 255;
+            this.bunifuSeparator1.Vertical = false;
             // 
             // btnBack
             // 
@@ -745,14 +789,14 @@
             this.btnBack.IconVisible = true;
             this.btnBack.IconZoom = 55D;
             this.btnBack.IsTab = true;
-            this.btnBack.Location = new System.Drawing.Point(0, 477);
+            this.btnBack.Location = new System.Drawing.Point(0, 485);
             this.btnBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnBack.Name = "btnBack";
             this.btnBack.Normalcolor = System.Drawing.Color.Transparent;
             this.btnBack.OnHovercolor = System.Drawing.Color.Orange;
             this.btnBack.OnHoverTextColor = System.Drawing.Color.White;
             this.btnBack.selected = false;
-            this.btnBack.Size = new System.Drawing.Size(222, 36);
+            this.btnBack.Size = new System.Drawing.Size(222, 38);
             this.btnBack.TabIndex = 60;
             this.btnBack.Text = " LOG OUT";
             this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -874,43 +918,17 @@
             this.btnHome.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
-            // label3
+            // FadeForm
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.SidebarTransition.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
-            this.label3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label3.Location = new System.Drawing.Point(242, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 25);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "ADMIN";
+            this.FadeForm.Delay = 1;
             // 
-            // Logo
+            // LoadingPanel
             // 
-            this.Logo.BackColor = System.Drawing.Color.White;
-            this.SidebarTransition.SetDecoration(this.Logo, BunifuAnimatorNS.DecorationType.None);
-            this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
-            this.Logo.Location = new System.Drawing.Point(0, 0);
-            this.Logo.Name = "Logo";
-            this.Logo.Size = new System.Drawing.Size(222, 55);
-            this.Logo.TabIndex = 0;
-            this.Logo.TabStop = false;
-            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
-            // 
-            // bunifuSeparator1
-            // 
-            this.bunifuSeparator1.BackColor = System.Drawing.Color.Transparent;
-            this.SidebarTransition.SetDecoration(this.bunifuSeparator1, BunifuAnimatorNS.DecorationType.None);
-            this.bunifuSeparator1.LineColor = System.Drawing.Color.DimGray;
-            this.bunifuSeparator1.LineThickness = 1;
-            this.bunifuSeparator1.Location = new System.Drawing.Point(0, 93);
-            this.bunifuSeparator1.Name = "bunifuSeparator1";
-            this.bunifuSeparator1.Size = new System.Drawing.Size(222, 35);
-            this.bunifuSeparator1.TabIndex = 61;
-            this.bunifuSeparator1.Transparency = 255;
-            this.bunifuSeparator1.Vertical = false;
+            this.SidebarTransition.SetDecoration(this.LoadingPanel, BunifuAnimatorNS.DecorationType.None);
+            this.LoadingPanel.Location = new System.Drawing.Point(0, 0);
+            this.LoadingPanel.Name = "LoadingPanel";
+            this.LoadingPanel.Size = new System.Drawing.Size(843, 468);
+            this.LoadingPanel.TabIndex = 54;
             // 
             // Crypto
             // 
@@ -926,7 +944,6 @@
             this.Controls.Add(this.bunifuGradientPanel1);
             this.Controls.Add(this.Header);
             this.SidebarTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
-            this.DoubleBuffered = true;
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -938,6 +955,7 @@
             this.Load += new System.EventHandler(this.Crypto_Load);
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimize)).EndInit();
             this.Mining01.ResumeLayout(false);
@@ -956,8 +974,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPageRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.MainContainer.ResumeLayout(false);
             this.bunifuGradientPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1010,7 +1028,6 @@
         public System.Windows.Forms.Label lblMiningWorkerSeperator;
         public System.Windows.Forms.Label MiningZPOOL;
         public Bunifu.Framework.UI.BunifuElipse RoundedCornersMain;
-        private BunifuAnimatorNS.BunifuTransition SidebarTransition;
         private System.Windows.Forms.Panel MainContainer;
         private Bunifu.Framework.UI.BunifuGradientPanel bunifuGradientPanel1;
         public System.Windows.Forms.PictureBox Logo;
@@ -1020,5 +1037,8 @@
         public Bunifu.Framework.UI.BunifuFlatButton btnHome;
         public System.Windows.Forms.Label label3;
         private Bunifu.Framework.UI.BunifuSeparator bunifuSeparator1;
+        public BunifuAnimatorNS.BunifuTransition SidebarTransition;
+        public Bunifu.Framework.UI.BunifuFormFadeTransition FadeForm;
+        private System.Windows.Forms.Panel LoadingPanel;
     }
 }

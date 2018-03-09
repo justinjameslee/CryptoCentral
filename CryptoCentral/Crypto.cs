@@ -21,6 +21,16 @@ namespace CryptoCentral
             InitializeComponent();
         }
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  //Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
         public static bool Loading = false;
 
         //Creating Varaibles For Moving Form.
@@ -231,15 +241,17 @@ namespace CryptoCentral
         //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
         {
-            if (LoadingPanel.Visible != true)
-            {
-                Loading = true;
-                LoadingPanel.BringToFront();
-                SidebarTransition.Show(LoadingPanel);
-                HideAll();
-                SummaryRESET();
-                HeaderDefault();
-            }
+            SummaryContainer.BringToFront();
+            //if (LoadingPanel.Visible != true)
+            //{
+            //    Loading = true;
+            //    LoadingPanel.BringToFront();
+            //    SidebarTransition.Show(LoadingPanel);
+            //    HideAll();
+            //    SummaryRESET();
+            //    HeaderDefault();
+
+            //}
         }
         private void btnMining_Click(object sender, EventArgs e)
         {

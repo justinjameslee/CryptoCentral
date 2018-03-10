@@ -143,6 +143,16 @@ namespace CryptoCentral.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Preview_Pane_100px {
+            get {
+                object obj = ResourceManager.GetObject("Preview Pane_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Settings_100px {
             get {
                 object obj = ResourceManager.GetObject("Settings_100px", resourceCulture);

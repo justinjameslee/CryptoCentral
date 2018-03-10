@@ -1084,7 +1084,5 @@ namespace CryptoCentral
             get { return OptionsNHWalletsv.Text; }
             set { OptionsNHWalletsv.Text = value; }
         }
-
-        
     }
 }

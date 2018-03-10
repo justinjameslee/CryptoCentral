@@ -310,6 +310,9 @@
         JulzfmdquhwrrfR/IWFCzwp+0WAAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="Forward_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forward_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Double Ring-1.5s-200px" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhyADIAPcAAAAAABAKAf6LAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+MAP+M
@@ -2402,7 +2405,7 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
   </data>
-  <data name="Forward_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Forward_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Preview Pane_100px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Preview Pane_100px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

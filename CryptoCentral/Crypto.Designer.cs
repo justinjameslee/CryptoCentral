@@ -38,7 +38,7 @@
             this.Logo = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.PictureBox();
             this.btnMinimize = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblCurrentUser = new System.Windows.Forms.Label();
             this.RoundedCornersMain = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.timerRefreshing = new System.Windows.Forms.Timer(this.components);
             this.timerSyncTimer = new System.Windows.Forms.Timer(this.components);
@@ -53,13 +53,13 @@
             this.SummaryContainer = new System.Windows.Forms.Panel();
             this.SidebarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Background = new System.Windows.Forms.Panel();
+            this.LoadingPanel = new System.Windows.Forms.Panel();
+            this.OptionsContainer = new System.Windows.Forms.Panel();
+            this.WorkerContainer = new System.Windows.Forms.Panel();
             this.PageRight = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnPageRight = new System.Windows.Forms.PictureBox();
             this.PageLeft = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.btnPageLeft = new System.Windows.Forms.PictureBox();
-            this.OptionsContainer = new System.Windows.Forms.Panel();
-            this.WorkerContainer = new System.Windows.Forms.Panel();
-            this.LoadingPanel = new System.Windows.Forms.Panel();
             this.HeaderShadow = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.PageRightShadow = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.PageLeftShadow = new Bunifu.Framework.UI.BunifuGradientPanel();
@@ -70,6 +70,10 @@
             this.btnMining = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
             this.PageControlTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
+            this.HeaderDrag = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.LogoDrag = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.UserDrag = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.timerMinimize = new System.Windows.Forms.Timer(this.components);
             this.Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCompress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMaximize)).BeginInit();
@@ -96,7 +100,7 @@
             this.Header.Controls.Add(this.Logo);
             this.Header.Controls.Add(this.btnClose);
             this.Header.Controls.Add(this.btnMinimize);
-            this.Header.Controls.Add(this.label3);
+            this.Header.Controls.Add(this.lblCurrentUser);
             this.PageControlTransition.SetDecoration(this.Header, BunifuAnimatorNS.DecorationType.None);
             this.SidebarTransition.SetDecoration(this.Header, BunifuAnimatorNS.DecorationType.None);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
@@ -104,7 +108,6 @@
             this.Header.Name = "Header";
             this.Header.Size = new System.Drawing.Size(1669, 55);
             this.Header.TabIndex = 2;
-            this.Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Header_MouseDown);
             // 
             // btnCompress
             // 
@@ -143,7 +146,6 @@
             this.Logo.Size = new System.Drawing.Size(222, 55);
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
-            this.Logo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Logo_MouseDown);
             // 
             // btnClose
             // 
@@ -171,19 +173,19 @@
             this.btnMinimize.TabStop = false;
             this.btnMinimize.Click += new System.EventHandler(this.btnMinimize_Click);
             // 
-            // label3
+            // lblCurrentUser
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.SidebarTransition.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.PageControlTransition.SetDecoration(this.label3, BunifuAnimatorNS.DecorationType.None);
-            this.label3.Font = new System.Drawing.Font("Walkway Bold", 18F);
-            this.label3.ForeColor = System.Drawing.Color.DarkOrange;
-            this.label3.Location = new System.Drawing.Point(242, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 25);
-            this.label3.TabIndex = 56;
-            this.label3.Text = "ADMIN";
+            this.lblCurrentUser.AutoSize = true;
+            this.lblCurrentUser.BackColor = System.Drawing.Color.Transparent;
+            this.SidebarTransition.SetDecoration(this.lblCurrentUser, BunifuAnimatorNS.DecorationType.None);
+            this.PageControlTransition.SetDecoration(this.lblCurrentUser, BunifuAnimatorNS.DecorationType.None);
+            this.lblCurrentUser.Font = new System.Drawing.Font("Walkway Bold", 18F);
+            this.lblCurrentUser.ForeColor = System.Drawing.Color.DarkOrange;
+            this.lblCurrentUser.Location = new System.Drawing.Point(242, 16);
+            this.lblCurrentUser.Name = "lblCurrentUser";
+            this.lblCurrentUser.Size = new System.Drawing.Size(82, 25);
+            this.lblCurrentUser.TabIndex = 56;
+            this.lblCurrentUser.Text = "ADMIN";
             // 
             // RoundedCornersMain
             // 
@@ -225,10 +227,11 @@
             // 
             // gifRefreshing
             // 
+            this.gifRefreshing.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidebarTransition.SetDecoration(this.gifRefreshing, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.gifRefreshing, BunifuAnimatorNS.DecorationType.None);
             this.gifRefreshing.Image = ((System.Drawing.Image)(resources.GetObject("gifRefreshing.Image")));
-            this.gifRefreshing.Location = new System.Drawing.Point(870, 7);
+            this.gifRefreshing.Location = new System.Drawing.Point(1357, 7);
             this.gifRefreshing.Name = "gifRefreshing";
             this.gifRefreshing.Size = new System.Drawing.Size(24, 24);
             this.gifRefreshing.TabIndex = 63;
@@ -237,11 +240,12 @@
             // 
             // btnRefresh
             // 
+            this.btnRefresh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRefresh.BackColor = System.Drawing.Color.Transparent;
             this.SidebarTransition.SetDecoration(this.btnRefresh, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.btnRefresh, BunifuAnimatorNS.DecorationType.None);
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
-            this.btnRefresh.Location = new System.Drawing.Point(758, 7);
+            this.btnRefresh.Location = new System.Drawing.Point(1356, 7);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(24, 24);
             this.btnRefresh.TabIndex = 62;
@@ -250,12 +254,13 @@
             // 
             // lblSyncTimer
             // 
+            this.lblSyncTimer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSyncTimer.BackColor = System.Drawing.Color.Transparent;
             this.SidebarTransition.SetDecoration(this.lblSyncTimer, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.lblSyncTimer, BunifuAnimatorNS.DecorationType.None);
             this.lblSyncTimer.Font = new System.Drawing.Font("Walkway Black", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSyncTimer.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblSyncTimer.Location = new System.Drawing.Point(789, 7);
+            this.lblSyncTimer.Location = new System.Drawing.Point(1387, 7);
             this.lblSyncTimer.Name = "lblSyncTimer";
             this.lblSyncTimer.Size = new System.Drawing.Size(49, 22);
             this.lblSyncTimer.TabIndex = 68;
@@ -264,11 +269,12 @@
             // 
             // lblSync
             // 
+            this.lblSync.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidebarTransition.SetDecoration(this.lblSync, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.lblSync, BunifuAnimatorNS.DecorationType.None);
             this.lblSync.Font = new System.Drawing.Font("Walkway Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSync.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblSync.Location = new System.Drawing.Point(638, 9);
+            this.lblSync.Location = new System.Drawing.Point(1236, 9);
             this.lblSync.Name = "lblSync";
             this.lblSync.Size = new System.Drawing.Size(112, 20);
             this.lblSync.TabIndex = 61;
@@ -283,7 +289,7 @@
             this.PageControlTransition.SetDecoration(this.lblCurrentPage, BunifuAnimatorNS.DecorationType.None);
             this.lblCurrentPage.Font = new System.Drawing.Font("Walkway Black", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCurrentPage.ForeColor = System.Drawing.Color.DarkOrange;
-            this.lblCurrentPage.Location = new System.Drawing.Point(9, 8);
+            this.lblCurrentPage.Location = new System.Drawing.Point(9, 9);
             this.lblCurrentPage.Name = "lblCurrentPage";
             this.lblCurrentPage.Size = new System.Drawing.Size(73, 20);
             this.lblCurrentPage.TabIndex = 59;
@@ -294,15 +300,16 @@
             // 
             this.timerSummaryLoad.Enabled = true;
             this.timerSummaryLoad.Interval = 10;
-            this.timerSummaryLoad.Tick += new System.EventHandler(this.timerSummaryLoad_Tick);
+            this.timerSummaryLoad.Tick += new System.EventHandler(this.timerLoad_Tick);
             // 
             // SummaryContainer
             // 
             this.PageControlTransition.SetDecoration(this.SummaryContainer, BunifuAnimatorNS.DecorationType.None);
             this.SidebarTransition.SetDecoration(this.SummaryContainer, BunifuAnimatorNS.DecorationType.None);
-            this.SummaryContainer.Location = new System.Drawing.Point(40, 16);
+            this.SummaryContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SummaryContainer.Location = new System.Drawing.Point(31, 16);
             this.SummaryContainer.Name = "SummaryContainer";
-            this.SummaryContainer.Size = new System.Drawing.Size(843, 520);
+            this.SummaryContainer.Size = new System.Drawing.Size(1385, 523);
             this.SummaryContainer.TabIndex = 53;
             // 
             // SidebarTransition
@@ -331,12 +338,12 @@
             // Background
             // 
             this.Background.AutoScroll = true;
+            this.Background.Controls.Add(this.LoadingPanel);
+            this.Background.Controls.Add(this.OptionsContainer);
+            this.Background.Controls.Add(this.SummaryContainer);
+            this.Background.Controls.Add(this.WorkerContainer);
             this.Background.Controls.Add(this.PageRight);
             this.Background.Controls.Add(this.PageLeft);
-            this.Background.Controls.Add(this.OptionsContainer);
-            this.Background.Controls.Add(this.WorkerContainer);
-            this.Background.Controls.Add(this.SummaryContainer);
-            this.Background.Controls.Add(this.LoadingPanel);
             this.Background.Controls.Add(this.HeaderShadow);
             this.PageControlTransition.SetDecoration(this.Background, BunifuAnimatorNS.DecorationType.None);
             this.SidebarTransition.SetDecoration(this.Background, BunifuAnimatorNS.DecorationType.None);
@@ -346,12 +353,45 @@
             this.Background.Size = new System.Drawing.Size(1447, 539);
             this.Background.TabIndex = 60;
             // 
+            // LoadingPanel
+            // 
+            this.PageControlTransition.SetDecoration(this.LoadingPanel, BunifuAnimatorNS.DecorationType.None);
+            this.SidebarTransition.SetDecoration(this.LoadingPanel, BunifuAnimatorNS.DecorationType.None);
+            this.LoadingPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LoadingPanel.Location = new System.Drawing.Point(31, 16);
+            this.LoadingPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.LoadingPanel.Name = "LoadingPanel";
+            this.LoadingPanel.Size = new System.Drawing.Size(1385, 523);
+            this.LoadingPanel.TabIndex = 62;
+            // 
+            // OptionsContainer
+            // 
+            this.OptionsContainer.BackColor = System.Drawing.Color.White;
+            this.PageControlTransition.SetDecoration(this.OptionsContainer, BunifuAnimatorNS.DecorationType.None);
+            this.SidebarTransition.SetDecoration(this.OptionsContainer, BunifuAnimatorNS.DecorationType.None);
+            this.OptionsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.OptionsContainer.Location = new System.Drawing.Point(31, 16);
+            this.OptionsContainer.Name = "OptionsContainer";
+            this.OptionsContainer.Size = new System.Drawing.Size(1385, 523);
+            this.OptionsContainer.TabIndex = 63;
+            // 
+            // WorkerContainer
+            // 
+            this.PageControlTransition.SetDecoration(this.WorkerContainer, BunifuAnimatorNS.DecorationType.None);
+            this.SidebarTransition.SetDecoration(this.WorkerContainer, BunifuAnimatorNS.DecorationType.None);
+            this.WorkerContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.WorkerContainer.Location = new System.Drawing.Point(31, 16);
+            this.WorkerContainer.Name = "WorkerContainer";
+            this.WorkerContainer.Size = new System.Drawing.Size(1385, 523);
+            this.WorkerContainer.TabIndex = 64;
+            // 
             // PageRight
             // 
             this.PageRight.BackColor = System.Drawing.Color.White;
             this.PageRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PageRight.BackgroundImage")));
             this.PageRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PageRight.Controls.Add(this.btnPageRight);
+            this.PageRight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PageControlTransition.SetDecoration(this.PageRight, BunifuAnimatorNS.DecorationType.None);
             this.SidebarTransition.SetDecoration(this.PageRight, BunifuAnimatorNS.DecorationType.None);
             this.PageRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -359,25 +399,28 @@
             this.PageRight.GradientBottomRight = System.Drawing.Color.Transparent;
             this.PageRight.GradientTopLeft = System.Drawing.Color.Transparent;
             this.PageRight.GradientTopRight = System.Drawing.Color.DarkOrange;
-            this.PageRight.Location = new System.Drawing.Point(1415, 16);
+            this.PageRight.Location = new System.Drawing.Point(1416, 16);
             this.PageRight.Name = "PageRight";
             this.PageRight.Quality = 100;
-            this.PageRight.Size = new System.Drawing.Size(32, 523);
+            this.PageRight.Size = new System.Drawing.Size(31, 523);
             this.PageRight.TabIndex = 66;
+            this.PageRight.Click += new System.EventHandler(this.btnPageControlClick);
             this.PageRight.MouseEnter += new System.EventHandler(this.PageRight_MouseEnter);
             this.PageRight.MouseLeave += new System.EventHandler(this.PageRight_MouseLeave);
             // 
             // btnPageRight
             // 
+            this.btnPageRight.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnPageRight.BackColor = System.Drawing.Color.Transparent;
+            this.btnPageRight.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SidebarTransition.SetDecoration(this.btnPageRight, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.btnPageRight, BunifuAnimatorNS.DecorationType.None);
             this.btnPageRight.Image = global::CryptoCentral.Properties.Resources.Forward_100px;
-            this.btnPageRight.Location = new System.Drawing.Point(0, 228);
+            this.btnPageRight.Location = new System.Drawing.Point(0, 203);
             this.btnPageRight.Name = "btnPageRight";
             this.btnPageRight.Size = new System.Drawing.Size(31, 84);
             this.btnPageRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnPageRight.TabIndex = 2;
+            this.btnPageRight.TabIndex = 67;
             this.btnPageRight.TabStop = false;
             this.btnPageRight.Click += new System.EventHandler(this.btnPageControlClick);
             this.btnPageRight.MouseEnter += new System.EventHandler(this.PageRight_MouseEnter);
@@ -389,6 +432,7 @@
             this.PageLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("PageLeft.BackgroundImage")));
             this.PageLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.PageLeft.Controls.Add(this.btnPageLeft);
+            this.PageLeft.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PageControlTransition.SetDecoration(this.PageLeft, BunifuAnimatorNS.DecorationType.None);
             this.SidebarTransition.SetDecoration(this.PageLeft, BunifuAnimatorNS.DecorationType.None);
             this.PageLeft.Dock = System.Windows.Forms.DockStyle.Left;
@@ -407,11 +451,12 @@
             // 
             // btnPageLeft
             // 
+            this.btnPageLeft.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnPageLeft.BackColor = System.Drawing.Color.Transparent;
             this.SidebarTransition.SetDecoration(this.btnPageLeft, BunifuAnimatorNS.DecorationType.None);
             this.PageControlTransition.SetDecoration(this.btnPageLeft, BunifuAnimatorNS.DecorationType.None);
             this.btnPageLeft.Image = global::CryptoCentral.Properties.Resources.Back_100px;
-            this.btnPageLeft.Location = new System.Drawing.Point(-1, 189);
+            this.btnPageLeft.Location = new System.Drawing.Point(0, 203);
             this.btnPageLeft.Name = "btnPageLeft";
             this.btnPageLeft.Size = new System.Drawing.Size(31, 84);
             this.btnPageLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -420,35 +465,6 @@
             this.btnPageLeft.Click += new System.EventHandler(this.btnPageControlClick);
             this.btnPageLeft.MouseEnter += new System.EventHandler(this.PageLeft_MouseEnter);
             this.btnPageLeft.MouseLeave += new System.EventHandler(this.PageLeft_MouseLeave);
-            // 
-            // OptionsContainer
-            // 
-            this.OptionsContainer.BackColor = System.Drawing.Color.White;
-            this.PageControlTransition.SetDecoration(this.OptionsContainer, BunifuAnimatorNS.DecorationType.None);
-            this.SidebarTransition.SetDecoration(this.OptionsContainer, BunifuAnimatorNS.DecorationType.None);
-            this.OptionsContainer.Location = new System.Drawing.Point(40, 16);
-            this.OptionsContainer.Name = "OptionsContainer";
-            this.OptionsContainer.Size = new System.Drawing.Size(843, 520);
-            this.OptionsContainer.TabIndex = 63;
-            // 
-            // WorkerContainer
-            // 
-            this.PageControlTransition.SetDecoration(this.WorkerContainer, BunifuAnimatorNS.DecorationType.None);
-            this.SidebarTransition.SetDecoration(this.WorkerContainer, BunifuAnimatorNS.DecorationType.None);
-            this.WorkerContainer.Location = new System.Drawing.Point(40, 16);
-            this.WorkerContainer.Name = "WorkerContainer";
-            this.WorkerContainer.Size = new System.Drawing.Size(843, 520);
-            this.WorkerContainer.TabIndex = 64;
-            // 
-            // LoadingPanel
-            // 
-            this.PageControlTransition.SetDecoration(this.LoadingPanel, BunifuAnimatorNS.DecorationType.None);
-            this.SidebarTransition.SetDecoration(this.LoadingPanel, BunifuAnimatorNS.DecorationType.None);
-            this.LoadingPanel.Location = new System.Drawing.Point(40, 16);
-            this.LoadingPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.LoadingPanel.Name = "LoadingPanel";
-            this.LoadingPanel.Size = new System.Drawing.Size(843, 520);
-            this.LoadingPanel.TabIndex = 62;
             // 
             // HeaderShadow
             // 
@@ -480,11 +496,11 @@
             this.PageRightShadow.GradientBottomRight = System.Drawing.Color.White;
             this.PageRightShadow.GradientTopLeft = System.Drawing.Color.White;
             this.PageRightShadow.GradientTopRight = System.Drawing.Color.DarkOrange;
-            this.PageRightShadow.Location = new System.Drawing.Point(1415, 0);
+            this.PageRightShadow.Location = new System.Drawing.Point(1416, 0);
             this.PageRightShadow.Margin = new System.Windows.Forms.Padding(0);
             this.PageRightShadow.Name = "PageRightShadow";
             this.PageRightShadow.Quality = 10;
-            this.PageRightShadow.Size = new System.Drawing.Size(33, 16);
+            this.PageRightShadow.Size = new System.Drawing.Size(32, 16);
             this.PageRightShadow.TabIndex = 67;
             this.PageRightShadow.Visible = false;
             // 
@@ -721,6 +737,31 @@
             this.PageControlTransition.MaxAnimationTime = 250;
             this.PageControlTransition.TimeStep = 0.12F;
             // 
+            // HeaderDrag
+            // 
+            this.HeaderDrag.Fixed = true;
+            this.HeaderDrag.Horizontal = true;
+            this.HeaderDrag.TargetControl = this.Header;
+            this.HeaderDrag.Vertical = true;
+            // 
+            // LogoDrag
+            // 
+            this.LogoDrag.Fixed = true;
+            this.LogoDrag.Horizontal = true;
+            this.LogoDrag.TargetControl = this.Logo;
+            this.LogoDrag.Vertical = true;
+            // 
+            // UserDrag
+            // 
+            this.UserDrag.Fixed = true;
+            this.UserDrag.Horizontal = true;
+            this.UserDrag.TargetControl = this.lblCurrentUser;
+            this.UserDrag.Vertical = true;
+            // 
+            // timerMinimize
+            // 
+            this.timerMinimize.Tick += new System.EventHandler(this.timerMinimize_Tick);
+            // 
             // Crypto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -777,7 +818,7 @@
         public System.Windows.Forms.PictureBox Logo;
         public System.Windows.Forms.PictureBox btnClose;
         public System.Windows.Forms.PictureBox btnMinimize;
-        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label lblCurrentUser;
         public Bunifu.Framework.UI.BunifuElipse RoundedCornersMain;
         public System.Windows.Forms.Panel SummaryContainer;
         public System.Windows.Forms.Panel Footer;
@@ -808,5 +849,9 @@
         private System.Windows.Forms.PictureBox btnPageLeft;
         private BunifuAnimatorNS.BunifuTransition PageControlTransition;
         private System.Windows.Forms.PictureBox btnPageRight;
+        private Bunifu.Framework.UI.BunifuDragControl HeaderDrag;
+        private Bunifu.Framework.UI.BunifuDragControl LogoDrag;
+        private Bunifu.Framework.UI.BunifuDragControl UserDrag;
+        private System.Windows.Forms.Timer timerMinimize;
     }
 }

@@ -49,6 +49,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.SidebarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.customGroup09 = new System.Windows.Forms.GroupBox();
+            this.customRefresh09 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv09 = new System.Windows.Forms.Label();
             this.lblCustomUpdated09 = new System.Windows.Forms.Label();
             this.lblCustomBTC09 = new System.Windows.Forms.Label();
@@ -65,6 +66,7 @@
             this.lblCustom7Dp09 = new System.Windows.Forms.Label();
             this.lbl1Hr09 = new System.Windows.Forms.Label();
             this.customGroup06 = new System.Windows.Forms.GroupBox();
+            this.customRefresh06 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv06 = new System.Windows.Forms.Label();
             this.lblCustomUpdated06 = new System.Windows.Forms.Label();
             this.lblCustomBTC06 = new System.Windows.Forms.Label();
@@ -81,6 +83,7 @@
             this.lblCustom7Dp06 = new System.Windows.Forms.Label();
             this.lbl1Hr06 = new System.Windows.Forms.Label();
             this.customGroup08 = new System.Windows.Forms.GroupBox();
+            this.customRefresh08 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv08 = new System.Windows.Forms.Label();
             this.lblCustomUpdated08 = new System.Windows.Forms.Label();
             this.lblCustomBTC08 = new System.Windows.Forms.Label();
@@ -97,6 +100,7 @@
             this.lblCustom7Dp08 = new System.Windows.Forms.Label();
             this.lbl1Hr08 = new System.Windows.Forms.Label();
             this.customGroup05 = new System.Windows.Forms.GroupBox();
+            this.customRefresh05 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv05 = new System.Windows.Forms.Label();
             this.lblCustomUpdated05 = new System.Windows.Forms.Label();
             this.lblCustomBTC05 = new System.Windows.Forms.Label();
@@ -113,6 +117,7 @@
             this.lblCustom7Dp05 = new System.Windows.Forms.Label();
             this.lbl1Hr05 = new System.Windows.Forms.Label();
             this.customGroup07 = new System.Windows.Forms.GroupBox();
+            this.customRefresh07 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv07 = new System.Windows.Forms.Label();
             this.lblCustomUpdated07 = new System.Windows.Forms.Label();
             this.lblCustomBTC07 = new System.Windows.Forms.Label();
@@ -129,6 +134,7 @@
             this.lblCustom7Dp07 = new System.Windows.Forms.Label();
             this.lbl1Hr07 = new System.Windows.Forms.Label();
             this.customGroup04 = new System.Windows.Forms.GroupBox();
+            this.customRefresh04 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv04 = new System.Windows.Forms.Label();
             this.lblCustomUpdated04 = new System.Windows.Forms.Label();
             this.lblCustomBTC04 = new System.Windows.Forms.Label();
@@ -145,6 +151,7 @@
             this.lblCustom7Dp04 = new System.Windows.Forms.Label();
             this.lbl1Hr04 = new System.Windows.Forms.Label();
             this.customGroup03 = new System.Windows.Forms.GroupBox();
+            this.customRefresh03 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv03 = new System.Windows.Forms.Label();
             this.lblCustomUpdated03 = new System.Windows.Forms.Label();
             this.lblCustomBTC03 = new System.Windows.Forms.Label();
@@ -161,6 +168,7 @@
             this.lblCustom7Dp03 = new System.Windows.Forms.Label();
             this.lbl1Hr03 = new System.Windows.Forms.Label();
             this.customGroup02 = new System.Windows.Forms.GroupBox();
+            this.customRefresh02 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv02 = new System.Windows.Forms.Label();
             this.lblCustomUpdated02 = new System.Windows.Forms.Label();
             this.lblCustomBTC02 = new System.Windows.Forms.Label();
@@ -177,6 +185,7 @@
             this.lblCustom7Dp02 = new System.Windows.Forms.Label();
             this.lbl1Hr02 = new System.Windows.Forms.Label();
             this.customGroup01 = new System.Windows.Forms.GroupBox();
+            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
             this.lblCustomUpdated01 = new System.Windows.Forms.Label();
             this.lblCustomBTC01 = new System.Windows.Forms.Label();
@@ -192,33 +201,24 @@
             this.lblCustom24Hp01 = new System.Windows.Forms.Label();
             this.lblCustom7Dp01 = new System.Windows.Forms.Label();
             this.lbl1Hr01 = new System.Windows.Forms.Label();
-            this.customRefresh09 = new System.Windows.Forms.PictureBox();
-            this.customRefresh06 = new System.Windows.Forms.PictureBox();
-            this.customRefresh08 = new System.Windows.Forms.PictureBox();
-            this.customRefresh05 = new System.Windows.Forms.PictureBox();
-            this.customRefresh07 = new System.Windows.Forms.PictureBox();
-            this.customRefresh04 = new System.Windows.Forms.PictureBox();
-            this.customRefresh03 = new System.Windows.Forms.PictureBox();
-            this.customRefresh02 = new System.Windows.Forms.PictureBox();
-            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.customGroup09.SuspendLayout();
-            this.customGroup06.SuspendLayout();
-            this.customGroup08.SuspendLayout();
-            this.customGroup05.SuspendLayout();
-            this.customGroup07.SuspendLayout();
-            this.customGroup04.SuspendLayout();
-            this.customGroup03.SuspendLayout();
-            this.customGroup02.SuspendLayout();
-            this.customGroup01.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).BeginInit();
+            this.customGroup06.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).BeginInit();
+            this.customGroup08.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).BeginInit();
+            this.customGroup05.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).BeginInit();
+            this.customGroup07.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).BeginInit();
+            this.customGroup04.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).BeginInit();
+            this.customGroup03.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).BeginInit();
+            this.customGroup02.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).BeginInit();
+            this.customGroup01.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -437,6 +437,16 @@
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "      LTC";
             // 
+            // customRefresh09
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh09, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
+            this.customRefresh09.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh09.Name = "customRefresh09";
+            this.customRefresh09.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh09.TabIndex = 71;
+            this.customRefresh09.TabStop = false;
+            // 
             // lblCustomUpdatedv09
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv09, BunifuAnimatorNS.DecorationType.None);
@@ -624,6 +634,16 @@
             this.customGroup06.TabIndex = 49;
             this.customGroup06.TabStop = false;
             this.customGroup06.Text = "      LTC";
+            // 
+            // customRefresh06
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh06, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
+            this.customRefresh06.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh06.Name = "customRefresh06";
+            this.customRefresh06.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh06.TabIndex = 68;
+            this.customRefresh06.TabStop = false;
             // 
             // lblCustomUpdatedv06
             // 
@@ -813,6 +833,16 @@
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "      ETH";
             // 
+            // customRefresh08
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh08, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
+            this.customRefresh08.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh08.Name = "customRefresh08";
+            this.customRefresh08.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh08.TabIndex = 70;
+            this.customRefresh08.TabStop = false;
+            // 
             // lblCustomUpdatedv08
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv08, BunifuAnimatorNS.DecorationType.None);
@@ -1000,6 +1030,16 @@
             this.customGroup05.TabIndex = 51;
             this.customGroup05.TabStop = false;
             this.customGroup05.Text = "      ETH";
+            // 
+            // customRefresh05
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh05, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
+            this.customRefresh05.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh05.Name = "customRefresh05";
+            this.customRefresh05.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh05.TabIndex = 67;
+            this.customRefresh05.TabStop = false;
             // 
             // lblCustomUpdatedv05
             // 
@@ -1189,6 +1229,16 @@
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "      BTC";
             // 
+            // customRefresh07
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh07, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
+            this.customRefresh07.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh07.Name = "customRefresh07";
+            this.customRefresh07.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh07.TabIndex = 69;
+            this.customRefresh07.TabStop = false;
+            // 
             // lblCustomUpdatedv07
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv07, BunifuAnimatorNS.DecorationType.None);
@@ -1376,6 +1426,16 @@
             this.customGroup04.TabIndex = 50;
             this.customGroup04.TabStop = false;
             this.customGroup04.Text = "      BTC";
+            // 
+            // customRefresh04
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh04, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
+            this.customRefresh04.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh04.Name = "customRefresh04";
+            this.customRefresh04.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh04.TabIndex = 66;
+            this.customRefresh04.TabStop = false;
             // 
             // lblCustomUpdatedv04
             // 
@@ -1566,6 +1626,16 @@
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "      LTC";
             // 
+            // customRefresh03
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh03, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
+            this.customRefresh03.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh03.Name = "customRefresh03";
+            this.customRefresh03.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh03.TabIndex = 65;
+            this.customRefresh03.TabStop = false;
+            // 
             // lblCustomUpdatedv03
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv03, BunifuAnimatorNS.DecorationType.None);
@@ -1755,6 +1825,16 @@
             this.customGroup02.TabStop = false;
             this.customGroup02.Text = "      ETH";
             // 
+            // customRefresh02
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh02, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
+            this.customRefresh02.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh02.Name = "customRefresh02";
+            this.customRefresh02.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh02.TabIndex = 65;
+            this.customRefresh02.TabStop = false;
+            // 
             // lblCustomUpdatedv02
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv02, BunifuAnimatorNS.DecorationType.None);
@@ -1943,6 +2023,16 @@
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "      BTC   ";
             // 
+            // customRefresh01
+            // 
+            this.SidebarTransition.SetDecoration(this.customRefresh01, BunifuAnimatorNS.DecorationType.None);
+            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
+            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh01.Name = "customRefresh01";
+            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh01.TabIndex = 64;
+            this.customRefresh01.TabStop = false;
+            // 
             // lblCustomUpdatedv01
             // 
             this.SidebarTransition.SetDecoration(this.lblCustomUpdatedv01, BunifuAnimatorNS.DecorationType.None);
@@ -2102,96 +2192,6 @@
             this.lbl1Hr01.Text = "1HR";
             this.lbl1Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // customRefresh09
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh09, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh09.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh09.Image")));
-            this.customRefresh09.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh09.Name = "customRefresh09";
-            this.customRefresh09.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh09.TabIndex = 71;
-            this.customRefresh09.TabStop = false;
-            // 
-            // customRefresh06
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh06, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh06.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh06.Image")));
-            this.customRefresh06.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh06.Name = "customRefresh06";
-            this.customRefresh06.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh06.TabIndex = 68;
-            this.customRefresh06.TabStop = false;
-            // 
-            // customRefresh08
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh08, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh08.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh08.Image")));
-            this.customRefresh08.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh08.Name = "customRefresh08";
-            this.customRefresh08.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh08.TabIndex = 70;
-            this.customRefresh08.TabStop = false;
-            // 
-            // customRefresh05
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh05, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh05.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh05.Image")));
-            this.customRefresh05.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh05.Name = "customRefresh05";
-            this.customRefresh05.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh05.TabIndex = 67;
-            this.customRefresh05.TabStop = false;
-            // 
-            // customRefresh07
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh07, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh07.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh07.Image")));
-            this.customRefresh07.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh07.Name = "customRefresh07";
-            this.customRefresh07.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh07.TabIndex = 69;
-            this.customRefresh07.TabStop = false;
-            // 
-            // customRefresh04
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh04, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh04.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh04.Image")));
-            this.customRefresh04.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh04.Name = "customRefresh04";
-            this.customRefresh04.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh04.TabIndex = 66;
-            this.customRefresh04.TabStop = false;
-            // 
-            // customRefresh03
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh03, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh03.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh03.Image")));
-            this.customRefresh03.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh03.Name = "customRefresh03";
-            this.customRefresh03.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh03.TabIndex = 65;
-            this.customRefresh03.TabStop = false;
-            // 
-            // customRefresh02
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh02, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh02.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh02.Image")));
-            this.customRefresh02.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh02.Name = "customRefresh02";
-            this.customRefresh02.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh02.TabIndex = 65;
-            this.customRefresh02.TabStop = false;
-            // 
-            // customRefresh01
-            // 
-            this.SidebarTransition.SetDecoration(this.customRefresh01, BunifuAnimatorNS.DecorationType.None);
-            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
-            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh01.Name = "customRefresh01";
-            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh01.TabIndex = 64;
-            this.customRefresh01.TabStop = false;
-            // 
             // pictureBox2
             // 
             this.SidebarTransition.SetDecoration(this.pictureBox2, BunifuAnimatorNS.DecorationType.None);
@@ -2225,30 +2225,30 @@
             this.Load += new System.EventHandler(this.Summary_Load);
             this.customGroup09.ResumeLayout(false);
             this.customGroup09.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).EndInit();
             this.customGroup06.ResumeLayout(false);
             this.customGroup06.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).EndInit();
             this.customGroup08.ResumeLayout(false);
             this.customGroup08.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).EndInit();
             this.customGroup05.ResumeLayout(false);
             this.customGroup05.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).EndInit();
             this.customGroup07.ResumeLayout(false);
             this.customGroup07.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).EndInit();
             this.customGroup04.ResumeLayout(false);
             this.customGroup04.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).EndInit();
             this.customGroup03.ResumeLayout(false);
             this.customGroup03.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).EndInit();
             this.customGroup02.ResumeLayout(false);
             this.customGroup02.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
             this.customGroup01.ResumeLayout(false);
             this.customGroup01.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh09)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh06)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh08)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh05)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh07)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh04)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh03)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh02)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

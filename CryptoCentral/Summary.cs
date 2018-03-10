@@ -90,5 +90,10 @@ namespace CryptoCentral
         {
 
         }
+
+        public void MaximizeSettings()
+        {
+            
+        }
     }
 }

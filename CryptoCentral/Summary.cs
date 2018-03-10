@@ -15,6 +15,7 @@ namespace CryptoCentral
         public Summary()
         {
             InitializeComponent();
+            customGroup05.Left = (this.ClientSize.Width - customGroup05.Size.Width) / 2;
         }
 
         protected override CreateParams CreateParams
@@ -85,15 +86,9 @@ namespace CryptoCentral
             }
         }
 
-        public void HideGroupBox()
+        private void Summary_Load(object sender, EventArgs e)
         {
-        }
 
-        public void ShowGroupBox()
-        {
-            customGroup01.Visible = true;
         }
-
-        
     }
 }

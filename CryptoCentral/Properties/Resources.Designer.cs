@@ -63,9 +63,59 @@ namespace CryptoCentral.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Back_100px {
+            get {
+                object obj = ResourceManager.GetObject("Back_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Compress_24px {
+            get {
+                object obj = ResourceManager.GetObject("Compress_24px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Double_Ring_1_5s_200px {
+            get {
+                object obj = ResourceManager.GetObject("Double Ring-1.5s-200px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exit_100px {
             get {
                 object obj = ResourceManager.GetObject("Exit_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Forward_100px {
+            get {
+                object obj = ResourceManager.GetObject("Forward_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Full_Screen_24px {
+            get {
+                object obj = ResourceManager.GetObject("Full Screen_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

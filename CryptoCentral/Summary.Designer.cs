@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Summary));
             this.NoBorder = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -391,25 +391,26 @@
             // 
             this.SidebarTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.SidebarTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.SidebarTransition.DefaultAnimation = animation2;
+            animation1.AnimateOnlyDifferences = true;
+            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
+            animation1.LeafCoeff = 0F;
+            animation1.MaxTime = 1F;
+            animation1.MinTime = 0F;
+            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
+            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
+            animation1.MosaicSize = 0;
+            animation1.Padding = new System.Windows.Forms.Padding(0);
+            animation1.RotateCoeff = 0F;
+            animation1.RotateLimit = 0F;
+            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
+            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
+            animation1.TimeCoeff = 0F;
+            animation1.TransparencyCoeff = 1F;
+            this.SidebarTransition.DefaultAnimation = animation1;
             // 
             // customGroup09
             // 
+            this.customGroup09.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.customGroup09.Controls.Add(this.customRefresh09);
             this.customGroup09.Controls.Add(this.lblCustomUpdatedv09);
             this.customGroup09.Controls.Add(this.lblCustomUpdated09);
@@ -429,9 +430,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup09, BunifuAnimatorNS.DecorationType.None);
             this.customGroup09.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup09.ForeColor = System.Drawing.Color.Black;
-            this.customGroup09.Location = new System.Drawing.Point(563, 314);
+            this.customGroup09.Location = new System.Drawing.Point(563, 347);
             this.customGroup09.Name = "customGroup09";
-            this.customGroup09.Size = new System.Drawing.Size(272, 148);
+            this.customGroup09.Size = new System.Drawing.Size(272, 162);
             this.customGroup09.TabIndex = 52;
             this.customGroup09.TabStop = false;
             this.customGroup09.Text = "      LTC";
@@ -597,6 +598,7 @@
             // 
             // customGroup06
             // 
+            this.customGroup06.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.customGroup06.Controls.Add(this.customRefresh06);
             this.customGroup06.Controls.Add(this.lblCustomUpdatedv06);
             this.customGroup06.Controls.Add(this.lblCustomUpdated06);
@@ -616,9 +618,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup06, BunifuAnimatorNS.DecorationType.None);
             this.customGroup06.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup06.ForeColor = System.Drawing.Color.Black;
-            this.customGroup06.Location = new System.Drawing.Point(563, 160);
+            this.customGroup06.Location = new System.Drawing.Point(563, 179);
             this.customGroup06.Name = "customGroup06";
-            this.customGroup06.Size = new System.Drawing.Size(272, 148);
+            this.customGroup06.Size = new System.Drawing.Size(272, 162);
             this.customGroup06.TabIndex = 49;
             this.customGroup06.TabStop = false;
             this.customGroup06.Text = "      LTC";
@@ -784,6 +786,7 @@
             // 
             // customGroup08
             // 
+            this.customGroup08.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.customGroup08.Controls.Add(this.customRefresh08);
             this.customGroup08.Controls.Add(this.lblCustomUpdatedv08);
             this.customGroup08.Controls.Add(this.lblCustomUpdated08);
@@ -803,9 +806,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup08, BunifuAnimatorNS.DecorationType.None);
             this.customGroup08.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup08.ForeColor = System.Drawing.Color.Black;
-            this.customGroup08.Location = new System.Drawing.Point(285, 314);
+            this.customGroup08.Location = new System.Drawing.Point(285, 347);
             this.customGroup08.Name = "customGroup08";
-            this.customGroup08.Size = new System.Drawing.Size(272, 148);
+            this.customGroup08.Size = new System.Drawing.Size(272, 162);
             this.customGroup08.TabIndex = 54;
             this.customGroup08.TabStop = false;
             this.customGroup08.Text = "      ETH";
@@ -971,6 +974,7 @@
             // 
             // customGroup05
             // 
+            this.customGroup05.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customGroup05.Controls.Add(this.customRefresh05);
             this.customGroup05.Controls.Add(this.lblCustomUpdatedv05);
             this.customGroup05.Controls.Add(this.lblCustomUpdated05);
@@ -990,9 +994,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup05, BunifuAnimatorNS.DecorationType.None);
             this.customGroup05.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup05.ForeColor = System.Drawing.Color.Black;
-            this.customGroup05.Location = new System.Drawing.Point(285, 160);
+            this.customGroup05.Location = new System.Drawing.Point(285, 179);
             this.customGroup05.Name = "customGroup05";
-            this.customGroup05.Size = new System.Drawing.Size(272, 148);
+            this.customGroup05.Size = new System.Drawing.Size(272, 162);
             this.customGroup05.TabIndex = 51;
             this.customGroup05.TabStop = false;
             this.customGroup05.Text = "      ETH";
@@ -1158,6 +1162,7 @@
             // 
             // customGroup07
             // 
+            this.customGroup07.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.customGroup07.Controls.Add(this.customRefresh07);
             this.customGroup07.Controls.Add(this.lblCustomUpdatedv07);
             this.customGroup07.Controls.Add(this.lblCustomUpdated07);
@@ -1177,9 +1182,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup07, BunifuAnimatorNS.DecorationType.None);
             this.customGroup07.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup07.ForeColor = System.Drawing.Color.Black;
-            this.customGroup07.Location = new System.Drawing.Point(7, 314);
+            this.customGroup07.Location = new System.Drawing.Point(7, 347);
             this.customGroup07.Name = "customGroup07";
-            this.customGroup07.Size = new System.Drawing.Size(272, 148);
+            this.customGroup07.Size = new System.Drawing.Size(272, 162);
             this.customGroup07.TabIndex = 53;
             this.customGroup07.TabStop = false;
             this.customGroup07.Text = "      BTC";
@@ -1345,6 +1350,7 @@
             // 
             // customGroup04
             // 
+            this.customGroup04.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.customGroup04.Controls.Add(this.customRefresh04);
             this.customGroup04.Controls.Add(this.lblCustomUpdatedv04);
             this.customGroup04.Controls.Add(this.lblCustomUpdated04);
@@ -1364,9 +1370,9 @@
             this.SidebarTransition.SetDecoration(this.customGroup04, BunifuAnimatorNS.DecorationType.None);
             this.customGroup04.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.customGroup04.ForeColor = System.Drawing.Color.Black;
-            this.customGroup04.Location = new System.Drawing.Point(7, 160);
+            this.customGroup04.Location = new System.Drawing.Point(7, 179);
             this.customGroup04.Name = "customGroup04";
-            this.customGroup04.Size = new System.Drawing.Size(272, 148);
+            this.customGroup04.Size = new System.Drawing.Size(272, 162);
             this.customGroup04.TabIndex = 50;
             this.customGroup04.TabStop = false;
             this.customGroup04.Text = "      BTC";
@@ -1532,6 +1538,8 @@
             // 
             // customGroup03
             // 
+            this.customGroup03.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.customGroup03.AutoSize = true;
             this.customGroup03.Controls.Add(this.customRefresh03);
             this.customGroup03.Controls.Add(this.lblCustomUpdatedv03);
             this.customGroup03.Controls.Add(this.lblCustomUpdated03);
@@ -1553,7 +1561,7 @@
             this.customGroup03.ForeColor = System.Drawing.Color.Black;
             this.customGroup03.Location = new System.Drawing.Point(563, 6);
             this.customGroup03.Name = "customGroup03";
-            this.customGroup03.Size = new System.Drawing.Size(272, 148);
+            this.customGroup03.Size = new System.Drawing.Size(272, 167);
             this.customGroup03.TabIndex = 48;
             this.customGroup03.TabStop = false;
             this.customGroup03.Text = "      LTC";
@@ -1719,6 +1727,8 @@
             // 
             // customGroup02
             // 
+            this.customGroup02.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.customGroup02.AutoSize = true;
             this.customGroup02.Controls.Add(this.customRefresh02);
             this.customGroup02.Controls.Add(this.lblCustomUpdatedv02);
             this.customGroup02.Controls.Add(this.lblCustomUpdated02);
@@ -1740,7 +1750,7 @@
             this.customGroup02.ForeColor = System.Drawing.Color.Black;
             this.customGroup02.Location = new System.Drawing.Point(285, 6);
             this.customGroup02.Name = "customGroup02";
-            this.customGroup02.Size = new System.Drawing.Size(272, 148);
+            this.customGroup02.Size = new System.Drawing.Size(272, 167);
             this.customGroup02.TabIndex = 47;
             this.customGroup02.TabStop = false;
             this.customGroup02.Text = "      ETH";
@@ -1906,6 +1916,7 @@
             // 
             // customGroup01
             // 
+            this.customGroup01.AutoSize = true;
             this.customGroup01.Controls.Add(this.customRefresh01);
             this.customGroup01.Controls.Add(this.lblCustomUpdatedv01);
             this.customGroup01.Controls.Add(this.lblCustomUpdated01);
@@ -1927,7 +1938,7 @@
             this.customGroup01.ForeColor = System.Drawing.Color.Black;
             this.customGroup01.Location = new System.Drawing.Point(7, 6);
             this.customGroup01.Name = "customGroup01";
-            this.customGroup01.Size = new System.Drawing.Size(272, 148);
+            this.customGroup01.Size = new System.Drawing.Size(272, 167);
             this.customGroup01.TabIndex = 46;
             this.customGroup01.TabStop = false;
             this.customGroup01.Text = "      BTC   ";
@@ -2196,7 +2207,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(843, 468);
+            this.ClientSize = new System.Drawing.Size(843, 520);
             this.Controls.Add(this.customGroup09);
             this.Controls.Add(this.customGroup06);
             this.Controls.Add(this.customGroup08);
@@ -2207,9 +2218,11 @@
             this.Controls.Add(this.customGroup02);
             this.Controls.Add(this.customGroup01);
             this.SidebarTransition.SetDecoration(this, BunifuAnimatorNS.DecorationType.None);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Summary";
             this.Text = "Summary";
+            this.Load += new System.EventHandler(this.Summary_Load);
             this.customGroup09.ResumeLayout(false);
             this.customGroup09.PerformLayout();
             this.customGroup06.ResumeLayout(false);
@@ -2239,6 +2252,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -2262,7 +2276,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.GroupBox customGroup09;
         private System.Windows.Forms.PictureBox customRefresh09;
         private System.Windows.Forms.Label lblCustomUpdatedv09;
         private System.Windows.Forms.Label lblCustomUpdated09;
@@ -2313,7 +2326,6 @@
         private System.Windows.Forms.Label lblCustom24Hp08;
         private System.Windows.Forms.Label lblCustom7Dp08;
         private System.Windows.Forms.Label lbl1Hr08;
-        private System.Windows.Forms.GroupBox customGroup05;
         private System.Windows.Forms.PictureBox customRefresh05;
         private System.Windows.Forms.Label lblCustomUpdatedv05;
         private System.Windows.Forms.Label lblCustomUpdated05;
@@ -2415,5 +2427,7 @@
         private System.Windows.Forms.Label lblCustom24Hp01;
         private System.Windows.Forms.Label lblCustom7Dp01;
         private System.Windows.Forms.Label lbl1Hr01;
+        public System.Windows.Forms.GroupBox customGroup09;
+        public System.Windows.Forms.GroupBox customGroup05;
     }
 }

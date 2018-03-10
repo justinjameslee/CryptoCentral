@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices;
 using System.Threading;
+using System.Reflection;
 
 namespace CryptoCentral
 {
@@ -19,6 +20,31 @@ namespace CryptoCentral
         public Crypto()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None; // no borders
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true); // this is to avoid visual artifacts
+
+            typeof(Control).GetProperty("ResizeRedraw", BindingFlags.NonPublic | BindingFlags.Instance)
+               .SetValue(Header, true, null);
+
+            typeof(Panel).GetProperty("DoubleBuffered",
+                          BindingFlags.NonPublic | BindingFlags.Instance)
+             .SetValue(Header, true, null);
+
+            typeof(Control).GetProperty("ResizeRedraw", BindingFlags.NonPublic | BindingFlags.Instance)
+               .SetValue(Sidebar, true, null);
+
+            typeof(Panel).GetProperty("DoubleBuffered",
+                          BindingFlags.NonPublic | BindingFlags.Instance)
+             .SetValue(Sidebar, true, null);
+
+            btnHome.IconZoom = 55;
+            btnMining.IconZoom = 55;
+            btnSettings.IconZoom = 55;
+            btnBack.IconZoom = 55;
+
+            btnPageLeft.Top = (PageLeft.Height - btnPageLeft.Size.Height) / 2;
+            btnPageRight.Top = (PageRight.Height - btnPageRight.Size.Height) / 2;
         }
 
         protected override CreateParams CreateParams
@@ -32,6 +58,7 @@ namespace CryptoCentral
         }
 
         public static bool Loading = false;
+        public static bool Locked = false;
 
         //Creating Varaibles For Moving Form.
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -46,10 +73,8 @@ namespace CryptoCentral
         List<NHAlgos> NHAlgo;
 
         //Creating public varaibles.
-
         //Storing Json output as a string.
         string jsonString;
-        
 
         //Booleans to Specify the current selected panel.
         public static bool bOptions = false;
@@ -69,10 +94,7 @@ namespace CryptoCentral
         //Variables to control Universal Syncing.
         int intSyncTimer;
         public static string stringSyncTimer;
-
-
-
-        /// MINING.
+        
         //Price Taken from BTC Summary Price to Calculate Profit for Worker.
         public static double UniversalBTCPrice;
 
@@ -127,18 +149,15 @@ namespace CryptoCentral
 
         private void Crypto_Load(object sender, EventArgs e)
         {
-            SummaryContainer.Location = new Point(222, 71); 
-            SummaryContainer.Size = new Size(842, 468);
-            OptionsContainer.Location = new Point(222, 71);
-            OptionsContainer.Size = new Size(842, 468);
-            WorkerContainer.Location = new Point(222, 71);
-            WorkerContainer.Size = new Size(842, 468);
-            LoadingPanel.Location = new Point(222, 71);
-            LoadingPanel.Size = new Size(842, 468);
+            LoadingPanel.Size = new Size(843, 520);
+            SummaryContainer.Size = new Size(843, 520);
+            WorkerContainer.Size = new Size(843, 520);
+            OptionsContainer.Size = new Size(843, 520);
+
 
             LoadingPanel.Controls.Clear();
             Reference.LoadingForm.TopLevel = false;
-            Reference.LoadingForm.Size = new Size(842, 468);
+            Reference.LoadingForm.Size = new Size(843, 520);
             Reference.LoadingForm.AutoScroll = false;
             Reference.LoadingForm.Dock = DockStyle.Fill;
             LoadingPanel.Controls.Add(Reference.LoadingForm);
@@ -147,7 +166,7 @@ namespace CryptoCentral
 
             SummaryContainer.Controls.Clear();
             Reference.SummaryForm.TopLevel = false;
-            Reference.SummaryForm.Size = new Size(842, 468);
+            Reference.SummaryForm.Size = new Size(843, 520);
             Reference.SummaryForm.AutoScroll = false;
             Reference.SummaryForm.Dock = DockStyle.Fill;
             SummaryContainer.Controls.Add(Reference.SummaryForm);
@@ -155,7 +174,7 @@ namespace CryptoCentral
 
             WorkerContainer.Controls.Clear();
             Reference.WorkerForm.TopLevel = false;
-            Reference.WorkerForm.Size = new Size(842, 468);
+            Reference.WorkerForm.Size = new Size(843, 520);
             Reference.WorkerForm.AutoScroll = false;
             Reference.WorkerForm.Dock = DockStyle.Fill;
             WorkerContainer.Controls.Add(Reference.WorkerForm);
@@ -163,7 +182,7 @@ namespace CryptoCentral
 
             OptionsContainer.Controls.Clear();
             Reference.OptionsForm.TopLevel = false;
-            Reference.OptionsForm.Size = new Size(842, 468);
+            Reference.OptionsForm.Size = new Size(843, 520);
             Reference.OptionsForm.AutoScroll = false;
             Reference.OptionsForm.Dock = DockStyle.Fill;
             OptionsContainer.Controls.Add(Reference.OptionsForm);
@@ -191,13 +210,26 @@ namespace CryptoCentral
             Reference.WorkerForm.GETPools();                                             //MINING | Gets All Available Pools.
             Reference.WorkerForm.SetDefault();                                           //MINING | Set Default Worker Settings.                               
             Footer.Location = new Point(222, 539);
-            this.Size = new Size(1064, 577);
+            this.Size = new Size(1160, 640);
             this.CenterToScreen();
             GETINFOSummary();                                 //Getting ALL API Information.
             Reference.WorkerForm.GETWorkerInfo();                                  //Get ALL Relevant Mining Info
             Reference.OptionsForm.lblSaveFoundVisible = false;                    //Not Required on first startup.
             btnHome.selected = true;
             Loading = true;
+            LoadingPanel.BringToFront();
+            SidebarTransition.Show(LoadingPanel);
+
+            SummaryContainer.Visible = true;
+            WorkerContainer.Visible = false;
+            OptionsContainer.Visible = false;
+
+            btnCompress.Visible = false;
+
+            PageLeft.GradientTopLeft = Color.White;
+            PageRight.GradientTopRight = Color.White;
+            PageLeftShadow.Visible = false;
+            PageRightShadow.Visible = false;
         }
 
         //Events for moving the actual form.
@@ -241,41 +273,43 @@ namespace CryptoCentral
         //All Buttons Events
         private void btnHome_Click(object sender, EventArgs e)
         {
-            SummaryContainer.BringToFront();
-            //if (LoadingPanel.Visible != true)
-            //{
-            //    Loading = true;
-            //    LoadingPanel.BringToFront();
-            //    SidebarTransition.Show(LoadingPanel);
-            //    HideAll();
-            //    SummaryRESET();
-            //    HeaderDefault();
-
-            //}
+            HideAll();
+            SummaryRESET();
+            HeaderDefault();
+            if (bSummary == true && SummaryContainer.Visible != true && Locked == false)
+            {
+                Locked = true;
+                SidebarTransition.Show(SummaryContainer);
+                OptionsContainer.Visible = false;
+                WorkerContainer.Visible = false;
+            }
+            
         }
         private void btnMining_Click(object sender, EventArgs e)
         {
-            if (LoadingPanel.Visible != true)
+            HideAll();
+            WorkerRESET();
+            HeaderDefault();
+            if (bWorker == true && WorkerContainer.Visible != true && Locked == false)
             {
-                Loading = true;
-                LoadingPanel.BringToFront();
-                SidebarTransition.Show(LoadingPanel);
-                HideAll();
-                WorkerRESET();
-                HeaderDefault();
+                Locked = true;
+                SummaryContainer.Visible = false;
+                OptionsContainer.Visible = false;
+                SidebarTransition.Show(WorkerContainer);
             }
 
         }
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            if (LoadingPanel.Visible != true)
+            HideAll();
+            OptionsRESET();
+            HeaderDefault();
+            if (bOptions == true && OptionsContainer.Visible != true && Locked == false)
             {
-                Loading = true;
-                LoadingPanel.BringToFront();
-                SidebarTransition.Show(LoadingPanel);
-                HideAll();
-                OptionsRESET();
-                HeaderDefault();
+                Locked = true;
+                SummaryContainer.Visible = false;
+                SidebarTransition.Show(OptionsContainer);
+                WorkerContainer.Visible = false;
             }
         }
         private void btnBack_Click(object sender, EventArgs e)
@@ -458,9 +492,34 @@ namespace CryptoCentral
 
         }
 
-        private void SidebarTransition_AllAnimationsCompleted(object sender, EventArgs e)
+        private void btnSizeChange_Click(object sender, EventArgs e)
         {
-
+            if (this.WindowState != FormWindowState.Maximized)
+            {
+                this.Visible = false;
+                LoadingCalc.LoadingValue = 0;
+                LoadingPanel.BringToFront();
+                SidebarTransition.Show(LoadingPanel);
+                Loading = true;
+                timerSummaryLoad.Enabled = true;
+                SidebarTransition.MaxAnimationTime = 500;
+                SidebarTransition.TimeStep = Convert.ToSingle(0.09);
+                this.WindowState = FormWindowState.Maximized;
+                btnCompress.Visible = true;
+                btnMaximize.Visible = false;
+                this.CenterToScreen();
+                this.Visible = true;
+            }
+            else
+            {
+                SidebarTransition.MaxAnimationTime = 1500;
+                SidebarTransition.TimeStep = Convert.ToSingle(0.02);
+                this.WindowState = FormWindowState.Normal;
+                btnCompress.Visible = false;
+                btnMaximize.Visible = true;
+                this.Size = new Size(1140, 641);
+                this.CenterToScreen();
+            }
         }
 
         private void timerSummaryLoad_Tick(object sender, EventArgs e)
@@ -468,27 +527,69 @@ namespace CryptoCentral
             if (Loading == false)
             {
                 SidebarTransition.Hide(LoadingPanel);
-                if (bSummary == true)
-                {
-                    OptionsContainer.SendToBack();
-                    WorkerContainer.SendToBack();
-                }
-                else if (bOptions == true)
-                {
-                    SummaryContainer.SendToBack();
-                    WorkerContainer.SendToBack();
-                }
-                else if (bWorker == true)
-                {
-                    SummaryContainer.SendToBack();
-                    OptionsContainer.SendToBack();
-                }
+                timerSummaryLoad.Enabled = false;
             }
-            else if (Loading == true)
-            {
-                LoadingPanel.BringToFront();
-                SidebarTransition.Show(LoadingPanel);
-            }
+        }
+
+        private void SidebarTransition_AnimationCompleted(object sender, BunifuAnimatorNS.AnimationCompletedEventArg e)
+        {
+            Locked = false;
+        }
+
+        private void LoadingPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void SummaryContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void OptionsContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void WorkerContainer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Header_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Crypto_Resize(object sender, EventArgs e)
+        {
+            Reference.SummaryForm.customGroup05.Left = (Reference.SummaryForm.ClientSize.Width - Reference.SummaryForm.customGroup05.Size.Width) / 2;
+            btnPageLeft.Top = (PageLeft.Height - btnPageLeft.Size.Height) / 2;
+            btnPageRight.Top = (PageRight.Height - btnPageRight.Size.Height) / 2;
+        }
+
+        private void PageLeft_MouseEnter(object sender, EventArgs e)
+        {
+            PageLeft.GradientTopLeft = Color.DarkOrange;
+            PageLeftShadow.Visible = true;
+        }
+
+        private void PageLeft_MouseLeave(object sender, EventArgs e)
+        {
+            PageLeft.GradientTopLeft = Color.White;
+            PageLeftShadow.Visible = false;
+        }
+
+        private void PageRight_MouseEnter(object sender, EventArgs e)
+        {
+            PageRight.GradientTopRight = Color.DarkOrange;
+            PageRightShadow.Visible = true;
+        }
+
+        private void PageRight_MouseLeave(object sender, EventArgs e)
+        {
+            PageRight.GradientTopRight = Color.White;
+            PageRightShadow.Visible = false;
         }
     }
 }

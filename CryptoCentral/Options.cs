@@ -214,8 +214,6 @@ namespace CryptoCentral
                 SelectedIndexChanged(PagevSelectedIndex);      //Update the data with new txt file coins based on page index.
                 Reference.CryptoForm.UpdatingCurrentPage();                          //Updates Header Page Number.
             }
-            Reference.CryptoForm.btnPageLeft.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\left-arrow-still-24px.png");
-            Reference.CryptoForm.btnPageRight.Image = Image.FromFile(@"C:\Users\" + Environment.UserName + @"\Documents\GitHub\CryptoCentral\Images\right-arrow-still-24px.png");
         }
         private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
         {

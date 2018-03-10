@@ -1,6 +1,6 @@
 ﻿namespace CryptoCentral
 {
-    partial class Loading
+    partial class LoadingCalc
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Loading));
             this.NoBorder = new Bunifu.Framework.UI.BunifuElipse(this.components);
-            this.SummaryLoadingBar = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.timerLoading = new System.Windows.Forms.Timer(this.components);
+            this.LoadingPanelGif = new System.Windows.Forms.PictureBox();
+            this.LoadingIndicator = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingPanelGif)).BeginInit();
             this.SuspendLayout();
             // 
             // NoBorder
@@ -40,45 +41,46 @@
             this.NoBorder.ElipseRadius = 0;
             this.NoBorder.TargetControl = this;
             // 
-            // SummaryLoadingBar
-            // 
-            this.SummaryLoadingBar.animated = false;
-            this.SummaryLoadingBar.animationIterval = 5;
-            this.SummaryLoadingBar.animationSpeed = 300;
-            this.SummaryLoadingBar.BackColor = System.Drawing.Color.White;
-            this.SummaryLoadingBar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("SummaryLoadingBar.BackgroundImage")));
-            this.SummaryLoadingBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F);
-            this.SummaryLoadingBar.ForeColor = System.Drawing.Color.DarkOrange;
-            this.SummaryLoadingBar.LabelVisible = true;
-            this.SummaryLoadingBar.LineProgressThickness = 8;
-            this.SummaryLoadingBar.LineThickness = 5;
-            this.SummaryLoadingBar.Location = new System.Drawing.Point(320, 138);
-            this.SummaryLoadingBar.Margin = new System.Windows.Forms.Padding(10, 9, 10, 9);
-            this.SummaryLoadingBar.MaxValue = 100;
-            this.SummaryLoadingBar.Name = "SummaryLoadingBar";
-            this.SummaryLoadingBar.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.SummaryLoadingBar.ProgressColor = System.Drawing.Color.Orange;
-            this.SummaryLoadingBar.Size = new System.Drawing.Size(203, 203);
-            this.SummaryLoadingBar.TabIndex = 69;
-            this.SummaryLoadingBar.Value = 0;
-            // 
             // timerLoading
             // 
             this.timerLoading.Enabled = true;
             this.timerLoading.Interval = 10;
             this.timerLoading.Tick += new System.EventHandler(this.timerLoading_Tick);
             // 
-            // Loading
+            // LoadingPanelGif
+            // 
+            this.LoadingPanelGif.Image = global::CryptoCentral.Properties.Resources.Double_Ring_1_5s_200px;
+            this.LoadingPanelGif.Location = new System.Drawing.Point(311, 134);
+            this.LoadingPanelGif.Name = "LoadingPanelGif";
+            this.LoadingPanelGif.Size = new System.Drawing.Size(200, 200);
+            this.LoadingPanelGif.TabIndex = 70;
+            this.LoadingPanelGif.TabStop = false;
+            // 
+            // LoadingIndicator
+            // 
+            this.LoadingIndicator.BackColor = System.Drawing.Color.Transparent;
+            this.LoadingIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 30F);
+            this.LoadingIndicator.ForeColor = System.Drawing.Color.DarkOrange;
+            this.LoadingIndicator.Location = new System.Drawing.Point(366, 213);
+            this.LoadingIndicator.Name = "LoadingIndicator";
+            this.LoadingIndicator.Size = new System.Drawing.Size(86, 44);
+            this.LoadingIndicator.TabIndex = 71;
+            this.LoadingIndicator.Text = "100";
+            this.LoadingIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LoadingCalc
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(843, 468);
-            this.Controls.Add(this.SummaryLoadingBar);
+            this.Controls.Add(this.LoadingIndicator);
+            this.Controls.Add(this.LoadingPanelGif);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Loading";
+            this.Name = "LoadingCalc";
             this.Text = "Loading";
             this.Load += new System.EventHandler(this.Loading_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.LoadingPanelGif)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -86,7 +88,8 @@
         #endregion
 
         private Bunifu.Framework.UI.BunifuElipse NoBorder;
-        private Bunifu.Framework.UI.BunifuCircleProgressbar SummaryLoadingBar;
         private System.Windows.Forms.Timer timerLoading;
+        public System.Windows.Forms.PictureBox LoadingPanelGif;
+        public System.Windows.Forms.Label LoadingIndicator;
     }
 }

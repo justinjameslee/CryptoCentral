@@ -114,9 +114,9 @@ namespace CryptoCentral
             if (!File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\Default.txt"))
             {
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\Default.txt", "EMPTY");
-                Reference.OptionsForm.HeaderPoolvText = "";
-                Reference.OptionsForm.HeaderWorkervText = "SELECT A POOL";
-                Reference.OptionsForm.HeaderMiningCurrencyvText = "";
+                Reference.OptionsForm.HeaderPoolv.Text = "";
+                Reference.OptionsForm.HeaderWorkerv.Text = "SELECT A POOL";
+                Reference.OptionsForm.HeaderMiningCurrencyv.Text = "";
             }
             else
             {
@@ -124,15 +124,15 @@ namespace CryptoCentral
                 string test = StartingMiningSettings[0];
                 if (test == "EMPTY")
                 {
-                    Reference.OptionsForm.HeaderPoolvText = "";
-                    Reference.OptionsForm.HeaderWorkervText = "SELECT A POOL";
-                    Reference.OptionsForm.HeaderMiningCurrencyvText = "";
+                    Reference.OptionsForm.HeaderPoolv.Text = "";
+                    Reference.OptionsForm.HeaderWorkerv.Text = "SELECT A POOL";
+                    Reference.OptionsForm.HeaderMiningCurrencyv.Text = "";
                 }
                 else
                 {
-                    Reference.OptionsForm.HeaderPoolvText = StartingMiningSettings[0];
-                    Reference.OptionsForm.HeaderWorkervText = StartingMiningSettings[1];
-                    Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
+                    Reference.OptionsForm.HeaderPoolv.Text = StartingMiningSettings[0];
+                    Reference.OptionsForm.HeaderWorkerv.Text = StartingMiningSettings[1];
+                    Reference.OptionsForm.HeaderMiningCurrencyv.SelectedIndex = Convert.ToInt32(StartingMiningSettings[2]);
                 }
             }
         }
@@ -141,32 +141,32 @@ namespace CryptoCentral
             NHWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\Nicehash.txt").ToList();
             NHWalletsA = NHWallets.ToArray();
             Options.BindWallet.DataSource = NHWalletsA;
-            Reference.OptionsForm.OptionsNHWalletsvDataSource();
-            CurrentNHWallet = Reference.OptionsForm.OptionsNHWalletsvText;
+            Reference.OptionsForm.OptionsNHWalletsv.DataSource = Options.BindWallet.DataSource;
+            CurrentNHWallet = Reference.OptionsForm.OptionsNHWalletsv.Text;
 
             ZPWallets = File.ReadAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\ZPool.txt").ToList();
             ZPWalletsA = ZPWallets.ToArray();
             Options.BindWallet.DataSource = ZPWalletsA;
-            Reference.OptionsForm.OptionsZPWalletsvDataSource();
-            CurrentZPWallet = Reference.OptionsForm.OptionsZPWalletsvText;
+            Reference.OptionsForm.OptionsZPWalletsv.DataSource = Options.BindWallet.DataSource;
+            CurrentZPWallet = Reference.OptionsForm.OptionsZPWalletsv.Text;
 
         }
         public void GETPools()
         {
             if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\Nicehash.txt"))
             {
-                if (Reference.OptionsForm.HeaderWorkervContainsNH) { }
+                if (Reference.OptionsForm.HeaderWorkerv.Items.Contains("NICEHASH")) { }
                 else
                 {
-                    Reference.OptionsForm.HeaderPoolvAddItem("NICEHASH");
+                    Reference.OptionsForm.HeaderPoolv.Items.Add("NICEHASH");
                 }
             }
             if (File.Exists(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\Mining\ZPool.txt"))
             {
-                if (Reference.OptionsForm.HeaderWorkervContainsZP) { }
+                if (Reference.OptionsForm.HeaderWorkerv.Items.Contains("ZPOOL")) { }
                 else
                 {
-                    Reference.OptionsForm.HeaderPoolvAddItem("ZPOOL");
+                    Reference.OptionsForm.HeaderPoolv.Items.Add("ZPOOL");
                 }
             }
         }
@@ -202,7 +202,7 @@ namespace CryptoCentral
                         }
                         if (Crypto.bWorker == false)
                         {
-                            Reference.OptionsForm.HeaderWorkervAddItem(WorkerID);
+                            Reference.OptionsForm.HeaderWorkerv.Items.Add(WorkerID);
                             RealWorkers.Add(WorkerID);
                         }
                     }
@@ -216,9 +216,9 @@ namespace CryptoCentral
         }
         public void GETWorkers()
         {
-            Reference.OptionsForm.HeaderWorkervClear();
+            Reference.OptionsForm.HeaderWorkerv.Items.Clear();
 
-            if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
+            if (Reference.OptionsForm.HeaderPoolv.Text == "NICEHASH")
             {
                 GETNHWorkerRefresh();
             }
@@ -403,7 +403,7 @@ namespace CryptoCentral
         {
             NHCalcProfitRate = RealProfit[Convert.ToInt32(SepDATA[5])];
             NHCalcProfitBTCD = Math.Round(Convert.ToDouble(NHCalcProfitRate) * CurrentHashRate, 8);
-            if (Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex == 0)
+            if (Reference.OptionsForm.HeaderMiningCurrencyv.SelectedIndex == 0)
             {
                 lblProfitv.Text = Convert.ToString(NHCalcProfitBTCD);
                 lblProfitMv.Text = Convert.ToString(Math.Round(NHCalcProfitBTCD * 30.4167, 8));
@@ -412,7 +412,7 @@ namespace CryptoCentral
                 lblProfitM.Text = "BTC/MONTH";
                 lblProfitY.Text = "BTC/YEAR";
             }
-            else if (Reference.OptionsForm.HeaderMiningCurrencyvSelectedIndex == 1)
+            else if (Reference.OptionsForm.HeaderMiningCurrencyv.SelectedIndex == 1)
             {
                 lblProfitv.Text = "$" + string.Format("{0:#,0.00}", NHCalcProfitBTCD * Crypto.UniversalBTCPrice);
                 lblProfitMv.Text = "$" + string.Format("{0:#,0.00}", (NHCalcProfitBTCD * 30.4167) * Crypto.UniversalBTCPrice);
@@ -435,9 +435,9 @@ namespace CryptoCentral
             STimeMins = null;
             STimeSeconds = null;
             TimeCalc = false;
-            WorkerID = Reference.OptionsForm.HeaderWorkervText;
+            WorkerID = Reference.OptionsForm.HeaderWorkerv.Text;
 
-            if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
+            if (Reference.OptionsForm.HeaderPoolv.Text == "NICEHASH")
             {
                 MiningNH.Location = new Point(26, 30);
                 MiningNH.Visible = true;
@@ -456,7 +456,7 @@ namespace CryptoCentral
                         WorkerID = "EMPTY";
                     }
 
-                    if (WorkerID == Reference.OptionsForm.HeaderWorkervText)
+                    if (WorkerID == Reference.OptionsForm.HeaderWorkerv.Text)
                     {
                         DATA = SepWorkers[x];
                         try

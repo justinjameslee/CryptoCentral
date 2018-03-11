@@ -97,16 +97,6 @@ namespace CryptoCentral
             bWorker = true;
             bOptions = false;
         }
-        void HeaderMiningRESET()
-        {
-            Reference.OptionsForm.lblHeaderPoolLocation = new Point(13, 40);
-            Reference.OptionsForm.HeaderPoolvLocation = new Point(83, 38);
-            Reference.OptionsForm.lblHeaderWorkerLocation = new Point(234, 40);
-            Reference.OptionsForm.HeaderWorkervLocation = new Point(334, 38);
-            Reference.OptionsForm.lblHeaderMiningCurrencyLocation = new Point(530, 40);
-            Reference.OptionsForm.HeaderMiningCurrencyvLocation = new Point(651, 38);
-        }
-
         private void Crypto_Load(object sender, EventArgs e)
         {
 
@@ -147,8 +137,8 @@ namespace CryptoCentral
             Options.CreateMustFiles();          //Make sure all required files exist.
             Reference.OptionsForm.LoadProfile(Options.Profile);       //Load Profile Number.
             Reference.OptionsForm.TestCoinSummary();          //Test if txt file has valid coins and assign them to varaibles.
-            Reference.OptionsForm.PagevSelectedIndex = Convert.ToInt32(Options.PageNumber);  //Setting Page Index to Saved Page Number on txt file.
-            Reference.OptionsForm.lblSaveFoundVisible = false;                    //Not Required on first startup.
+    //        Reference.OptionsForm.OpPagev.selectedIndex = Convert.ToInt32(Options.PageNumber);  //Setting Page Index to Saved Page Number on txt file.
+            //Reference.OptionsForm.lblSaveFoundVisible = false;                    //Not Required on first startup.
 
             //Reference.WorkerForm.GETWallets();       //MINING | Gets All Wallet Info.
             //Reference.WorkerForm.GETPools();         //MINING | Gets All Available Pools.
@@ -156,7 +146,6 @@ namespace CryptoCentral
             //Reference.WorkerForm.GETWorkerInfo();    //MINING | Get ALL Relevant Mining Info
 
             SummaryRESET();               //Populate the Summary Page with Data.
-            HeaderMiningRESET();         //MOVE all Mining Header propertities to correct location.
             FooterDefault();             //HIDE all header properties except default ones.
             intSyncTimer = 31;           //On first countdown users sees it counting down from 30.
             GETINFOSummary();            //Getting ALL API Information.
@@ -188,16 +177,16 @@ namespace CryptoCentral
         private void btnClose_MouseClick(object sender, MouseEventArgs e)
         {
             this.Close();
-            Options.PageNumber = Convert.ToString(Reference.OptionsForm.PagevSelectedIndex);     //Saves the Last Page the user was viewing.
+            Options.PageNumber = Convert.ToString(Reference.OptionsForm.OpPagev.selectedIndex);     //Saves the Last Page the user was viewing.
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\PageStart.txt", Options.PageNumber);
         }
 
         //Universal Hide All Function.
         void HideAll()
         {
-            Reference.OptionsForm.lblConfirmedVisible = false;
-            Reference.OptionsForm.lblMaxPagesVisible = false;
-            Reference.OptionsForm.lblDefaultSetVisible = false;
+            Reference.OptionsForm.lblConfirmed.Visible = false;
+            Reference.OptionsForm.lblMaxPages.Visible = false;
+            Reference.OptionsForm.lblDefaultSet.Visible = false;
         }
         void FooterDefault()
         {
@@ -258,7 +247,7 @@ namespace CryptoCentral
         //Updating Header Page Number
         public void UpdatingCurrentPage()
         {
-            Crypto.CurrentPage = Reference.OptionsForm.PagevSelectedIndex + 1;
+            Crypto.CurrentPage = Reference.OptionsForm.OpPagev.selectedIndex + 1;
             lblCurrentPage.Text = "PAGE " + Convert.ToString(Crypto.CurrentPage);
         }
 
@@ -351,7 +340,7 @@ namespace CryptoCentral
                 }
                 else if (bWorker == true)
                 {
-                    if (Reference.OptionsForm.HeaderPoolvText == "NICEHASH")
+                    if (Reference.OptionsForm.HeaderPoolv.Text == "NICEHASH")
                     {
                         Reference.WorkerForm.GETNHWorkerRefresh();
                     }
@@ -398,11 +387,11 @@ namespace CryptoCentral
         {
             if (PicControl.Name == "btnPageLeft" || PanelControl.Name == "PageLeft")
             {
-                if (Reference.OptionsForm.PagevSelectedIndex != 0)
+                if (Reference.OptionsForm.OpPagev.selectedIndex != 0)
                 {
                     UseWaitCursor = true;
                     btnPageLeft.Enabled = true;
-                    Reference.OptionsForm.PagevSelectedIndex = Reference.OptionsForm.PagevSelectedIndex - 1;
+                    Reference.OptionsForm.OpPagev.selectedIndex = Reference.OptionsForm.OpPagev.selectedIndex - 1;
                     UpdatingCurrentPage();
                 }
             }
@@ -410,11 +399,11 @@ namespace CryptoCentral
             {
                 MaxPages = Convert.ToInt32(Options.Pages);
                 MaxPages = MaxPages - 1;
-                if (Reference.OptionsForm.PagevSelectedIndex != MaxPages)
+                if (Reference.OptionsForm.OpPagev.selectedIndex != MaxPages)
                 {
                     UseWaitCursor = true;
                     btnPageRight.Enabled = true;
-                    Reference.OptionsForm.PagevSelectedIndex = Reference.OptionsForm.PagevSelectedIndex + 1;
+                    Reference.OptionsForm.OpPagev.selectedIndex = Reference.OptionsForm.OpPagev.selectedIndex + 1;
                     UpdatingCurrentPage();
                 }
             }

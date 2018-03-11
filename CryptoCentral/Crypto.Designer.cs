@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation1 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
             this.Header = new System.Windows.Forms.Panel();
             this.btnCompress = new System.Windows.Forms.PictureBox();
             this.btnMaximize = new System.Windows.Forms.PictureBox();
@@ -64,6 +64,7 @@
             this.PageRightShadow = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.PageLeftShadow = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SidebarSeperator = new Bunifu.Framework.UI.BunifuSeparator();
             this.btnBack = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSettings = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -90,6 +91,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).BeginInit();
             this.HeaderShadow.SuspendLayout();
             this.Sidebar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -316,22 +318,22 @@
             // 
             this.SidebarTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.SidebarTransition.Cursor = null;
-            animation1.AnimateOnlyDifferences = true;
-            animation1.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.BlindCoeff")));
-            animation1.LeafCoeff = 0F;
-            animation1.MaxTime = 1F;
-            animation1.MinTime = 0F;
-            animation1.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicCoeff")));
-            animation1.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation1.MosaicShift")));
-            animation1.MosaicSize = 0;
-            animation1.Padding = new System.Windows.Forms.Padding(0);
-            animation1.RotateCoeff = 0F;
-            animation1.RotateLimit = 0F;
-            animation1.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.ScaleCoeff")));
-            animation1.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation1.SlideCoeff")));
-            animation1.TimeCoeff = 0F;
-            animation1.TransparencyCoeff = 1F;
-            this.SidebarTransition.DefaultAnimation = animation1;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 1F;
+            this.SidebarTransition.DefaultAnimation = animation4;
             this.SidebarTransition.MaxAnimationTime = 1000;
             this.SidebarTransition.AnimationCompleted += new System.EventHandler<BunifuAnimatorNS.AnimationCompletedEventArg>(this.SidebarTransition_AnimationCompleted);
             // 
@@ -525,6 +527,7 @@
             // 
             this.Sidebar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Sidebar.BackgroundImage")));
             this.Sidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Sidebar.Controls.Add(this.pictureBox1);
             this.Sidebar.Controls.Add(this.SidebarSeperator);
             this.Sidebar.Controls.Add(this.btnBack);
             this.Sidebar.Controls.Add(this.btnSettings);
@@ -543,6 +546,19 @@
             this.Sidebar.Size = new System.Drawing.Size(222, 577);
             this.Sidebar.TabIndex = 56;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.SidebarTransition.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.PageControlTransition.SetDecoration(this.pictureBox1, BunifuAnimatorNS.DecorationType.None);
+            this.pictureBox1.Image = global::CryptoCentral.Properties.Resources.Logo_100px;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 107);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 62;
+            this.pictureBox1.TabStop = false;
+            // 
             // SidebarSeperator
             // 
             this.SidebarSeperator.BackColor = System.Drawing.Color.Transparent;
@@ -550,7 +566,7 @@
             this.SidebarTransition.SetDecoration(this.SidebarSeperator, BunifuAnimatorNS.DecorationType.None);
             this.SidebarSeperator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.SidebarSeperator.LineThickness = 1;
-            this.SidebarSeperator.Location = new System.Drawing.Point(0, 93);
+            this.SidebarSeperator.Location = new System.Drawing.Point(0, 113);
             this.SidebarSeperator.Name = "SidebarSeperator";
             this.SidebarSeperator.Size = new System.Drawing.Size(222, 35);
             this.SidebarSeperator.TabIndex = 61;
@@ -621,7 +637,7 @@
             this.btnSettings.IconVisible = true;
             this.btnSettings.IconZoom = 55D;
             this.btnSettings.IsTab = true;
-            this.btnSettings.Location = new System.Drawing.Point(0, 233);
+            this.btnSettings.Location = new System.Drawing.Point(0, 253);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Normalcolor = System.Drawing.Color.Transparent;
@@ -660,7 +676,7 @@
             this.btnMining.IconVisible = true;
             this.btnMining.IconZoom = 55D;
             this.btnMining.IsTab = true;
-            this.btnMining.Location = new System.Drawing.Point(0, 185);
+            this.btnMining.Location = new System.Drawing.Point(0, 205);
             this.btnMining.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnMining.Name = "btnMining";
             this.btnMining.Normalcolor = System.Drawing.Color.Transparent;
@@ -699,7 +715,7 @@
             this.btnHome.IconVisible = true;
             this.btnHome.IconZoom = 55D;
             this.btnHome.IsTab = true;
-            this.btnHome.Location = new System.Drawing.Point(0, 137);
+            this.btnHome.Location = new System.Drawing.Point(0, 157);
             this.btnHome.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnHome.Name = "btnHome";
             this.btnHome.Normalcolor = System.Drawing.Color.Transparent;
@@ -718,22 +734,22 @@
             // 
             this.PageControlTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.PageControlTransition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.PageControlTransition.DefaultAnimation = animation2;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.PageControlTransition.DefaultAnimation = animation3;
             this.PageControlTransition.MaxAnimationTime = 250;
             this.PageControlTransition.TimeStep = 0.12F;
             // 
@@ -805,6 +821,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnPageLeft)).EndInit();
             this.HeaderShadow.ResumeLayout(false);
             this.Sidebar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -853,5 +870,6 @@
         private Bunifu.Framework.UI.BunifuDragControl LogoDrag;
         private Bunifu.Framework.UI.BunifuDragControl UserDrag;
         private System.Windows.Forms.Timer timerMinimize;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

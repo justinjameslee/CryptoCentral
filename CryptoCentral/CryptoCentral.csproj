@@ -71,12 +71,24 @@
     <Compile Include="Crypto.Designer.cs">
       <DependentUpon>Crypto.cs</DependentUpon>
     </Compile>
+    <Compile Include="DialogSuccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DialogSuccess.Designer.cs">
+      <DependentUpon>DialogSuccess.cs</DependentUpon>
+    </Compile>
     <Compile Include="EaseMethods.cs" />
     <Compile Include="LoadingCalc.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LoadingCalc.Designer.cs">
       <DependentUpon>LoadingCalc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="MarketCap.cs" />
     <Compile Include="NHAlgo.cs" />
@@ -112,8 +124,14 @@
     <EmbeddedResource Include="Crypto.resx">
       <DependentUpon>Crypto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DialogSuccess.resx">
+      <DependentUpon>DialogSuccess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoadingCalc.resx">
       <DependentUpon>LoadingCalc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options.resx">
       <DependentUpon>Options.cs</DependentUpon>
@@ -167,25 +185,39 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Home_100px.png" />
+    <EmbeddedResource Include="Resources\Home_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Golden Fever_100px.png" />
+    <EmbeddedResource Include="Resources\Golden Fever_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Settings_100px.png" />
+    <EmbeddedResource Include="Resources\Settings_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Exit_100px.png" />
+    <EmbeddedResource Include="Resources\Exit_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Full Screen_24px.png" />
+    <EmbeddedResource Include="Resources\Full Screen_24px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Compress_24px.png" />
+    <EmbeddedResource Include="Resources\Compress_24px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Home_55px.png" />
+    <EmbeddedResource Include="Resources\Home_55px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\Double Ring-1.5s-200px.gif">
@@ -193,10 +225,23 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Forward_100px.png" />
+    <EmbeddedResource Include="Resources\Forward_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Preview Pane_100px.png" />
+    <EmbeddedResource Include="Resources\Preview Pane_100px.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DialogSuccess.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User_100px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo_100px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

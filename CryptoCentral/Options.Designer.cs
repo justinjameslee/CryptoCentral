@@ -30,29 +30,54 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Options));
-            this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
+            this.NoBorder = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.OpSummaryCard = new Bunifu.Framework.UI.BunifuCards();
+            this.lblOpSelectedPage = new System.Windows.Forms.Label();
+            this.OpPagev = new Bunifu.Framework.UI.BunifuDropdown();
+            this.OpSummaryVerticalSep = new Bunifu.Framework.UI.BunifuSeparator();
+            this.OpSummarySample = new System.Windows.Forms.GroupBox();
+            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
+            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
+            this.lblCustomBTC01 = new System.Windows.Forms.Label();
+            this.lblCustomC01 = new System.Windows.Forms.Label();
+            this.lblCustom1Hp01 = new System.Windows.Forms.Label();
+            this.lblCustom7Dc01 = new System.Windows.Forms.Label();
+            this.lblCustomCv01 = new System.Windows.Forms.Label();
+            this.lbl7D01 = new System.Windows.Forms.Label();
+            this.lblCustom1Hc01 = new System.Windows.Forms.Label();
+            this.lblCustomBTCv01 = new System.Windows.Forms.Label();
+            this.lbl24Hr01 = new System.Windows.Forms.Label();
+            this.lblCustom24Hc01 = new System.Windows.Forms.Label();
+            this.lblCustom24Hp01 = new System.Windows.Forms.Label();
+            this.lblCustom7Dp01 = new System.Windows.Forms.Label();
+            this.lbl1Hr01 = new System.Windows.Forms.Label();
+            this.txtCustom01 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom09 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom08 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom07 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom06 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom05 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom04 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom03 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.txtCustom02 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
+            this.lblSummaryCoins = new System.Windows.Forms.Label();
+            this.lblLivePreviewData = new System.Windows.Forms.Label();
+            this.checkOpLiveData = new Bunifu.Framework.UI.BunifuCheckbox();
             this.tabOptions = new System.Windows.Forms.TabControl();
             this.tabPageSummary = new System.Windows.Forms.TabPage();
             this.optionsSummaryAdvaned = new System.Windows.Forms.Panel();
             this.groupBoxTimeZone = new System.Windows.Forms.GroupBox();
             this.lblTimeSet = new System.Windows.Forms.Label();
             this.btnTimeDefault = new System.Windows.Forms.Button();
-            this.TimeZonev = new System.Windows.Forms.ComboBox();
             this.groupBoxPages = new System.Windows.Forms.GroupBox();
             this.Pagev = new System.Windows.Forms.ComboBox();
-            this.btnNewPage = new System.Windows.Forms.Button();
             this.lblMaxPages = new System.Windows.Forms.Label();
             this.lblNoSave = new System.Windows.Forms.Label();
             this.lblSaveFound = new System.Windows.Forms.Label();
             this.lblNewPage = new System.Windows.Forms.Label();
             this.groupBoxCurrency = new System.Windows.Forms.GroupBox();
-            this.lblPeriodCurrency = new System.Windows.Forms.Label();
-            this.TimePeriodv = new System.Windows.Forms.ComboBox();
-            this.lblCurrencyPreview = new System.Windows.Forms.Label();
             this.lblDefaultSet = new System.Windows.Forms.Label();
             this.btnCurrencyDefault = new System.Windows.Forms.Button();
-            this.Currencyv = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.optionsSummary = new System.Windows.Forms.Panel();
             this.btnClearSummary = new System.Windows.Forms.Button();
@@ -61,24 +86,6 @@
             this.btnSaveProfile = new System.Windows.Forms.Button();
             this.btnConfirmSummary = new System.Windows.Forms.Button();
             this.btnEditSummary = new System.Windows.Forms.Button();
-            this.lblCustom09 = new System.Windows.Forms.Label();
-            this.txtCustom09 = new System.Windows.Forms.TextBox();
-            this.lblCustom08 = new System.Windows.Forms.Label();
-            this.txtCustom08 = new System.Windows.Forms.TextBox();
-            this.lblCustom07 = new System.Windows.Forms.Label();
-            this.txtCustom07 = new System.Windows.Forms.TextBox();
-            this.lblCustom06 = new System.Windows.Forms.Label();
-            this.txtCustom06 = new System.Windows.Forms.TextBox();
-            this.lblCustom05 = new System.Windows.Forms.Label();
-            this.txtCustom05 = new System.Windows.Forms.TextBox();
-            this.lblCustom04 = new System.Windows.Forms.Label();
-            this.txtCustom04 = new System.Windows.Forms.TextBox();
-            this.lblCustom03 = new System.Windows.Forms.Label();
-            this.txtCustom03 = new System.Windows.Forms.TextBox();
-            this.lblCustom02 = new System.Windows.Forms.Label();
-            this.txtCustom02 = new System.Windows.Forms.TextBox();
-            this.lblCustom01 = new System.Windows.Forms.Label();
-            this.txtCustom01 = new System.Windows.Forms.TextBox();
             this.tabPageMining = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblZPClear = new System.Windows.Forms.Label();
@@ -114,36 +121,25 @@
             this.OptionsNHWalletsv = new System.Windows.Forms.ComboBox();
             this.btnOptionsNHSave = new System.Windows.Forms.Button();
             this.lblOptionsNHOp = new System.Windows.Forms.Label();
-            this.lblSummaryCoins = new System.Windows.Forms.Label();
-            this.bunifuMaterialTextbox2 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox3 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox4 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox5 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox6 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox7 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox8 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox9 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.bunifuMaterialTextbox1 = new Bunifu.Framework.UI.BunifuMaterialTextbox();
-            this.OpSummarySample = new System.Windows.Forms.GroupBox();
-            this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
-            this.lblCustomUpdated01 = new System.Windows.Forms.Label();
-            this.lblCustomBTC01 = new System.Windows.Forms.Label();
-            this.lblCustomC01 = new System.Windows.Forms.Label();
-            this.lblCustom1Hp01 = new System.Windows.Forms.Label();
-            this.lblCustom7Dc01 = new System.Windows.Forms.Label();
-            this.lblCustomCv01 = new System.Windows.Forms.Label();
-            this.lbl7D01 = new System.Windows.Forms.Label();
-            this.lblCustom1Hc01 = new System.Windows.Forms.Label();
-            this.lblCustomBTCv01 = new System.Windows.Forms.Label();
-            this.lbl24Hr01 = new System.Windows.Forms.Label();
-            this.lblCustom24Hc01 = new System.Windows.Forms.Label();
-            this.lblCustom24Hp01 = new System.Windows.Forms.Label();
-            this.lblCustom7Dp01 = new System.Windows.Forms.Label();
-            this.lbl1Hr01 = new System.Windows.Forms.Label();
+            this.lblAutoSave = new System.Windows.Forms.Label();
+            this.checkOpAutoSave = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lblCurrencyPreview = new System.Windows.Forms.Label();
+            this.OpCurrencyv = new Bunifu.Framework.UI.BunifuDropdown();
+            this.OpTimePeriodv = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblPeriodCurrency = new System.Windows.Forms.Label();
+            this.OpTimeZonev = new Bunifu.Framework.UI.BunifuDropdown();
+            this.lblOpCurrency = new System.Windows.Forms.Label();
+            this.lblOpTimeZone = new System.Windows.Forms.Label();
+            this.OpSummaryOptionsCard = new Bunifu.Framework.UI.BunifuCards();
+            this.checkOpDetailedSummary = new Bunifu.Framework.UI.BunifuCheckbox();
+            this.lblDetailedSummary = new System.Windows.Forms.Label();
+            this.OpSummaryVerticalSep3 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.OpSummaryVerticalSep2 = new Bunifu.Framework.UI.BunifuSeparator();
+            this.btnNewPage = new Bunifu.Framework.UI.BunifuFlatButton();
             this.customRefresh01 = new System.Windows.Forms.PictureBox();
-            this.bunifuCheckbox1 = new Bunifu.Framework.UI.BunifuCheckbox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnOpSummarySaveAll = new Bunifu.Framework.UI.BunifuFlatButton();
             this.OpSummaryCard.SuspendLayout();
+            this.OpSummarySample.SuspendLayout();
             this.tabOptions.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
@@ -155,14 +151,14 @@
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupOptionsNH.SuspendLayout();
-            this.OpSummarySample.SuspendLayout();
+            this.OpSummaryOptionsCard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             this.SuspendLayout();
             // 
-            // bunifuElipse1
+            // NoBorder
             // 
-            this.bunifuElipse1.ElipseRadius = 0;
-            this.bunifuElipse1.TargetControl = this;
+            this.NoBorder.ElipseRadius = 0;
+            this.NoBorder.TargetControl = null;
             // 
             // OpSummaryCard
             // 
@@ -170,27 +166,452 @@
             this.OpSummaryCard.BorderRadius = 10;
             this.OpSummaryCard.BottomSahddow = true;
             this.OpSummaryCard.color = System.Drawing.Color.DarkOrange;
-            this.OpSummaryCard.Controls.Add(this.label1);
-            this.OpSummaryCard.Controls.Add(this.bunifuCheckbox1);
+            this.OpSummaryCard.Controls.Add(this.lblOpSelectedPage);
+            this.OpSummaryCard.Controls.Add(this.btnNewPage);
+            this.OpSummaryCard.Controls.Add(this.OpPagev);
+            this.OpSummaryCard.Controls.Add(this.OpSummaryVerticalSep);
             this.OpSummaryCard.Controls.Add(this.OpSummarySample);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox1);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox7);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox8);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox9);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox4);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox5);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox6);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox3);
-            this.OpSummaryCard.Controls.Add(this.bunifuMaterialTextbox2);
+            this.OpSummaryCard.Controls.Add(this.txtCustom01);
+            this.OpSummaryCard.Controls.Add(this.txtCustom09);
+            this.OpSummaryCard.Controls.Add(this.txtCustom08);
+            this.OpSummaryCard.Controls.Add(this.txtCustom07);
+            this.OpSummaryCard.Controls.Add(this.txtCustom06);
+            this.OpSummaryCard.Controls.Add(this.txtCustom05);
+            this.OpSummaryCard.Controls.Add(this.txtCustom04);
+            this.OpSummaryCard.Controls.Add(this.txtCustom03);
+            this.OpSummaryCard.Controls.Add(this.txtCustom02);
             this.OpSummaryCard.Controls.Add(this.lblSummaryCoins);
             this.OpSummaryCard.LeftSahddow = true;
             this.OpSummaryCard.Location = new System.Drawing.Point(12, 12);
-            this.OpSummaryCard.MinimumSize = new System.Drawing.Size(455, 354);
+            this.OpSummaryCard.MinimumSize = new System.Drawing.Size(455, 0);
             this.OpSummaryCard.Name = "OpSummaryCard";
             this.OpSummaryCard.RightSahddow = true;
             this.OpSummaryCard.ShadowDepth = 20;
-            this.OpSummaryCard.Size = new System.Drawing.Size(819, 354);
+            this.OpSummaryCard.Size = new System.Drawing.Size(819, 282);
             this.OpSummaryCard.TabIndex = 11;
+            // 
+            // lblOpSelectedPage
+            // 
+            this.lblOpSelectedPage.Font = new System.Drawing.Font("Nexa Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpSelectedPage.Location = new System.Drawing.Point(41, 231);
+            this.lblOpSelectedPage.Name = "lblOpSelectedPage";
+            this.lblOpSelectedPage.Size = new System.Drawing.Size(122, 31);
+            this.lblOpSelectedPage.TabIndex = 57;
+            this.lblOpSelectedPage.Text = "SELECTED:";
+            this.lblOpSelectedPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // OpPagev
+            // 
+            this.OpPagev.BackColor = System.Drawing.Color.Transparent;
+            this.OpPagev.BorderRadius = 3;
+            this.OpPagev.DisabledColor = System.Drawing.Color.Gray;
+            this.OpPagev.ForeColor = System.Drawing.Color.White;
+            this.OpPagev.Items = new string[0];
+            this.OpPagev.Location = new System.Drawing.Point(170, 231);
+            this.OpPagev.Name = "OpPagev";
+            this.OpPagev.NomalColor = System.Drawing.Color.Gainsboro;
+            this.OpPagev.onHoverColor = System.Drawing.Color.Orange;
+            this.OpPagev.selectedIndex = -1;
+            this.OpPagev.Size = new System.Drawing.Size(134, 31);
+            this.OpPagev.TabIndex = 53;
+            this.OpPagev.onItemSelected += new System.EventHandler(this.OpPagev_onItemSelected);
+            // 
+            // OpSummaryVerticalSep
+            // 
+            this.OpSummaryVerticalSep.BackColor = System.Drawing.Color.Transparent;
+            this.OpSummaryVerticalSep.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.OpSummaryVerticalSep.LineThickness = 1;
+            this.OpSummaryVerticalSep.Location = new System.Drawing.Point(465, 71);
+            this.OpSummaryVerticalSep.Name = "OpSummaryVerticalSep";
+            this.OpSummaryVerticalSep.Size = new System.Drawing.Size(23, 191);
+            this.OpSummaryVerticalSep.TabIndex = 52;
+            this.OpSummaryVerticalSep.Transparency = 255;
+            this.OpSummaryVerticalSep.Vertical = true;
+            // 
+            // OpSummarySample
+            // 
+            this.OpSummarySample.Controls.Add(this.customRefresh01);
+            this.OpSummarySample.Controls.Add(this.lblCustomUpdatedv01);
+            this.OpSummarySample.Controls.Add(this.lblCustomUpdated01);
+            this.OpSummarySample.Controls.Add(this.lblCustomBTC01);
+            this.OpSummarySample.Controls.Add(this.lblCustomC01);
+            this.OpSummarySample.Controls.Add(this.lblCustom1Hp01);
+            this.OpSummarySample.Controls.Add(this.lblCustom7Dc01);
+            this.OpSummarySample.Controls.Add(this.lblCustomCv01);
+            this.OpSummarySample.Controls.Add(this.lbl7D01);
+            this.OpSummarySample.Controls.Add(this.lblCustom1Hc01);
+            this.OpSummarySample.Controls.Add(this.lblCustomBTCv01);
+            this.OpSummarySample.Controls.Add(this.lbl24Hr01);
+            this.OpSummarySample.Controls.Add(this.lblCustom24Hc01);
+            this.OpSummarySample.Controls.Add(this.lblCustom24Hp01);
+            this.OpSummarySample.Controls.Add(this.lblCustom7Dp01);
+            this.OpSummarySample.Controls.Add(this.lbl1Hr01);
+            this.OpSummarySample.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.OpSummarySample.ForeColor = System.Drawing.Color.Black;
+            this.OpSummarySample.Location = new System.Drawing.Point(514, 90);
+            this.OpSummarySample.Name = "OpSummarySample";
+            this.OpSummarySample.Size = new System.Drawing.Size(272, 150);
+            this.OpSummarySample.TabIndex = 47;
+            this.OpSummarySample.TabStop = false;
+            this.OpSummarySample.Text = "      XXX";
+            // 
+            // lblCustomUpdatedv01
+            // 
+            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(86, 128);
+            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
+            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(177, 13);
+            this.lblCustomUpdatedv01.TabIndex = 28;
+            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustomUpdated01
+            // 
+            this.lblCustomUpdated01.AutoSize = true;
+            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
+            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
+            this.lblCustomUpdated01.Size = new System.Drawing.Size(56, 13);
+            this.lblCustomUpdated01.TabIndex = 27;
+            this.lblCustomUpdated01.Text = "UPDATED";
+            // 
+            // lblCustomBTC01
+            // 
+            this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomBTC01.Location = new System.Drawing.Point(6, 49);
+            this.lblCustomBTC01.Name = "lblCustomBTC01";
+            this.lblCustomBTC01.Size = new System.Drawing.Size(120, 23);
+            this.lblCustomBTC01.TabIndex = 26;
+            this.lblCustomBTC01.Text = "XXX/BTC";
+            this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustomC01
+            // 
+            this.lblCustomC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomC01.Location = new System.Drawing.Point(6, 26);
+            this.lblCustomC01.Name = "lblCustomC01";
+            this.lblCustomC01.Size = new System.Drawing.Size(120, 23);
+            this.lblCustomC01.TabIndex = 3;
+            this.lblCustomC01.Text = "XXX/USD";
+            this.lblCustomC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustom1Hp01
+            // 
+            this.lblCustom1Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom1Hp01.Location = new System.Drawing.Point(201, 73);
+            this.lblCustom1Hp01.Name = "lblCustom1Hp01";
+            this.lblCustom1Hp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom1Hp01.TabIndex = 12;
+            this.lblCustom1Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom7Dc01
+            // 
+            this.lblCustom7Dc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom7Dc01.Location = new System.Drawing.Point(97, 107);
+            this.lblCustom7Dc01.Name = "lblCustom7Dc01";
+            this.lblCustom7Dc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom7Dc01.TabIndex = 25;
+            this.lblCustom7Dc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblCustomCv01
+            // 
+            this.lblCustomCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomCv01.Location = new System.Drawing.Point(99, 26);
+            this.lblCustomCv01.Name = "lblCustomCv01";
+            this.lblCustomCv01.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomCv01.TabIndex = 8;
+            this.lblCustomCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl7D01
+            // 
+            this.lbl7D01.AutoSize = true;
+            this.lbl7D01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl7D01.Location = new System.Drawing.Point(6, 106);
+            this.lbl7D01.Name = "lbl7D01";
+            this.lbl7D01.Size = new System.Drawing.Size(26, 17);
+            this.lbl7D01.TabIndex = 24;
+            this.lbl7D01.Text = "7D";
+            this.lbl7D01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustom1Hc01
+            // 
+            this.lblCustom1Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom1Hc01.Location = new System.Drawing.Point(97, 72);
+            this.lblCustom1Hc01.Name = "lblCustom1Hc01";
+            this.lblCustom1Hc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom1Hc01.TabIndex = 7;
+            this.lblCustom1Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblCustomBTCv01
+            // 
+            this.lblCustomBTCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.lblCustomBTCv01.Location = new System.Drawing.Point(99, 49);
+            this.lblCustomBTCv01.Name = "lblCustomBTCv01";
+            this.lblCustomBTCv01.Size = new System.Drawing.Size(164, 23);
+            this.lblCustomBTCv01.TabIndex = 10;
+            this.lblCustomBTCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl24Hr01
+            // 
+            this.lbl24Hr01.AutoSize = true;
+            this.lbl24Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl24Hr01.Location = new System.Drawing.Point(6, 89);
+            this.lbl24Hr01.Name = "lbl24Hr01";
+            this.lbl24Hr01.Size = new System.Drawing.Size(44, 17);
+            this.lbl24Hr01.TabIndex = 23;
+            this.lbl24Hr01.Text = "24HR";
+            this.lbl24Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCustom24Hc01
+            // 
+            this.lblCustom24Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom24Hc01.Location = new System.Drawing.Point(97, 90);
+            this.lblCustom24Hc01.Name = "lblCustom24Hc01";
+            this.lblCustom24Hc01.Size = new System.Drawing.Size(98, 15);
+            this.lblCustom24Hc01.TabIndex = 14;
+            this.lblCustom24Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // lblCustom24Hp01
+            // 
+            this.lblCustom24Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom24Hp01.Location = new System.Drawing.Point(201, 90);
+            this.lblCustom24Hp01.Name = "lblCustom24Hp01";
+            this.lblCustom24Hp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom24Hp01.TabIndex = 22;
+            this.lblCustom24Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblCustom7Dp01
+            // 
+            this.lblCustom7Dp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lblCustom7Dp01.Location = new System.Drawing.Point(201, 107);
+            this.lblCustom7Dp01.Name = "lblCustom7Dp01";
+            this.lblCustom7Dp01.Size = new System.Drawing.Size(61, 15);
+            this.lblCustom7Dp01.TabIndex = 16;
+            this.lblCustom7Dp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lbl1Hr01
+            // 
+            this.lbl1Hr01.AutoSize = true;
+            this.lbl1Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.lbl1Hr01.Location = new System.Drawing.Point(7, 72);
+            this.lbl1Hr01.Name = "lbl1Hr01";
+            this.lbl1Hr01.Size = new System.Drawing.Size(36, 17);
+            this.lbl1Hr01.TabIndex = 21;
+            this.lbl1Hr01.Text = "1HR";
+            this.lbl1Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtCustom01
+            // 
+            this.txtCustom01.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom01.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom01.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom01.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom01.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom01.HintText = "XXX";
+            this.txtCustom01.isPassword = false;
+            this.txtCustom01.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom01.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom01.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom01.LineThickness = 4;
+            this.txtCustom01.Location = new System.Drawing.Point(40, 68);
+            this.txtCustom01.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom01.Name = "txtCustom01";
+            this.txtCustom01.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom01.TabIndex = 19;
+            this.txtCustom01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom09
+            // 
+            this.txtCustom09.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom09.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom09.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom09.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom09.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom09.HintText = "XXX";
+            this.txtCustom09.isPassword = false;
+            this.txtCustom09.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom09.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom09.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom09.LineThickness = 4;
+            this.txtCustom09.Location = new System.Drawing.Point(311, 170);
+            this.txtCustom09.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom09.Name = "txtCustom09";
+            this.txtCustom09.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom09.TabIndex = 18;
+            this.txtCustom09.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom08
+            // 
+            this.txtCustom08.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom08.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom08.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom08.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom08.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom08.HintText = "XXX";
+            this.txtCustom08.isPassword = false;
+            this.txtCustom08.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom08.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom08.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom08.LineThickness = 4;
+            this.txtCustom08.Location = new System.Drawing.Point(176, 170);
+            this.txtCustom08.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom08.Name = "txtCustom08";
+            this.txtCustom08.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom08.TabIndex = 17;
+            this.txtCustom08.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom07
+            // 
+            this.txtCustom07.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom07.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom07.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom07.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom07.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom07.HintText = "XXX";
+            this.txtCustom07.isPassword = false;
+            this.txtCustom07.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom07.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom07.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom07.LineThickness = 4;
+            this.txtCustom07.Location = new System.Drawing.Point(41, 170);
+            this.txtCustom07.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom07.Name = "txtCustom07";
+            this.txtCustom07.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom07.TabIndex = 16;
+            this.txtCustom07.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom06
+            // 
+            this.txtCustom06.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom06.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom06.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom06.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom06.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom06.HintText = "XXX";
+            this.txtCustom06.isPassword = false;
+            this.txtCustom06.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom06.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom06.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom06.LineThickness = 4;
+            this.txtCustom06.Location = new System.Drawing.Point(310, 119);
+            this.txtCustom06.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom06.Name = "txtCustom06";
+            this.txtCustom06.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom06.TabIndex = 15;
+            this.txtCustom06.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom05
+            // 
+            this.txtCustom05.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom05.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom05.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom05.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom05.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom05.HintText = "XXX";
+            this.txtCustom05.isPassword = false;
+            this.txtCustom05.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom05.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom05.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom05.LineThickness = 4;
+            this.txtCustom05.Location = new System.Drawing.Point(175, 119);
+            this.txtCustom05.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom05.Name = "txtCustom05";
+            this.txtCustom05.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom05.TabIndex = 14;
+            this.txtCustom05.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom04
+            // 
+            this.txtCustom04.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom04.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom04.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom04.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom04.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom04.HintText = "XXX";
+            this.txtCustom04.isPassword = false;
+            this.txtCustom04.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom04.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom04.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom04.LineThickness = 4;
+            this.txtCustom04.Location = new System.Drawing.Point(40, 119);
+            this.txtCustom04.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom04.Name = "txtCustom04";
+            this.txtCustom04.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom04.TabIndex = 13;
+            this.txtCustom04.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom03
+            // 
+            this.txtCustom03.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom03.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom03.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom03.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom03.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom03.HintText = "XXX";
+            this.txtCustom03.isPassword = false;
+            this.txtCustom03.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom03.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom03.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom03.LineThickness = 4;
+            this.txtCustom03.Location = new System.Drawing.Point(310, 68);
+            this.txtCustom03.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom03.Name = "txtCustom03";
+            this.txtCustom03.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom03.TabIndex = 12;
+            this.txtCustom03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCustom02
+            // 
+            this.txtCustom02.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtCustom02.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtCustom02.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustom02.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtCustom02.HintForeColor = System.Drawing.Color.Empty;
+            this.txtCustom02.HintText = "XXX";
+            this.txtCustom02.isPassword = false;
+            this.txtCustom02.LineFocusedColor = System.Drawing.Color.Orange;
+            this.txtCustom02.LineIdleColor = System.Drawing.Color.Gray;
+            this.txtCustom02.LineMouseHoverColor = System.Drawing.Color.Orange;
+            this.txtCustom02.LineThickness = 4;
+            this.txtCustom02.Location = new System.Drawing.Point(175, 68);
+            this.txtCustom02.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            this.txtCustom02.Name = "txtCustom02";
+            this.txtCustom02.Size = new System.Drawing.Size(123, 41);
+            this.txtCustom02.TabIndex = 11;
+            this.txtCustom02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblSummaryCoins
+            // 
+            this.lblSummaryCoins.Font = new System.Drawing.Font("Nexa Bold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSummaryCoins.ForeColor = System.Drawing.Color.Black;
+            this.lblSummaryCoins.Location = new System.Drawing.Point(0, 10);
+            this.lblSummaryCoins.Name = "lblSummaryCoins";
+            this.lblSummaryCoins.Size = new System.Drawing.Size(819, 60);
+            this.lblSummaryCoins.TabIndex = 1;
+            this.lblSummaryCoins.Text = "SUMMARY COINS";
+            this.lblSummaryCoins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblLivePreviewData
+            // 
+            this.lblLivePreviewData.AutoSize = true;
+            this.lblLivePreviewData.Font = new System.Drawing.Font("Nexa Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLivePreviewData.Location = new System.Drawing.Point(557, 38);
+            this.lblLivePreviewData.Name = "lblLivePreviewData";
+            this.lblLivePreviewData.Size = new System.Drawing.Size(164, 20);
+            this.lblLivePreviewData.TabIndex = 49;
+            this.lblLivePreviewData.Text = "LIVE PREVIEW DATA";
+            // 
+            // checkOpLiveData
+            // 
+            this.checkOpLiveData.BackColor = System.Drawing.Color.Orange;
+            this.checkOpLiveData.ChechedOffColor = System.Drawing.Color.Gainsboro;
+            this.checkOpLiveData.Checked = false;
+            this.checkOpLiveData.CheckedOnColor = System.Drawing.Color.Orange;
+            this.checkOpLiveData.ForeColor = System.Drawing.Color.White;
+            this.checkOpLiveData.Location = new System.Drawing.Point(531, 38);
+            this.checkOpLiveData.Name = "checkOpLiveData";
+            this.checkOpLiveData.Size = new System.Drawing.Size(20, 20);
+            this.checkOpLiveData.TabIndex = 48;
+            this.checkOpLiveData.OnChange += new System.EventHandler(this.checkOpLiveData_OnChange);
             // 
             // tabOptions
             // 
@@ -199,13 +620,14 @@
             this.tabOptions.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tabOptions.Font = new System.Drawing.Font("Walkway Bold", 11F);
             this.tabOptions.HotTrack = true;
-            this.tabOptions.Location = new System.Drawing.Point(0, 548);
+            this.tabOptions.Location = new System.Drawing.Point(0, 550);
             this.tabOptions.Multiline = true;
             this.tabOptions.Name = "tabOptions";
             this.tabOptions.SelectedIndex = 0;
             this.tabOptions.Size = new System.Drawing.Size(843, 407);
             this.tabOptions.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabOptions.TabIndex = 9;
+            this.tabOptions.Visible = false;
             // 
             // tabPageSummary
             // 
@@ -241,7 +663,6 @@
             // 
             this.groupBoxTimeZone.Controls.Add(this.lblTimeSet);
             this.groupBoxTimeZone.Controls.Add(this.btnTimeDefault);
-            this.groupBoxTimeZone.Controls.Add(this.TimeZonev);
             this.groupBoxTimeZone.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.groupBoxTimeZone.ForeColor = System.Drawing.Color.Black;
             this.groupBoxTimeZone.Location = new System.Drawing.Point(32, 214);
@@ -275,27 +696,9 @@
             this.btnTimeDefault.Text = "SET DEFAULT";
             this.btnTimeDefault.UseVisualStyleBackColor = false;
             // 
-            // TimeZonev
-            // 
-            this.TimeZonev.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.TimeZonev.BackColor = System.Drawing.Color.White;
-            this.TimeZonev.DisplayMember = "(Collection)";
-            this.TimeZonev.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TimeZonev.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.TimeZonev.FormattingEnabled = true;
-            this.TimeZonev.Items.AddRange(new object[] {
-            "UTC",
-            "LOCAL"});
-            this.TimeZonev.Location = new System.Drawing.Point(14, 33);
-            this.TimeZonev.Name = "TimeZonev";
-            this.TimeZonev.Size = new System.Drawing.Size(121, 29);
-            this.TimeZonev.TabIndex = 42;
-            this.TimeZonev.TabStop = false;
-            // 
             // groupBoxPages
             // 
             this.groupBoxPages.Controls.Add(this.Pagev);
-            this.groupBoxPages.Controls.Add(this.btnNewPage);
             this.groupBoxPages.Controls.Add(this.lblMaxPages);
             this.groupBoxPages.Controls.Add(this.lblNoSave);
             this.groupBoxPages.Controls.Add(this.lblSaveFound);
@@ -320,19 +723,6 @@
             this.Pagev.Size = new System.Drawing.Size(121, 29);
             this.Pagev.TabIndex = 44;
             this.Pagev.TabStop = false;
-            // 
-            // btnNewPage
-            // 
-            this.btnNewPage.BackColor = System.Drawing.Color.Transparent;
-            this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnNewPage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewPage.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.btnNewPage.Location = new System.Drawing.Point(15, 68);
-            this.btnNewPage.Name = "btnNewPage";
-            this.btnNewPage.Size = new System.Drawing.Size(121, 30);
-            this.btnNewPage.TabIndex = 45;
-            this.btnNewPage.Text = "NEW PAGE";
-            this.btnNewPage.UseVisualStyleBackColor = false;
             // 
             // lblMaxPages
             // 
@@ -380,12 +770,8 @@
             // 
             // groupBoxCurrency
             // 
-            this.groupBoxCurrency.Controls.Add(this.lblPeriodCurrency);
-            this.groupBoxCurrency.Controls.Add(this.TimePeriodv);
-            this.groupBoxCurrency.Controls.Add(this.lblCurrencyPreview);
             this.groupBoxCurrency.Controls.Add(this.lblDefaultSet);
             this.groupBoxCurrency.Controls.Add(this.btnCurrencyDefault);
-            this.groupBoxCurrency.Controls.Add(this.Currencyv);
             this.groupBoxCurrency.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.groupBoxCurrency.ForeColor = System.Drawing.Color.Black;
             this.groupBoxCurrency.Location = new System.Drawing.Point(206, 58);
@@ -394,43 +780,6 @@
             this.groupBoxCurrency.TabIndex = 49;
             this.groupBoxCurrency.TabStop = false;
             this.groupBoxCurrency.Text = "CURRENCY";
-            // 
-            // lblPeriodCurrency
-            // 
-            this.lblPeriodCurrency.Font = new System.Drawing.Font("Walkway Bold", 10F);
-            this.lblPeriodCurrency.Location = new System.Drawing.Point(24, 103);
-            this.lblPeriodCurrency.Name = "lblPeriodCurrency";
-            this.lblPeriodCurrency.Size = new System.Drawing.Size(104, 17);
-            this.lblPeriodCurrency.TabIndex = 54;
-            this.lblPeriodCurrency.Text = "1HR 24HR 7D";
-            this.lblPeriodCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // TimePeriodv
-            // 
-            this.TimePeriodv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.TimePeriodv.BackColor = System.Drawing.Color.White;
-            this.TimePeriodv.DisplayMember = "(Collection)";
-            this.TimePeriodv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TimePeriodv.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.TimePeriodv.FormattingEnabled = true;
-            this.TimePeriodv.Items.AddRange(new object[] {
-            "USD ($)",
-            "AUD ($)"});
-            this.TimePeriodv.Location = new System.Drawing.Point(15, 123);
-            this.TimePeriodv.Name = "TimePeriodv";
-            this.TimePeriodv.Size = new System.Drawing.Size(121, 29);
-            this.TimePeriodv.TabIndex = 51;
-            this.TimePeriodv.TabStop = false;
-            // 
-            // lblCurrencyPreview
-            // 
-            this.lblCurrencyPreview.Font = new System.Drawing.Font("Walkway Bold", 12F);
-            this.lblCurrencyPreview.Location = new System.Drawing.Point(24, 41);
-            this.lblCurrencyPreview.Name = "lblCurrencyPreview";
-            this.lblCurrencyPreview.Size = new System.Drawing.Size(104, 17);
-            this.lblCurrencyPreview.TabIndex = 50;
-            this.lblCurrencyPreview.Text = "XXX/USD";
-            this.lblCurrencyPreview.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDefaultSet
             // 
@@ -456,23 +805,6 @@
             this.btnCurrencyDefault.Text = "SET DEFAULT";
             this.btnCurrencyDefault.UseVisualStyleBackColor = false;
             // 
-            // Currencyv
-            // 
-            this.Currencyv.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.Currencyv.BackColor = System.Drawing.Color.White;
-            this.Currencyv.DisplayMember = "(Collection)";
-            this.Currencyv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Currencyv.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.Currencyv.FormattingEnabled = true;
-            this.Currencyv.Items.AddRange(new object[] {
-            "USD ($)",
-            "AUD ($)"});
-            this.Currencyv.Location = new System.Drawing.Point(15, 61);
-            this.Currencyv.Name = "Currencyv";
-            this.Currencyv.Size = new System.Drawing.Size(121, 29);
-            this.Currencyv.TabIndex = 42;
-            this.Currencyv.TabStop = false;
-            // 
             // label2
             // 
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -492,24 +824,6 @@
             this.optionsSummary.Controls.Add(this.btnSaveProfile);
             this.optionsSummary.Controls.Add(this.btnConfirmSummary);
             this.optionsSummary.Controls.Add(this.btnEditSummary);
-            this.optionsSummary.Controls.Add(this.lblCustom09);
-            this.optionsSummary.Controls.Add(this.txtCustom09);
-            this.optionsSummary.Controls.Add(this.lblCustom08);
-            this.optionsSummary.Controls.Add(this.txtCustom08);
-            this.optionsSummary.Controls.Add(this.lblCustom07);
-            this.optionsSummary.Controls.Add(this.txtCustom07);
-            this.optionsSummary.Controls.Add(this.lblCustom06);
-            this.optionsSummary.Controls.Add(this.txtCustom06);
-            this.optionsSummary.Controls.Add(this.lblCustom05);
-            this.optionsSummary.Controls.Add(this.txtCustom05);
-            this.optionsSummary.Controls.Add(this.lblCustom04);
-            this.optionsSummary.Controls.Add(this.txtCustom04);
-            this.optionsSummary.Controls.Add(this.lblCustom03);
-            this.optionsSummary.Controls.Add(this.txtCustom03);
-            this.optionsSummary.Controls.Add(this.lblCustom02);
-            this.optionsSummary.Controls.Add(this.txtCustom02);
-            this.optionsSummary.Controls.Add(this.lblCustom01);
-            this.optionsSummary.Controls.Add(this.txtCustom01);
             this.optionsSummary.Dock = System.Windows.Forms.DockStyle.Left;
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
             this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
@@ -593,223 +907,6 @@
             this.btnEditSummary.Text = "EDIT";
             this.btnEditSummary.UseVisualStyleBackColor = false;
             // 
-            // lblCustom09
-            // 
-            this.lblCustom09.AutoSize = true;
-            this.lblCustom09.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom09.Location = new System.Drawing.Point(311, 228);
-            this.lblCustom09.Name = "lblCustom09";
-            this.lblCustom09.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom09.TabIndex = 38;
-            this.lblCustom09.Text = "Coin 9";
-            // 
-            // txtCustom09
-            // 
-            this.txtCustom09.AcceptsTab = true;
-            this.txtCustom09.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom09.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom09.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom09.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom09.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.txtCustom09.Location = new System.Drawing.Point(316, 258);
-            this.txtCustom09.MaxLength = 6;
-            this.txtCustom09.Name = "txtCustom09";
-            this.txtCustom09.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom09.TabIndex = 37;
-            this.txtCustom09.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom08
-            // 
-            this.lblCustom08.AutoSize = true;
-            this.lblCustom08.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom08.Location = new System.Drawing.Point(170, 228);
-            this.lblCustom08.Name = "lblCustom08";
-            this.lblCustom08.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom08.TabIndex = 36;
-            this.lblCustom08.Text = "Coin 8";
-            // 
-            // txtCustom08
-            // 
-            this.txtCustom08.AcceptsTab = true;
-            this.txtCustom08.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom08.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom08.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom08.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom08.Location = new System.Drawing.Point(175, 258);
-            this.txtCustom08.MaxLength = 6;
-            this.txtCustom08.Name = "txtCustom08";
-            this.txtCustom08.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom08.TabIndex = 35;
-            this.txtCustom08.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom07
-            // 
-            this.lblCustom07.AutoSize = true;
-            this.lblCustom07.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom07.Location = new System.Drawing.Point(32, 228);
-            this.lblCustom07.Name = "lblCustom07";
-            this.lblCustom07.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom07.TabIndex = 34;
-            this.lblCustom07.Text = "Coin 7";
-            // 
-            // txtCustom07
-            // 
-            this.txtCustom07.AcceptsTab = true;
-            this.txtCustom07.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom07.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom07.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom07.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom07.Location = new System.Drawing.Point(37, 258);
-            this.txtCustom07.MaxLength = 6;
-            this.txtCustom07.Name = "txtCustom07";
-            this.txtCustom07.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom07.TabIndex = 33;
-            this.txtCustom07.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom06
-            // 
-            this.lblCustom06.AutoSize = true;
-            this.lblCustom06.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom06.Location = new System.Drawing.Point(311, 140);
-            this.lblCustom06.Name = "lblCustom06";
-            this.lblCustom06.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom06.TabIndex = 32;
-            this.lblCustom06.Text = "Coin 6";
-            // 
-            // txtCustom06
-            // 
-            this.txtCustom06.AcceptsTab = true;
-            this.txtCustom06.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom06.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom06.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom06.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom06.Location = new System.Drawing.Point(316, 170);
-            this.txtCustom06.MaxLength = 6;
-            this.txtCustom06.Name = "txtCustom06";
-            this.txtCustom06.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom06.TabIndex = 31;
-            this.txtCustom06.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom05
-            // 
-            this.lblCustom05.AutoSize = true;
-            this.lblCustom05.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom05.Location = new System.Drawing.Point(170, 140);
-            this.lblCustom05.Name = "lblCustom05";
-            this.lblCustom05.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom05.TabIndex = 30;
-            this.lblCustom05.Text = "Coin 5";
-            // 
-            // txtCustom05
-            // 
-            this.txtCustom05.AcceptsTab = true;
-            this.txtCustom05.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom05.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom05.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom05.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom05.Location = new System.Drawing.Point(175, 170);
-            this.txtCustom05.MaxLength = 6;
-            this.txtCustom05.Name = "txtCustom05";
-            this.txtCustom05.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom05.TabIndex = 29;
-            this.txtCustom05.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom04
-            // 
-            this.lblCustom04.AutoSize = true;
-            this.lblCustom04.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom04.Location = new System.Drawing.Point(32, 140);
-            this.lblCustom04.Name = "lblCustom04";
-            this.lblCustom04.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom04.TabIndex = 28;
-            this.lblCustom04.Text = "Coin 4";
-            // 
-            // txtCustom04
-            // 
-            this.txtCustom04.AcceptsTab = true;
-            this.txtCustom04.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom04.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom04.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom04.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom04.Location = new System.Drawing.Point(37, 170);
-            this.txtCustom04.MaxLength = 6;
-            this.txtCustom04.Name = "txtCustom04";
-            this.txtCustom04.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom04.TabIndex = 27;
-            this.txtCustom04.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom03
-            // 
-            this.lblCustom03.AutoSize = true;
-            this.lblCustom03.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom03.Location = new System.Drawing.Point(311, 58);
-            this.lblCustom03.Name = "lblCustom03";
-            this.lblCustom03.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom03.TabIndex = 26;
-            this.lblCustom03.Text = "Coin 3";
-            // 
-            // txtCustom03
-            // 
-            this.txtCustom03.AcceptsTab = true;
-            this.txtCustom03.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom03.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom03.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom03.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom03.Location = new System.Drawing.Point(316, 88);
-            this.txtCustom03.MaxLength = 6;
-            this.txtCustom03.Name = "txtCustom03";
-            this.txtCustom03.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom03.TabIndex = 25;
-            this.txtCustom03.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom02
-            // 
-            this.lblCustom02.AutoSize = true;
-            this.lblCustom02.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom02.Location = new System.Drawing.Point(170, 58);
-            this.lblCustom02.Name = "lblCustom02";
-            this.lblCustom02.Size = new System.Drawing.Size(91, 29);
-            this.lblCustom02.TabIndex = 24;
-            this.lblCustom02.Text = "Coin 2";
-            // 
-            // txtCustom02
-            // 
-            this.txtCustom02.AcceptsTab = true;
-            this.txtCustom02.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom02.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom02.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom02.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom02.Location = new System.Drawing.Point(175, 88);
-            this.txtCustom02.MaxLength = 6;
-            this.txtCustom02.Name = "txtCustom02";
-            this.txtCustom02.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom02.TabIndex = 23;
-            this.txtCustom02.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblCustom01
-            // 
-            this.lblCustom01.AutoSize = true;
-            this.lblCustom01.Font = new System.Drawing.Font("Walkway Bold", 20F);
-            this.lblCustom01.Location = new System.Drawing.Point(32, 58);
-            this.lblCustom01.Name = "lblCustom01";
-            this.lblCustom01.Size = new System.Drawing.Size(86, 29);
-            this.lblCustom01.TabIndex = 22;
-            this.lblCustom01.Text = "Coin 1";
-            // 
-            // txtCustom01
-            // 
-            this.txtCustom01.AcceptsTab = true;
-            this.txtCustom01.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCustom01.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtCustom01.Font = new System.Drawing.Font("Walkway Bold", 15F);
-            this.txtCustom01.ForeColor = System.Drawing.Color.Black;
-            this.txtCustom01.Location = new System.Drawing.Point(37, 88);
-            this.txtCustom01.MaxLength = 6;
-            this.txtCustom01.Name = "txtCustom01";
-            this.txtCustom01.Size = new System.Drawing.Size(100, 29);
-            this.txtCustom01.TabIndex = 21;
-            this.txtCustom01.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // tabPageMining
             // 
             this.tabPageMining.AutoScroll = true;
@@ -821,7 +918,7 @@
             this.tabPageMining.Location = new System.Drawing.Point(4, 25);
             this.tabPageMining.Name = "tabPageMining";
             this.tabPageMining.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageMining.Size = new System.Drawing.Size(818, 378);
+            this.tabPageMining.Size = new System.Drawing.Size(835, 378);
             this.tabPageMining.TabIndex = 1;
             this.tabPageMining.Text = "Mining";
             // 
@@ -1262,367 +1359,229 @@
             this.lblOptionsNHOp.Text = "WALLET OPTIONS";
             this.lblOptionsNHOp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblSummaryCoins
+            // lblAutoSave
             // 
-            this.lblSummaryCoins.Font = new System.Drawing.Font("Walkway Bold", 24.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSummaryCoins.ForeColor = System.Drawing.Color.Black;
-            this.lblSummaryCoins.Location = new System.Drawing.Point(54, 5);
-            this.lblSummaryCoins.Name = "lblSummaryCoins";
-            this.lblSummaryCoins.Size = new System.Drawing.Size(767, 52);
-            this.lblSummaryCoins.TabIndex = 1;
-            this.lblSummaryCoins.Text = "Summary Coins";
-            this.lblSummaryCoins.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAutoSave.AutoSize = true;
+            this.lblAutoSave.Font = new System.Drawing.Font("Nexa Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAutoSave.Location = new System.Drawing.Point(557, 131);
+            this.lblAutoSave.Name = "lblAutoSave";
+            this.lblAutoSave.Size = new System.Drawing.Size(100, 20);
+            this.lblAutoSave.TabIndex = 51;
+            this.lblAutoSave.Text = "AUTO SAVE";
             // 
-            // bunifuMaterialTextbox2
+            // checkOpAutoSave
             // 
-            this.bunifuMaterialTextbox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox2.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox2.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox2.HintText = "XXX";
-            this.bunifuMaterialTextbox2.isPassword = false;
-            this.bunifuMaterialTextbox2.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox2.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox2.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox2.LineThickness = 4;
-            this.bunifuMaterialTextbox2.Location = new System.Drawing.Point(175, 68);
-            this.bunifuMaterialTextbox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox2.Name = "bunifuMaterialTextbox2";
-            this.bunifuMaterialTextbox2.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox2.TabIndex = 11;
-            this.bunifuMaterialTextbox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.checkOpAutoSave.BackColor = System.Drawing.Color.Orange;
+            this.checkOpAutoSave.ChechedOffColor = System.Drawing.Color.Gainsboro;
+            this.checkOpAutoSave.Checked = false;
+            this.checkOpAutoSave.CheckedOnColor = System.Drawing.Color.Orange;
+            this.checkOpAutoSave.ForeColor = System.Drawing.Color.White;
+            this.checkOpAutoSave.Location = new System.Drawing.Point(531, 131);
+            this.checkOpAutoSave.Name = "checkOpAutoSave";
+            this.checkOpAutoSave.Size = new System.Drawing.Size(20, 20);
+            this.checkOpAutoSave.TabIndex = 50;
+            this.checkOpAutoSave.OnChange += new System.EventHandler(this.checkOpAutoSave_OnChange);
             // 
-            // bunifuMaterialTextbox3
+            // lblCurrencyPreview
             // 
-            this.bunifuMaterialTextbox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox3.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox3.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox3.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox3.HintText = "XXX";
-            this.bunifuMaterialTextbox3.isPassword = false;
-            this.bunifuMaterialTextbox3.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox3.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox3.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox3.LineThickness = 4;
-            this.bunifuMaterialTextbox3.Location = new System.Drawing.Point(310, 68);
-            this.bunifuMaterialTextbox3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox3.Name = "bunifuMaterialTextbox3";
-            this.bunifuMaterialTextbox3.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox3.TabIndex = 12;
-            this.bunifuMaterialTextbox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblCurrencyPreview.BackColor = System.Drawing.Color.White;
+            this.lblCurrencyPreview.Font = new System.Drawing.Font("Nexa Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrencyPreview.Location = new System.Drawing.Point(44, 74);
+            this.lblCurrencyPreview.Name = "lblCurrencyPreview";
+            this.lblCurrencyPreview.Size = new System.Drawing.Size(107, 31);
+            this.lblCurrencyPreview.TabIndex = 58;
+            this.lblCurrencyPreview.Text = "XXX/USD";
+            this.lblCurrencyPreview.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bunifuMaterialTextbox4
+            // OpCurrencyv
             // 
-            this.bunifuMaterialTextbox4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox4.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox4.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox4.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox4.HintText = "XXX";
-            this.bunifuMaterialTextbox4.isPassword = false;
-            this.bunifuMaterialTextbox4.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox4.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox4.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox4.LineThickness = 4;
-            this.bunifuMaterialTextbox4.Location = new System.Drawing.Point(310, 119);
-            this.bunifuMaterialTextbox4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox4.Name = "bunifuMaterialTextbox4";
-            this.bunifuMaterialTextbox4.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox4.TabIndex = 15;
-            this.bunifuMaterialTextbox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.OpCurrencyv.BackColor = System.Drawing.Color.Transparent;
+            this.OpCurrencyv.BorderRadius = 3;
+            this.OpCurrencyv.DisabledColor = System.Drawing.Color.Gray;
+            this.OpCurrencyv.ForeColor = System.Drawing.Color.White;
+            this.OpCurrencyv.Items = new string[0];
+            this.OpCurrencyv.Location = new System.Drawing.Point(158, 74);
+            this.OpCurrencyv.Name = "OpCurrencyv";
+            this.OpCurrencyv.NomalColor = System.Drawing.Color.Gainsboro;
+            this.OpCurrencyv.onHoverColor = System.Drawing.Color.Orange;
+            this.OpCurrencyv.selectedIndex = -1;
+            this.OpCurrencyv.Size = new System.Drawing.Size(134, 31);
+            this.OpCurrencyv.TabIndex = 59;
+            this.OpCurrencyv.onItemSelected += new System.EventHandler(this.OpCurrencyv_onItemSelected);
             // 
-            // bunifuMaterialTextbox5
+            // OpTimePeriodv
             // 
-            this.bunifuMaterialTextbox5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox5.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox5.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox5.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox5.HintText = "XXX";
-            this.bunifuMaterialTextbox5.isPassword = false;
-            this.bunifuMaterialTextbox5.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox5.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox5.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox5.LineThickness = 4;
-            this.bunifuMaterialTextbox5.Location = new System.Drawing.Point(175, 119);
-            this.bunifuMaterialTextbox5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox5.Name = "bunifuMaterialTextbox5";
-            this.bunifuMaterialTextbox5.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox5.TabIndex = 14;
-            this.bunifuMaterialTextbox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.OpTimePeriodv.BackColor = System.Drawing.Color.Transparent;
+            this.OpTimePeriodv.BorderRadius = 3;
+            this.OpTimePeriodv.DisabledColor = System.Drawing.Color.Gray;
+            this.OpTimePeriodv.ForeColor = System.Drawing.Color.White;
+            this.OpTimePeriodv.Items = new string[0];
+            this.OpTimePeriodv.Location = new System.Drawing.Point(158, 120);
+            this.OpTimePeriodv.Name = "OpTimePeriodv";
+            this.OpTimePeriodv.NomalColor = System.Drawing.Color.Gainsboro;
+            this.OpTimePeriodv.onHoverColor = System.Drawing.Color.Orange;
+            this.OpTimePeriodv.selectedIndex = -1;
+            this.OpTimePeriodv.Size = new System.Drawing.Size(134, 31);
+            this.OpTimePeriodv.TabIndex = 61;
+            this.OpTimePeriodv.onItemSelected += new System.EventHandler(this.OpTimePeriodv_onItemSelected);
             // 
-            // bunifuMaterialTextbox6
+            // lblPeriodCurrency
             // 
-            this.bunifuMaterialTextbox6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox6.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox6.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox6.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox6.HintText = "XXX";
-            this.bunifuMaterialTextbox6.isPassword = false;
-            this.bunifuMaterialTextbox6.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox6.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox6.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox6.LineThickness = 4;
-            this.bunifuMaterialTextbox6.Location = new System.Drawing.Point(40, 119);
-            this.bunifuMaterialTextbox6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox6.Name = "bunifuMaterialTextbox6";
-            this.bunifuMaterialTextbox6.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox6.TabIndex = 13;
-            this.bunifuMaterialTextbox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblPeriodCurrency.Font = new System.Drawing.Font("Nexa Light", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPeriodCurrency.Location = new System.Drawing.Point(20, 120);
+            this.lblPeriodCurrency.Name = "lblPeriodCurrency";
+            this.lblPeriodCurrency.Size = new System.Drawing.Size(131, 31);
+            this.lblPeriodCurrency.TabIndex = 60;
+            this.lblPeriodCurrency.Text = "1H 24H 7D";
+            this.lblPeriodCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bunifuMaterialTextbox7
+            // OpTimeZonev
             // 
-            this.bunifuMaterialTextbox7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox7.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox7.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox7.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox7.HintText = "XXX";
-            this.bunifuMaterialTextbox7.isPassword = false;
-            this.bunifuMaterialTextbox7.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox7.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox7.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox7.LineThickness = 4;
-            this.bunifuMaterialTextbox7.Location = new System.Drawing.Point(311, 170);
-            this.bunifuMaterialTextbox7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox7.Name = "bunifuMaterialTextbox7";
-            this.bunifuMaterialTextbox7.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox7.TabIndex = 18;
-            this.bunifuMaterialTextbox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.OpTimeZonev.BackColor = System.Drawing.Color.Transparent;
+            this.OpTimeZonev.BorderRadius = 3;
+            this.OpTimeZonev.DisabledColor = System.Drawing.Color.Gray;
+            this.OpTimeZonev.ForeColor = System.Drawing.Color.White;
+            this.OpTimeZonev.Items = new string[] {
+        "UTC",
+        "LOCAL"};
+            this.OpTimeZonev.Location = new System.Drawing.Point(341, 74);
+            this.OpTimeZonev.Name = "OpTimeZonev";
+            this.OpTimeZonev.NomalColor = System.Drawing.Color.Gainsboro;
+            this.OpTimeZonev.onHoverColor = System.Drawing.Color.Orange;
+            this.OpTimeZonev.selectedIndex = -1;
+            this.OpTimeZonev.Size = new System.Drawing.Size(134, 31);
+            this.OpTimeZonev.TabIndex = 64;
+            this.OpTimeZonev.onItemSelected += new System.EventHandler(this.OpTimeZonev_onItemSelected);
             // 
-            // bunifuMaterialTextbox8
+            // lblOpCurrency
             // 
-            this.bunifuMaterialTextbox8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox8.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox8.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox8.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox8.HintText = "XXX";
-            this.bunifuMaterialTextbox8.isPassword = false;
-            this.bunifuMaterialTextbox8.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox8.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox8.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox8.LineThickness = 4;
-            this.bunifuMaterialTextbox8.Location = new System.Drawing.Point(176, 170);
-            this.bunifuMaterialTextbox8.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox8.Name = "bunifuMaterialTextbox8";
-            this.bunifuMaterialTextbox8.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox8.TabIndex = 17;
-            this.bunifuMaterialTextbox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblOpCurrency.Font = new System.Drawing.Font("Nexa Bold", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpCurrency.Location = new System.Drawing.Point(32, 27);
+            this.lblOpCurrency.Name = "lblOpCurrency";
+            this.lblOpCurrency.Size = new System.Drawing.Size(260, 31);
+            this.lblOpCurrency.TabIndex = 66;
+            this.lblOpCurrency.Text = "CURRENCY OPTIONS";
+            this.lblOpCurrency.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuMaterialTextbox9
+            // lblOpTimeZone
             // 
-            this.bunifuMaterialTextbox9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox9.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox9.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox9.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox9.HintText = "XXX";
-            this.bunifuMaterialTextbox9.isPassword = false;
-            this.bunifuMaterialTextbox9.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox9.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox9.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox9.LineThickness = 4;
-            this.bunifuMaterialTextbox9.Location = new System.Drawing.Point(41, 170);
-            this.bunifuMaterialTextbox9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox9.Name = "bunifuMaterialTextbox9";
-            this.bunifuMaterialTextbox9.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox9.TabIndex = 16;
-            this.bunifuMaterialTextbox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lblOpTimeZone.Font = new System.Drawing.Font("Nexa Bold", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpTimeZone.Location = new System.Drawing.Point(339, 27);
+            this.lblOpTimeZone.Name = "lblOpTimeZone";
+            this.lblOpTimeZone.Size = new System.Drawing.Size(136, 31);
+            this.lblOpTimeZone.TabIndex = 67;
+            this.lblOpTimeZone.Text = "TIME ZONE";
+            this.lblOpTimeZone.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // bunifuMaterialTextbox1
+            // OpSummaryOptionsCard
             // 
-            this.bunifuMaterialTextbox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.bunifuMaterialTextbox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuMaterialTextbox1.Font = new System.Drawing.Font("Walkway Bold", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuMaterialTextbox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.bunifuMaterialTextbox1.HintForeColor = System.Drawing.Color.Empty;
-            this.bunifuMaterialTextbox1.HintText = "XXX";
-            this.bunifuMaterialTextbox1.isPassword = false;
-            this.bunifuMaterialTextbox1.LineFocusedColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox1.LineIdleColor = System.Drawing.Color.Gray;
-            this.bunifuMaterialTextbox1.LineMouseHoverColor = System.Drawing.Color.Orange;
-            this.bunifuMaterialTextbox1.LineThickness = 4;
-            this.bunifuMaterialTextbox1.Location = new System.Drawing.Point(40, 68);
-            this.bunifuMaterialTextbox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.bunifuMaterialTextbox1.Name = "bunifuMaterialTextbox1";
-            this.bunifuMaterialTextbox1.Size = new System.Drawing.Size(123, 41);
-            this.bunifuMaterialTextbox1.TabIndex = 19;
-            this.bunifuMaterialTextbox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.OpSummaryOptionsCard.BackColor = System.Drawing.Color.White;
+            this.OpSummaryOptionsCard.BorderRadius = 5;
+            this.OpSummaryOptionsCard.BottomSahddow = true;
+            this.OpSummaryOptionsCard.color = System.Drawing.Color.DarkOrange;
+            this.OpSummaryOptionsCard.Controls.Add(this.checkOpDetailedSummary);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblDetailedSummary);
+            this.OpSummaryOptionsCard.Controls.Add(this.OpSummaryVerticalSep3);
+            this.OpSummaryOptionsCard.Controls.Add(this.OpSummaryVerticalSep2);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblOpTimeZone);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblOpCurrency);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblCurrencyPreview);
+            this.OpSummaryOptionsCard.Controls.Add(this.checkOpAutoSave);
+            this.OpSummaryOptionsCard.Controls.Add(this.OpTimeZonev);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblAutoSave);
+            this.OpSummaryOptionsCard.Controls.Add(this.OpTimePeriodv);
+            this.OpSummaryOptionsCard.Controls.Add(this.OpCurrencyv);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblPeriodCurrency);
+            this.OpSummaryOptionsCard.Controls.Add(this.checkOpLiveData);
+            this.OpSummaryOptionsCard.Controls.Add(this.lblLivePreviewData);
+            this.OpSummaryOptionsCard.LeftSahddow = true;
+            this.OpSummaryOptionsCard.Location = new System.Drawing.Point(12, 300);
+            this.OpSummaryOptionsCard.Name = "OpSummaryOptionsCard";
+            this.OpSummaryOptionsCard.RightSahddow = true;
+            this.OpSummaryOptionsCard.ShadowDepth = 20;
+            this.OpSummaryOptionsCard.Size = new System.Drawing.Size(819, 167);
+            this.OpSummaryOptionsCard.TabIndex = 68;
             // 
-            // OpSummarySample
+            // checkOpDetailedSummary
             // 
-            this.OpSummarySample.Controls.Add(this.customRefresh01);
-            this.OpSummarySample.Controls.Add(this.lblCustomUpdatedv01);
-            this.OpSummarySample.Controls.Add(this.lblCustomUpdated01);
-            this.OpSummarySample.Controls.Add(this.lblCustomBTC01);
-            this.OpSummarySample.Controls.Add(this.lblCustomC01);
-            this.OpSummarySample.Controls.Add(this.lblCustom1Hp01);
-            this.OpSummarySample.Controls.Add(this.lblCustom7Dc01);
-            this.OpSummarySample.Controls.Add(this.lblCustomCv01);
-            this.OpSummarySample.Controls.Add(this.lbl7D01);
-            this.OpSummarySample.Controls.Add(this.lblCustom1Hc01);
-            this.OpSummarySample.Controls.Add(this.lblCustomBTCv01);
-            this.OpSummarySample.Controls.Add(this.lbl24Hr01);
-            this.OpSummarySample.Controls.Add(this.lblCustom24Hc01);
-            this.OpSummarySample.Controls.Add(this.lblCustom24Hp01);
-            this.OpSummarySample.Controls.Add(this.lblCustom7Dp01);
-            this.OpSummarySample.Controls.Add(this.lbl1Hr01);
-            this.OpSummarySample.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.OpSummarySample.ForeColor = System.Drawing.Color.Black;
-            this.OpSummarySample.Location = new System.Drawing.Point(491, 68);
-            this.OpSummarySample.Name = "OpSummarySample";
-            this.OpSummarySample.Size = new System.Drawing.Size(272, 150);
-            this.OpSummarySample.TabIndex = 47;
-            this.OpSummarySample.TabStop = false;
-            this.OpSummarySample.Text = "      XXX";
+            this.checkOpDetailedSummary.BackColor = System.Drawing.Color.Orange;
+            this.checkOpDetailedSummary.ChechedOffColor = System.Drawing.Color.Gainsboro;
+            this.checkOpDetailedSummary.Checked = false;
+            this.checkOpDetailedSummary.CheckedOnColor = System.Drawing.Color.Orange;
+            this.checkOpDetailedSummary.ForeColor = System.Drawing.Color.White;
+            this.checkOpDetailedSummary.Location = new System.Drawing.Point(531, 85);
+            this.checkOpDetailedSummary.Name = "checkOpDetailedSummary";
+            this.checkOpDetailedSummary.Size = new System.Drawing.Size(20, 20);
+            this.checkOpDetailedSummary.TabIndex = 70;
             // 
-            // lblCustomUpdatedv01
+            // lblDetailedSummary
             // 
-            this.lblCustomUpdatedv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdatedv01.Location = new System.Drawing.Point(86, 128);
-            this.lblCustomUpdatedv01.Name = "lblCustomUpdatedv01";
-            this.lblCustomUpdatedv01.Size = new System.Drawing.Size(177, 13);
-            this.lblCustomUpdatedv01.TabIndex = 28;
-            this.lblCustomUpdatedv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblDetailedSummary.AutoSize = true;
+            this.lblDetailedSummary.Font = new System.Drawing.Font("Nexa Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDetailedSummary.Location = new System.Drawing.Point(557, 85);
+            this.lblDetailedSummary.Name = "lblDetailedSummary";
+            this.lblDetailedSummary.Size = new System.Drawing.Size(166, 20);
+            this.lblDetailedSummary.TabIndex = 71;
+            this.lblDetailedSummary.Text = "DETAILED SUMMARY";
             // 
-            // lblCustomUpdated01
+            // OpSummaryVerticalSep3
             // 
-            this.lblCustomUpdated01.AutoSize = true;
-            this.lblCustomUpdated01.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
-            this.lblCustomUpdated01.Location = new System.Drawing.Point(6, 128);
-            this.lblCustomUpdated01.Name = "lblCustomUpdated01";
-            this.lblCustomUpdated01.Size = new System.Drawing.Size(56, 13);
-            this.lblCustomUpdated01.TabIndex = 27;
-            this.lblCustomUpdated01.Text = "UPDATED";
+            this.OpSummaryVerticalSep3.BackColor = System.Drawing.Color.Transparent;
+            this.OpSummaryVerticalSep3.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.OpSummaryVerticalSep3.LineThickness = 1;
+            this.OpSummaryVerticalSep3.Location = new System.Drawing.Point(491, 27);
+            this.OpSummaryVerticalSep3.Name = "OpSummaryVerticalSep3";
+            this.OpSummaryVerticalSep3.Size = new System.Drawing.Size(23, 124);
+            this.OpSummaryVerticalSep3.TabIndex = 69;
+            this.OpSummaryVerticalSep3.Transparency = 255;
+            this.OpSummaryVerticalSep3.Vertical = true;
             // 
-            // lblCustomBTC01
+            // OpSummaryVerticalSep2
             // 
-            this.lblCustomBTC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomBTC01.Location = new System.Drawing.Point(6, 49);
-            this.lblCustomBTC01.Name = "lblCustomBTC01";
-            this.lblCustomBTC01.Size = new System.Drawing.Size(120, 23);
-            this.lblCustomBTC01.TabIndex = 26;
-            this.lblCustomBTC01.Text = "XXX/BTC";
-            this.lblCustomBTC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.OpSummaryVerticalSep2.BackColor = System.Drawing.Color.Transparent;
+            this.OpSummaryVerticalSep2.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
+            this.OpSummaryVerticalSep2.LineThickness = 1;
+            this.OpSummaryVerticalSep2.Location = new System.Drawing.Point(298, 27);
+            this.OpSummaryVerticalSep2.Name = "OpSummaryVerticalSep2";
+            this.OpSummaryVerticalSep2.Size = new System.Drawing.Size(23, 124);
+            this.OpSummaryVerticalSep2.TabIndex = 68;
+            this.OpSummaryVerticalSep2.Transparency = 255;
+            this.OpSummaryVerticalSep2.Vertical = true;
             // 
-            // lblCustomC01
+            // btnNewPage
             // 
-            this.lblCustomC01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomC01.Location = new System.Drawing.Point(6, 26);
-            this.lblCustomC01.Name = "lblCustomC01";
-            this.lblCustomC01.Size = new System.Drawing.Size(120, 23);
-            this.lblCustomC01.TabIndex = 3;
-            this.lblCustomC01.Text = "XXX/USD";
-            this.lblCustomC01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCustom1Hp01
-            // 
-            this.lblCustom1Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom1Hp01.Location = new System.Drawing.Point(201, 73);
-            this.lblCustom1Hp01.Name = "lblCustom1Hp01";
-            this.lblCustom1Hp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom1Hp01.TabIndex = 12;
-            this.lblCustom1Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustom7Dc01
-            // 
-            this.lblCustom7Dc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom7Dc01.Location = new System.Drawing.Point(97, 107);
-            this.lblCustom7Dc01.Name = "lblCustom7Dc01";
-            this.lblCustom7Dc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom7Dc01.TabIndex = 25;
-            this.lblCustom7Dc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblCustomCv01
-            // 
-            this.lblCustomCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomCv01.Location = new System.Drawing.Point(99, 26);
-            this.lblCustomCv01.Name = "lblCustomCv01";
-            this.lblCustomCv01.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomCv01.TabIndex = 8;
-            this.lblCustomCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl7D01
-            // 
-            this.lbl7D01.AutoSize = true;
-            this.lbl7D01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl7D01.Location = new System.Drawing.Point(6, 106);
-            this.lbl7D01.Name = "lbl7D01";
-            this.lbl7D01.Size = new System.Drawing.Size(26, 17);
-            this.lbl7D01.TabIndex = 24;
-            this.lbl7D01.Text = "7D";
-            this.lbl7D01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCustom1Hc01
-            // 
-            this.lblCustom1Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom1Hc01.Location = new System.Drawing.Point(97, 72);
-            this.lblCustom1Hc01.Name = "lblCustom1Hc01";
-            this.lblCustom1Hc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom1Hc01.TabIndex = 7;
-            this.lblCustom1Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblCustomBTCv01
-            // 
-            this.lblCustomBTCv01.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.lblCustomBTCv01.Location = new System.Drawing.Point(99, 49);
-            this.lblCustomBTCv01.Name = "lblCustomBTCv01";
-            this.lblCustomBTCv01.Size = new System.Drawing.Size(164, 23);
-            this.lblCustomBTCv01.TabIndex = 10;
-            this.lblCustomBTCv01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl24Hr01
-            // 
-            this.lbl24Hr01.AutoSize = true;
-            this.lbl24Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl24Hr01.Location = new System.Drawing.Point(6, 89);
-            this.lbl24Hr01.Name = "lbl24Hr01";
-            this.lbl24Hr01.Size = new System.Drawing.Size(44, 17);
-            this.lbl24Hr01.TabIndex = 23;
-            this.lbl24Hr01.Text = "24HR";
-            this.lbl24Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCustom24Hc01
-            // 
-            this.lblCustom24Hc01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom24Hc01.Location = new System.Drawing.Point(97, 90);
-            this.lblCustom24Hc01.Name = "lblCustom24Hc01";
-            this.lblCustom24Hc01.Size = new System.Drawing.Size(98, 15);
-            this.lblCustom24Hc01.TabIndex = 14;
-            this.lblCustom24Hc01.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // lblCustom24Hp01
-            // 
-            this.lblCustom24Hp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom24Hp01.Location = new System.Drawing.Point(201, 90);
-            this.lblCustom24Hp01.Name = "lblCustom24Hp01";
-            this.lblCustom24Hp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom24Hp01.TabIndex = 22;
-            this.lblCustom24Hp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblCustom7Dp01
-            // 
-            this.lblCustom7Dp01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lblCustom7Dp01.Location = new System.Drawing.Point(201, 107);
-            this.lblCustom7Dp01.Name = "lblCustom7Dp01";
-            this.lblCustom7Dp01.Size = new System.Drawing.Size(61, 15);
-            this.lblCustom7Dp01.TabIndex = 16;
-            this.lblCustom7Dp01.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lbl1Hr01
-            // 
-            this.lbl1Hr01.AutoSize = true;
-            this.lbl1Hr01.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.lbl1Hr01.Location = new System.Drawing.Point(7, 72);
-            this.lbl1Hr01.Name = "lbl1Hr01";
-            this.lbl1Hr01.Size = new System.Drawing.Size(36, 17);
-            this.lbl1Hr01.TabIndex = 21;
-            this.lbl1Hr01.Text = "1HR";
-            this.lbl1Hr01.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewPage.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnNewPage.BackColor = System.Drawing.Color.Orange;
+            this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNewPage.BorderRadius = 3;
+            this.btnNewPage.ButtonText = "NEW PAGE";
+            this.btnNewPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewPage.DisabledColor = System.Drawing.Color.Gray;
+            this.btnNewPage.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnNewPage.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnNewPage.Iconimage")));
+            this.btnNewPage.Iconimage_right = null;
+            this.btnNewPage.Iconimage_right_Selected = null;
+            this.btnNewPage.Iconimage_Selected = null;
+            this.btnNewPage.IconMarginLeft = 0;
+            this.btnNewPage.IconMarginRight = 0;
+            this.btnNewPage.IconRightVisible = false;
+            this.btnNewPage.IconRightZoom = 0D;
+            this.btnNewPage.IconVisible = false;
+            this.btnNewPage.IconZoom = 90D;
+            this.btnNewPage.IsTab = false;
+            this.btnNewPage.Location = new System.Drawing.Point(311, 231);
+            this.btnNewPage.Name = "btnNewPage";
+            this.btnNewPage.Normalcolor = System.Drawing.Color.Orange;
+            this.btnNewPage.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnNewPage.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnNewPage.selected = false;
+            this.btnNewPage.Size = new System.Drawing.Size(123, 31);
+            this.btnNewPage.TabIndex = 56;
+            this.btnNewPage.Text = "NEW PAGE";
+            this.btnNewPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNewPage.Textcolor = System.Drawing.Color.White;
+            this.btnNewPage.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewPage.Click += new System.EventHandler(this.btnNewPage_Click);
             // 
             // customRefresh01
             // 
@@ -1633,41 +1592,58 @@
             this.customRefresh01.TabIndex = 64;
             this.customRefresh01.TabStop = false;
             // 
-            // bunifuCheckbox1
+            // btnOpSummarySaveAll
             // 
-            this.bunifuCheckbox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.ChechedOffColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(135)))), ((int)(((byte)(140)))));
-            this.bunifuCheckbox1.Checked = false;
-            this.bunifuCheckbox1.CheckedOnColor = System.Drawing.Color.DarkOrange;
-            this.bunifuCheckbox1.ForeColor = System.Drawing.Color.White;
-            this.bunifuCheckbox1.Location = new System.Drawing.Point(497, 230);
-            this.bunifuCheckbox1.Name = "bunifuCheckbox1";
-            this.bunifuCheckbox1.Size = new System.Drawing.Size(20, 20);
-            this.bunifuCheckbox1.TabIndex = 48;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Walkway Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(523, 230);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 20);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "LIVE PREVIEW DATA";
+            this.btnOpSummarySaveAll.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnOpSummarySaveAll.BackColor = System.Drawing.Color.Orange;
+            this.btnOpSummarySaveAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnOpSummarySaveAll.BorderRadius = 3;
+            this.btnOpSummarySaveAll.ButtonText = "SAVE ALL";
+            this.btnOpSummarySaveAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOpSummarySaveAll.DisabledColor = System.Drawing.Color.Gray;
+            this.btnOpSummarySaveAll.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnOpSummarySaveAll.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnOpSummarySaveAll.Iconimage")));
+            this.btnOpSummarySaveAll.Iconimage_right = null;
+            this.btnOpSummarySaveAll.Iconimage_right_Selected = null;
+            this.btnOpSummarySaveAll.Iconimage_Selected = null;
+            this.btnOpSummarySaveAll.IconMarginLeft = 10;
+            this.btnOpSummarySaveAll.IconMarginRight = 0;
+            this.btnOpSummarySaveAll.IconRightVisible = false;
+            this.btnOpSummarySaveAll.IconRightZoom = 0D;
+            this.btnOpSummarySaveAll.IconVisible = true;
+            this.btnOpSummarySaveAll.IconZoom = 70D;
+            this.btnOpSummarySaveAll.IsTab = false;
+            this.btnOpSummarySaveAll.Location = new System.Drawing.Point(686, 475);
+            this.btnOpSummarySaveAll.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnOpSummarySaveAll.Name = "btnOpSummarySaveAll";
+            this.btnOpSummarySaveAll.Normalcolor = System.Drawing.Color.Orange;
+            this.btnOpSummarySaveAll.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnOpSummarySaveAll.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnOpSummarySaveAll.selected = false;
+            this.btnOpSummarySaveAll.Size = new System.Drawing.Size(144, 36);
+            this.btnOpSummarySaveAll.TabIndex = 65;
+            this.btnOpSummarySaveAll.Text = "SAVE ALL";
+            this.btnOpSummarySaveAll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpSummarySaveAll.Textcolor = System.Drawing.Color.White;
+            this.btnOpSummarySaveAll.TextFont = new System.Drawing.Font("Nexa Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpSummarySaveAll.Click += new System.EventHandler(this.btnOpSummarySaveAll_Click);
             // 
             // Options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(843, 955);
+            this.ClientSize = new System.Drawing.Size(843, 957);
+            this.Controls.Add(this.OpSummaryOptionsCard);
             this.Controls.Add(this.OpSummaryCard);
             this.Controls.Add(this.tabOptions);
+            this.Controls.Add(this.btnOpSummarySaveAll);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Options";
             this.Text = "Options";
             this.OpSummaryCard.ResumeLayout(false);
-            this.OpSummaryCard.PerformLayout();
+            this.OpSummarySample.ResumeLayout(false);
+            this.OpSummarySample.PerformLayout();
             this.tabOptions.ResumeLayout(false);
             this.tabPageSummary.ResumeLayout(false);
             this.optionsSummaryAdvaned.ResumeLayout(false);
@@ -1675,7 +1651,6 @@
             this.groupBoxPages.ResumeLayout(false);
             this.groupBoxCurrency.ResumeLayout(false);
             this.optionsSummary.ResumeLayout(false);
-            this.optionsSummary.PerformLayout();
             this.tabPageMining.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -1683,63 +1658,31 @@
             this.groupBox1.PerformLayout();
             this.groupOptionsNH.ResumeLayout(false);
             this.groupOptionsNH.PerformLayout();
-            this.OpSummarySample.ResumeLayout(false);
-            this.OpSummarySample.PerformLayout();
+            this.OpSummaryOptionsCard.ResumeLayout(false);
+            this.OpSummaryOptionsCard.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        public Bunifu.Framework.UI.BunifuElipse bunifuElipse1;
-        private Bunifu.Framework.UI.BunifuCards OpSummaryCard;
+        public Bunifu.Framework.UI.BunifuElipse NoBorder;
         public System.Windows.Forms.TabControl tabOptions;
         public System.Windows.Forms.TabPage tabPageSummary;
         public System.Windows.Forms.Panel optionsSummaryAdvaned;
         public System.Windows.Forms.GroupBox groupBoxTimeZone;
         public System.Windows.Forms.Label lblTimeSet;
         public System.Windows.Forms.Button btnTimeDefault;
-        public System.Windows.Forms.ComboBox TimeZonev;
         public System.Windows.Forms.GroupBox groupBoxPages;
         public System.Windows.Forms.ComboBox Pagev;
-        public System.Windows.Forms.Button btnNewPage;
         public System.Windows.Forms.Label lblMaxPages;
         public System.Windows.Forms.Label lblNoSave;
         public System.Windows.Forms.Label lblSaveFound;
         public System.Windows.Forms.Label lblNewPage;
         public System.Windows.Forms.GroupBox groupBoxCurrency;
-        public System.Windows.Forms.Label lblPeriodCurrency;
-        public System.Windows.Forms.ComboBox TimePeriodv;
-        public System.Windows.Forms.Label lblCurrencyPreview;
         public System.Windows.Forms.Label lblDefaultSet;
         public System.Windows.Forms.Button btnCurrencyDefault;
-        public System.Windows.Forms.ComboBox Currencyv;
         public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Panel optionsSummary;
-        public System.Windows.Forms.Button btnClearSummary;
-        public System.Windows.Forms.Label lblConfirmed;
-        public System.Windows.Forms.Label lblSaved;
-        public System.Windows.Forms.Button btnSaveProfile;
-        public System.Windows.Forms.Button btnConfirmSummary;
-        public System.Windows.Forms.Button btnEditSummary;
-        public System.Windows.Forms.Label lblCustom09;
-        public System.Windows.Forms.TextBox txtCustom09;
-        public System.Windows.Forms.Label lblCustom08;
-        public System.Windows.Forms.TextBox txtCustom08;
-        public System.Windows.Forms.Label lblCustom07;
-        public System.Windows.Forms.TextBox txtCustom07;
-        public System.Windows.Forms.Label lblCustom06;
-        public System.Windows.Forms.TextBox txtCustom06;
-        public System.Windows.Forms.Label lblCustom05;
-        public System.Windows.Forms.TextBox txtCustom05;
-        public System.Windows.Forms.Label lblCustom04;
-        public System.Windows.Forms.TextBox txtCustom04;
-        public System.Windows.Forms.Label lblCustom03;
-        public System.Windows.Forms.TextBox txtCustom03;
-        public System.Windows.Forms.Label lblCustom02;
-        public System.Windows.Forms.TextBox txtCustom02;
-        public System.Windows.Forms.Label lblCustom01;
-        public System.Windows.Forms.TextBox txtCustom01;
         public System.Windows.Forms.TabPage tabPageMining;
         public System.Windows.Forms.GroupBox groupBox3;
         public System.Windows.Forms.Label lblZPClear;
@@ -1775,34 +1718,61 @@
         public System.Windows.Forms.ComboBox OptionsNHWalletsv;
         public System.Windows.Forms.Button btnOptionsNHSave;
         public System.Windows.Forms.Label lblOptionsNHOp;
-        private System.Windows.Forms.Label lblSummaryCoins;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox3;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox2;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox7;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox8;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox9;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox4;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox5;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox6;
-        private Bunifu.Framework.UI.BunifuMaterialTextbox bunifuMaterialTextbox1;
-        private System.Windows.Forms.GroupBox OpSummarySample;
-        private System.Windows.Forms.PictureBox customRefresh01;
-        private System.Windows.Forms.Label lblCustomUpdatedv01;
-        private System.Windows.Forms.Label lblCustomUpdated01;
-        private System.Windows.Forms.Label lblCustomBTC01;
-        private System.Windows.Forms.Label lblCustomC01;
-        private System.Windows.Forms.Label lblCustom1Hp01;
-        private System.Windows.Forms.Label lblCustom7Dc01;
-        private System.Windows.Forms.Label lblCustomCv01;
-        private System.Windows.Forms.Label lbl7D01;
-        private System.Windows.Forms.Label lblCustom1Hc01;
-        private System.Windows.Forms.Label lblCustomBTCv01;
-        private System.Windows.Forms.Label lbl24Hr01;
-        private System.Windows.Forms.Label lblCustom24Hc01;
-        private System.Windows.Forms.Label lblCustom24Hp01;
-        private System.Windows.Forms.Label lblCustom7Dp01;
-        private System.Windows.Forms.Label lbl1Hr01;
-        private Bunifu.Framework.UI.BunifuCheckbox bunifuCheckbox1;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Panel optionsSummary;
+        public System.Windows.Forms.Button btnClearSummary;
+        public System.Windows.Forms.Label lblConfirmed;
+        public System.Windows.Forms.Label lblSaved;
+        public System.Windows.Forms.Button btnSaveProfile;
+        public System.Windows.Forms.Button btnConfirmSummary;
+        public System.Windows.Forms.Button btnEditSummary;
+        public Bunifu.Framework.UI.BunifuCards OpSummaryCard;
+        public System.Windows.Forms.Label lblSummaryCoins;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom03;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom02;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom09;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom08;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom07;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom06;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom05;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom04;
+        public Bunifu.Framework.UI.BunifuMaterialTextbox txtCustom01;
+        public System.Windows.Forms.GroupBox OpSummarySample;
+        public System.Windows.Forms.PictureBox customRefresh01;
+        public System.Windows.Forms.Label lblCustomUpdatedv01;
+        public System.Windows.Forms.Label lblCustomUpdated01;
+        public System.Windows.Forms.Label lblCustomBTC01;
+        public System.Windows.Forms.Label lblCustomC01;
+        public System.Windows.Forms.Label lblCustom1Hp01;
+        public System.Windows.Forms.Label lblCustom7Dc01;
+        public System.Windows.Forms.Label lblCustomCv01;
+        public System.Windows.Forms.Label lbl7D01;
+        public System.Windows.Forms.Label lblCustom1Hc01;
+        public System.Windows.Forms.Label lblCustomBTCv01;
+        public System.Windows.Forms.Label lbl24Hr01;
+        public System.Windows.Forms.Label lblCustom24Hc01;
+        public System.Windows.Forms.Label lblCustom24Hp01;
+        public System.Windows.Forms.Label lblCustom7Dp01;
+        public System.Windows.Forms.Label lbl1Hr01;
+        public Bunifu.Framework.UI.BunifuCheckbox checkOpLiveData;
+        public System.Windows.Forms.Label lblLivePreviewData;
+        public System.Windows.Forms.Label lblAutoSave;
+        public Bunifu.Framework.UI.BunifuCheckbox checkOpAutoSave;
+        public Bunifu.Framework.UI.BunifuSeparator OpSummaryVerticalSep;
+        public Bunifu.Framework.UI.BunifuDropdown OpPagev;
+        public Bunifu.Framework.UI.BunifuFlatButton btnNewPage;
+        public System.Windows.Forms.Label lblOpSelectedPage;
+        public Bunifu.Framework.UI.BunifuDropdown OpCurrencyv;
+        public System.Windows.Forms.Label lblCurrencyPreview;
+        public Bunifu.Framework.UI.BunifuDropdown OpTimePeriodv;
+        public System.Windows.Forms.Label lblPeriodCurrency;
+        public Bunifu.Framework.UI.BunifuDropdown OpTimeZonev;
+        public Bunifu.Framework.UI.BunifuFlatButton btnOpSummarySaveAll;
+        public System.Windows.Forms.Label lblOpCurrency;
+        public System.Windows.Forms.Label lblOpTimeZone;
+        public Bunifu.Framework.UI.BunifuCards OpSummaryOptionsCard;
+        public Bunifu.Framework.UI.BunifuSeparator OpSummaryVerticalSep2;
+        public Bunifu.Framework.UI.BunifuSeparator OpSummaryVerticalSep3;
+        public Bunifu.Framework.UI.BunifuCheckbox checkOpDetailedSummary;
+        public System.Windows.Forms.Label lblDetailedSummary;
     }
 }

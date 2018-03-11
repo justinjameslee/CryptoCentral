@@ -83,6 +83,16 @@ namespace CryptoCentral.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DialogSuccess {
+            get {
+                object obj = ResourceManager.GetObject("DialogSuccess", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Double_Ring_1_5s_200px {
             get {
                 object obj = ResourceManager.GetObject("Double Ring-1.5s-200px", resourceCulture);
@@ -143,6 +153,16 @@ namespace CryptoCentral.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_100px {
+            get {
+                object obj = ResourceManager.GetObject("Logo_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Preview_Pane_100px {
             get {
                 object obj = ResourceManager.GetObject("Preview Pane_100px", resourceCulture);
@@ -156,6 +176,16 @@ namespace CryptoCentral.Properties {
         internal static System.Drawing.Bitmap Settings_100px {
             get {
                 object obj = ResourceManager.GetObject("Settings_100px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User_100px {
+            get {
+                object obj = ResourceManager.GetObject("User_100px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

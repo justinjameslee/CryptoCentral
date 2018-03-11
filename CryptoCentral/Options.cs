@@ -101,6 +101,9 @@ namespace CryptoCentral
         //Binding Data Source.
         public static BindingSource BindWallet = new BindingSource();
 
+        //CheckBox Bools.
+        public static bool LiveData;
+
         private void Options_Load(object sender, EventArgs e)
         {
             
@@ -127,9 +130,9 @@ namespace CryptoCentral
 
         //SETTINGS BUTTON FUNCTIONS
         //CUT DOWN ON LINES OF CODE
-        public static void EditSummaryIndividual(TextBox Custom)
+        public static void EditSummaryIndividual(Bunifu.Framework.UI.BunifuMaterialTextbox Custom)
         {
-            Custom.ReadOnly = false;
+            Custom.Enabled = true;
             Custom.BackColor = Color.White;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
@@ -149,9 +152,9 @@ namespace CryptoCentral
         }
 
         //CUT DOWN ON LINES OF CODE
-        public static void EmptySummaryIndividual(TextBox Custom)
+        public static void EmptySummaryIndividual(Bunifu.Framework.UI.BunifuMaterialTextbox Custom)
         {
-            Custom.ReadOnly = false;
+            Custom.Enabled = true;
             Custom.BackColor = Color.White;
             Custom.Text = "";
         }
@@ -172,10 +175,10 @@ namespace CryptoCentral
         }
 
         //CUT DOWN ON LINES OF CODE
-        public static void ConfirmSummaryIndividual(TextBox Custom)
+        public static void ConfirmSummaryIndividual(Bunifu.Framework.UI.BunifuMaterialTextbox Custom)
         {
             Custom.BackColor = Color.WhiteSmoke;
-            Custom.ReadOnly = true;
+            Custom.Enabled = false;
         }
         //REPEAT ABOVE FUNCTION FOR ALL CUSTOM COINS
         public void ConfirmSummary()
@@ -198,76 +201,78 @@ namespace CryptoCentral
             }
         }
 
-        private void Pagev_SelectedIndexChanged(object sender, EventArgs e)
+        private void OpPagev_onItemSelected(object sender, EventArgs e)
         {
-
             Reference.CryptoForm.SyncingTest();      //Show that new data is being processed.
             if (NewSave == true)        //Check if this was caused by a new page creation.
             {
-                lblNoSaveVisible = false;
-                lblNewPageText = "New Page Created";
-                lblNewPageVisible = true;
+                //lblNoSaveVisible = false;
+                //lblNewPageText = "New Page Created";
+                //lblNewPageVisible = true;
                 NewSave = false;
             }
             else
             {
-                SelectedIndexChanged(PagevSelectedIndex);      //Update the data with new txt file coins based on page index.
+                SelectedIndexChanged(OpPagev.selectedIndex);      //Update the data with new txt file coins based on page index.
                 Reference.CryptoForm.UpdatingCurrentPage();                          //Updates Header Page Number.
             }
         }
-        private void Currencyv_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void OpCurrencyv_onItemSelected(object sender, EventArgs e)
         {
-            if (CurrencyvSelectedIndex == 0)
+            if (OpCurrencyv.selectedIndex == 0)
             {
-                CurrencyvSelectedIndex = 0;
+                OpCurrencyv.selectedIndex = 0;
                 PublicCurrencyIndex = 0;
-                TimePeriodvClear();
-                TimePeriodvAddItem("USD ($)");
-                TimePeriodvAddItem("BTC (Satoshi)");
-                lblCurrencyPreviewSET = "XXX/USD";
+                OpTimePeriodv.Clear();
+                OpTimePeriodv.AddItem("USD ($)");
+                OpTimePeriodv.AddItem("BTC (Satoshi)");
+                lblCurrencyPreview.Text = "XXX/USD";
             }
-            else if (CurrencyvSelectedIndex == 1)
+            else if (OpCurrencyv.selectedIndex == 1)
             {
-                CurrencyvSelectedIndex = 1;
+                OpCurrencyv.selectedIndex = 1;
                 PublicCurrencyIndex = 1;
-                TimePeriodvClear();
-                TimePeriodvAddItem("AUD ($)");
-                TimePeriodvAddItem("BTC (Satoshi)");
-                lblCurrencyPreviewSET = "XXX/AUD";
+                OpTimePeriodv.Clear();
+                OpTimePeriodv.AddItem("AUD ($)");
+                OpTimePeriodv.AddItem("BTC (Satoshi)");
+                lblCurrencyPreview.Text = "XXX/AUD";
             }
             Reference.CryptoForm.SyncingTest();      //Refreshs Data.
-            lblDefaultSetVisible = false;
+            //lblDefaultSetVisible = false;
         }
-        private void Timezonev_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (TimeZonevSelectedIndex == 0)
-            {
-                TimeZoneNumber = 0;
-            }
-            else if (TimeZonevSelectedIndex == 1)
-            {
-                TimeZoneNumber = 1;
-            }
 
-            Reference.CryptoForm.SyncingTest();      //Refreshes Data.
-            lblTimeSetVisible = false;
-        }
-        private void TimePeriodCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
+        private void OpTimePeriodv_onItemSelected(object sender, EventArgs e)
         {
-            if (TimePeriodvText == "USD ($)")
+            if (OpTimePeriodv.Text == "USD ($)")
             {
                 TimePeriodNumber = 0;
             }
-            else if (TimePeriodvText == "AUD ($)")
+            else if (OpTimePeriodv.Text == "AUD ($)")
             {
                 TimePeriodNumber = 1;
             }
-            else if (TimePeriodvText == "BTC (Satoshi)")
+            else if (OpTimePeriodv.Text == "BTC (Satoshi)")
             {
                 TimePeriodNumber = 2;
             }
 
             Reference.CryptoForm.SyncingTest();
+        }
+
+        private void OpTimeZonev_onItemSelected(object sender, EventArgs e)
+        {
+            if (OpTimeZonev.selectedIndex == 0)
+            {
+                TimeZoneNumber = 0;
+            }
+            else if (OpTimeZonev.selectedIndex == 1)
+            {
+                TimeZoneNumber = 1;
+            }
+
+            Reference.CryptoForm.SyncingTest();      //Refreshes Data.
+            //lblTimeSetVisible = false;
         }
 
         private void HeaderPoolv_SelectedIndexChanged(object sender, EventArgs e)
@@ -293,7 +298,7 @@ namespace CryptoCentral
 
         private void HeaderMiningCurrencyv_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (HeaderWorkervText != "")
+            if (HeaderWorkerv.Text != "")
             {
                 Reference.WorkerForm.GETWorkerInfo();
             }
@@ -456,9 +461,9 @@ namespace CryptoCentral
         private void btnMiningSettings_Click(object sender, EventArgs e)
         {
             Worker.StartingMiningSettings.Clear();
-            Worker.StartingMiningSettings.Add(HeaderPoolvText);
-            Worker.StartingMiningSettings.Add(HeaderWorkervText);
-            Worker.StartingMiningSettings.Add(Convert.ToString(HeaderMiningCurrencyvSelectedIndex));
+            Worker.StartingMiningSettings.Add(HeaderPoolv.Text);
+            Worker.StartingMiningSettings.Add(HeaderWorkerv.Text);
+           // Worker.StartingMiningSettings.Add(Convert.ToString(HeaderMiningOpCurrencyv.selectedIndex));
             File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Mining\Default.txt", Worker.StartingMiningSettings);
         }
 
@@ -467,38 +472,38 @@ namespace CryptoCentral
         private void btnEditSummary_Click(object sender, EventArgs e)
         {
             EditSummary();
-            btnEditSummaryVisible = false;
-            btnClearSummaryVisible = true;
+            //btnEditSummaryVisible = false;
+            //btnClearSummaryVisible = true;
         }
         //CONFIRMS INPUTTED COINS AND SWITCHES TEXTBOX TO READ ONLY
         private void btnConfirmSummary_Click(object sender, EventArgs e)
         {
             ConfirmSummary();
-            btnEditSummaryVisible = true;
-            btnClearSummaryVisible = false;
+            //btnEditSummaryVisible = true;
+            //btnClearSummaryVisible = false;
         }
         //CLEARS ALL ENTRIES
         private void btnClearSummary_Click(object sender, EventArgs e)
         {
-            txtCustom01Text = "";
-            txtCustom02Text = "";
-            txtCustom03Text = "";
-            txtCustom04Text = "";
-            txtCustom05Text = "";
-            txtCustom06Text = "";
-            txtCustom07Text = "";
-            txtCustom08Text = "";
-            txtCustom09Text = "";
+            txtCustom01.Text = "";
+            txtCustom02.Text = "";
+            txtCustom03.Text = "";
+            txtCustom04.Text = "";
+            txtCustom05.Text = "";
+            txtCustom06.Text = "";
+            txtCustom07.Text = "";
+            txtCustom08.Text = "";
+            txtCustom09.Text = "";
         }
 
         //SAVES CURRENT PAGE SELECTION TO MEMORY
         private void btnSaveProfile_Click(object sender, EventArgs e)
         {
             SaveProfile();
-            lblSavedVisible = true;
-            int CurrentPage = PagevSelectedIndex + 1;
-            int CurrentIndex = PagevSelectedIndex;
-            lblSavedText = "Saved to Page " + Convert.ToString(CurrentPage);
+      //      lblSavedVisible = true;
+            int CurrentPage = OpPagev.selectedIndex + 1;
+            int CurrentIndex = OpPagev.selectedIndex;
+        //    lblSavedText = "Saved to Page " + Convert.ToString(CurrentPage);
         }
 
         //CREATES A NEW PAGE
@@ -510,18 +515,18 @@ namespace CryptoCentral
             if (pages == 7)     //MAKES SURE THE MAX PAGE IS 7 | //FOR NOW
             {
                 pages = pages - 1;
-                lblMaxPagesVisible = true;
-                lblNoSaveVisible = false;
-                lblNewPageVisible = false;
+        //        lblMaxPagesVisible = true;
+       //         lblNoSaveVisible = false;
+       //         lblNewPageVisible = false;
                 NewSave = false;
             }
             else
             {
-                PagevAddItem(new Item(Convert.ToString(pages), pages));
+            //    OpPagev.AddItem(new Item(Convert.ToString(pages), pages));
                 Pages = Convert.ToString(pages);
                 File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Pages.txt", Pages);
-                PagevSelectedIndex = pages - 1;
-                Crypto.CurrentPage = PagevSelectedIndex + 1;
+                OpPagev.selectedIndex = pages - 1;
+                Crypto.CurrentPage = OpPagev.selectedIndex + 1;
                 Reference.CryptoForm.lblCurrentPage.Text = "PAGE " + Convert.ToString(Crypto.CurrentPage);
                 Reference.EaseMethodsO.EmptySummary();     //EMPTYS THE SUMMARY COINS FOR NEW PAGE INPUTS
             }
@@ -530,19 +535,19 @@ namespace CryptoCentral
         //SET DEFAULT TIMEZONE SELECTION
         private void btnTimeDefault_Click(object sender, EventArgs e)
         {
-            StartingTimeZone = Convert.ToString(TimeZonevSelectedIndex);
+            StartingTimeZone = Convert.ToString(OpTimeZonev.selectedIndex);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\TimeZone.txt", StartingTimeZone);
-            lblTimeSetVisible = true;
+            lblTimeSet.Visible = true;
         }
 
         //SET DEFAULT CURRENCY SELECTION
         private void btnCurrencyDefault_Click(object sender, EventArgs e)
         {
-            StartingCurrency = Convert.ToString(CurrencyvSelectedIndex);
-            StartingPeriod = Convert.ToString(TimePeriodvText);
+            StartingCurrency = Convert.ToString(OpCurrencyv.selectedIndex);
+            StartingPeriod = Convert.ToString(OpTimePeriodv.Text);
             StartingCurrency = StartingCurrency + "AND" + StartingPeriod;
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Currency.txt", StartingCurrency);
-            lblDefaultSetVisible = true;
+            lblDefaultSet.Visible = true;
         }
 
         //Function for Loading the Selected Profile.
@@ -561,7 +566,7 @@ namespace CryptoCentral
                 PageCalculation = Convert.ToInt32(Pages);
                 for (int i = 0; i < PageCalculation; i++)
                 {
-                    PagevAddItem(new Item(Convert.ToString(pages), pages));      //Add Item to Combo Box based on txt file.
+                   // PagevAddItem(new Item(Convert.ToString(pages), pages));      //Add Item to Combo Box based on txt file.
                     pages = pages + 1;                                              //Universal Way of Checking Current Page Number.
                     if (pages > PageCalculation)
                     {
@@ -573,31 +578,31 @@ namespace CryptoCentral
                 //Setting Correct Starting Index for Combo Boxes.
                 if (CurrencyNumber == 0)
                 {
-                    CurrencyvSelectedIndex = 0;
+                    OpCurrencyv.selectedIndex = 0;
                     PublicCurrencyIndex = 0;
-                    TimePeriodvClear();
-                    TimePeriodvAddItem("USD ($)");
-                    TimePeriodvAddItem("BTC (Satoshi)");
-                    lblCurrencyPreviewSET = "XXX/USD";
+                    OpTimePeriodv.Clear();
+                    OpTimePeriodv.AddItem("USD ($)");
+                    OpTimePeriodv.AddItem("BTC (Satoshi)");
+                    lblCurrencyPreview.Text = "XXX/USD";
                 }
                 else if (CurrencyNumber == 1)
                 {
-                    CurrencyvSelectedIndex = 1;
+                    OpCurrencyv.selectedIndex = 1;
                     PublicCurrencyIndex = 1;
-                    TimePeriodvClear();
-                    TimePeriodvAddItem("AUD ($)");
-                    TimePeriodvAddItem("BTC (Satoshi)");
-                    lblCurrencyPreviewSET = "XXX/AUD";
+                    OpTimePeriodv.Clear();
+                    OpTimePeriodv.AddItem("AUD ($)");
+                    OpTimePeriodv.AddItem("BTC (Satoshi)");
+                    lblCurrencyPreview.Text = "XXX/AUD";
                 }
 
 
                 if (TimeZoneNumber == 0)
                 {
-                    TimeZonevSelectedIndex = 0;
+                    OpTimeZonev.selectedIndex = 0;
                 }
                 else if (TimeZoneNumber == 1)
                 {
-                    TimeZonevSelectedIndex = 1;
+                    OpTimeZonev.selectedIndex = 1;
                 }
 
                 if (StartingPeriod == "USD ($)")
@@ -625,15 +630,15 @@ namespace CryptoCentral
                 coin7 = ProfileCoinsLoaded[6];
                 coin8 = ProfileCoinsLoaded[7];
                 coin9 = ProfileCoinsLoaded[8];
-                txtCustom01Text = coin1;
-                txtCustom02Text = coin2;
-                txtCustom03Text = coin3;
-                txtCustom04Text = coin4;
-                txtCustom05Text = coin5;
-                txtCustom06Text = coin6;
-                txtCustom07Text = coin7;
-                txtCustom08Text = coin8;
-                txtCustom09Text = coin9;
+                txtCustom01.Text = coin1;
+                txtCustom02.Text = coin2;
+                txtCustom03.Text = coin3;
+                txtCustom04.Text = coin4;
+                txtCustom05.Text = coin5;
+                txtCustom06.Text = coin6;
+                txtCustom07.Text = coin7;
+                txtCustom08.Text = coin8;
+                txtCustom09.Text = coin9;
                 TestCoinSummary();
                 Reference.CryptoForm.GETINFOSummary();
                 ProfileLoaded = true;       //Make sure program understands profile loaded successfully. 
@@ -659,26 +664,26 @@ namespace CryptoCentral
             coin7 = ProfileCoinsLoaded[6];
             coin8 = ProfileCoinsLoaded[7];
             coin9 = ProfileCoinsLoaded[8];
-            txtCustom01Text = coin1;
-            txtCustom02Text = coin2;
-            txtCustom03Text = coin3;
-            txtCustom04Text = coin4;
-            txtCustom05Text = coin5;
-            txtCustom06Text = coin6;
-            txtCustom07Text = coin7;
-            txtCustom08Text = coin8;
-            txtCustom09Text = coin9;
+            txtCustom01.Text = coin1;
+            txtCustom02.Text = coin2;
+            txtCustom03.Text = coin3;
+            txtCustom04.Text = coin4;
+            txtCustom05.Text = coin5;
+            txtCustom06.Text = coin6;
+            txtCustom07.Text = coin7;
+            txtCustom08.Text = coin8;
+            txtCustom09.Text = coin9;
             TestCoinSummary();
             Reference.EaseMethodsO.HideConfirmationLabelsSave();
         }
         public void SelectedIndexChanged(int Index)
         {
-            lblMaxPagesVisible = false;
-            if (PagevSelectedIndex == Index)
+            lblMaxPages.Visible = false;
+            if (OpPagev.selectedIndex == Index)
             {
                 try
                 {
-                    IndexChanged(PagevSelectedIndex);      //Method that undergos the process of updating the coins from txt file.
+                    IndexChanged(OpPagev.selectedIndex);      //Method that undergos the process of updating the coins from txt file.
                 }
                 catch (Exception)
                 {
@@ -701,15 +706,15 @@ namespace CryptoCentral
         //Set Coin Variables to Inputted Coins.
         public void SetConfirmationSummary()
         {
-            coin1 = txtCustom01Text;
-            coin2 = txtCustom02Text;
-            coin3 = txtCustom03Text;
-            coin4 = txtCustom04Text;
-            coin5 = txtCustom05Text;
-            coin6 = txtCustom06Text;
-            coin7 = txtCustom07Text;
-            coin8 = txtCustom08Text;
-            coin9 = txtCustom09Text;
+            coin1 = txtCustom01.Text;
+            coin2 = txtCustom02.Text;
+            coin3 = txtCustom03.Text;
+            coin4 = txtCustom04.Text;
+            coin5 = txtCustom05.Text;
+            coin6 = txtCustom06.Text;
+            coin7 = txtCustom07.Text;
+            coin8 = txtCustom08.Text;
+            coin9 = txtCustom09.Text;
         }
         //Saved Essential Data to txtfile based on Profile Number;
         public void SaveProfile()
@@ -723,7 +728,7 @@ namespace CryptoCentral
             ProfileLoad[6] = coin7;
             ProfileLoad[7] = coin8;
             ProfileLoad[8] = coin9;
-            PageNumber = Convert.ToString(PagevSelectedIndex);
+            PageNumber = Convert.ToString(OpPagev.selectedIndex);
             Directory.CreateDirectory(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile));
             File.WriteAllLines(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\Page" + PageNumber + ".txt", ProfileLoad);
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Profile) + @"\PageStart.txt", PageNumber);
@@ -796,293 +801,33 @@ namespace CryptoCentral
 
         }
 
-
-
-
-
-
-
-
-
-
-
-        public void PagevAddItem(object Item)
+        private void checkOpAutoSave_OnChange(object sender, EventArgs e)
         {
-            Pagev.Items.Add(Item);
+            if (checkOpAutoSave.Checked == true)
+            {
+                btnOpSummarySaveAll.Enabled = false;
+            }
+            else if (checkOpAutoSave.Checked == false)
+            {
+                btnOpSummarySaveAll.Enabled = true;
+            }
         }
 
-
-
-        public void TimePeriodvAddItem(object Item)
+        private void checkOpLiveData_OnChange(object sender, EventArgs e)
         {
-            TimePeriodv.Items.Add(Item);
+            if (checkOpLiveData.Enabled == true)
+            {
+                LiveData = true;
+            }
+            else if (checkOpLiveData.Enabled == false)
+            {
+                LiveData = false;
+            }
         }
 
-        public void HeaderWorkervAddItem(object Item)
+        private void btnOpSummarySaveAll_Click(object sender, EventArgs e)
         {
-           HeaderWorkerv.Items.Add(Item);
-        }
-
-        public void HeaderPoolvAddItem(object Item)
-        {
-            HeaderPoolv.Items.Add(Item);
-        }
-
-
-        public void TimePeriodvClear()
-        {
-            TimePeriodv.Items.Clear();
-        }
-
-        public void HeaderWorkervClear()
-        {
-            HeaderWorkerv.Items.Clear();
-        }
-
-        public string lblCurrencyPreviewSET
-        {
-            set { lblCurrencyPreview.Text = value; }
-        }
-        
-
-
-
-        public int PagevSelectedIndex
-        {
-            get { return Pagev.SelectedIndex; }
-            set { Pagev.SelectedIndex = value; }
-        }
-
-        public int CurrencyvSelectedIndex
-        {
-            get { return Currencyv.SelectedIndex; }
-            set { Currencyv.SelectedIndex = value; }
-        }
-
-        public int TimeZonevSelectedIndex
-        {
-            get { return TimeZonev.SelectedIndex; }
-            set { TimeZonev.SelectedIndex = value; }
-        }
-
-        public int HeaderMiningCurrencyvSelectedIndex
-        {
-            get { return HeaderMiningCurrencyv.SelectedIndex; }
-            set { HeaderMiningCurrencyv.SelectedIndex = value; }
-        }
-
-
-
-        public bool lblSaveFoundVisible
-        {
-            get { return lblSaveFound.Visible; }
-            set { lblSaveFound.Visible = value; }
-        }
-
-        public bool lblConfirmedVisible
-        {
-            get { return lblConfirmed.Visible; }
-            set { lblConfirmed.Visible = value; }
-        }
-
-        public bool lblMaxPagesVisible
-        {
-            get { return lblMaxPages.Visible; }
-            set { lblMaxPages.Visible = value; }
-        }
-
-        public bool lblDefaultSetVisible
-        {
-            get { return lblDefaultSet.Visible; }
-            set { lblDefaultSet.Visible = value; }
-        }
-
-        public bool lblNoSaveVisible
-        {
-            get { return lblDefaultSet.Visible; }
-            set { lblDefaultSet.Visible = value; }
-        }
-
-        public bool lblNewPageVisible
-        {
-            get { return lblNewPage.Visible; }
-            set { lblNewPage.Visible = value; }
-        }
-
-        public bool lblTimeSetVisible
-        {
-            get { return lblTimeSet.Visible; }
-            set { lblTimeSet.Visible = value; }
-        }
-
-        public bool lblSavedVisible
-        {
-            get { return lblSaved.Visible; }
-            set { lblSaved.Visible = value; }
-        }
-
-        public bool btnEditSummaryVisible
-        {
-            get { return btnEditSummary.Visible; }
-            set { btnEditSummary.Visible = value; }
-        }
-
-        public bool btnClearSummaryVisible
-        {
-            get { return btnClearSummary.Visible; }
-            set { btnClearSummary.Visible = value; }
-        }
-
-        public bool HeaderWorkervContainsNH
-        {
-            get { return HeaderPoolv.Items.Contains("NICEHASH");  }
-        }
-
-        public bool HeaderWorkervContainsZP
-        {
-            get { return HeaderPoolv.Items.Contains("ZPOOL"); }
-        }
-
-
-        public void OptionsNHWalletsvDataSource()
-        {
-            OptionsNHWalletsv.DataSource = BindWallet.DataSource;
-        }
-
-        public void OptionsZPWalletsvDataSource()
-        {
-            OptionsZPWalletsv.DataSource = BindWallet.DataSource;
-        }
-
-
-
-
-
-        public Point lblHeaderPoolLocation
-        {
-            set { lblHeaderPool.Location = value; }
-        }
-
-        public Point HeaderPoolvLocation
-        {
-            set { HeaderPoolv.Location = value; }
-        }
-
-        public Point lblHeaderWorkerLocation
-        {
-            set { lblHeaderWorker.Location = value; }
-        }
-
-        public Point HeaderWorkervLocation
-        {
-            set { HeaderWorkerv.Location = value; }
-        }
-
-        public Point lblHeaderMiningCurrencyLocation
-        {
-            set { lblHeaderMiningCurrency.Location = value; }
-        }
-
-        public Point HeaderMiningCurrencyvLocation
-        {
-            set { HeaderMiningCurrencyv.Location = value; }
-        }
-
-
-
-        public string txtCustom01Text
-        {
-            get { return txtCustom01.Text; }
-            set { txtCustom01.Text = value; }
-        }
-        public string txtCustom02Text
-        {
-            get { return txtCustom02.Text; }
-            set { txtCustom02.Text = value; }
-        }
-        public string txtCustom03Text
-        {
-            get { return txtCustom03.Text; }
-            set { txtCustom03.Text = value; }
-        }
-        public string txtCustom04Text
-        {
-            get { return txtCustom04.Text; }
-            set { txtCustom04.Text = value; }
-        }
-        public string txtCustom05Text
-        {
-            get { return txtCustom05.Text; }
-            set { txtCustom05.Text = value; }
-        }
-        public string txtCustom06Text
-        {
-            get { return txtCustom06.Text; }
-            set { txtCustom06.Text = value; }
-        }
-        public string txtCustom07Text
-        {
-            get { return txtCustom07.Text; }
-            set { txtCustom07.Text = value; }
-        }
-        public string txtCustom08Text
-        {
-            get { return txtCustom08.Text; }
-            set { txtCustom08.Text = value; }
-        }
-        public string txtCustom09Text
-        {
-            get { return txtCustom09.Text; }
-            set { txtCustom09.Text = value; }
-        }
-
-
-
-        public string lblNewPageText
-        {
-            set { lblNewPage.Text = value; }
-        }
-
-        public string TimePeriodvText
-        {
-            get { return lblTimeSet.Text; }
-            set { TimePeriodv.Text = value; }
-        }
-
-        public string lblSavedText
-        {
-            get { return lblSaved.Text; }
-            set { lblSaved.Text = value; }
-        }
-
-        public string HeaderPoolvText
-        {
-            get { return HeaderPoolv.Text; }
-            set { HeaderPoolv.Text = value; }
-        }
-
-        public string HeaderWorkervText
-        {
-            get { return HeaderWorkerv.Text; }
-            set { HeaderWorkerv.Text = value; }
-        }
-
-        public string HeaderMiningCurrencyvText
-        {
-            get { return HeaderMiningCurrencyv.Text; }
-            set { HeaderMiningCurrencyv.Text = value; }
-        }
-
-        public string OptionsZPWalletsvText
-        {
-            get { return OptionsZPWalletsv.Text; }
-            set { OptionsZPWalletsv.Text = value; }
-        }
-
-        public string OptionsNHWalletsvText
-        {
-            get { return OptionsNHWalletsv.Text; }
-            set { OptionsNHWalletsv.Text = value; }
+            DialogSuccess.ShowDialog("ALL SUMMARY OPTIONS SAVED");
         }
     }
 }

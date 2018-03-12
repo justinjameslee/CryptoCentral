@@ -1,5 +1,0 @@
-BTC/DAY = (Hash of Miner * 86400 * Nicehash Global Speed of Algo) / (2^23 * Difficulty of Miner)
-
-BTC/DAY = (Hash of Miner * 86400 * Block Reward) / (2^32 * Difficulty of Miner)
-
-BTC/DAY = Hash of Miner * Profitability Nicehash

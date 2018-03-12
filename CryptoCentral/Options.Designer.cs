@@ -33,9 +33,11 @@
             this.NoBorder = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.OpSummaryCard = new Bunifu.Framework.UI.BunifuCards();
             this.lblOpSelectedPage = new System.Windows.Forms.Label();
+            this.btnNewPage = new Bunifu.Framework.UI.BunifuFlatButton();
             this.OpPagev = new Bunifu.Framework.UI.BunifuDropdown();
             this.OpSummaryVerticalSep = new Bunifu.Framework.UI.BunifuSeparator();
             this.OpSummarySample = new System.Windows.Forms.GroupBox();
+            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.lblCustomUpdatedv01 = new System.Windows.Forms.Label();
             this.lblCustomUpdated01 = new System.Windows.Forms.Label();
             this.lblCustomBTC01 = new System.Windows.Forms.Label();
@@ -131,15 +133,15 @@
             this.lblOpCurrency = new System.Windows.Forms.Label();
             this.lblOpTimeZone = new System.Windows.Forms.Label();
             this.OpSummaryOptionsCard = new Bunifu.Framework.UI.BunifuCards();
+            this.metroComboBox1 = new MetroFramework.Controls.MetroComboBox();
             this.checkOpDetailedSummary = new Bunifu.Framework.UI.BunifuCheckbox();
             this.lblDetailedSummary = new System.Windows.Forms.Label();
             this.OpSummaryVerticalSep3 = new Bunifu.Framework.UI.BunifuSeparator();
             this.OpSummaryVerticalSep2 = new Bunifu.Framework.UI.BunifuSeparator();
-            this.btnNewPage = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.customRefresh01 = new System.Windows.Forms.PictureBox();
             this.btnOpSummarySaveAll = new Bunifu.Framework.UI.BunifuFlatButton();
             this.OpSummaryCard.SuspendLayout();
             this.OpSummarySample.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             this.tabOptions.SuspendLayout();
             this.tabPageSummary.SuspendLayout();
             this.optionsSummaryAdvaned.SuspendLayout();
@@ -152,13 +154,12 @@
             this.groupBox1.SuspendLayout();
             this.groupOptionsNH.SuspendLayout();
             this.OpSummaryOptionsCard.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).BeginInit();
             this.SuspendLayout();
             // 
             // NoBorder
             // 
             this.NoBorder.ElipseRadius = 0;
-            this.NoBorder.TargetControl = null;
+            this.NoBorder.TargetControl = this;
             // 
             // OpSummaryCard
             // 
@@ -199,6 +200,41 @@
             this.lblOpSelectedPage.TabIndex = 57;
             this.lblOpSelectedPage.Text = "SELECTED:";
             this.lblOpSelectedPage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnNewPage
+            // 
+            this.btnNewPage.Activecolor = System.Drawing.Color.DarkOrange;
+            this.btnNewPage.BackColor = System.Drawing.Color.Orange;
+            this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnNewPage.BorderRadius = 3;
+            this.btnNewPage.ButtonText = "NEW PAGE";
+            this.btnNewPage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNewPage.DisabledColor = System.Drawing.Color.Gray;
+            this.btnNewPage.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnNewPage.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnNewPage.Iconimage")));
+            this.btnNewPage.Iconimage_right = null;
+            this.btnNewPage.Iconimage_right_Selected = null;
+            this.btnNewPage.Iconimage_Selected = null;
+            this.btnNewPage.IconMarginLeft = 0;
+            this.btnNewPage.IconMarginRight = 0;
+            this.btnNewPage.IconRightVisible = false;
+            this.btnNewPage.IconRightZoom = 0D;
+            this.btnNewPage.IconVisible = false;
+            this.btnNewPage.IconZoom = 90D;
+            this.btnNewPage.IsTab = false;
+            this.btnNewPage.Location = new System.Drawing.Point(311, 231);
+            this.btnNewPage.Name = "btnNewPage";
+            this.btnNewPage.Normalcolor = System.Drawing.Color.Orange;
+            this.btnNewPage.OnHovercolor = System.Drawing.Color.DarkOrange;
+            this.btnNewPage.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnNewPage.selected = false;
+            this.btnNewPage.Size = new System.Drawing.Size(123, 31);
+            this.btnNewPage.TabIndex = 56;
+            this.btnNewPage.Text = "NEW PAGE";
+            this.btnNewPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnNewPage.Textcolor = System.Drawing.Color.White;
+            this.btnNewPage.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewPage.Click += new System.EventHandler(this.btnNewPage_Click);
             // 
             // OpPagev
             // 
@@ -254,6 +290,15 @@
             this.OpSummarySample.TabIndex = 47;
             this.OpSummarySample.TabStop = false;
             this.OpSummarySample.Text = "      XXX";
+            // 
+            // customRefresh01
+            // 
+            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
+            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
+            this.customRefresh01.Name = "customRefresh01";
+            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
+            this.customRefresh01.TabIndex = 64;
+            this.customRefresh01.TabStop = false;
             // 
             // lblCustomUpdatedv01
             // 
@@ -602,7 +647,7 @@
             // 
             // checkOpLiveData
             // 
-            this.checkOpLiveData.BackColor = System.Drawing.Color.Orange;
+            this.checkOpLiveData.BackColor = System.Drawing.Color.Gainsboro;
             this.checkOpLiveData.ChechedOffColor = System.Drawing.Color.Gainsboro;
             this.checkOpLiveData.Checked = false;
             this.checkOpLiveData.CheckedOnColor = System.Drawing.Color.Orange;
@@ -828,7 +873,7 @@
             this.optionsSummary.Location = new System.Drawing.Point(3, 3);
             this.optionsSummary.Margin = new System.Windows.Forms.Padding(0);
             this.optionsSummary.Name = "optionsSummary";
-            this.optionsSummary.Size = new System.Drawing.Size(434, 628);
+            this.optionsSummary.Size = new System.Drawing.Size(434, 625);
             this.optionsSummary.TabIndex = 21;
             // 
             // btnClearSummary
@@ -1371,7 +1416,7 @@
             // 
             // checkOpAutoSave
             // 
-            this.checkOpAutoSave.BackColor = System.Drawing.Color.Orange;
+            this.checkOpAutoSave.BackColor = System.Drawing.Color.Gainsboro;
             this.checkOpAutoSave.ChechedOffColor = System.Drawing.Color.Gainsboro;
             this.checkOpAutoSave.Checked = false;
             this.checkOpAutoSave.CheckedOnColor = System.Drawing.Color.Orange;
@@ -1479,6 +1524,7 @@
             this.OpSummaryOptionsCard.BorderRadius = 5;
             this.OpSummaryOptionsCard.BottomSahddow = true;
             this.OpSummaryOptionsCard.color = System.Drawing.Color.DarkOrange;
+            this.OpSummaryOptionsCard.Controls.Add(this.metroComboBox1);
             this.OpSummaryOptionsCard.Controls.Add(this.checkOpDetailedSummary);
             this.OpSummaryOptionsCard.Controls.Add(this.lblDetailedSummary);
             this.OpSummaryOptionsCard.Controls.Add(this.OpSummaryVerticalSep3);
@@ -1502,9 +1548,21 @@
             this.OpSummaryOptionsCard.Size = new System.Drawing.Size(819, 167);
             this.OpSummaryOptionsCard.TabIndex = 68;
             // 
+            // metroComboBox1
+            // 
+            this.metroComboBox1.FormattingEnabled = true;
+            this.metroComboBox1.ItemHeight = 23;
+            this.metroComboBox1.Items.AddRange(new object[] {
+            "UTC",
+            "LOCAL"});
+            this.metroComboBox1.Location = new System.Drawing.Point(341, 111);
+            this.metroComboBox1.Name = "metroComboBox1";
+            this.metroComboBox1.Size = new System.Drawing.Size(121, 29);
+            this.metroComboBox1.TabIndex = 72;
+            // 
             // checkOpDetailedSummary
             // 
-            this.checkOpDetailedSummary.BackColor = System.Drawing.Color.Orange;
+            this.checkOpDetailedSummary.BackColor = System.Drawing.Color.Gainsboro;
             this.checkOpDetailedSummary.ChechedOffColor = System.Drawing.Color.Gainsboro;
             this.checkOpDetailedSummary.Checked = false;
             this.checkOpDetailedSummary.CheckedOnColor = System.Drawing.Color.Orange;
@@ -1547,50 +1605,6 @@
             this.OpSummaryVerticalSep2.TabIndex = 68;
             this.OpSummaryVerticalSep2.Transparency = 255;
             this.OpSummaryVerticalSep2.Vertical = true;
-            // 
-            // btnNewPage
-            // 
-            this.btnNewPage.Activecolor = System.Drawing.Color.DarkOrange;
-            this.btnNewPage.BackColor = System.Drawing.Color.Orange;
-            this.btnNewPage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnNewPage.BorderRadius = 3;
-            this.btnNewPage.ButtonText = "NEW PAGE";
-            this.btnNewPage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNewPage.DisabledColor = System.Drawing.Color.Gray;
-            this.btnNewPage.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnNewPage.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnNewPage.Iconimage")));
-            this.btnNewPage.Iconimage_right = null;
-            this.btnNewPage.Iconimage_right_Selected = null;
-            this.btnNewPage.Iconimage_Selected = null;
-            this.btnNewPage.IconMarginLeft = 0;
-            this.btnNewPage.IconMarginRight = 0;
-            this.btnNewPage.IconRightVisible = false;
-            this.btnNewPage.IconRightZoom = 0D;
-            this.btnNewPage.IconVisible = false;
-            this.btnNewPage.IconZoom = 90D;
-            this.btnNewPage.IsTab = false;
-            this.btnNewPage.Location = new System.Drawing.Point(311, 231);
-            this.btnNewPage.Name = "btnNewPage";
-            this.btnNewPage.Normalcolor = System.Drawing.Color.Orange;
-            this.btnNewPage.OnHovercolor = System.Drawing.Color.DarkOrange;
-            this.btnNewPage.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnNewPage.selected = false;
-            this.btnNewPage.Size = new System.Drawing.Size(123, 31);
-            this.btnNewPage.TabIndex = 56;
-            this.btnNewPage.Text = "NEW PAGE";
-            this.btnNewPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnNewPage.Textcolor = System.Drawing.Color.White;
-            this.btnNewPage.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewPage.Click += new System.EventHandler(this.btnNewPage_Click);
-            // 
-            // customRefresh01
-            // 
-            this.customRefresh01.Image = ((System.Drawing.Image)(resources.GetObject("customRefresh01.Image")));
-            this.customRefresh01.Location = new System.Drawing.Point(10, 0);
-            this.customRefresh01.Name = "customRefresh01";
-            this.customRefresh01.Size = new System.Drawing.Size(24, 24);
-            this.customRefresh01.TabIndex = 64;
-            this.customRefresh01.TabStop = false;
             // 
             // btnOpSummarySaveAll
             // 
@@ -1644,6 +1658,7 @@
             this.OpSummaryCard.ResumeLayout(false);
             this.OpSummarySample.ResumeLayout(false);
             this.OpSummarySample.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             this.tabOptions.ResumeLayout(false);
             this.tabPageSummary.ResumeLayout(false);
             this.optionsSummaryAdvaned.ResumeLayout(false);
@@ -1660,7 +1675,6 @@
             this.groupOptionsNH.PerformLayout();
             this.OpSummaryOptionsCard.ResumeLayout(false);
             this.OpSummaryOptionsCard.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customRefresh01)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1774,5 +1788,6 @@
         public Bunifu.Framework.UI.BunifuSeparator OpSummaryVerticalSep3;
         public Bunifu.Framework.UI.BunifuCheckbox checkOpDetailedSummary;
         public System.Windows.Forms.Label lblDetailedSummary;
+        private MetroFramework.Controls.MetroComboBox metroComboBox1;
     }
 }

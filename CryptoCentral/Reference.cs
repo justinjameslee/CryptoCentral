@@ -15,5 +15,6 @@ namespace CryptoCentral
         public static EaseOptionsMethods EaseMethodsO = new EaseOptionsMethods();
         public static LoadingCalc LoadingForm = new LoadingCalc();
         public static Worker WorkerForm = new Worker();
+        public static Login LoginForm = new Login();
     }
 }

@@ -26,10 +26,12 @@ namespace CryptoCentral
             btnHome.IconZoom = 55;
             btnMining.IconZoom = 55;
             btnSettings.IconZoom = 55;
-            btnBack.IconZoom = 55;
+            btnLogOut.IconZoom = 55;
 
             btnPageLeft.Top = (PageLeft.Height - btnPageLeft.Size.Height) / 2;
             btnPageRight.Top = (PageRight.Height - btnPageRight.Size.Height) / 2;
+
+            Loading = true;
         }
 
         protected override CreateParams CreateParams
@@ -176,7 +178,7 @@ namespace CryptoCentral
 
         private void btnClose_MouseClick(object sender, MouseEventArgs e)
         {
-            this.Close();
+            Application.Exit();
             Options.PageNumber = Convert.ToString(Reference.OptionsForm.OpPagev.selectedIndex);     //Saves the Last Page the user was viewing.
             File.WriteAllText(@"C:\Users\" + Environment.UserName + @"\Documents\CryptoCentral\Profiles\" + Convert.ToString(Options.Profile) + @"\PageStart.txt", Options.PageNumber);
         }
@@ -236,12 +238,9 @@ namespace CryptoCentral
                 WorkerContainer.Visible = false;
             }
         }
-        private void btnBack_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            //HideAll();
-           // bSummary = true;
-           // SummaryRESET();
-           // HeaderDefault();
+            Application.Restart();
         }
 
         //Updating Header Page Number
@@ -423,7 +422,7 @@ namespace CryptoCentral
                 this.Visible = false;
                 LoadingCalc.LoadingValue = 0;
                 Loading = true;
-                timerSummaryLoad.Enabled = true;
+                timerLoad.Enabled = true;
                 SidebarTransition.MaxAnimationTime = 500;
                 SidebarTransition.TimeStep = Convert.ToSingle(0.09);
                 this.WindowState = FormWindowState.Maximized;
@@ -444,7 +443,7 @@ namespace CryptoCentral
                 LoadingPanel.Visible = true;
                 LoadingCalc.LoadingValue = 0;
                 Loading = true;
-                timerSummaryLoad.Enabled = true;
+                timerLoad.Enabled = true;
                 SidebarTransition.MaxAnimationTime = 1500;
                 SidebarTransition.TimeStep = Convert.ToSingle(0.02);
                 PageLeft.Size = new Size(31, 523);
@@ -474,7 +473,7 @@ namespace CryptoCentral
             if (Loading == false)
             {
                 SidebarTransition.Hide(LoadingPanel);
-                timerSummaryLoad.Enabled = false;
+                timerLoad.Enabled = false;
             }
         }
 
@@ -514,6 +513,6 @@ namespace CryptoCentral
             PageRightShadow.Visible = false;
         }
 
-       
+        
     }
 }

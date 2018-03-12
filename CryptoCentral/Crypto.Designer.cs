@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
             BunifuAnimatorNS.Animation animation3 = new BunifuAnimatorNS.Animation();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Crypto));
+            BunifuAnimatorNS.Animation animation4 = new BunifuAnimatorNS.Animation();
             this.Header = new System.Windows.Forms.Panel();
             this.btnCompress = new System.Windows.Forms.PictureBox();
             this.btnMaximize = new System.Windows.Forms.PictureBox();
@@ -49,7 +49,7 @@
             this.lblSyncTimer = new System.Windows.Forms.Label();
             this.lblSync = new System.Windows.Forms.Label();
             this.lblCurrentPage = new System.Windows.Forms.Label();
-            this.timerSummaryLoad = new System.Windows.Forms.Timer(this.components);
+            this.timerLoad = new System.Windows.Forms.Timer(this.components);
             this.SummaryContainer = new System.Windows.Forms.Panel();
             this.SidebarTransition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.Background = new System.Windows.Forms.Panel();
@@ -66,7 +66,7 @@
             this.Sidebar = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SidebarSeperator = new Bunifu.Framework.UI.BunifuSeparator();
-            this.btnBack = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.btnLogOut = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnSettings = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnMining = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnHome = new Bunifu.Framework.UI.BunifuFlatButton();
@@ -298,11 +298,11 @@
             this.lblCurrentPage.Text = "PAGE 1";
             this.lblCurrentPage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // timerSummaryLoad
+            // timerLoad
             // 
-            this.timerSummaryLoad.Enabled = true;
-            this.timerSummaryLoad.Interval = 10;
-            this.timerSummaryLoad.Tick += new System.EventHandler(this.timerLoad_Tick);
+            this.timerLoad.Enabled = true;
+            this.timerLoad.Interval = 10;
+            this.timerLoad.Tick += new System.EventHandler(this.timerLoad_Tick);
             // 
             // SummaryContainer
             // 
@@ -318,22 +318,22 @@
             // 
             this.SidebarTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.SidebarTransition.Cursor = null;
-            animation4.AnimateOnlyDifferences = true;
-            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
-            animation4.LeafCoeff = 0F;
-            animation4.MaxTime = 1F;
-            animation4.MinTime = 0F;
-            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
-            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
-            animation4.MosaicSize = 0;
-            animation4.Padding = new System.Windows.Forms.Padding(0);
-            animation4.RotateCoeff = 0F;
-            animation4.RotateLimit = 0F;
-            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
-            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
-            animation4.TimeCoeff = 0F;
-            animation4.TransparencyCoeff = 1F;
-            this.SidebarTransition.DefaultAnimation = animation4;
+            animation3.AnimateOnlyDifferences = true;
+            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
+            animation3.LeafCoeff = 0F;
+            animation3.MaxTime = 1F;
+            animation3.MinTime = 0F;
+            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
+            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
+            animation3.MosaicSize = 0;
+            animation3.Padding = new System.Windows.Forms.Padding(0);
+            animation3.RotateCoeff = 0F;
+            animation3.RotateLimit = 0F;
+            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
+            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
+            animation3.TimeCoeff = 0F;
+            animation3.TransparencyCoeff = 1F;
+            this.SidebarTransition.DefaultAnimation = animation3;
             this.SidebarTransition.MaxAnimationTime = 1000;
             this.SidebarTransition.AnimationCompleted += new System.EventHandler<BunifuAnimatorNS.AnimationCompletedEventArg>(this.SidebarTransition_AnimationCompleted);
             // 
@@ -529,7 +529,7 @@
             this.Sidebar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Sidebar.Controls.Add(this.pictureBox1);
             this.Sidebar.Controls.Add(this.SidebarSeperator);
-            this.Sidebar.Controls.Add(this.btnBack);
+            this.Sidebar.Controls.Add(this.btnLogOut);
             this.Sidebar.Controls.Add(this.btnSettings);
             this.Sidebar.Controls.Add(this.btnMining);
             this.Sidebar.Controls.Add(this.btnHome);
@@ -566,52 +566,52 @@
             this.SidebarTransition.SetDecoration(this.SidebarSeperator, BunifuAnimatorNS.DecorationType.None);
             this.SidebarSeperator.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(105)))), ((int)(((byte)(105)))));
             this.SidebarSeperator.LineThickness = 1;
-            this.SidebarSeperator.Location = new System.Drawing.Point(0, 113);
+            this.SidebarSeperator.Location = new System.Drawing.Point(0, 121);
             this.SidebarSeperator.Name = "SidebarSeperator";
             this.SidebarSeperator.Size = new System.Drawing.Size(222, 35);
             this.SidebarSeperator.TabIndex = 61;
             this.SidebarSeperator.Transparency = 255;
             this.SidebarSeperator.Vertical = false;
             // 
-            // btnBack
+            // btnLogOut
             // 
-            this.btnBack.Activecolor = System.Drawing.Color.Orange;
-            this.btnBack.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnBack.BackColor = System.Drawing.Color.Transparent;
-            this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnBack.BorderRadius = 0;
-            this.btnBack.ButtonText = "        LOG OUT";
-            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PageControlTransition.SetDecoration(this.btnBack, BunifuAnimatorNS.DecorationType.None);
-            this.SidebarTransition.SetDecoration(this.btnBack, BunifuAnimatorNS.DecorationType.None);
-            this.btnBack.DisabledColor = System.Drawing.Color.Gray;
-            this.btnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btnBack.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnBack.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnBack.Iconimage")));
-            this.btnBack.Iconimage_right = null;
-            this.btnBack.Iconimage_right_Selected = null;
-            this.btnBack.Iconimage_Selected = null;
-            this.btnBack.IconMarginLeft = 27;
-            this.btnBack.IconMarginRight = 0;
-            this.btnBack.IconRightVisible = false;
-            this.btnBack.IconRightZoom = 0D;
-            this.btnBack.IconVisible = true;
-            this.btnBack.IconZoom = 55D;
-            this.btnBack.IsTab = true;
-            this.btnBack.Location = new System.Drawing.Point(0, 539);
-            this.btnBack.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Normalcolor = System.Drawing.Color.Transparent;
-            this.btnBack.OnHovercolor = System.Drawing.Color.Orange;
-            this.btnBack.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnBack.selected = false;
-            this.btnBack.Size = new System.Drawing.Size(222, 38);
-            this.btnBack.TabIndex = 60;
-            this.btnBack.Text = "        LOG OUT";
-            this.btnBack.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBack.Textcolor = System.Drawing.Color.White;
-            this.btnBack.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.btnLogOut.Activecolor = System.Drawing.Color.Orange;
+            this.btnLogOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLogOut.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogOut.BorderRadius = 0;
+            this.btnLogOut.ButtonText = "        LOG OUT";
+            this.btnLogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PageControlTransition.SetDecoration(this.btnLogOut, BunifuAnimatorNS.DecorationType.None);
+            this.SidebarTransition.SetDecoration(this.btnLogOut, BunifuAnimatorNS.DecorationType.None);
+            this.btnLogOut.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btnLogOut.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLogOut.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Iconimage")));
+            this.btnLogOut.Iconimage_right = null;
+            this.btnLogOut.Iconimage_right_Selected = null;
+            this.btnLogOut.Iconimage_Selected = null;
+            this.btnLogOut.IconMarginLeft = 27;
+            this.btnLogOut.IconMarginRight = 0;
+            this.btnLogOut.IconRightVisible = false;
+            this.btnLogOut.IconRightZoom = 0D;
+            this.btnLogOut.IconVisible = true;
+            this.btnLogOut.IconZoom = 55D;
+            this.btnLogOut.IsTab = true;
+            this.btnLogOut.Location = new System.Drawing.Point(0, 539);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Normalcolor = System.Drawing.Color.Transparent;
+            this.btnLogOut.OnHovercolor = System.Drawing.Color.Orange;
+            this.btnLogOut.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogOut.selected = false;
+            this.btnLogOut.Size = new System.Drawing.Size(222, 38);
+            this.btnLogOut.TabIndex = 60;
+            this.btnLogOut.Text = "        LOG OUT";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Textcolor = System.Drawing.Color.White;
+            this.btnLogOut.TextFont = new System.Drawing.Font("Walkway Bold", 14F);
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // btnSettings
             // 
@@ -637,7 +637,7 @@
             this.btnSettings.IconVisible = true;
             this.btnSettings.IconZoom = 55D;
             this.btnSettings.IsTab = true;
-            this.btnSettings.Location = new System.Drawing.Point(0, 253);
+            this.btnSettings.Location = new System.Drawing.Point(0, 261);
             this.btnSettings.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Normalcolor = System.Drawing.Color.Transparent;
@@ -676,7 +676,7 @@
             this.btnMining.IconVisible = true;
             this.btnMining.IconZoom = 55D;
             this.btnMining.IsTab = true;
-            this.btnMining.Location = new System.Drawing.Point(0, 205);
+            this.btnMining.Location = new System.Drawing.Point(0, 213);
             this.btnMining.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnMining.Name = "btnMining";
             this.btnMining.Normalcolor = System.Drawing.Color.Transparent;
@@ -715,7 +715,7 @@
             this.btnHome.IconVisible = true;
             this.btnHome.IconZoom = 55D;
             this.btnHome.IsTab = true;
-            this.btnHome.Location = new System.Drawing.Point(0, 157);
+            this.btnHome.Location = new System.Drawing.Point(0, 165);
             this.btnHome.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnHome.Name = "btnHome";
             this.btnHome.Normalcolor = System.Drawing.Color.Transparent;
@@ -734,22 +734,22 @@
             // 
             this.PageControlTransition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.PageControlTransition.Cursor = null;
-            animation3.AnimateOnlyDifferences = true;
-            animation3.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.BlindCoeff")));
-            animation3.LeafCoeff = 0F;
-            animation3.MaxTime = 1F;
-            animation3.MinTime = 0F;
-            animation3.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicCoeff")));
-            animation3.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation3.MosaicShift")));
-            animation3.MosaicSize = 0;
-            animation3.Padding = new System.Windows.Forms.Padding(0);
-            animation3.RotateCoeff = 0F;
-            animation3.RotateLimit = 0F;
-            animation3.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.ScaleCoeff")));
-            animation3.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation3.SlideCoeff")));
-            animation3.TimeCoeff = 0F;
-            animation3.TransparencyCoeff = 1F;
-            this.PageControlTransition.DefaultAnimation = animation3;
+            animation4.AnimateOnlyDifferences = true;
+            animation4.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.BlindCoeff")));
+            animation4.LeafCoeff = 0F;
+            animation4.MaxTime = 1F;
+            animation4.MinTime = 0F;
+            animation4.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicCoeff")));
+            animation4.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation4.MosaicShift")));
+            animation4.MosaicSize = 0;
+            animation4.Padding = new System.Windows.Forms.Padding(0);
+            animation4.RotateCoeff = 0F;
+            animation4.RotateLimit = 0F;
+            animation4.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.ScaleCoeff")));
+            animation4.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation4.SlideCoeff")));
+            animation4.TimeCoeff = 0F;
+            animation4.TransparencyCoeff = 1F;
+            this.PageControlTransition.DefaultAnimation = animation4;
             this.PageControlTransition.MaxAnimationTime = 250;
             this.PageControlTransition.TimeStep = 0.12F;
             // 
@@ -846,14 +846,14 @@
         public System.Windows.Forms.Label lblCurrentPage;
         private Bunifu.Framework.UI.BunifuGradientPanel Sidebar;
         private Bunifu.Framework.UI.BunifuSeparator SidebarSeperator;
-        public Bunifu.Framework.UI.BunifuFlatButton btnBack;
+        public Bunifu.Framework.UI.BunifuFlatButton btnLogOut;
         public Bunifu.Framework.UI.BunifuFlatButton btnSettings;
         public Bunifu.Framework.UI.BunifuFlatButton btnMining;
         public Bunifu.Framework.UI.BunifuFlatButton btnHome;
         public System.Windows.Forms.Timer timerRefreshing;
         public System.Windows.Forms.Timer timerSyncTimer;
         public System.Windows.Forms.Timer timerUpdating;
-        private System.Windows.Forms.Timer timerSummaryLoad;
+        private System.Windows.Forms.Timer timerLoad;
         private System.Windows.Forms.Panel Background;
         private Bunifu.Framework.UI.BunifuGradientPanel HeaderShadow;
         public System.Windows.Forms.Panel LoadingPanel;

@@ -16,7 +16,7 @@ namespace CryptoCentral
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Crypto());
+            Application.Run(new Login());
         }
     }
 }

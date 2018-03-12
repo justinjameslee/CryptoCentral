@@ -22,5 +22,16 @@ namespace CryptoCentral.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("SERVER=27.121.66.21;PORT=3306;DATABASE=goldli00_CryptoCentral;UID=goldli00_admin;" +
+            "PASSWORD=CryptoCentralAdmin;")]
+        public string ConnectionString {
+            get {
+                return ((string)(this["ConnectionString"]));
+            }
+        }
     }
 }

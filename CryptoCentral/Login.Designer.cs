@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            BunifuAnimatorNS.Animation animation2 = new BunifuAnimatorNS.Animation();
+            BunifuAnimatorNS.Animation animation5 = new BunifuAnimatorNS.Animation();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.SideBar = new System.Windows.Forms.Panel();
             this.lblLogoText = new System.Windows.Forms.Label();
@@ -59,6 +59,7 @@
             this.Transition = new BunifuAnimatorNS.BunifuTransition(this.components);
             this.ButtonHighlight = new Bunifu.Framework.UI.BunifuSeparator();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
+            this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.SideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picGoldline)).BeginInit();
@@ -369,6 +370,7 @@
             // 
             // panelSignIn
             // 
+            this.panelSignIn.Controls.Add(this.bunifuCustomLabel1);
             this.panelSignIn.Controls.Add(this.btnSignInConfirm);
             this.panelSignIn.Controls.Add(this.lblPasswordIn);
             this.panelSignIn.Controls.Add(this.txtPasswordIn);
@@ -401,7 +403,7 @@
             this.btnSignInConfirm.IdleFillColor = System.Drawing.Color.Orange;
             this.btnSignInConfirm.IdleForecolor = System.Drawing.Color.White;
             this.btnSignInConfirm.IdleLineColor = System.Drawing.Color.Orange;
-            this.btnSignInConfirm.Location = new System.Drawing.Point(27, 343);
+            this.btnSignInConfirm.Location = new System.Drawing.Point(27, 361);
             this.btnSignInConfirm.Margin = new System.Windows.Forms.Padding(5);
             this.btnSignInConfirm.Name = "btnSignInConfirm";
             this.btnSignInConfirm.Size = new System.Drawing.Size(388, 63);
@@ -415,7 +417,7 @@
             this.Transition.SetDecoration(this.lblPasswordIn, BunifuAnimatorNS.DecorationType.None);
             this.lblPasswordIn.Font = new System.Drawing.Font("Nexa Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPasswordIn.ForeColor = System.Drawing.Color.Black;
-            this.lblPasswordIn.Location = new System.Drawing.Point(24, 238);
+            this.lblPasswordIn.Location = new System.Drawing.Point(24, 256);
             this.lblPasswordIn.Name = "lblPasswordIn";
             this.lblPasswordIn.Size = new System.Drawing.Size(68, 16);
             this.lblPasswordIn.TabIndex = 8;
@@ -433,7 +435,7 @@
             this.txtPasswordIn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtPasswordIn.ForeColor = System.Drawing.Color.Black;
             this.txtPasswordIn.isPassword = true;
-            this.txtPasswordIn.Location = new System.Drawing.Point(27, 258);
+            this.txtPasswordIn.Location = new System.Drawing.Point(27, 276);
             this.txtPasswordIn.Margin = new System.Windows.Forms.Padding(4);
             this.txtPasswordIn.Name = "txtPasswordIn";
             this.txtPasswordIn.Size = new System.Drawing.Size(388, 44);
@@ -446,7 +448,7 @@
             this.Transition.SetDecoration(this.lblEmailIn, BunifuAnimatorNS.DecorationType.None);
             this.lblEmailIn.Font = new System.Drawing.Font("Nexa Light", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEmailIn.ForeColor = System.Drawing.Color.Black;
-            this.lblEmailIn.Location = new System.Drawing.Point(24, 116);
+            this.lblEmailIn.Location = new System.Drawing.Point(24, 134);
             this.lblEmailIn.Name = "lblEmailIn";
             this.lblEmailIn.Size = new System.Drawing.Size(40, 16);
             this.lblEmailIn.TabIndex = 6;
@@ -464,7 +466,7 @@
             this.txtEmailIn.Font = new System.Drawing.Font("Century Gothic", 9.75F);
             this.txtEmailIn.ForeColor = System.Drawing.Color.Black;
             this.txtEmailIn.isPassword = false;
-            this.txtEmailIn.Location = new System.Drawing.Point(27, 136);
+            this.txtEmailIn.Location = new System.Drawing.Point(27, 154);
             this.txtEmailIn.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmailIn.Name = "txtEmailIn";
             this.txtEmailIn.Size = new System.Drawing.Size(388, 44);
@@ -488,22 +490,22 @@
             // 
             this.Transition.AnimationType = BunifuAnimatorNS.AnimationType.Transparent;
             this.Transition.Cursor = null;
-            animation2.AnimateOnlyDifferences = true;
-            animation2.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.BlindCoeff")));
-            animation2.LeafCoeff = 0F;
-            animation2.MaxTime = 1F;
-            animation2.MinTime = 0F;
-            animation2.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicCoeff")));
-            animation2.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation2.MosaicShift")));
-            animation2.MosaicSize = 0;
-            animation2.Padding = new System.Windows.Forms.Padding(0);
-            animation2.RotateCoeff = 0F;
-            animation2.RotateLimit = 0F;
-            animation2.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.ScaleCoeff")));
-            animation2.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation2.SlideCoeff")));
-            animation2.TimeCoeff = 0F;
-            animation2.TransparencyCoeff = 1F;
-            this.Transition.DefaultAnimation = animation2;
+            animation5.AnimateOnlyDifferences = true;
+            animation5.BlindCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.BlindCoeff")));
+            animation5.LeafCoeff = 0F;
+            animation5.MaxTime = 1F;
+            animation5.MinTime = 0F;
+            animation5.MosaicCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicCoeff")));
+            animation5.MosaicShift = ((System.Drawing.PointF)(resources.GetObject("animation5.MosaicShift")));
+            animation5.MosaicSize = 0;
+            animation5.Padding = new System.Windows.Forms.Padding(0);
+            animation5.RotateCoeff = 0F;
+            animation5.RotateLimit = 0F;
+            animation5.ScaleCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.ScaleCoeff")));
+            animation5.SlideCoeff = ((System.Drawing.PointF)(resources.GetObject("animation5.SlideCoeff")));
+            animation5.TimeCoeff = 0F;
+            animation5.TransparencyCoeff = 1F;
+            this.Transition.DefaultAnimation = animation5;
             // 
             // ButtonHighlight
             // 
@@ -524,6 +526,18 @@
             this.bunifuDragControl1.Horizontal = true;
             this.bunifuDragControl1.TargetControl = this;
             this.bunifuDragControl1.Vertical = true;
+            // 
+            // bunifuCustomLabel1
+            // 
+            this.Transition.SetDecoration(this.bunifuCustomLabel1, BunifuAnimatorNS.DecorationType.None);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Nexa Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel1.ForeColor = System.Drawing.Color.Crimson;
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(23, 90);
+            this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(214, 28);
+            this.bunifuCustomLabel1.TabIndex = 12;
+            this.bunifuCustomLabel1.Text = "Invalid Email / Password";
+            this.bunifuCustomLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Login
             // 
@@ -589,5 +603,6 @@
         private BunifuAnimatorNS.BunifuTransition Transition;
         private Bunifu.Framework.UI.BunifuSeparator ButtonHighlight;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel1;
     }
 }

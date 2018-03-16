@@ -133,15 +133,35 @@ namespace CryptoCentral
             }
         }
 
+        void Incorrect(Bunifu.Framework.UI.BunifuMetroTextbox txtbox)
+        {
+            txtbox.BorderColorIdle = Color.Crimson;
+            txtbox.BorderColorFocused = Color.Crimson;
+            txtbox.BorderColorMouseHover = Color.Crimson;
+        }
+        void Correct(Bunifu.Framework.UI.BunifuMetroTextbox txtbox)
+        {
+            txtbox.BorderColorIdle = Color.Gray;
+            txtbox.BorderColorFocused = Color.Orange;
+            txtbox.BorderColorMouseHover = Color.Orange;
+        }
+
         private void btnSignInConfirm_Click(object sender, EventArgs e)
         {
-            if (IsValidEmail(txtEmailIn.Text) == false)
+            if (IsValidEmail(txtEmailIn.Text) == false && txtPasswordIn.Text.Length <= 8)
             {
-                MessageBox.Show("Must be a valid email address.");
+                Incorrect(txtEmailIn);
+                Incorrect(txtPasswordIn);
             }
             else if (txtPasswordIn.Text.Length <= 8)
             {
-                MessageBox.Show("Password must be greater than 8.");
+                Correct(txtEmailIn);
+                Incorrect(txtPasswordIn);
+            }
+            else if (IsValidEmail(txtEmailIn.Text) == false)
+            {
+                Incorrect(txtEmailIn);
+                Correct(txtPasswordIn);
             }
             else
             {
@@ -157,7 +177,8 @@ namespace CryptoCentral
                     }
                     else
                     {
-                        MessageBox.Show("Email or Password is Invalid.");
+                        Incorrect(txtEmailIn);
+                        Incorrect(txtPasswordIn);
                     }
                 }
                 catch (Exception)

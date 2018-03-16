@@ -12,6 +12,9 @@ namespace CryptoCentral
 {
     public partial class Notification : Form
     {
+
+        int interval;
+
         public Notification(string message, AlertType type)
         {
             InitializeComponent();
@@ -32,8 +35,6 @@ namespace CryptoCentral
                 case AlertType.error:
                     this.BackColor = Color.FromArgb(255, 128, 0);
                     break;
-
-
             }
         }
 
@@ -49,13 +50,13 @@ namespace CryptoCentral
 
         private void Notification_Load(object sender, EventArgs e)
         {
-            Login LoginLocation = new Login();
-            this.Location = new Point(LoginLocation.Location.X + 35, LoginLocation.Location.Y);
+            CenterToParent();
+            interval = 0;
 
-            timerShow.Start();
+            FadeIn.ShowAsyc(this);
         }
 
-        int interval = 0;
+        
 
         private void timerShow_Tick(object sender, EventArgs e)
         {

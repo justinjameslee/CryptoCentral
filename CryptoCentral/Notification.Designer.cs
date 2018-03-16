@@ -36,6 +36,7 @@
             this.timerShow = new System.Windows.Forms.Timer(this.components);
             this.timerDisappear = new System.Windows.Forms.Timer(this.components);
             this.timerClose = new System.Windows.Forms.Timer(this.components);
+            this.FadeIn = new Bunifu.Framework.UI.BunifuFormFadeTransition(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +95,10 @@
             // 
             this.timerClose.Tick += new System.EventHandler(this.timerClose_Tick);
             // 
+            // FadeIn
+            // 
+            this.FadeIn.Delay = 1;
+            // 
             // Notification
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -123,5 +128,6 @@
         private System.Windows.Forms.Timer timerShow;
         private System.Windows.Forms.Timer timerDisappear;
         private System.Windows.Forms.Timer timerClose;
+        private Bunifu.Framework.UI.BunifuFormFadeTransition FadeIn;
     }
 }

@@ -93,6 +93,16 @@ namespace CryptoCentral.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Delete_50px {
+            get {
+                object obj = ResourceManager.GetObject("Delete_50px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DialogSuccess {
             get {
                 object obj = ResourceManager.GetObject("DialogSuccess", resourceCulture);
@@ -176,6 +186,16 @@ namespace CryptoCentral.Properties {
         internal static System.Drawing.Bitmap logo_goldline {
             get {
                 object obj = ResourceManager.GetObject("logo-goldline", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ok_64px {
+            get {
+                object obj = ResourceManager.GetObject("Ok_64px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -288,6 +288,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MetroFramework.txt" />
+    <None Include="Resources\Delete_50px.png" />
+    <None Include="Resources\Ok_64px.png" />
     <EmbeddedResource Include="MySql.Data.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>

@@ -153,7 +153,7 @@ namespace CryptoCentral
 
                     if (hashedpassword == GenerateSHA256Hash(txtPasswordIn.Text, salt))
                     {
-                        MessageBox.Show("SUCCESS!!!!!");
+                        Notification.Alert("SUCCESS", Notification.AlertType.success);
                     }
                     else
                     {
@@ -169,7 +169,6 @@ namespace CryptoCentral
 
         private void btnSignUpConfirm_Click(object sender, EventArgs e)
         {
-            
 
             if (txtName.Text == "")
             {
